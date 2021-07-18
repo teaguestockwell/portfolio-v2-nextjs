@@ -1,22 +1,23 @@
 import {Svgs} from './svgs'
 
-export const Title = () => {
+const NavInner = () => {
   return (
     <div
       style={{
-        position: 'absolute',
+        position: 'fixed',
         left: 0,
         top: 0,
         right: 0,
         background: '#0c548b',
         height: 70,
+        zIndex: 1000,
       }}
     >
       <div
         style={{
           position: 'absolute',
           left: 20,
-          top: 16,
+          top: 6,
           fontWeight: 'bold',
           fontSize: 30,
           fontFamily: 'helvetica',
@@ -28,13 +29,35 @@ export const Title = () => {
 
       <div
         style={{
-          top: 0,
+          position: 'absolute',
+          left: 20,
+          top: 46,
+          fontSize: 13,
+          fontFamily: 'helvetica',
+          color: '#DEffff',
+        }}
+      >
+        Software Development
+      </div>
+
+      <div
+        style={{
+          top: -2,
           position: 'absolute',
           right: 20,
         }}
       >
-        {Svgs.dart()}
+        {Svgs.github('')}
       </div>
     </div>
+  )
+}
+
+export const TopNav = ({children}: {children?: any}) => {
+  return (
+    <>
+      {<NavInner />}
+      <div style={{paddingTop: 70}}>{children}</div>
+    </>
   )
 }
