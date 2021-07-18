@@ -16,7 +16,7 @@ export default function Home() {
         {Svgs.docker()}
         {Svgs.javascript()}
         {Svgs.nextjs()}
-        {Svgs.node()}
+        {Svgs.nodejs()}
         {Svgs.aws()}
         {Svgs.android()}
         {Svgs.firebase()}
@@ -26,7 +26,10 @@ export default function Home() {
         {Svgs.gitlab()}
         {Svgs.github()}
         {Svgs.vercel()}
-        {/* {Svgs.expressjs()} */}
+        {Svgs.expressjs()}
+        {Svgs.sql()}
+        {Svgs.html5()}
+        {Svgs.css3()}
       </div>
     </>
   )

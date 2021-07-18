@@ -1,23 +1,16 @@
-/* eslint-disable react/display-name */
-interface SvgProps {
-  viewBox: string
-  width: string
-  height: string
-}
+import {useState} from 'react'
 
-const Svg = ({
-  props = {viewBox: '0 0 50 50', width: '50px', height: '50px'},
-  name,
-  paths,
-  pathOride = false,
-}: {
-  props?: SvgProps | undefined
-  name?: string | undefined
-  paths: any
-  pathOride?: boolean
-}) => {
+/* eslint-disable react/display-name */
+
+const Svg = ({name, paths}: {name?: string | undefined; paths: any}) => {
+  const [active, setActive] = useState(false)
+  const shadow = `drop-shadow(3px 3px 2px rgba(255, 255, 255, ${
+    active ? '.5' : '.1'
+  }))`
   return (
     <div
+      onMouseOver={() => setActive(true)}
+      onMouseLeave={() => setActive(false)}
       style={{
         width: 100,
         height: 100,
@@ -31,7 +24,17 @@ const Svg = ({
           justifyContent: 'center',
         }}
       >
-        {pathOride ? {paths} : <svg {...props}>{paths}</svg>}
+        <svg
+          style={{
+            WebkitFilter: shadow,
+            filter: shadow,
+          }}
+          viewBox={active ? '0 0 45 45' : '0 0 50 50'}
+          width="50px"
+          height="50px"
+        >
+          {paths}
+        </svg>
       </div>
 
       {name && (
@@ -51,14 +54,96 @@ const Svg = ({
   )
 }
 
+const TextLogo = ({
+  logoName,
+  name,
+  logoNameFont,
+}: {
+  logoName: string
+  name: string
+  logoNameFont: string
+}) => {
+  const [active, setActive] = useState(false)
+  console.log(active)
+  const shadow = `1px 1px rgb(255, 255, 255, ${active ? '0.5' : '0.1'})`
+  return (
+    <div
+      onMouseOver={() => setActive(true)}
+      onMouseLeave={() => setActive(false)}
+      style={{
+        width: 100,
+        height: 100,
+      }}
+    >
+      <div
+        style={{
+          paddingTop: 14,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <div
+          style={{
+            textShadow: shadow,
+            padding: '10px 0px 10px 0px',
+            color: '#fff',
+            font: logoNameFont,
+          }}
+        >
+          {logoName}
+        </div>
+      </div>
+
+      <div
+        style={{
+          color: '#DEffff',
+          fontSize: '18px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        {name}
+      </div>
+    </div>
+  )
+}
+
 export const Svgs = {
-  jira: (props?: SvgProps | undefined) => (
+  html5: () => (
     <Svg
-      name={'Jira'}
-      props={props}
+      name={'HTML5'}
       paths={
         <>
           {' '}
+          <path
+            fill="#1165D8"
+            d="M3 0h42l-3.82 43.126L23.954 48l-17.128-4.876L3 0zm14.062 19.5-.464-5.436 20.118.006 .46-5.244L10.824 8.82l1.396 16.02h18.252l-.652 6.852-5.82 1.608-5.91-1.62-.376-4.22H12.496l.66 8.342L24 38.702l10.758-2.886 1.488-16.314H17.062z"
+          ></path>{' '}
+        </>
+      }
+    />
+  ),
+  css3: () => (
+    <Svg
+      name={'CSS3'}
+      paths={
+        <>
+          {' '}
+          <path
+            fill="#E35026"
+            d="M3 0h42l-3.82 43.126L23.954 48l-17.13-4.876L3 0Zm34.18 8.826L10.82 8.82l.426 5.244 20.25.004-.51 5.432h-13.28l.48 5.146h12.364l-.732 7.046-5.82 1.608-5.912-1.62-.376-4.22h-5.22l.58 7.71L24 38.576l10.746-3.06L37.18 8.828Z"
+          ></path>{' '}
+        </>
+      }
+    />
+  ),
+  jira: () => (
+    <Svg
+      name={'Jira'}
+      paths={
+        <>
           <path
             fill="#1165D8"
             d="M23.142 23.026H0A10.436 10.436 0 0 0 10.464 33.456H14.724V37.57A10.43 10.43 0 0 0 25.15 48V25.036A2.01 2.01 0 0 0 23.14 23.026ZM34.588 11.514H11.472A10.43 10.43 0 0 0 21.902 21.942H26.16V26.058A10.436 10.436 0 0 0 36.59 36.486V13.516A2.002 2.002 0 0 0 34.588 11.514ZM46.026 0H22.91A10.43 10.43 0 0 0 33.34 10.43H37.598V14.544A10.43 10.43 0 0 0 48 24.966V2.01A2.002 2.002 0 0 0 46.026 0Z"
@@ -67,10 +152,9 @@ export const Svgs = {
       }
     />
   ),
-  sonarqube: (props?: SvgProps | undefined) => (
+  sonarqube: () => (
     <Svg
       name={'Sonarqube'}
-      props={props}
       paths={
         <>
           {' '}
@@ -82,10 +166,9 @@ export const Svgs = {
       }
     />
   ),
-  gitlab: (props?: SvgProps | undefined) => (
+  gitlab: () => (
     <Svg
       name={'Gitlab'}
-      props={props}
       paths={
         <>
           {' '}
@@ -100,10 +183,9 @@ export const Svgs = {
       }
     />
   ),
-  github: (props?: SvgProps | undefined) => (
+  github: () => (
     <Svg
       name={'Github'}
-      props={props}
       paths={
         <>
           {' '}
@@ -115,10 +197,9 @@ export const Svgs = {
       }
     />
   ),
-  vercel: (props?: SvgProps | undefined) => (
+  vercel: () => (
     <Svg
       name={'Vercel'}
-      props={props}
       paths={
         <>
           {' '}
@@ -130,25 +211,23 @@ export const Svgs = {
       }
     />
   ),
-  expressjs: (props?: SvgProps | undefined) => (
-    <Svg
-      pathOride={true}
+  expressjs: () => (
+    <TextLogo
       name="Express.js"
-      props={props}
-      paths={
-        <>
-          {' '}
-          <div style={{font: '25px helvetica neue,open sans,sans-serif'}}>
-            Express.js
-          </div>{' '}
-        </>
-      }
+      logoName="Express"
+      logoNameFont="20px helvetica neue,open sans,sans-serif"
     />
   ),
-  nextjs: (props?: SvgProps | undefined) => (
+  sql: () => (
+    <TextLogo
+      name="SQL"
+      logoName="SQL"
+      logoNameFont="20px helvetica neue,open sans,sans-serif"
+    />
+  ),
+  nextjs: () => (
     <Svg
       name={'Next.js'}
-      props={props}
       paths={
         <>
           {' '}
@@ -160,10 +239,9 @@ export const Svgs = {
       }
     />
   ),
-  java: (props?: SvgProps | undefined) => (
+  java: () => (
     <Svg
       name={'Java'}
-      props={props}
       paths={
         <>
           {' '}
@@ -201,10 +279,9 @@ export const Svgs = {
       }
     />
   ),
-  firebase: (props?: SvgProps | undefined) => (
+  firebase: () => (
     <Svg
       name={'Firebase'}
-      props={props}
       paths={
         <>
           {' '}
@@ -228,10 +305,9 @@ export const Svgs = {
       }
     />
   ),
-  android: (props?: SvgProps | undefined) => (
+  android: () => (
     <Svg
       name={'Android'}
-      props={props}
       paths={
         <>
           {' '}
@@ -251,10 +327,9 @@ export const Svgs = {
       }
     />
   ),
-  aws: (props?: SvgProps | undefined) => (
+  aws: () => (
     <Svg
       name={'AWS'}
-      props={props}
       paths={
         <>
           {' '}
@@ -270,41 +345,23 @@ export const Svgs = {
       }
     />
   ),
-  node: (props?: SvgProps | undefined) => (
+  nodejs: () => (
     <Svg
       name={'Node.js'}
-      props={props}
       paths={
         <>
           {' '}
           <path
             fill="#388e3c"
-            d="M17.204 19.122l-4.907 2.715C12.113 21.938 12 22.126 12 22.329v5.433c0 .203.113.39.297.492l4.908 2.717c.183.101.41.101.593 0l4.907-2.717C22.887 28.152 23 27.965 23 27.762v-5.433c0-.203-.113-.39-.297-.492l-4.906-2.715c-.092-.051-.195-.076-.297-.076-.103 0-.205.025-.297.076M42.451 24.013l-.818.452c-.031.017-.049.048-.049.082v.906c0 .034.019.065.049.082l.818.453c.031.017.068.017.099 0l.818-.453c.03-.017.049-.048.049-.082v-.906c0-.034-.019-.065-.05-.082l-.818-.452C42.534 24.004 42.517 24 42.5 24S42.466 24.004 42.451 24.013"
+            d="M23.996 48c-.642 0-1.282-.168-1.844-.494l-5.872-3.474c-.876-.49-.448-.664-.16-.766 1.17-.406 1.406-.5 2.656-1.208.13-.074.302-.046.436 .034l4.512 2.678c.164.09 .394.09 .544 0l17.59-10.152c.164-.094.268-.282.268-.476V13.842c0-.198-.106-.384-.274-.484l-17.582-10.144c-.162-.094-.378-.094-.542 0L6.15 13.36C5.98 13.458 5.872 13.65 5.872 13.842v20.3c0 .194.108 .378.278 .47l4.818 2.784c2.614 1.308 4.216-.232 4.216-1.78V15.574c0-.284.228-.506.512-.506h2.23c.278 0 .51.224 .51.506v20.042c0 3.49-1.9 5.49-5.208 5.49-1.016 0-1.818 0-4.052-1.102L4.56 37.35c-1.14-.658-1.844-1.89-1.844-3.208V13.842c0-1.318.706-2.55 1.844-3.206l17.59-10.164c1.114-.63 2.592-.63 3.696 0l17.588 10.164c1.14.658 1.848 1.888 1.848 3.206v20.3c0 1.318-.708 2.546-1.848 3.208l-17.588 10.156C25.286 47.832 24.648 48 23.996 48ZM38.198 27.986c0-3.8-2.568-4.812-7.974-5.526-5.462-.722-6.018-1.096-6.018-2.374 0-1.056.47-2.466 4.516-2.466 3.614 0 4.946.778 5.494 3.214.048 .23.258 .398.494 .398h2.282c.142 0 .276-.062.372-.162.096-.108.148-.246.134-.392-.354-4.196-3.142-6.152-8.776-6.152-5.016 0-8.008 2.116-8.008 5.666 0 3.85 2.976 4.914 7.79 5.39 5.76.564 6.206 1.406 6.206 2.538 0 1.966-1.578 2.804-5.284 2.804-4.654 0-5.678-1.168-6.022-3.484-.04-.248-.252-.43-.506-.43h-2.274c-.282 0-.508.224-.508.506 0 2.964 1.612 6.496 9.31 6.496C35.002 34.014 38.198 31.82 38.198 27.986Z"
           />
-          <path
-            fill="#fff"
-            d="M35.751,13.364l-2.389-1.333c-0.075-0.042-0.167-0.041-0.241,0.003 c-0.074,0.044-0.12,0.123-0.12,0.209L33,20.295l-2.203-1.219C30.705,19.025,30.602,19,30.5,19c-0.102,0-0.205,0.025-0.297,0.076 h0.001l-4.907,2.715C25.113,21.892,25,22.08,25,22.282v5.433c0,0.203,0.113,0.39,0.297,0.492l4.908,2.717 c0.183,0.101,0.41,0.101,0.593,0l4.907-2.717C35.887,28.106,36,27.918,36,27.715V13.788C36,13.612,35.904,13.45,35.751,13.364z M32.866,26.458l-2.23,1.235c-0.083,0.046-0.186,0.046-0.269,0l-2.231-1.235C28.051,26.412,28,26.326,28,26.234v-2.47 c0-0.092,0.051-0.177,0.135-0.224l2.231-1.234h-0.001c0.042-0.023,0.088-0.034,0.135-0.034c0.047,0,0.093,0.012,0.135,0.034 l2.23,1.234C32.949,23.587,33,23.673,33,23.765v2.47C33,26.326,32.949,26.412,32.866,26.458z"
-          />
-          <path
-            fill="#2e7d32"
-            d="M17.204,19.122L12,27.762c0,0.203,0.113,0.39,0.297,0.492l4.908,2.717 c0.183,0.101,0.41,0.101,0.593,0L23,22.329c0-0.203-0.113-0.39-0.297-0.492l-4.906-2.715c-0.092-0.051-0.195-0.076-0.297-0.076 c-0.103,0-0.205,0.025-0.297,0.076"
-          />
-          <path
-            fill="#4caf50"
-            d="M17.204,19.122l-4.907,2.715C12.113,21.938,12,22.126,12,22.329l5.204,8.642 c0.183,0.101,0.41,0.101,0.593,0l4.907-2.717C22.887,28.152,23,27.965,23,27.762l-5.203-8.64c-0.092-0.051-0.195-0.076-0.297-0.076 c-0.103,0-0.205,0.025-0.297,0.076"
-          />
-          <path
-            fill="#fff"
-            d="M47.703 21.791l-4.906-2.715C42.705 19.025 42.602 19 42.5 19c-.102 0-.205.025-.297.076h.001l-4.907 2.715C37.114 21.892 37 22.084 37 22.294v5.411c0 .209.114.402.297.503l4.908 2.717c.184.102.409.102.593 0l2.263-1.253c.207-.115.206-.412-.002-.526l-4.924-2.687C40.052 26.412 40 26.325 40 26.231v-2.466c0-.092.05-.177.13-.221l2.235-1.236h-.001c.042-.023.088-.034.135-.034.047 0 .093.012.135.034l2.235 1.237c.08.044.13.129.13.221v2.012c0 .086.046.166.121.209.075.042.167.042.242-.001l2.398-1.393c.148-.086.24-.245.24-.417v-1.88C48 22.085 47.886 21.892 47.703 21.791zM10.703 21.791l-4.906-2.715C5.705 19.025 5.602 19 5.5 19c-.102 0-.205.025-.297.076h.001l-4.907 2.715C.114 21.892 0 22.084 0 22.294v7.465c0 .086.046.166.121.209.075.042.167.042.242-.001l2.398-1.393C2.909 28.488 3 28.329 3 28.157v-4.393c0-.092.05-.177.13-.221l2.235-1.236H5.365c.042-.023.088-.034.135-.034.047 0 .093.012.135.034l2.235 1.237C7.95 23.588 8 23.673 8 23.765v4.393c0 .172.091.331.24.417l2.398 1.393c.075.043.167.043.242.001C10.954 29.925 11 29.845 11 29.759v-7.464C11 22.085 10.886 21.892 10.703 21.791z"
-          />{' '}
         </>
       }
     />
   ),
-  javascript: (props?: SvgProps | undefined) => (
+  javascript: () => (
     <Svg
       name={'Javascript'}
-      props={props}
       paths={
         <>
           {' '}
@@ -317,10 +374,9 @@ export const Svgs = {
       }
     />
   ),
-  docker: (props?: SvgProps | undefined) => (
+  docker: () => (
     <Svg
       name={'Docker'}
-      props={props}
       paths={
         <>
           {' '}
@@ -368,10 +424,9 @@ export const Svgs = {
       }
     />
   ),
-  react: (props?: SvgProps | undefined) => (
+  react: () => (
     <Svg
       name={'React'}
-      props={props}
       paths={
         <>
           {' '}
@@ -392,10 +447,9 @@ export const Svgs = {
       }
     />
   ),
-  typescript: (props?: SvgProps | undefined) => (
+  typescript: () => (
     <Svg
       name={'Typescript'}
-      props={props}
       paths={
         <>
           {' '}
@@ -412,10 +466,9 @@ export const Svgs = {
       }
     />
   ),
-  git: (props?: SvgProps | undefined) => (
+  git: () => (
     <Svg
       name={'Git'}
-      props={props}
       paths={
         <>
           {' '}
@@ -428,10 +481,9 @@ export const Svgs = {
       }
     />
   ),
-  dart: (props?: SvgProps | undefined) => (
+  dart: () => (
     <Svg
       name={'Dart'}
-      props={props}
       paths={
         <>
           <path
@@ -451,10 +503,9 @@ export const Svgs = {
       }
     />
   ),
-  prisma: (props?: SvgProps | undefined) => (
+  prisma: () => (
     <Svg
       name={'Prisma'}
-      props={props}
       paths={
         <>
           {' '}
@@ -466,10 +517,9 @@ export const Svgs = {
       }
     />
   ),
-  flutter: (props?: SvgProps | undefined) => (
+  flutter: () => (
     <Svg
       name={'Flutter'}
-      props={props}
       paths={
         <>
           <polygon fill="#40c4ff" points="26,4 6,24 12,30 38,4" />
@@ -488,10 +538,9 @@ export const Svgs = {
       }
     />
   ),
-  postgres: (props?: SvgProps | undefined) => (
+  postgres: () => (
     <Svg
       name={'Postgresql'}
-      props={props}
       paths={
         <>
           {' '}
