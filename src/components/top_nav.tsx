@@ -19,7 +19,7 @@ const NavInner = () => {
           left: 20,
           top: 6,
           fontWeight: 'bold',
-          fontSize: 30,
+          fontSize: 24,
           fontFamily: 'helvetica',
           color: '#DEffff',
         }}
@@ -31,7 +31,7 @@ const NavInner = () => {
         style={{
           position: 'absolute',
           left: 20,
-          top: 46,
+          top: 43,
           fontSize: 13,
           fontFamily: 'helvetica',
           color: '#DEffff',
@@ -39,16 +39,37 @@ const NavInner = () => {
       >
         Software Development
       </div>
-
-      <div
-        style={{
-          top: -2,
-          position: 'absolute',
-          right: 20,
-        }}
+      <a
+        href="https://github.com/tsAppDevelopment"
+        rel="noreferrer"
+        target="_blank"
       >
-        {Svgs.github('')}
-      </div>
+        <div
+          style={{
+            top: -2,
+            position: 'absolute',
+            right: -12,
+          }}
+        >
+          {Svgs.github('')}
+        </div>
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/teague-stockwell"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <div
+          style={{
+            top: -2,
+            position: 'absolute',
+            right: 50,
+          }}
+        >
+          {Svgs.linkedin('')}
+        </div>
+      </a>
     </div>
   )
 }

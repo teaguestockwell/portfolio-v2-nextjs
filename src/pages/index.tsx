@@ -4,7 +4,6 @@ import {TopNav} from '../components/top_nav'
 export default function Home() {
   return (
     <>
-      <TopNav />
       {Svgs.dart()}
       {Svgs.flutter()}
       {Svgs.postgres()}
@@ -29,6 +28,7 @@ export default function Home() {
       {Svgs.sql()}
       {Svgs.html5()}
       {Svgs.css3()}
+      {Svgs.linkedin()}
     </>
   )
 }
