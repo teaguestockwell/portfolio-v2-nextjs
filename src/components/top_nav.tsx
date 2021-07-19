@@ -1,12 +1,17 @@
-import {Svgs} from './svgs'
 import {useTheme} from '../hooks/use_theme'
 import {Linkedin, Github} from '@icons-pack/react-simple-icons'
 
 const NavInner = () => {
-  const theme = useTheme.getState().theme
+  const theme = useTheme(
+    (s) => s.theme,
+    (s1, s2) => s1.name === s2.name
+  )
   return (
     <div
       style={{
+        WebkitBoxShadow: theme.shadow,
+        MozBoxShadow: theme.shadow,
+        boxShadow: theme.shadow,
         position: 'fixed',
         left: 0,
         top: 0,
@@ -19,7 +24,7 @@ const NavInner = () => {
       <div
         style={{
           position: 'absolute',
-          left: 20,
+          left: theme.pad.l,
           top: 6,
           fontWeight: 'bold',
           fontSize: 24,
@@ -33,9 +38,9 @@ const NavInner = () => {
       <div
         style={{
           position: 'absolute',
-          left: 20,
-          top: 43,
-          fontSize: 13,
+          left: theme.pad.l,
+          top: 42,
+          fontSize: theme.fontSizes.md,
           fontFamily: 'helvetica',
           color: '#DEffff',
         }}
@@ -59,7 +64,7 @@ const NavInner = () => {
             right: 0,
           }}
         >
-          <Github color={theme.fontColor0} size={48} />
+          <Github color={'#DEffff'} size={48} />
         </div>
       </a>
 
@@ -80,7 +85,7 @@ const NavInner = () => {
             right: 60,
           }}
         >
-          <Linkedin size={48} color={theme.fontColor0} />
+          <Linkedin size={48} color={'#DEffff'} />
         </div>
       </a>
     </div>
