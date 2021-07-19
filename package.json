@@ -17,9 +17,11 @@
     "bracketSpacing": false
   },
   "dependencies": {
+    "@icons-pack/react-simple-icons": "^4.6.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@types/react": "17.0.14",
+    "antd": "^4.16.7",
     "eslint": "7.30.0",
     "eslint-config-next": "11.0.1",
     "husky": "^7.0.1",
@@ -29,7 +31,8 @@
     "pretty-quick": "^3.1.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "typescript": "4.3.5"
+    "typescript": "4.3.5",
+    "zustand": "^3.5.7"
   },
   "devDependencies": {
     "husky": "^7.0.0"

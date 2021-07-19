@@ -1,6 +1,9 @@
 import {Svgs} from './svgs'
+import {useTheme} from '../hooks/use_theme'
+import {Linkedin, Github} from '@icons-pack/react-simple-icons'
 
 const NavInner = () => {
+  const theme = useTheme.getState().theme
   return (
     <div
       style={{
@@ -45,13 +48,18 @@ const NavInner = () => {
         target="_blank"
       >
         <div
+          className="icon-hover"
           style={{
-            top: -2,
+            textAlign: 'center',
+            paddingTop: 10,
+            width: 70,
+            height: 70,
+            top: 0,
             position: 'absolute',
-            right: -12,
+            right: 0,
           }}
         >
-          {Svgs.github('')}
+          <Github color={theme.fontColor0} size={48} />
         </div>
       </a>
 
@@ -61,13 +69,18 @@ const NavInner = () => {
         target="_blank"
       >
         <div
+          className="icon-hover"
           style={{
-            top: -2,
+            textAlign: 'center',
+            paddingTop: 10,
+            width: 70,
+            height: 70,
+            top: 0,
             position: 'absolute',
-            right: 50,
+            right: 60,
           }}
         >
-          {Svgs.linkedin('')}
+          <Linkedin size={48} color={theme.fontColor0} />
         </div>
       </a>
     </div>

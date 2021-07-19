@@ -3,3 +3,16 @@ body {
   margin: 0;
   background-color: #1e1e1e;
 }
+
+.icon-hover > * {
+  transition: transform 0.3s ease, filter 0.25s ease-in-out;
+  -webkit-transition: transform 0.3s ease, filter 0.25s ease-in-out;
+}
+
+.icon-hover:hover > * {
+  -webkit-filter: drop-shadow(1px 1px 1px rgba(30, 30, 30, 0.7));
+  filter: drop-shadow(1px 1px 1px rgba(30, 30, 30, 0.7));
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
