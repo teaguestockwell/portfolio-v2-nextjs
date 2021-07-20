@@ -17,7 +17,7 @@ const NavInner = () => {
         top: 0,
         right: 0,
         background: '#0c548b',
-        height: 70,
+        height: 50,
         zIndex: 1000,
       }}
     >
@@ -25,9 +25,9 @@ const NavInner = () => {
         style={{
           position: 'absolute',
           left: theme.pad.l,
-          top: 6,
+          top: 2,
           fontWeight: 'bold',
-          fontSize: 24,
+          fontSize: 22,
           fontFamily: 'helvetica',
           color: '#DEffff',
         }}
@@ -39,7 +39,7 @@ const NavInner = () => {
         style={{
           position: 'absolute',
           left: theme.pad.l,
-          top: 42,
+          top: 27,
           fontSize: theme.fontSizes.md,
           fontFamily: 'helvetica',
           color: '#DEffff',
@@ -56,15 +56,15 @@ const NavInner = () => {
           className="icon-hover"
           style={{
             textAlign: 'center',
-            paddingTop: 10,
-            width: 70,
-            height: 70,
+            paddingTop: 13,
+            width: 50,
+            height: 50,
             top: 0,
             position: 'absolute',
             right: 0,
           }}
         >
-          <Github color={'#DEffff'} size={48} />
+          <Github color={'#DEffff'} size={24} />
         </div>
       </a>
 
@@ -77,15 +77,15 @@ const NavInner = () => {
           className="icon-hover"
           style={{
             textAlign: 'center',
-            paddingTop: 10,
-            width: 70,
-            height: 70,
+            paddingTop: 13,
+            width: 50,
+            height: 50,
             top: 0,
             position: 'absolute',
-            right: 60,
+            right: 38,
           }}
         >
-          <Linkedin size={48} color={'#DEffff'} />
+          <Linkedin size={24} color={'#DEffff'} />
         </div>
       </a>
     </div>
