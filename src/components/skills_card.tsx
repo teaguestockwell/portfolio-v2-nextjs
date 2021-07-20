@@ -3,7 +3,7 @@ import {Const} from '../const'
 import {useTheme} from '../hooks/use_theme'
 import {ItemGrid} from './item_grid'
 
-export const IconCard = ({
+export const SkillsCard = ({
   children,
   title,
 }: {
@@ -35,22 +35,7 @@ export const IconCard = ({
       >
         {title}
       </div>
-      <ItemGrid
-        items={children}
-        outerStyle={{}}
-        getCell={(child) => {
-          return (
-            <div
-              key={v4()}
-              style={{
-                padding: 5,
-              }}
-            >
-              {child}
-            </div>
-          )
-        }}
-      />
+      <ItemGrid items={children} outerStyle={{}} getCell={(child) => child} />
     </div>
   )
 }

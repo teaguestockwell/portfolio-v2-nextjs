@@ -1,4 +1,4 @@
-import {IconCards} from '../components/icon_cards'
+import {Skills} from '../components/skills'
 import {ThemeButton} from '../hooks/use_theme'
 import {Content} from '../components/content'
 import {v4} from 'uuid'
@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Content>
-        <IconCards key={v4()} />
+        <Skills key={v4()} />
         <> </>
       </Content>
     </>

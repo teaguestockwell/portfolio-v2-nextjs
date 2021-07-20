@@ -53,6 +53,7 @@ const Svg = ({
       style={{
         width: 75,
         height: 75,
+        padding: 5,
       }}
     >
       <div
