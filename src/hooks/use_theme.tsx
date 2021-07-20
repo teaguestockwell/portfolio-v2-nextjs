@@ -1,5 +1,7 @@
 import create, {State} from 'zustand'
 import {BulbFilled} from '@ant-design/icons'
+import {useEffect} from 'react'
+import {themeService} from '../services/theme_service'
 
 interface ThemeConstants {
   rad: {
@@ -104,12 +106,16 @@ export const useTheme = create<State & Props>((set) => ({
     }),
 }))
 
+const setThemeWrap = (theme: CustomTheme) => {
+  const state = useTheme.getState()
+  state.setTheme(theme)
+  document.body.style.backgroundColor = theme.backGround0
+  themeService.putTheme(theme.name)
+}
+
 export const toggleTheme = () => {
   const state = useTheme.getState()
-  const newTheme = state.theme.name === 'light' ? dark : light
-  state.setTheme(newTheme)
-  document.body.style.backgroundColor = newTheme.backGround0
-  console.log(newTheme)
+  setThemeWrap(state.theme.name === 'light' ? dark : light)
 }
 
 export const ThemeButton = ({
@@ -127,4 +133,17 @@ export const ThemeButton = ({
   return (
     <BulbFilled className="" style={{color, fontSize}} onClick={toggleTheme} />
   )
+}
+
+export const useInitTheme = () => {
+  return useEffect(() => {
+    themeService.readTheme().then((name) => {
+      if (name) {
+        const theme = name === 'light' ? light : dark
+        if (useTheme.getState().theme.name !== theme.name) {
+          setThemeWrap(theme)
+        }
+      }
+    })
+  }, [])
 }

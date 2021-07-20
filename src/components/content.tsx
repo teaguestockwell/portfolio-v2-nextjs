@@ -1,8 +1,9 @@
 import {Const} from '../const'
-import {useTheme} from '../hooks/use_theme'
+import {useInitTheme, useTheme} from '../hooks/use_theme'
 
 export const Content = ({children}: {children: JSX.Element[]}) => {
   const themeName = useTheme((s) => s.theme.name)
+  useInitTheme()
   return (
     <div
       key={themeName}
