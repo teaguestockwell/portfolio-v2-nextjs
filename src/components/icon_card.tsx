@@ -1,4 +1,5 @@
 import {v4} from 'uuid'
+import {Const} from '../const'
 import {useTheme} from '../hooks/use_theme'
 import {ItemGrid} from './item_grid'
 
@@ -18,10 +19,11 @@ export const IconCard = ({
         WebkitBoxShadow: theme.shadow,
         MozBoxShadow: theme.shadow,
         boxShadow: theme.shadow,
-        padding: theme.pad.l,
-        margin: theme.pad.l,
+        padding: theme.pad.l / 2,
+        marginTop: theme.pad.l,
         backgroundColor: theme.background1,
         borderRadius: theme.rad.card,
+        maxWidth: Const.maxWidth,
       }}
     >
       <div
@@ -39,7 +41,7 @@ export const IconCard = ({
         getCell={(child) => {
           return (
             <div
-              key={Date.now()}
+              key={v4()}
               style={{
                 padding: 5,
               }}

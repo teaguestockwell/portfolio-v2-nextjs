@@ -48,16 +48,16 @@ const Svg = ({
 }) => {
   return (
     <div
-      key={name ?? v4()}
+      key={v4()}
       className="icon-hover"
       style={{
-        width: 100,
-        height: 100,
+        width: 75,
+        height: 75,
       }}
     >
       <div
         style={{
-          paddingTop: 14,
+          paddingTop: 4,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -69,7 +69,7 @@ const Svg = ({
       {name && (
         <div
           style={{
-            paddingTop: 10,
+            paddingTop: 4,
             color: theme.fontColor1,
             fontSize: theme.fontSizes.sm,
             display: 'flex',

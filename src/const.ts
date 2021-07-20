@@ -1,8 +1,9 @@
 export const Const = {
   pad: {
-    t: 1,
-    r: 1,
-    b: 1,
-    l: 1,
+    t: 20,
+    r: 20,
+    b: 20,
+    l: 20,
   },
+  maxWidth: 700,
 }

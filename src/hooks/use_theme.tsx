@@ -76,13 +76,13 @@ const dark: CustomTheme = {
 
   name: 'dark',
 
-  backGround0: '#f7f7f7',
-  background1: '#e5e5e5',
+  backGround0: '#1E1E1E',
+  background1: '#2F2F2F',
   background2: '#d0d0d0',
 
-  fontColor0: '#222222',
-  fontColor1: '#222222',
-  fontColor2: '#222222',
+  fontColor0: '#DEffff',
+  fontColor1: '#DEffff',
+  fontColor2: '#DEffff',
 
   paletColor0: '#f7f7f7',
   paletColor1: '#f7f7f7',
@@ -104,14 +104,27 @@ export const useTheme = create<State & Props>((set) => ({
     }),
 }))
 
-const toggleTheme = () => {
+export const toggleTheme = () => {
   const state = useTheme.getState()
   const newTheme = state.theme.name === 'light' ? dark : light
   state.setTheme(newTheme)
+  document.body.style.backgroundColor = newTheme.backGround0
+  console.log(newTheme)
 }
 
-export const ThemeButton = () => {
-  const theme = useTheme.getState().theme
+export const ThemeButton = ({
+  fontSize,
+  color,
+}: {
+  fontSize: number
+  color: string
+}) => {
+  const theme = useTheme(
+    (s) => s.theme,
+    (s1, s2) => s1.name === s2.name
+  )
 
-  return <BulbFilled style={{color: theme.fontColor0}} onClick={toggleTheme} />
+  return (
+    <BulbFilled className="" style={{color, fontSize}} onClick={toggleTheme} />
+  )
 }

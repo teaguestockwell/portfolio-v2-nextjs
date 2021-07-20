@@ -1,5 +1,6 @@
 import {useTheme} from '../hooks/use_theme'
 import {Linkedin, Github} from '@icons-pack/react-simple-icons'
+import {ThemeButton} from '../hooks/use_theme'
 
 const NavInner = () => {
   const theme = useTheme(
@@ -88,6 +89,21 @@ const NavInner = () => {
           <Linkedin size={24} color={'#DEffff'} />
         </div>
       </a>
+
+      <div
+        className="icon-hover"
+        style={{
+          textAlign: 'center',
+          paddingTop: 13,
+          width: 50,
+          height: 50,
+          top: 0,
+          position: 'absolute',
+          right: 72,
+        }}
+      >
+        <ThemeButton fontSize={24} color={'#DEffff'} />
+      </div>
     </div>
   )
 }
@@ -96,7 +112,7 @@ export const TopNav = ({children}: {children?: any}) => {
   return (
     <>
       {<NavInner />}
-      <div style={{paddingTop: 70}}>{children}</div>
+      <div style={{paddingTop: 50}}>{children}</div>
     </>
   )
 }

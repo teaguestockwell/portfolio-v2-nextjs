@@ -1,15 +1,15 @@
 import {IconCards} from '../components/icon_cards'
-import {Svgs} from '../components/svgs'
-import {ThemeButton, useTheme} from '../hooks/use_theme'
+import {ThemeButton} from '../hooks/use_theme'
+import {Content} from '../components/content'
+import {v4} from 'uuid'
 
 export default function Home() {
-  useTheme((s) => s.theme.name)
-  const svgs = Svgs(48)
-
   return (
     <>
-      <IconCards />
-      <ThemeButton />
+      <Content>
+        <IconCards key={v4()} />
+        <> </>
+      </Content>
     </>
   )
 }

@@ -16,10 +16,10 @@ export const ItemGrid = <T,>({
         return (
           <Col
             key={v4()}
-            xs={12}
-            sm={8}
-            md={6}
-            lg={4}
+            xs={8}
+            sm={6}
+            md={4}
+            lg={2}
             xl={2}
             style={{
               display: 'inline-flex',
