@@ -112,16 +112,7 @@ export const Project = ({
 
       <Row style={{backgroundColor: theme.background1}}>
         <Col span={8} style={{textAlign: 'center'}}>
-          <Popover
-            style={{
-              backgroundColor: theme.background2,
-              WebkitBoxShadow: theme.shadow,
-              MozBoxShadow: theme.shadow,
-              boxShadow: theme.shadow,
-            }}
-            title="Repositories"
-            placement="bottom"
-            content={
+          
               <div>
                 {repoSrc.map(({name, src}) => (
                   <a key={v4()} href={src} target="_blank" rel="noreferrer">
@@ -137,7 +128,7 @@ export const Project = ({
                 ))}
               </div>
             }
-          ></Popover>
+
           <Github color={theme.fontColor0} size={24} />
         </Col>
       </Row>
