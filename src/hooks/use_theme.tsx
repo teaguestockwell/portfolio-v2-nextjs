@@ -80,7 +80,7 @@ const dark: CustomTheme = {
 
   backGround0: '#1E1E1E',
   background1: '#2F2F2F',
-  background2: '#d0d0d0',
+  background2: '#383838',
 
   fontColor0: '#DEffff',
   fontColor1: '#DEffff',
