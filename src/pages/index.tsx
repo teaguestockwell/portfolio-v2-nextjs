@@ -1,5 +1,5 @@
 import {Skills} from '../components/skills'
-import {ThemeButton} from '../hooks/use_theme'
+import {Projects} from '../components/projects'
 import {Content} from '../components/content'
 import {v4} from 'uuid'
 
@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <Content>
         <Skills key={v4()} />
-        <> </>
+        <Projects key={v4()} />
       </Content>
     </>
   )

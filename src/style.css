@@ -16,3 +16,12 @@ body {
   -ms-transform: scale(1.2);
   transform: scale(1.2);
 }
+
+.ant-collapse .ant-collapse-item .ant-collapse-header {
+  padding: 5px 0px 0px 0px !important;
+  display: inline-flex !important;
+}
+
+.ant-collapse {
+  border: 0px !important;
+}

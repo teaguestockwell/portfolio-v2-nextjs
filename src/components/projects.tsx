@@ -1,6 +1,6 @@
 import React from 'react'
 import {v4} from 'uuid'
-import {Project, ProjectCard} from './project_card'
+import {Project} from './project'
 import {Svgs} from './svgs'
 
 const getProjects = (): Project[] => {
@@ -9,7 +9,7 @@ const getProjects = (): Project[] => {
     {
       name: 'Levels',
       shortDescription: `Production app for US Air Force to manage aircraft cargo and weight and balance data`,
-      longDescription: `asjdkjasd ijasidjaijd  iasjdija`,
+      longDescription: `asjdkjasd ijasidjaijd  iasjdija r Force to manage aircraft cargo and weight and balance data r Force to manage aircraft cargo and weight and balance data r Force to manage aircraft cargo and weight and balance data r Force to manage aircraft cargo and weight and balance data`,
       deploymentSrc: '',
       mediaSrc: '',
       repoSrc: [
@@ -23,11 +23,11 @@ const getProjects = (): Project[] => {
   ]
 }
 
-const Projects = () => {
+export const Projects = () => {
   return (
     <>
       {getProjects().map((p) => (
-        <ProjectCard {...p} key={v4()} />
+        <Project {...p} key={v4()} />
       ))}
     </>
   )

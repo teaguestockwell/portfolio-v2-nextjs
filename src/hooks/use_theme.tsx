@@ -54,7 +54,7 @@ const themeConstants = {
   },
 }
 
-const light: CustomTheme = {
+export const light: CustomTheme = {
   ...themeConstants,
   name: 'light',
 
