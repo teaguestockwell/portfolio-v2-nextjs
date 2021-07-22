@@ -12,6 +12,7 @@ export const Content = ({children}: {children: JSX.Element[]}) => {
         display: 'grid',
         paddingLeft: Const.pad.l,
         paddingRight: Const.pad.r,
+        paddingBottom: Const.pad.b,
       }}
     >
       {children}

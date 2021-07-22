@@ -6,6 +6,7 @@ import {ItemGrid} from './item_grid'
 import {Col, Divider, Modal, Row} from 'antd'
 import {Github} from '@icons-pack/react-simple-icons'
 import {DownOutlined, UpOutlined, LinkOutlined} from '@ant-design/icons'
+import {useExpanded, useExpandedAtKey} from '../hooks/use_expanded'
 
 export interface Project {
   name: string
@@ -17,6 +18,7 @@ export interface Project {
   mediaSrc: string
 }
 
+const s = useExpanded.getState()
 export const Project = ({
   name,
   shortDescription,
@@ -27,7 +29,7 @@ export const Project = ({
   mediaSrc,
 }: Project) => {
   const [isModal, setIsModal] = useState(false)
-  const [isExpanded, setIsExpanded] = useState(false)
+  const isExpanded = useExpandedAtKey(name)
   const theme = useTheme.getState().theme
 
   return (
@@ -48,10 +50,21 @@ export const Project = ({
       >
         <div
           style={{
-            content: `url(${mediaSrc})`,
             width: '100%',
+            borderRadius: theme.rad.card,
+            overflow: 'hidden',
+            WebkitTransform: 'translateZ(0)',
           }}
-        />
+        >
+          <video
+            autoPlay={true}
+            loop={true}
+            muted={true}
+            width="100%"
+            title={name}
+            src={mediaSrc}
+          />
+        </div>
 
         <div
           style={{
@@ -69,6 +82,7 @@ export const Project = ({
             textAlign: 'left',
             color: theme.fontColor1,
             fontSize: theme.fontSizes.sm,
+            paddingTop: 12,
           }}
         >
           {shortDescription}
@@ -78,6 +92,7 @@ export const Project = ({
           <>
             <div
               style={{
+                paddingTop: 20,
                 color: theme.fontColor1,
                 fontSize: theme.fontSizes.sm,
                 textAlign: 'left',
@@ -86,7 +101,11 @@ export const Project = ({
               {longDescription}
             </div>
 
-            <ItemGrid items={svgs} outerStyle={{}} getCell={(child) => child} />
+            <ItemGrid
+              items={svgs}
+              outerStyle={{paddingTop: 12}}
+              getCell={(child) => child}
+            />
           </>
         )}
 
@@ -94,7 +113,7 @@ export const Project = ({
           key={v4()}
           style={{
             backgroundColor: theme.fontColor1,
-            margin: '10px 0px 20px 0px',
+            margin: '0px 0px 20px 0px',
           }}
         />
 
@@ -115,13 +134,13 @@ export const Project = ({
                 <UpOutlined
                   style={{color: theme.fontColor0}}
                   size={24}
-                  onClick={() => setIsExpanded(!isExpanded)}
+                  onClick={() => s.setExpanded(name, !isExpanded)}
                 />
               ) : (
                 <DownOutlined
                   style={{color: theme.fontColor0}}
                   size={24}
-                  onClick={() => setIsExpanded(!isExpanded)}
+                  onClick={() => s.setExpanded(name, !isExpanded)}
                 />
               )}
             </div>

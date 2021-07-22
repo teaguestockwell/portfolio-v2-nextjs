@@ -3,15 +3,19 @@ import {v4} from 'uuid'
 import {Project} from './project'
 import {Svgs} from './svgs'
 
+const ipsum =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id ligula maximus, molestie dui vitae, euismod nulla. Etiam tellus eros, blandit nec porta et, porttitor mollis quam. Nullam elementum sem magna, at scelerisque tortor efficitur convallis. Vivamus quis urna lacus. Nam lorem elit, condimentum vitae enim quis, mattis vehicula nibh. Etiam eu diam sed enim aliquet rhoncus. Vivamus sit amet imperdiet turpis. Nullam nec bibendum tellus. Nullam tellus eros, lobortis at elit sit amet, hendrerit dignissim nibh. Nam scelerisque augue finibus metus ornare, sed finibus orci molestie. Maecenas non lorem aliquet, vulputate nisl eget, maximus nisl. Maecenas quis erat leo.'
+
 const getProjects = (): Project[] => {
   const svgs = Svgs(24)
   return [
     {
       name: 'Levels',
       shortDescription: `Production app for US Air Force to manage aircraft cargo and weight and balance data`,
-      longDescription: `asjdkjasd ijasidjaijd  iasjdija r Force to manage aircraft cargo and weight and balance data r Force to manage aircraft cargo and weight and balance data r Force to manage aircraft cargo and weight and balance data r Force to manage aircraft cargo and weight and balance data`,
+      longDescription: ipsum,
       deploymentSrc: '',
-      mediaSrc: '',
+      mediaSrc:
+        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/levels-encoded-h264-croped.mp4',
       repoSrc: [
         {
           name: 'Frontend',
