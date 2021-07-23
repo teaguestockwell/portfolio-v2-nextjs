@@ -27,7 +27,13 @@ const getSkills = (): {title: string; icons: JSX.Element[]}[] => {
     },
     {
       title: 'Services',
-      icons: [svgs.amazonaws, svgs.postgresql, svgs.firebase, svgs.nginx],
+      icons: [
+        svgs.amazonaws,
+        svgs.postgresql,
+        svgs.firebase,
+        svgs.nginx,
+        svgs.vercel,
+      ],
     },
     {
       title: 'Workflow',
@@ -38,7 +44,7 @@ const getSkills = (): {title: string; icons: JSX.Element[]}[] => {
         svgs.github,
         svgs.gitlab,
         svgs.sonarqube,
-        svgs.vercel,
+        svgs.figma,
       ],
     },
   ]

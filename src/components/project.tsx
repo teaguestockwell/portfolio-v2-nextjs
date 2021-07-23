@@ -51,12 +51,14 @@ export const Project = ({
         <div
           style={{
             width: '100%',
+            maxHeight: 800,
             borderRadius: theme.rad.card,
             overflow: 'hidden',
             WebkitTransform: 'translateZ(0)',
           }}
         >
           <video
+            style={{maxHeight: 700}}
             autoPlay={true}
             loop={true}
             muted={true}
@@ -83,6 +85,7 @@ export const Project = ({
             color: theme.fontColor1,
             fontSize: theme.fontSizes.sm,
             paddingTop: 12,
+            paddingBottom: isExpanded ? 0 : 20,
           }}
         >
           {shortDescription}
@@ -117,7 +120,10 @@ export const Project = ({
           }}
         />
 
-        <Row style={{backgroundColor: theme.background1}} justify="center">
+        <Row
+          style={{backgroundColor: theme.background1, paddingBottom: 10}}
+          justify="center"
+        >
           <Col span={8} style={{textAlign: 'center'}}>
             <div className="icon-hover" style={{cursor: 'pointer'}}>
               <Github

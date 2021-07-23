@@ -42,6 +42,42 @@ const getProjects = (): Project[] => {
         svgs.sonarqube,
         svgs.git,
         svgs.jira,
+        svgs.figma,
+      ],
+    },
+    {
+      name: 'Five Level',
+      shortDescription: `A cross-platform aircraft weight and balance app`,
+      longDescription: ipsum,
+      deploymentSrc: 'https://fivelevel.web.app',
+      mediaSrc:
+        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/five-level-encoded-h264.mp4',
+      repoSrc: [
+        {
+          name: 'Frontend',
+          src: 'https://github.com/tsAppDevelopment/levels-v2-flutter',
+        },
+        {
+          name: 'Backend Server',
+          src: 'https://github.com/tsAppDevelopment/levels-v2v3-express',
+        },
+        {
+          name: 'Backend Serverless',
+          src: 'https://firebase.google.com/products/firestore?gclsrc=ds&gclsrc=ds&gclid=CMK6ivX89_ECFUMNrQYdrFIFkQ',
+        },
+      ],
+      svgs: [
+        svgs.dart,
+        svgs.flutter,
+        svgs.nginx,
+        svgs.nodedotjs,
+        svgs.express,
+        svgs.prisma,
+        svgs.postgresql,
+        svgs.firebase,
+        svgs.docker,
+        svgs.git,
+        svgs.figma,
       ],
     },
   ]

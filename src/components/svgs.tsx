@@ -35,6 +35,7 @@ import {
   Git,
   Gitlab,
   Jira,
+  Figma,
 } from '@icons-pack/react-simple-icons'
 
 const Svg = ({
@@ -166,6 +167,14 @@ export const Svgs = (size: number) => {
         name={'Nginx'}
         theme={theme}
         svg={<Nginx size={size} color={'#009639'} />}
+      />
+    ),
+
+    figma: (
+      <Svg
+        name={'Figma'}
+        theme={theme}
+        svg={<Figma size={size} color={'#F24E1E'} />}
       />
     ),
 
