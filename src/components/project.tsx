@@ -7,6 +7,7 @@ import {Col, Divider, Modal, Row} from 'antd'
 import {Github} from '@icons-pack/react-simple-icons'
 import {DownOutlined, UpOutlined, LinkOutlined} from '@ant-design/icons'
 import {useExpanded, useExpandedAtKey} from '../hooks/use_expanded'
+import {Video} from './video'
 
 export interface Project {
   name: string
@@ -15,7 +16,8 @@ export interface Project {
   svgs: JSX.Element[]
   repoSrc: {name: string; src: string}[] // fullstack apps may have more than 1 repo
   deploymentSrc: string
-  mediaSrc: string
+  src: string
+  type: 'application/x-mpegurl' | 'video/mp4'
 }
 
 const s = useExpanded.getState()
@@ -26,7 +28,8 @@ export const Project = ({
   svgs,
   repoSrc,
   deploymentSrc,
-  mediaSrc,
+  src,
+  type,
 }: Project) => {
   const [isModal, setIsModal] = useState(false)
   const isExpanded = useExpandedAtKey(name)
@@ -48,25 +51,7 @@ export const Project = ({
           position: 'relative',
         }}
       >
-        <div
-          style={{
-            width: '100%',
-            maxHeight: 800,
-            borderRadius: theme.rad.card,
-            overflow: 'hidden',
-            WebkitTransform: 'translateZ(0)',
-          }}
-        >
-          <video
-            style={{maxHeight: 700}}
-            autoPlay={true}
-            loop={true}
-            muted={true}
-            width="100%"
-            title={name}
-            src={mediaSrc}
-          />
-        </div>
+        <Video src={src} type={type} />
 
         <div
           style={{

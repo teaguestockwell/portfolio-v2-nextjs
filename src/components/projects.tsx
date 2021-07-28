@@ -14,8 +14,8 @@ const getProjects = (): Project[] => {
       shortDescription: `Production app for US Air Force to manage aircraft cargo and weight and balance data`,
       longDescription: ipsum,
       deploymentSrc: '',
-      mediaSrc:
-        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/levels-encoded-h264-croped.mp4',
+      src: 'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/levels-hls/master.m3u8',
+      type: 'application/x-mpegurl',
       repoSrc: [
         {
           name: 'Frontend',
@@ -50,8 +50,8 @@ const getProjects = (): Project[] => {
       shortDescription: `A cross-platform aircraft weight and balance app`,
       longDescription: ipsum,
       deploymentSrc: 'https://fivelevel.web.app',
-      mediaSrc:
-        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/five-level-encoded-h264.mp4',
+      src: 'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/five-level-hls/master.m3u8',
+      type: 'application/x-mpegurl',
       repoSrc: [
         {
           name: 'Frontend',
