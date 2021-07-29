@@ -1,6 +1,7 @@
 import {useTheme} from '../hooks/use_theme'
 import {Linkedin, Github} from '@icons-pack/react-simple-icons'
 import {ThemeButton} from '../hooks/use_theme'
+import {Const} from '../const'
 
 const NavInner = () => {
   const theme = useTheme(
@@ -25,7 +26,7 @@ const NavInner = () => {
       <div
         style={{
           position: 'absolute',
-          left: theme.pad.l,
+          left: Const.pad,
           top: 2,
           fontWeight: 'bold',
           fontSize: 22,
@@ -39,9 +40,9 @@ const NavInner = () => {
       <div
         style={{
           position: 'absolute',
-          left: theme.pad.l,
+          left: Const.pad,
           top: 27,
-          fontSize: theme.fontSizes.md,
+          fontSize: Const.fontSizes.md,
           fontFamily: 'helvetica',
           color: '#DEffff',
         }}

@@ -29,3 +29,8 @@ body {
 .ant-modal-content {
   border-radius: 10px !important;
 }
+
+/* temp fix until aspect-ratio is supported with release of safari 15 */
+.video-js {
+  background-color: rgba(0, 0, 0, 0) !important;
+}

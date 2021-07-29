@@ -1,7 +1,7 @@
 import {useTheme} from '../hooks/use_theme'
 import {Project} from './project'
 import {Svgs} from './svgs'
-import {projects} from '../const'
+import {projects} from '../data'
 import {Video} from './video'
 
 // persist between theme changes, and card state changes

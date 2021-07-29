@@ -3,23 +3,7 @@ import {BulbFilled} from '@ant-design/icons'
 import {useEffect} from 'react'
 import {themeService} from '../services/theme_service'
 
-interface ThemeConstants {
-  rad: {
-    card: number
-  }
-  pad: {
-    l: number
-    t: number
-    r: number
-    b: number
-  }
-  fontSizes: {
-    sm: number
-    md: number
-    lg: number
-  }
-}
-export interface CustomTheme extends ThemeConstants {
+export interface CustomTheme {
   name: string
 
   backGround0: string
@@ -37,25 +21,7 @@ export interface CustomTheme extends ThemeConstants {
   shadow: string
 }
 
-const themeConstants = {
-  rad: {
-    card: 10,
-  },
-  pad: {
-    l: 20,
-    t: 20,
-    r: 20,
-    b: 20,
-  },
-  fontSizes: {
-    sm: 12,
-    md: 14,
-    lg: 24,
-  },
-}
-
 export const light: CustomTheme = {
-  ...themeConstants,
   name: 'light',
 
   backGround0: '#f7f7f7',
@@ -74,8 +40,6 @@ export const light: CustomTheme = {
 }
 
 const dark: CustomTheme = {
-  ...themeConstants,
-
   name: 'dark',
 
   backGround0: '#1E1E1E',

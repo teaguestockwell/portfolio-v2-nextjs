@@ -6,6 +6,7 @@ import {Col, Divider, Modal, Row} from 'antd'
 import {Github} from '@icons-pack/react-simple-icons'
 import {DownOutlined, UpOutlined, LinkOutlined} from '@ant-design/icons'
 import {useExpanded, useExpandedAtKey} from '../hooks/use_expanded'
+import {Const} from '../const'
 
 export interface Project {
   name: string
@@ -38,11 +39,12 @@ export const Project = ({
           WebkitBoxShadow: theme.shadow,
           MozBoxShadow: theme.shadow,
           boxShadow: theme.shadow,
-          paddingTop: theme.pad.l / 2,
-          paddingInline: theme.pad.l / 2,
-          marginTop: theme.pad.l,
+          paddingTop: 15,
+          paddingLeft: Const.pad / 2,
+          paddingRight: Const.pad / 2,
+          marginTop: Const.pad,
           backgroundColor: theme.background1,
-          borderRadius: theme.rad.card,
+          borderRadius: Const.rad,
           position: 'relative',
         }}
       >
@@ -50,10 +52,10 @@ export const Project = ({
 
         <div
           style={{
-            top: 0,
+            paddingTop: Const.pad / 2,
             textAlign: 'center',
             color: theme.fontColor1,
-            fontSize: theme.fontSizes.lg,
+            fontSize: Const.fontSizes.lg,
           }}
         >
           {name}
@@ -63,9 +65,9 @@ export const Project = ({
           style={{
             textAlign: 'left',
             color: theme.fontColor1,
-            fontSize: theme.fontSizes.sm,
-            paddingTop: 12,
-            paddingBottom: isExpanded ? 0 : 20,
+            fontSize: Const.fontSizes.sm,
+            paddingTop: Const.pad / 2,
+            paddingBottom: isExpanded ? 0 : Const.pad,
           }}
         >
           {shortDescription}
@@ -75,9 +77,9 @@ export const Project = ({
           <>
             <div
               style={{
-                paddingTop: 20,
+                paddingTop: Const.pad,
                 color: theme.fontColor1,
-                fontSize: theme.fontSizes.sm,
+                fontSize: Const.fontSizes.sm,
                 textAlign: 'left',
               }}
             >
@@ -86,7 +88,7 @@ export const Project = ({
 
             <ItemGrid
               items={svgs}
-              outerStyle={{paddingTop: 12}}
+              outerStyle={{paddingTop: Const.pad}}
               getCell={(child) => child}
             />
           </>
@@ -96,12 +98,12 @@ export const Project = ({
           key={v4()}
           style={{
             backgroundColor: theme.fontColor1,
-            margin: '0px 0px 20px 0px',
+            marginBottom: Const.pad,
           }}
         />
 
         <Row
-          style={{backgroundColor: theme.background1, paddingBottom: 10}}
+          style={{backgroundColor: theme.background1, paddingBottom: Const.pad}}
           justify="center"
         >
           <Col
@@ -161,7 +163,7 @@ export const Project = ({
         closable={false}
         bodyStyle={{
           backgroundColor: theme.background2,
-          borderRadius: theme.rad.card,
+          borderRadius: Const.rad,
         }}
         visible={isModal}
         onCancel={() => setIsModal(false)}
@@ -171,7 +173,7 @@ export const Project = ({
             style={{
               width: '100%',
               textAlign: 'center',
-              fontSize: theme.fontSizes.md,
+              fontSize: Const.fontSizes.md,
               color: theme.fontColor1,
             }}
           >
@@ -181,9 +183,10 @@ export const Project = ({
             <a key={v4()} href={src} target="_blank" rel="noreferrer">
               <div
                 style={{
-                  padding: '10px 0px 10px 0px',
+                  paddingTop: Const.pad / 2,
+                  paddingBottom: Const.pad / 2,
                   color: theme.fontColor1,
-                  fontSize: theme.fontSizes.sm,
+                  fontSize: Const.fontSizes.sm,
                 }}
               >
                 {name}

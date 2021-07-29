@@ -1,6 +1,7 @@
 /* eslint-disable react/display-name */
 import {CustomTheme, useTheme} from '../hooks/use_theme'
 import {v4} from 'uuid'
+import {Const} from '../const'
 import {
   // language
   Dart,
@@ -73,7 +74,7 @@ const Svg = ({
           style={{
             paddingTop: 4,
             color: theme.fontColor1,
-            fontSize: theme.fontSizes.sm,
+            fontSize: Const.fontSizes.sm,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',

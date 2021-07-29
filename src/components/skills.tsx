@@ -3,7 +3,7 @@ import {v4} from 'uuid'
 import {useTheme} from '../hooks/use_theme'
 import {SkillsCard} from './skills_card'
 import {Svgs} from './svgs'
-import {skills} from '../const'
+import {skills} from '../data'
 
 export const Skills = () => {
   useTheme()

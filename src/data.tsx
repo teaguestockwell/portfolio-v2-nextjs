@@ -1,5 +1,3 @@
-import {Video} from './components/video'
-
 export const skills = [
   {
     title: 'Languages',
