@@ -16,6 +16,12 @@
     "singleQuote": true,
     "bracketSpacing": false
   },
+  "browserslist": [
+    ">0.3%",
+    "not ie 11",
+    "not dead",
+    "not op_mini all"
+  ],
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "@icons-pack/react-simple-icons": "^4.6.1",

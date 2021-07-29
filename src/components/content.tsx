@@ -12,7 +12,7 @@ export const Content = ({children}: {children: JSX.Element[]}) => {
     >
       <div
         style={{
-          maxWidth: 700,
+          maxWidth: 680,
           width: '100%',
         }}
       >

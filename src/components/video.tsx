@@ -20,10 +20,15 @@ export const Video = ({src}: {src: string}) => {
           borderRadius: 10,
           overflow: 'hidden',
           WebkitTransform: 'translateZ(0)',
+          aspectRatio: '6/13', // I Phone X
         }}
       >
         <div data-vjs-player>
-          <video ref={videoRef} className="video-js vjs-big-play-centered" />
+          <video
+            ref={videoRef}
+            className="video-js vjs-big-play-centered"
+            style={{maxWidth: '100%', maxHeight: '100%'}}
+          />
         </div>
       </div>
     </div>
