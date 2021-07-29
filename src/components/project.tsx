@@ -104,42 +104,49 @@ export const Project = ({
           style={{backgroundColor: theme.background1, paddingBottom: 10}}
           justify="center"
         >
-          <Col span={8} style={{textAlign: 'center'}}>
-            <div className="icon-hover" style={{cursor: 'pointer'}}>
-              <Github
-                color={theme.fontColor0}
-                size={24}
-                onClick={() => setIsModal(!isModal)}
-              />
-            </div>
+          <Col
+            className="icon-hover"
+            span={8}
+            onClick={() => setIsModal(!isModal)}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+            }}
+          >
+            <Github color={theme.fontColor0} size={24} />
           </Col>
 
-          <Col span={8} style={{textAlign: 'center'}}>
-            <div className="icon-hover" style={{cursor: 'pointer'}}>
-              {isExpanded ? (
-                <UpOutlined
-                  style={{color: theme.fontColor0}}
-                  size={24}
-                  onClick={() => s.setExpanded(name, !isExpanded)}
-                />
-              ) : (
-                <DownOutlined
-                  style={{color: theme.fontColor0}}
-                  size={24}
-                  onClick={() => s.setExpanded(name, !isExpanded)}
-                />
-              )}
-            </div>
+          <Col
+            className="icon-hover"
+            span={8}
+            onClick={() => s.setExpanded(name, !isExpanded)}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+            }}
+          >
+            {isExpanded ? (
+              <UpOutlined style={{color: theme.fontColor0}} size={24} />
+            ) : (
+              <DownOutlined style={{color: theme.fontColor0}} size={24} />
+            )}
           </Col>
 
-          <Col span={8} style={{textAlign: 'center'}}>
-            <a
-              className="icon-hover"
-              style={{cursor: 'pointer'}}
-              href={deploymentSrc}
-              target="_blank"
-              rel="noreferrer"
-            >
+          <Col
+            span={8}
+            className="icon-hover"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+            }}
+          >
+            <a href={deploymentSrc} target="_blank" rel="noreferrer">
               <LinkOutlined size={24} style={{color: theme.fontColor0}} />
             </a>
           </Col>

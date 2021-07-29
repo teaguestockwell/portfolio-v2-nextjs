@@ -1,7 +1,5 @@
 import {useEffect, useRef} from 'react'
 import videojs, {VideoJsPlayer} from 'video.js'
-// TODO: if more pages are added, import this within app component
-import 'video.js/dist/video-js.css'
 
 export const Video = ({src}: {src: string}) => {
   const videoRef = useRef(null)
