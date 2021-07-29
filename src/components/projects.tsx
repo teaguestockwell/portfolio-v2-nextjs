@@ -1,5 +1,4 @@
 import {useTheme} from '../hooks/use_theme'
-import {Content} from './content'
 import {Project} from './project'
 import {Svgs} from './svgs'
 import {projects} from '../const'
@@ -18,7 +17,7 @@ export const Projects = () => {
   const svgs = Svgs(24)
 
   return (
-    <Content>
+    <>
       {projects.map((p) => (
         <Project
           key={p.name}
@@ -31,6 +30,6 @@ export const Projects = () => {
           svgs={p.svgs.map((s) => svgs[s])}
         />
       ))}
-    </Content>
+    </>
   )
 }
