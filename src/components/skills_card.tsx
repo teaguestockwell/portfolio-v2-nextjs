@@ -3,13 +3,13 @@ import {useTheme} from '../hooks/use_theme'
 import {ItemGrid} from './item_grid'
 
 export const SkillsCard = ({
-  children,
+  skillsSvgs,
   title,
 }: {
-  children: JSX.Element[]
+  skillsSvgs: JSX.Element[]
   title: string
 }) => {
-  const theme = useTheme((s) => s.theme)
+  const theme = useTheme.getState().theme
 
   return (
     <div
@@ -33,7 +33,7 @@ export const SkillsCard = ({
       >
         {title}
       </div>
-      <ItemGrid items={children} outerStyle={{}} getCell={(child) => child} />
+      <ItemGrid items={skillsSvgs} outerStyle={{}} getCell={(child) => child} />
     </div>
   )
 }

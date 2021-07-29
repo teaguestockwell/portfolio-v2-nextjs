@@ -1,5 +1,3 @@
-import {Const} from '../const'
-
 export const Content = ({children}: {children: JSX.Element[]}) => {
   return (
     <div
@@ -7,14 +5,14 @@ export const Content = ({children}: {children: JSX.Element[]}) => {
         justifyContent: 'center',
         alignContent: 'center',
         display: 'flex',
-        paddingLeft: Const.pad.l,
-        paddingRight: Const.pad.r,
-        paddingBottom: Const.pad.b,
+        paddingLeft: 20,
+        paddingRight: 20,
+        paddingBottom: 20,
       }}
     >
       <div
         style={{
-          maxWidth: Const.maxWidth,
+          maxWidth: 700,
           width: '100%',
         }}
       >
