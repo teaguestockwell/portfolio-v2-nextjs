@@ -3,13 +3,7 @@ import videojs, {VideoJsPlayer} from 'video.js'
 // TODO: if more pages are added, import this within app component
 import 'video.js/dist/video-js.css'
 
-export const Video = ({
-  src,
-  type = 'video/mp4',
-}: {
-  src: string
-  type?: 'video/mp4' | 'application/x-mpegurl'
-}) => {
+export const Video = ({src}: {src: string}) => {
   const videoRef = useRef(null)
 
   // This seperate functional component fixes the removal of the videoelement
@@ -54,7 +48,7 @@ export const Video = ({
           sources: [
             {
               src,
-              type,
+              type: 'application/x-mpegurl',
             },
           ],
         },
@@ -68,7 +62,7 @@ export const Video = ({
         player.dispose()
       }
     }
-  }, [src, type])
+  }, [src])
 
   return <VideoHtml />
 }

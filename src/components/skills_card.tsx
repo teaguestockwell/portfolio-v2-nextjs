@@ -1,5 +1,4 @@
 import {v4} from 'uuid'
-import {Const} from '../const'
 import {useTheme} from '../hooks/use_theme'
 import {ItemGrid} from './item_grid'
 
@@ -10,7 +9,7 @@ export const SkillsCard = ({
   children: JSX.Element[]
   title: string
 }) => {
-  const theme = useTheme.getState().theme
+  const theme = useTheme((s) => s.theme)
 
   return (
     <div
@@ -23,7 +22,6 @@ export const SkillsCard = ({
         marginTop: theme.pad.l,
         backgroundColor: theme.background1,
         borderRadius: theme.rad.card,
-        maxWidth: Const.maxWidth,
       }}
     >
       <div

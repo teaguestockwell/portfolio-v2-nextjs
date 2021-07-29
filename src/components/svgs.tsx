@@ -285,5 +285,5 @@ export const Svgs = (size: number) => {
         svg={<Sonarqube size={size} color={'#4E9BCD'} />}
       />
     ),
-  }
+  } as {[key: string]: JSX.Element}
 }

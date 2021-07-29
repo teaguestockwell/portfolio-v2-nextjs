@@ -1,16 +1,14 @@
 import {Skills} from '../components/skills'
 import {Projects} from '../components/projects'
-import {Content} from '../components/content'
 import {v4} from 'uuid'
-import {Video} from '../components/video'
+import {useInitTheme} from '../hooks/use_theme'
 
 export default function Home() {
+  useInitTheme()
   return (
     <>
-      <Content>
-        <Skills key={v4()} />
-        <Projects key={v4()} />
-      </Content>
+      <Skills key={v4()} />
+      <Projects key={v4()} />
     </>
   )
 }

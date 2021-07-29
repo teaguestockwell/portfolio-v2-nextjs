@@ -1,13 +1,11 @@
 import React, {useState} from 'react'
 import {v4} from 'uuid'
-import {Const} from '../const'
 import {useTheme} from '../hooks/use_theme'
 import {ItemGrid} from './item_grid'
 import {Col, Divider, Modal, Row} from 'antd'
 import {Github} from '@icons-pack/react-simple-icons'
 import {DownOutlined, UpOutlined, LinkOutlined} from '@ant-design/icons'
 import {useExpanded, useExpandedAtKey} from '../hooks/use_expanded'
-import {Video} from './video'
 
 export interface Project {
   name: string
@@ -16,8 +14,7 @@ export interface Project {
   svgs: JSX.Element[]
   repoSrc: {name: string; src: string}[] // fullstack apps may have more than 1 repo
   deploymentSrc: string
-  src: string
-  type: 'application/x-mpegurl' | 'video/mp4'
+  video: JSX.Element
 }
 
 const s = useExpanded.getState()
@@ -28,8 +25,7 @@ export const Project = ({
   svgs,
   repoSrc,
   deploymentSrc,
-  src,
-  type,
+  video,
 }: Project) => {
   const [isModal, setIsModal] = useState(false)
   const isExpanded = useExpandedAtKey(name)
@@ -47,11 +43,10 @@ export const Project = ({
           marginTop: theme.pad.l,
           backgroundColor: theme.background1,
           borderRadius: theme.rad.card,
-          maxWidth: Const.maxWidth,
           position: 'relative',
         }}
       >
-        <Video src={src} type={type} />
+        {video}
 
         <div
           style={{

@@ -1,21 +1,25 @@
 import {Const} from '../const'
-import {useInitTheme, useTheme} from '../hooks/use_theme'
 
 export const Content = ({children}: {children: JSX.Element[]}) => {
-  const themeName = useTheme((s) => s.theme.name)
-  useInitTheme()
   return (
     <div
-      key={themeName}
       style={{
         justifyContent: 'center',
-        display: 'grid',
+        alignContent: 'center',
+        display: 'flex',
         paddingLeft: Const.pad.l,
         paddingRight: Const.pad.r,
         paddingBottom: Const.pad.b,
       }}
     >
-      {children}
+      <div
+        style={{
+          maxWidth: Const.maxWidth,
+          width: '100%',
+        }}
+      >
+        {children}
+      </div>
     </div>
   )
 }

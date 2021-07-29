@@ -1,5 +1,8 @@
 /* eslint-disable react/no-children-prop */
+import React from 'react'
 import {v4} from 'uuid'
+import {useTheme} from '../hooks/use_theme'
+import {Content} from './content'
 import {SkillsCard} from './skills_card'
 import {Svgs} from './svgs'
 
@@ -51,11 +54,12 @@ const getSkills = (): {title: string; icons: JSX.Element[]}[] => {
 }
 
 export const Skills = () => {
+  useTheme()
   return (
-    <>
+    <Content>
       {getSkills().map((s) => (
         <SkillsCard key={v4()} title={s.title} children={s.icons} />
       ))}
-    </>
+    </Content>
   )
 }
