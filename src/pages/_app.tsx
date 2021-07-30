@@ -5,9 +5,5 @@ import 'video.js/dist/video-js.css'
 import '../style.css'
 
 export default function App({Component, pageProps}: AppProps) {
-  return (
-    <TopNav>
-      <Component {...pageProps} />
-    </TopNav>
-  )
+  return <Component {...pageProps} />
 }
