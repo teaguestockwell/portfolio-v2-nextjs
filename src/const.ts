@@ -5,5 +5,6 @@ export const Const = {
     sm: 14,
     md: 16,
     lg: 24,
+    xl: 28,
   },
 }

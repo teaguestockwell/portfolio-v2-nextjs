@@ -95,3 +95,16 @@ export const projects = [
     ],
   },
 ]
+
+export const educations = [
+  {
+    name: 'Southwestern College',
+    date: 'May 2021',
+    subHeading: `Bachelor of Science (B.S.), Computer Programming, 3.9`,
+  },
+  {
+    name: 'Community College of the Air Force',
+    date: 'August 2019',
+    subHeading: `Associate of Applied Science (AAS), Aviation Maintenance Technology, 4.0`,
+  },
+]
