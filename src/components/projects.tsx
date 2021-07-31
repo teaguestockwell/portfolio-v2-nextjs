@@ -1,8 +1,9 @@
 import {useTheme} from '../hooks/use_theme'
-import {Project} from './project'
 import {Svgs} from './svgs'
 import {projects} from '../data'
 import {Video} from './video'
+import {Content} from '../components/content'
+import {Project} from './project'
 
 // persist between theme changes, and card state changes
 // not inside of a ref because the scope does not depend on state or props
@@ -17,7 +18,7 @@ export const Projects = () => {
   const svgs = Svgs(24)
 
   return (
-    <>
+    <Content>
       {projects.map((p) => (
         <Project
           key={p.name}
@@ -30,6 +31,6 @@ export const Projects = () => {
           svgs={p.svgs.map((s) => svgs[s])}
         />
       ))}
-    </>
+    </Content>
   )
 }
