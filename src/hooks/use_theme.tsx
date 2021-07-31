@@ -62,7 +62,7 @@ interface Props {
   setTheme: (theme: CustomTheme) => void
 }
 
-export const useTheme = create<State & Props>((set) => ({
+export const useThemeStore = create<State & Props>((set) => ({
   theme: light,
   setTheme: (theme) =>
     set((s) => {
@@ -70,15 +70,21 @@ export const useTheme = create<State & Props>((set) => ({
     }),
 }))
 
+export const useTheme = () =>
+  useThemeStore(
+    (s) => s.theme,
+    (s0, s1) => s0.name === s1.name
+  )
+
 const setThemeWrap = (theme: CustomTheme) => {
-  const state = useTheme.getState()
+  const state = useThemeStore.getState()
   state.setTheme(theme)
   document.body.style.backgroundColor = theme.backGround0
   themeService.putTheme(theme.name)
 }
 
 export const toggleTheme = () => {
-  const state = useTheme.getState()
+  const state = useThemeStore.getState()
   setThemeWrap(state.theme.name === 'light' ? dark : light)
 }
 
@@ -89,7 +95,7 @@ export const ThemeButton = ({
   fontSize: number
   color: string
 }) => {
-  const theme = useTheme(
+  const theme = useThemeStore(
     (s) => s.theme,
     (s1, s2) => s1.name === s2.name
   )
@@ -104,7 +110,7 @@ export const useInitTheme = () => {
     themeService.readTheme().then((name) => {
       if (name) {
         const theme = name === 'light' ? light : dark
-        if (useTheme.getState().theme.name !== theme.name) {
+        if (useThemeStore.getState().theme.name !== theme.name) {
           setThemeWrap(theme)
         }
       }

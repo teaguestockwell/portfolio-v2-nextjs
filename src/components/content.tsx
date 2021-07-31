@@ -9,7 +9,6 @@ export const Content = ({children}: {children: JSX.Element[]}) => {
         display: 'flex',
         paddingLeft: Const.pad,
         paddingRight: Const.pad,
-        paddingBottom: Const.pad,
       }}
     >
       <div

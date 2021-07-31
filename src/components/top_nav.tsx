@@ -4,10 +4,7 @@ import {ThemeButton} from '../hooks/use_theme'
 import {Const} from '../const'
 
 const NavInner = () => {
-  const theme = useTheme(
-    (s) => s.theme,
-    (s1, s2) => s1.name === s2.name
-  )
+  const theme = useTheme()
   return (
     <div
       style={{

@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import {CustomTheme, useTheme} from '../hooks/use_theme'
+import {CustomTheme, useThemeStore} from '../hooks/use_theme'
 import {v4} from 'uuid'
 import {Const} from '../const'
 import {
@@ -88,7 +88,7 @@ const Svg = ({
 }
 
 export const Svgs = (size: number) => {
-  const theme = useTheme.getState().theme
+  const theme = useThemeStore.getState().theme
 
   return {
     dart: (

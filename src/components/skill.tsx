@@ -1,16 +1,16 @@
 import {v4} from 'uuid'
 import {Const} from '../const'
-import {useTheme} from '../hooks/use_theme'
+import {useThemeStore} from '../hooks/use_theme'
 import {ItemGrid} from './item_grid'
 
-export const SkillsCard = ({
+export const Skill = ({
   skillsSvgs,
   title,
 }: {
   skillsSvgs: JSX.Element[]
   title: string
 }) => {
-  const theme = useTheme.getState().theme
+  const theme = useThemeStore.getState().theme
 
   return (
     <div
@@ -20,7 +20,7 @@ export const SkillsCard = ({
         MozBoxShadow: theme.shadow,
         boxShadow: theme.shadow,
         padding: Const.pad / 2,
-        marginTop: Const.pad,
+        marginTop: Const.pad * 2,
         backgroundColor: theme.background1,
         borderRadius: Const.rad,
       }}

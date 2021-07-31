@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {v4} from 'uuid'
-import {useTheme} from '../hooks/use_theme'
+import {useThemeStore} from '../hooks/use_theme'
 import {ItemGrid} from './item_grid'
 import {Col, Divider, Modal, Row} from 'antd'
 import {Github} from '@icons-pack/react-simple-icons'
@@ -8,17 +8,8 @@ import {DownOutlined, UpOutlined, LinkOutlined} from '@ant-design/icons'
 import {useExpanded, useExpandedAtKey} from '../hooks/use_expanded'
 import {Const} from '../const'
 
-export interface Project {
-  name: string
-  shortDescription: string
-  longDescription: string
-  svgs: JSX.Element[]
-  repoSrc: {name: string; src: string}[] // fullstack apps may have more than 1 repo
-  deploymentSrc: string
-  video: JSX.Element
-}
-
 const s = useExpanded.getState()
+
 export const Project = ({
   name,
   shortDescription,
@@ -27,10 +18,18 @@ export const Project = ({
   repoSrc,
   deploymentSrc,
   video,
-}: Project) => {
+}: {
+  name: string
+  shortDescription: string
+  longDescription: string
+  svgs: JSX.Element[]
+  repoSrc: {name: string; src: string}[] // fullstack apps may have more than 1 repo
+  deploymentSrc: string
+  video: JSX.Element
+}) => {
   const [isModal, setIsModal] = useState(false)
   const isExpanded = useExpandedAtKey(name)
-  const theme = useTheme.getState().theme
+  const theme = useThemeStore.getState().theme
 
   return (
     <>
@@ -42,7 +41,7 @@ export const Project = ({
           paddingTop: 15,
           paddingLeft: Const.pad / 2,
           paddingRight: Const.pad / 2,
-          marginTop: Const.pad,
+          marginTop: Const.pad * 2,
           backgroundColor: theme.background1,
           borderRadius: Const.rad,
           position: 'relative',
