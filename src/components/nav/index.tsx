@@ -8,7 +8,7 @@ import {Const} from '../../const'
 import {ThemeButton} from '../../hooks/use_theme'
 
 export const Nav = () => {
-  const {md} = Grid.useBreakpoint()
+  const md = Grid.useBreakpoint()?.md as any
   const theme = useTheme()
 
   return useMemo(() => {
@@ -33,13 +33,6 @@ export const Nav = () => {
           }}
         />
 
-        <HamMenu
-          style={{
-            position: 'fixed',
-            left: 15,
-            top: 10,
-          }}
-        />
         {/* 
           <div
             style={{
@@ -52,43 +45,60 @@ export const Nav = () => {
             <LogoSvg />
           </div> */}
 
-        {md && (
+        {md ? (
           <NavMenu
             style={{
               top: 4,
-              left: 260,
-              right: 120,
+              left: 204,
+              right: 110,
               position: 'fixed',
+              justifyContent: 'flex-end',
+            }}
+          />
+        ) : (
+          <HamMenu
+            style={{
+              position: 'fixed',
+              left: 15,
+              top: 10,
             }}
           />
         )}
-
-        <div
-          style={{
-            position: 'absolute',
-            left: Const.pad * 3,
-            top: 0,
-            fontWeight: 'bold',
-            fontSize: 22,
-            fontFamily: 'helvetica',
-            color: theme.fontColor0,
-            width: 'max-content',
-          }}
-        >
-          Teague Stockwell
-        </div>
-
         <div
           style={{
             position: 'fixed',
-            left: Const.pad * 3,
-            top: 26,
-            fontSize: Const.fontSizes.md,
-            fontFamily: 'helvetica',
-            color: theme.fontColor0,
+            right: 0,
+            top: 0,
+            left: 0,
           }}
         >
-          Software Development
+          <div
+            style={{
+              position: 'absolute',
+              left: Const.pad * (md ? 1 : 3),
+              top: 0,
+              fontWeight: 'bold',
+              fontSize: 22,
+              fontFamily: 'helvetica',
+              color: theme.fontColor0,
+              width: 'max-content',
+            }}
+          >
+            Teague Stockwell
+          </div>
+
+          <div
+            style={{
+              position: 'fixed',
+              left: Const.pad * (md ? 1 : 3),
+              top: 26,
+              fontSize: Const.fontSizes.md,
+              fontFamily: 'helvetica',
+              color: theme.fontColor0,
+            }}
+          >
+            Software Development
+          </div>
         </div>
 
         <a
