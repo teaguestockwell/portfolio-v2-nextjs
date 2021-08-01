@@ -58,6 +58,7 @@ export const Nav = () => {
         ) : (
           <HamMenu
             style={{
+              zIndex: 2,
               position: 'fixed',
               left: 15,
               top: 10,
@@ -67,37 +68,36 @@ export const Nav = () => {
         <div
           style={{
             position: 'fixed',
-            right: 0,
             top: 0,
             left: 0,
+            display: 'flex',
+            justifyContent: 'left',
+            alignItems: 'left',
+            paddingLeft: md ? Const.pad : Const.pad * 3,
           }}
         >
-          <div
-            style={{
-              position: 'absolute',
-              left: Const.pad * (md ? 1 : 3),
-              top: 0,
-              fontWeight: 'bold',
-              fontSize: 22,
-              fontFamily: 'helvetica',
-              color: theme.fontColor0,
-              width: 'max-content',
-            }}
-          >
-            Teague Stockwell
-          </div>
+          <div>
+            <div
+              style={{
+                fontWeight: 'bold',
+                fontSize: 22,
+                fontFamily: 'helvetica',
+                color: theme.fontColor0,
+              }}
+            >
+              Teague Stockwell
+            </div>
 
-          <div
-            style={{
-              position: 'fixed',
-              left: Const.pad * (md ? 1 : 3),
-              top: 26,
-              fontSize: Const.fontSizes.md,
-              fontFamily: 'helvetica',
-              color: theme.fontColor0,
-            }}
-          >
-            Software Development
+            <div
+              style={{
+                marginTop: -8,
+                fontSize: Const.fontSizes.md,
+                fontFamily: 'helvetica',
+                color: theme.fontColor0,
+              }}
+            >
+              Software Development
+            </div>
           </div>
         </div>
 
