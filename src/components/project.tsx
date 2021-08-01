@@ -85,11 +85,38 @@ export const Project = ({
               {longDescription}
             </div>
 
-            <ItemGrid
-              items={svgs}
-              outerStyle={{paddingTop: Const.pad}}
-              getCell={(child) => child}
-            />
+            <div
+              style={{
+                paddingTop: Const.pad,
+                textAlign: 'center',
+                color: theme.fontColor1,
+                fontSize: Const.fontSizes.lg,
+              }}
+            >
+              {'Technologies'}
+            </div>
+
+            <div
+              style={{
+                paddingTop: Const.pad,
+                paddingBottom: Const.pad,
+                display: 'flex',
+                overflowX: 'scroll',
+                overflowY: 'clip',
+              }}
+            >
+              {svgs.map((x) => (
+                <div
+                  key={v4()}
+                  style={{
+                    paddingLeft: Const.pad / 3,
+                    paddingRight: Const.pad / 3,
+                  }}
+                >
+                  {x}
+                </div>
+              ))}
+            </div>
           </>
         )}
 

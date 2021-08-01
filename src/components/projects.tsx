@@ -15,7 +15,7 @@ const videos = projects.reduce((acc, p) => {
 export const Projects = () => {
   useTheme()
   // when the theme changes, grab a new set of svgs
-  const svgs = Svgs(24)
+  const svgs = Svgs(48)
 
   return (
     <Content>
