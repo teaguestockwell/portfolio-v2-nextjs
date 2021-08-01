@@ -1,6 +1,5 @@
 /* eslint-disable react/display-name */
 import {useThemeStore} from '../hooks/use_theme'
-import {v4} from 'uuid'
 import {Const, CustomTheme} from '../const'
 import {
   // language
@@ -56,12 +55,13 @@ const Svg = ({
       }}
     >
       <div
-        key={v4()}
         className="icon-hover"
         style={{
           width: 75,
           height: 75,
           padding: 5,
+          paddingLeft: Const.pad,
+          paddingRight: Const.pad,
         }}
       >
         <div

@@ -15,12 +15,16 @@ export const Projects = () => {
     <Content>
       {projects.map((p) => (
         // dont add pad to top because flex layout is dynamic, so each col needs pad top
-        <Card key={p.name} style={{paddingTop: 0}}>
+        <Card
+          key={p.name}
+          style={{paddingTop: 0, paddingLeft: 0, paddingRight: 0}}
+        >
           <Project
             key={p.name}
             name={p.name}
-            shortDescription={p.shortDescription}
-            longDescription={p.longDescription}
+            subHeading={p.subHeading}
+            dateRange={p.dateRange}
+            bullets={p.bullets}
             deploymentSrc={p.deploymentSrc}
             repoSrc={p.repoSrc}
             src={p.src}

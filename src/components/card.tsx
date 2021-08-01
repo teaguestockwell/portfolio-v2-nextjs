@@ -1,3 +1,4 @@
+import {Grid} from 'antd'
 import {Const} from '../const'
 import {useTheme} from '../hooks/use_theme'
 
@@ -9,6 +10,7 @@ export const Card = ({
   style?: any
 }) => {
   const theme = useTheme()
+  const md = Grid.useBreakpoint().md
 
   return (
     <div
@@ -19,7 +21,7 @@ export const Card = ({
         padding: Const.pad,
         marginTop: Const.pad * 2,
         backgroundColor: theme.background1,
-        borderRadius: Const.rad,
+        borderRadius: md ? Const.rad : 0,
         ...style,
       }}
     >

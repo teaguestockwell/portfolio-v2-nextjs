@@ -24,19 +24,27 @@ export const skills: {title: string; icons: string[]}[] = [
   },
 ]
 
-export const projects: {
+export interface IProject {
   name: string
-  shortDescription: string
-  longDescription: string
+  subHeading: string
+  dateRange: string
+  bullets: string[]
   deploymentSrc: string
   src: string
   repoSrc: {name: string; src: string}[]
   svgs: string[]
-}[] = [
+}
+
+export const projects: IProject[] = [
   {
     name: 'Levels',
-    shortDescription: `Production app for US Air Force to manage aircraft cargo and weight and balance data`,
-    longDescription: ipsum,
+    dateRange: 'March 2021 - Present',
+    subHeading: `Developed a production full stack web app to manage aircraft cargo loading for the Air Force`,
+    bullets: [
+      'Leveraged CI/CD pipelines, TDD, hardened Docker imgs, and Agile to accredit and securely deploy a prod app in < 5 months',
+      'Utilized Node.js to create a REST API that manages cargo and loading configurations against multiple aircraft and user roles',
+      'Created containerized React UI for real time aircraft data management, and cargo loading with offline persistence',
+    ],
     deploymentSrc: '',
     src: 'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/levels-hls/master.m3u8',
     repoSrc: [
@@ -70,8 +78,14 @@ export const projects: {
   },
   {
     name: 'Five Level',
-    shortDescription: `A cross-platform aircraft weight and balance app`,
-    longDescription: ipsum,
+    dateRange: 'Sep 2020 - Mar 2021',
+    bullets: [
+      'Established CI/CD pipeline for static code analysis, linting, testing, and containerized builds',
+      'Wrote 160 Flutter component & unit tests for > 90% code coverage',
+      'Developed custom admin dashboard to manage cargo data from a REST API in < 10 days',
+      'Utilized Google Firestore (BaaS / document db) for offline data persistence on mobile',
+    ],
+    subHeading: `Developed a X-Platform native UI to manage aircraft cargo loading`,
     deploymentSrc: 'https://fivelevel.web.app',
     src: 'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/five-level-hls/master.m3u8',
     repoSrc: [

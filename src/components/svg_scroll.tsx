@@ -1,3 +1,5 @@
+import React from 'react'
+import {v4} from 'uuid'
 import {Const} from '../const'
 
 export const SvgScroll = ({
@@ -5,7 +7,7 @@ export const SvgScroll = ({
   style = {},
 }: {
   svgs: JSX.Element[]
-  style?: object
+  style?: any
 }) => {
   return (
     <div
@@ -15,9 +17,12 @@ export const SvgScroll = ({
         display: 'flex',
         overflowX: 'auto',
         overflowY: 'clip',
+        ...style,
       }}
     >
-      {svgs}
+      {svgs.map((s) => (
+        <div key={v4()}>{s}</div>
+      ))}
     </div>
   )
 }

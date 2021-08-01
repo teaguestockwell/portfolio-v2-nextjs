@@ -1,5 +1,4 @@
 import React from 'react'
-import {v4} from 'uuid'
 import {useTheme} from '../hooks/use_theme'
 import {Svgs} from './svgs'
 import {skills} from '../data'
@@ -14,7 +13,7 @@ export const Skills = () => {
   return (
     <Content>
       {skills.map((s) => (
-        <Card key={v4()}>
+        <Card key={s.title}>
           <Skill title={s.title} svgs={s.icons.map((s) => svgs[s])} />
         </Card>
       ))}

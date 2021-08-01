@@ -7,24 +7,18 @@ import {LinkOutlined} from '@ant-design/icons'
 import {Const} from '../const'
 import {SvgScroll} from './svg_scroll'
 import {Video} from './video'
+import {IProject} from '../data'
 
 export const Project = ({
   name,
-  shortDescription,
-  longDescription,
+  subHeading,
+  bullets,
+  dateRange,
   svgs,
   repoSrc,
   deploymentSrc,
   src,
-}: {
-  name: string
-  shortDescription: string
-  longDescription: string
-  svgs: JSX.Element[]
-  repoSrc: {name: string; src: string}[] // fullstack apps may have more than 1 repo
-  deploymentSrc: string
-  src: string
-}) => {
+}: Omit<IProject, 'svgs'> & {svgs: JSX.Element[]}) => {
   const [isModal, setIsModal] = useState(false)
   const theme = useThemeStore.getState().theme
 
@@ -40,7 +34,9 @@ export const Project = ({
         <div
           style={{
             paddingTop: Const.pad,
-            flex: '0 0 50%',
+            paddingRight: Const.pad,
+            paddingLeft: Const.pad,
+            flex: '0 0 40%',
           }}
         >
           <Video src={src} />
@@ -49,8 +45,10 @@ export const Project = ({
         <div
           style={{
             paddingTop: Const.pad,
+            paddingRight: Const.pad,
+            paddingLeft: Const.pad,
             width: '100%',
-            flex: '1 0 50%',
+            flex: '1 0 60%',
           }}
         >
           <div
@@ -68,22 +66,44 @@ export const Project = ({
               textAlign: 'left',
               color: theme.fontColor1,
               fontSize: Const.fontSizes.sm,
-              paddingTop: Const.pad,
             }}
           >
-            {shortDescription}
+            {dateRange}
           </div>
 
           <div
             style={{
-              paddingTop: Const.pad,
+              textAlign: 'left',
               color: theme.fontColor1,
               fontSize: Const.fontSizes.sm,
-              textAlign: 'left',
+              paddingTop: Const.pad,
             }}
           >
-            {longDescription}
+            {subHeading}
           </div>
+
+          <ul
+            style={{
+              marginLeft: -24,
+              marginBottom: 0,
+            }}
+          >
+            {bullets.map((b) => {
+              return (
+                <li
+                  key={b}
+                  style={{
+                    paddingTop: Const.pad,
+                    color: theme.fontColor1,
+                    fontSize: Const.fontSizes.sm,
+                    textAlign: 'left',
+                  }}
+                >
+                  {b}
+                </li>
+              )
+            })}
+          </ul>
         </div>
       </div>
 
@@ -101,48 +121,50 @@ export const Project = ({
         {'Technologies'}
       </div>
 
-      <SvgScroll svgs={svgs} />
+      <div style={{marginRight: Const.pad, marginLeft: Const.pad}}>
+        <SvgScroll svgs={svgs} />
 
-      <Divider
-        key={v4()}
-        style={{
-          backgroundColor: theme.fontColor1,
-          marginBottom: Const.pad,
-        }}
-      />
-
-      <div
-        style={{
-          backgroundColor: theme.background1,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-evenly',
-        }}
-      >
-        <div
-          className="icon-hover"
-          onClick={() => setIsModal(!isModal)}
+        <Divider
+          key={v4()}
           style={{
-            textAlign: 'center',
-            cursor: 'pointer',
+            backgroundColor: theme.fontColor2,
+            marginBottom: Const.pad,
           }}
-        >
-          <Github color={theme.fontColor0} size={30} />
-        </div>
+        />
 
         <div
-          className="icon-hover"
           style={{
-            textAlign: 'center',
-            cursor: 'pointer',
+            backgroundColor: theme.background1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-evenly',
           }}
         >
-          <a href={deploymentSrc} target="_blank" rel="noreferrer">
-            <LinkOutlined
-              size={30}
-              style={{color: theme.fontColor0, fontSize: 30}}
-            />
-          </a>
+          <div
+            className="icon-hover"
+            onClick={() => setIsModal(!isModal)}
+            style={{
+              textAlign: 'center',
+              cursor: 'pointer',
+            }}
+          >
+            <Github color={theme.fontColor0} size={30} />
+          </div>
+
+          <div
+            className="icon-hover"
+            style={{
+              textAlign: 'center',
+              cursor: 'pointer',
+            }}
+          >
+            <a href={deploymentSrc} target="_blank" rel="noreferrer">
+              <LinkOutlined
+                size={30}
+                style={{color: theme.fontColor0, fontSize: 30}}
+              />
+            </a>
+          </div>
         </div>
       </div>
 
@@ -168,7 +190,7 @@ export const Project = ({
               color: theme.fontColor1,
             }}
           >
-            Repos
+            Git Repo
           </div>
           {repoSrc.map(({name, src}) => (
             <a key={v4()} href={src} target="_blank" rel="noreferrer">
