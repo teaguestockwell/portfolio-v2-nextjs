@@ -5,6 +5,7 @@ import {Svgs} from './svgs'
 import {skills} from '../data'
 import {Content} from './content'
 import {Skill} from './skill'
+import {Card} from './card'
 
 export const Skills = () => {
   useTheme()
@@ -13,11 +14,9 @@ export const Skills = () => {
   return (
     <Content>
       {skills.map((s) => (
-        <Skill
-          key={v4()}
-          title={s.title}
-          skillsSvgs={s.icons.map((s) => svgs[s])}
-        />
+        <Card key={v4()}>
+          <Skill title={s.title} svgs={s.icons.map((s) => svgs[s])} />
+        </Card>
       ))}
     </Content>
   )

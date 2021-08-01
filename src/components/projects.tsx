@@ -4,6 +4,8 @@ import {projects} from '../data'
 import {Video} from './video'
 import {Content} from '../components/content'
 import {Project} from './project'
+import {v4} from 'uuid'
+import {Card} from './card'
 
 // persist between theme changes, and card state changes
 // not inside of a ref because the scope does not depend on state or props
@@ -20,16 +22,17 @@ export const Projects = () => {
   return (
     <Content>
       {projects.map((p) => (
-        <Project
-          key={p.name}
-          name={p.name}
-          shortDescription={p.shortDescription}
-          longDescription={p.longDescription}
-          deploymentSrc={p.deploymentSrc}
-          repoSrc={p.repoSrc}
-          video={videos[p.name]}
-          svgs={p.svgs.map((s) => svgs[s])}
-        />
+        <Card key={v4()}>
+          <Project
+            name={p.name}
+            shortDescription={p.shortDescription}
+            longDescription={p.longDescription}
+            deploymentSrc={p.deploymentSrc}
+            repoSrc={p.repoSrc}
+            video={videos[p.name]}
+            svgs={p.svgs.map((s) => svgs[s])}
+          />
+        </Card>
       ))}
     </Content>
   )

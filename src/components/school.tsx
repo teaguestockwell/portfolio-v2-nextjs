@@ -2,6 +2,7 @@ import {v4} from 'uuid'
 import {Const} from '../const'
 import {useThemeStore} from '../hooks/use_theme'
 import Image from 'next/image'
+import {Card} from './card'
 
 export const School = ({
   name,
@@ -17,18 +18,7 @@ export const School = ({
   const theme = useThemeStore.getState().theme
 
   return (
-    <div
-      key={v4()}
-      style={{
-        WebkitBoxShadow: theme.shadow,
-        MozBoxShadow: theme.shadow,
-        boxShadow: theme.shadow,
-        padding: Const.pad,
-        marginTop: Const.pad * 2,
-        backgroundColor: theme.background1,
-        borderRadius: Const.rad,
-      }}
-    >
+    <>
       <div
         style={{
           textAlign: 'center',
@@ -96,6 +86,6 @@ export const School = ({
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
