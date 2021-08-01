@@ -1,5 +1,4 @@
 import {Grid} from 'antd'
-import {v4} from 'uuid'
 import {Const} from '../const'
 import {useTheme} from '../hooks/use_theme'
 
@@ -10,12 +9,11 @@ export const Card = ({
   children: JSX.Element | JSX.Element[]
   style?: any
 }) => {
-  const sm = Grid.useBreakpoint()?.sm as any
+  const md = Grid.useBreakpoint()?.md as any
   const theme = useTheme()
 
   return (
     <div
-      key={v4()}
       style={{
         WebkitBoxShadow: theme.shadow,
         MozBoxShadow: theme.shadow,
@@ -23,7 +21,9 @@ export const Card = ({
         padding: Const.pad,
         marginTop: Const.pad * 2,
         backgroundColor: theme.background1,
-        borderRadius: sm ? Const.rad : 0,
+        borderRadius: md ? Const.rad : 0,
+        marginRight: md ? Const.pad : 0,
+        marginLeft: md ? Const.pad : 0,
         ...style,
       }}
     >

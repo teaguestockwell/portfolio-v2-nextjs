@@ -24,7 +24,7 @@ export const Nav = () => {
       >
         <div
           style={{
-            height: 50,
+            height: 60,
             backgroundColor: theme.background2,
             position: 'fixed',
             left: 0,
@@ -61,26 +61,24 @@ export const Nav = () => {
               zIndex: 2,
               position: 'fixed',
               left: 15,
-              top: 10,
+              top: 15,
             }}
           />
         )}
         <div
           style={{
             position: 'fixed',
-            top: 0,
-            left: 0,
+            top: 5,
+            left: md ? Const.pad : Const.pad * 3,
             display: 'flex',
             justifyContent: 'left',
             alignItems: 'left',
-            paddingLeft: md ? Const.pad : Const.pad * 3,
           }}
         >
           <div>
             <div
               style={{
-                fontWeight: 'bold',
-                fontSize: 22,
+                fontSize: Const.fontSizes.md,
                 fontFamily: 'helvetica',
                 color: theme.fontColor0,
               }}
@@ -90,7 +88,6 @@ export const Nav = () => {
 
             <div
               style={{
-                marginTop: -8,
                 fontSize: Const.fontSizes.md,
                 fontFamily: 'helvetica',
                 color: theme.fontColor0,
@@ -109,13 +106,9 @@ export const Nav = () => {
           <div
             className="icon-hover"
             style={{
-              textAlign: 'center',
-              paddingTop: 13,
-              width: 50,
-              height: 50,
-              top: 0,
+              top: 15,
+              right: Const.pad,
               position: 'fixed',
-              right: 0,
             }}
           >
             <Github color={theme.fontColor0} size={24} />
@@ -130,13 +123,9 @@ export const Nav = () => {
           <div
             className="icon-hover"
             style={{
-              textAlign: 'center',
-              paddingTop: 13,
-              width: 50,
-              height: 50,
-              top: 0,
               position: 'fixed',
-              right: 38,
+              top: 15,
+              right: Const.pad / 2 + 24 + Const.pad,
             }}
           >
             <Linkedin size={24} color={theme.fontColor0} />
@@ -146,13 +135,10 @@ export const Nav = () => {
         <div
           className="icon-hover"
           style={{
-            textAlign: 'center',
-            paddingTop: 13,
-            width: 50,
-            height: 50,
+            paddingTop: 15,
             top: 0,
             position: 'fixed',
-            right: 72,
+            right: Const.pad / 2 + 24 + Const.pad / 2 + 24 + Const.pad,
           }}
         >
           <ThemeButton fontSize={24} color={theme.fontColor0} />
@@ -166,7 +152,7 @@ export const WithNav = ({children}: {children?: any}) => {
   return (
     <>
       <Nav />
-      <div style={{paddingTop: 50}}>{children}</div>
+      <div style={{paddingTop: 60}}>{children}</div>
     </>
   )
 }
