@@ -1,8 +1,10 @@
+/* eslint-disable react/display-name */
 import {useEffect, useRef, useState} from 'react'
 import videojs from 'video.js'
 import {useVisible} from 'react-hooks-visible'
+import React from 'react'
 
-export const Video = ({src}: {src: string}) => {
+export const Video = React.memo(({src}: {src: string}) => {
   const videoRef = useRef(null)
   const [player, setPlayer] = useState<any>(null)
   const [ref, visible] = useVisible((vi: number) => vi > 0.3)
@@ -82,4 +84,4 @@ export const Video = ({src}: {src: string}) => {
   }, [visible, player])
 
   return VideoHtml.current
-}
+})

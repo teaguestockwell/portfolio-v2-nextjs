@@ -6,6 +6,7 @@ import {Github} from '@icons-pack/react-simple-icons'
 import {LinkOutlined} from '@ant-design/icons'
 import {Const} from '../const'
 import {SvgScroll} from './svg_scroll'
+import {Video} from './video'
 
 export const Project = ({
   name,
@@ -14,7 +15,7 @@ export const Project = ({
   svgs,
   repoSrc,
   deploymentSrc,
-  video,
+  src,
 }: {
   name: string
   shortDescription: string
@@ -22,7 +23,7 @@ export const Project = ({
   svgs: JSX.Element[]
   repoSrc: {name: string; src: string}[] // fullstack apps may have more than 1 repo
   deploymentSrc: string
-  video: JSX.Element
+  src: string
 }) => {
   const [isModal, setIsModal] = useState(false)
   const theme = useThemeStore.getState().theme
@@ -42,7 +43,7 @@ export const Project = ({
             flex: '0 0 50%',
           }}
         >
-          {video}
+          <Video src={src} />
         </div>
 
         <div
