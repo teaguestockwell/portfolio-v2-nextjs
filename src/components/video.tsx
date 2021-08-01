@@ -13,28 +13,21 @@ export const Video = ({src}: {src: string}) => {
     <div
       ref={ref as any}
       style={{
-        display: 'flex',
-        alignContent: 'center',
-        justifyContent: 'center',
+        width: 'fit-content',
+        maxHeight: '70vh',
+        borderRadius: 10,
+        overflow: 'hidden',
+        WebkitTransform: 'translateZ(0)',
+        aspectRatio: '6/13', // I Phone X
       }}
     >
-      <div
-        style={{
-          width: 'fit-content',
-          borderRadius: 10,
-          overflow: 'hidden',
-          WebkitTransform: 'translateZ(0)',
-          aspectRatio: '6/13', // I Phone X
-        }}
-      >
-        <div data-vjs-player>
-          <video
-            muted
-            ref={videoRef}
-            className="video-js vjs-big-play-centered"
-            style={{maxWidth: '100%', maxHeight: '100%'}}
-          />
-        </div>
+      <div data-vjs-player>
+        <video
+          muted
+          ref={videoRef}
+          className="video-js vjs-big-play-centered"
+          style={{maxWidth: '100%', maxHeight: '100%'}}
+        />
       </div>
     </div>
   )

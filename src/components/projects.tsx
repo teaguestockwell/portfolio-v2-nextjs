@@ -22,7 +22,8 @@ export const Projects = () => {
   return (
     <Content>
       {projects.map((p) => (
-        <Card key={v4()}>
+        // dont add pad to top because flex layout is dynamic, so each col needs pad top
+        <Card key={v4()} style={{paddingTop: 0}}>
           <Project
             name={p.name}
             shortDescription={p.shortDescription}

@@ -4,7 +4,7 @@ import {useThemeStore} from '../hooks/use_theme'
 import {Col, Divider, Modal, Row} from 'antd'
 import {Github} from '@icons-pack/react-simple-icons'
 import {DownOutlined, UpOutlined, LinkOutlined} from '@ant-design/icons'
-import {useExpanded, useExpandedAtKey} from '../hooks/use_expanded'
+import {useExpanded} from '../hooks/use_expanded'
 import {Const} from '../const'
 import {SvgScroll} from './svg_scroll'
 
@@ -28,38 +28,54 @@ export const Project = ({
   video: JSX.Element
 }) => {
   const [isModal, setIsModal] = useState(false)
-  const isExpanded = useExpandedAtKey(name)
   const theme = useThemeStore.getState().theme
 
   return (
     <>
-      {video}
-
       <div
         style={{
-          paddingTop: Const.pad / 2,
-          textAlign: 'center',
-          color: theme.fontColor1,
-          fontSize: Const.fontSizes.lg,
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
-        {name}
-      </div>
+        <div
+          style={{
+            paddingTop: Const.pad,
+            flex: '0 0 50%',
+          }}
+        >
+          {video}
+        </div>
 
-      <div
-        style={{
-          textAlign: 'left',
-          color: theme.fontColor1,
-          fontSize: Const.fontSizes.sm,
-          paddingTop: Const.pad / 2,
-          paddingBottom: isExpanded ? 0 : Const.pad,
-        }}
-      >
-        {shortDescription}
-      </div>
+        <div
+          style={{
+            paddingTop: Const.pad,
+            width: '100%',
+            flex: '1 0 50%',
+          }}
+        >
+          <div
+            style={{
+              textAlign: 'center',
+              color: theme.fontColor1,
+              fontSize: Const.fontSizes.lg,
+            }}
+          >
+            {name}
+          </div>
 
-      {isExpanded && (
-        <>
+          <div
+            style={{
+              textAlign: 'left',
+              color: theme.fontColor1,
+              fontSize: Const.fontSizes.sm,
+              paddingTop: Const.pad,
+            }}
+          >
+            {shortDescription}
+          </div>
+
           <div
             style={{
               paddingTop: Const.pad,
@@ -70,21 +86,24 @@ export const Project = ({
           >
             {longDescription}
           </div>
+        </div>
+      </div>
 
-          <div
-            style={{
-              paddingTop: Const.pad,
-              textAlign: 'center',
-              color: theme.fontColor1,
-              fontSize: Const.fontSizes.lg,
-            }}
-          >
-            {'Technologies'}
-          </div>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          paddingTop: Const.pad,
+          textAlign: 'center',
+          color: theme.fontColor1,
+          fontSize: Const.fontSizes.lg,
+        }}
+      >
+        {'Technologies'}
+      </div>
 
-          <SvgScroll svgs={svgs} />
-        </>
-      )}
+      <SvgScroll svgs={svgs} />
 
       <Divider
         key={v4()}
@@ -110,24 +129,6 @@ export const Project = ({
           }}
         >
           <Github color={theme.fontColor0} size={24} />
-        </Col>
-
-        <Col
-          className="icon-hover"
-          span={8}
-          onClick={() => s.setExpanded(name, !isExpanded)}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-          }}
-        >
-          {isExpanded ? (
-            <UpOutlined style={{color: theme.fontColor0}} size={24} />
-          ) : (
-            <DownOutlined style={{color: theme.fontColor0}} size={24} />
-          )}
         </Col>
 
         <Col
