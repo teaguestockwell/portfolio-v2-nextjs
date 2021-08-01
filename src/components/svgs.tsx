@@ -50,39 +50,46 @@ const Svg = ({
 }) => {
   return (
     <div
-      key={v4()}
-      className="icon-hover"
       style={{
-        width: 75,
-        height: 75,
-        padding: 5,
+        paddingLeft: Const.pad,
+        paddingRight: Const.pad,
       }}
     >
       <div
+        key={v4()}
+        className="icon-hover"
         style={{
-          paddingTop: 4,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          width: 75,
+          height: 75,
+          padding: 5,
         }}
       >
-        {svg}
-      </div>
-
-      {name && (
         <div
           style={{
             paddingTop: 4,
-            color: theme.fontColor1,
-            fontSize: Const.fontSizes.sm,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
           }}
         >
-          {name}
+          {svg}
         </div>
-      )}
+
+        {name && (
+          <div
+            style={{
+              paddingTop: 4,
+              color: theme.fontColor1,
+              fontSize: Const.fontSizes.sm,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            {name}
+          </div>
+        )}
+      </div>
     </div>
   )
 }
