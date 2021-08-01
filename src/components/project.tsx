@@ -1,14 +1,11 @@
 import React, {useState} from 'react'
 import {v4} from 'uuid'
 import {useThemeStore} from '../hooks/use_theme'
-import {Col, Divider, Modal, Row} from 'antd'
+import {Divider, Modal} from 'antd'
 import {Github} from '@icons-pack/react-simple-icons'
-import {DownOutlined, UpOutlined, LinkOutlined} from '@ant-design/icons'
-import {useExpanded} from '../hooks/use_expanded'
+import {LinkOutlined} from '@ant-design/icons'
 import {Const} from '../const'
 import {SvgScroll} from './svg_scroll'
-
-const s = useExpanded.getState()
 
 export const Project = ({
   name,
@@ -113,39 +110,40 @@ export const Project = ({
         }}
       />
 
-      <Row
-        style={{backgroundColor: theme.background1, paddingBottom: Const.pad}}
-        justify="center"
+      <div
+        style={{
+          backgroundColor: theme.background1,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-evenly',
+        }}
       >
-        <Col
+        <div
           className="icon-hover"
-          span={8}
           onClick={() => setIsModal(!isModal)}
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            textAlign: 'center',
             cursor: 'pointer',
           }}
         >
-          <Github color={theme.fontColor0} size={24} />
-        </Col>
+          <Github color={theme.fontColor0} size={30} />
+        </div>
 
-        <Col
-          span={8}
+        <div
           className="icon-hover"
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            textAlign: 'center',
             cursor: 'pointer',
           }}
         >
           <a href={deploymentSrc} target="_blank" rel="noreferrer">
-            <LinkOutlined size={24} style={{color: theme.fontColor0}} />
+            <LinkOutlined
+              size={30}
+              style={{color: theme.fontColor0, fontSize: 30}}
+            />
           </a>
-        </Col>
-      </Row>
+        </div>
+      </div>
 
       <Modal
         centered

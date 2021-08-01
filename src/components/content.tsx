@@ -1,4 +1,7 @@
+import {Grid} from 'antd'
+import {Const} from '../const'
 export const Content = ({children}: {children: JSX.Element[]}) => {
+  const md = Grid.useBreakpoint()?.md as any
   return (
     <div
       style={{
@@ -9,6 +12,8 @@ export const Content = ({children}: {children: JSX.Element[]}) => {
     >
       <div
         style={{
+          paddingRight: md ? Const.pad : 0,
+          paddingLeft: md ? Const.pad : 0,
           maxWidth: 1000,
           width: '100%',
         }}

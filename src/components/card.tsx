@@ -9,7 +9,6 @@ export const Card = ({
   children: JSX.Element | JSX.Element[]
   style?: any
 }) => {
-  const md = Grid.useBreakpoint()?.md as any
   const theme = useTheme()
 
   return (
@@ -21,9 +20,7 @@ export const Card = ({
         padding: Const.pad,
         marginTop: Const.pad * 2,
         backgroundColor: theme.background1,
-        borderRadius: md ? Const.rad : 0,
-        marginRight: md ? Const.pad : 0,
-        marginLeft: md ? Const.pad : 0,
+        borderRadius: Const.rad,
         ...style,
       }}
     >
