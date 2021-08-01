@@ -18,7 +18,7 @@ export const Section = ({title}: {title: string}) => {
     >
       <div
         style={{
-          paddingLeft: Const.pad,
+          paddingLeft: Const.pad * 2,
           color: theme.fontColor1,
           textAlign: 'left',
           fontSize: Const.fontSizes.xl,

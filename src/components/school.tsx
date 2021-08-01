@@ -23,7 +23,7 @@ export const School = ({
         WebkitBoxShadow: theme.shadow,
         MozBoxShadow: theme.shadow,
         boxShadow: theme.shadow,
-        padding: Const.pad / 2,
+        padding: Const.pad,
         marginTop: Const.pad * 2,
         backgroundColor: theme.background1,
         borderRadius: Const.rad,
