@@ -126,7 +126,7 @@ export const educations: {
 
 export const menuData: {title: string; items: {name: string; a: string}[]}[] = [
   {
-    title: 'Tech',
+    title: 'Technology',
     items: skills.map((s) => ({name: s.title, a: ''})),
   },
   {
@@ -134,7 +134,7 @@ export const menuData: {title: string; items: {name: string; a: string}[]}[] = [
     items: projects.map((p) => ({name: p.name, a: p.deploymentSrc})),
   },
   {
-    title: 'Edu',
+    title: 'Education',
     items: educations.map((e) => ({name: e.name, a: ''})),
   },
 ]

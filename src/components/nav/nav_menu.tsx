@@ -8,7 +8,7 @@ export const NavMenu = ({style}: {style?: any}) => {
     <Menu
       mode={'horizontal'}
       style={style}
-      triggerSubMenuAction={'hover'}
+      triggerSubMenuAction={'click'}
       selectedKeys={[]}
     >
       {menuData.map((ig) => (

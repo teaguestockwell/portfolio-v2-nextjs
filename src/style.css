@@ -56,3 +56,7 @@ div.ant-drawer-header {
 .ant-menu-vertical-left {
   border-right: 0px !important;
 }
+
+.ant-menu-submenu-popup {
+  position: fixed !important;
+}
