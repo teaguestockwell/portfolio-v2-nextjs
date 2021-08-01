@@ -1,8 +1,6 @@
-import {v4} from 'uuid'
 import {Const} from '../const'
 import {useThemeStore} from '../hooks/use_theme'
 import Image from 'next/image'
-import {Card} from './card'
 
 export const School = ({
   name,

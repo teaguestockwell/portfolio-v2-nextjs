@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
-import {CustomTheme, useThemeStore} from '../hooks/use_theme'
+import {useThemeStore} from '../hooks/use_theme'
 import {v4} from 'uuid'
-import {Const} from '../const'
+import {Const, CustomTheme} from '../const'
 import {
   // language
   Dart,

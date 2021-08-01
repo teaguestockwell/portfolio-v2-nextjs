@@ -1,3 +1,5 @@
+// .babelrc.js
 module.exports = {
-  presets: [['next/babel', {'preset-react': {runtime: 'automatic'}}]],
+  presets: [['next/babel']],
+  plugins: [['import', {libraryName: 'antd', style: true}]],
 }
