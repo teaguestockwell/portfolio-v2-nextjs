@@ -42,3 +42,7 @@ div.ant-drawer-header {
 .ant-menu-submenu-popup {
   position: fixed !important;
 }
+
+.scroll-active {
+  color: red;
+}

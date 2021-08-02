@@ -1,6 +1,10 @@
 import {Grid} from 'antd'
 import {Const} from '../const'
-export const Content = ({children}: {children: JSX.Element[]}) => {
+export const Content = ({
+  children,
+}: {
+  children: JSX.Element[] | JSX.Element
+}) => {
   const md = Grid.useBreakpoint()?.md as any
   return (
     <div

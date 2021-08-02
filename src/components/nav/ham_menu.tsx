@@ -3,6 +3,8 @@ import {MenuOutlined} from '@ant-design/icons'
 import {useState} from 'react'
 import {useTheme} from '../../hooks/use_theme'
 import {menuData} from '../../data'
+import {Link} from 'react-scroll'
+import {Const} from '../../const'
 
 export const HamMenu = ({style}: {style?: any}) => {
   const theme = useTheme()
@@ -27,33 +29,19 @@ export const HamMenu = ({style}: {style?: any}) => {
         visible={open}
         onClose={toggle}
       >
-        <Menu
-          selectedKeys={[]}
-          mode="inline"
-          style={{
-            width: '100%',
-            padding: '10px',
-            backgroundColor: theme.background2,
-          }}
-        >
+        <>
           {menuData.map((ig) => (
-            <div key={ig.title}>
-              <Menu.ItemGroup
-                title={<div style={{color: theme.fontColor0}}>{ig.title}</div>}
-              >
-                {ig.items.map((i) => (
-                  <Menu.Item
-                    style={{color: theme.fontColor1}}
-                    key={ig.title + i.name}
-                  >
-                    {i.name}
-                  </Menu.Item>
-                ))}
-              </Menu.ItemGroup>
+            <>
+              <div>{ig.title}</div>
+              {ig.items.map((i) => (
+                <Link key={i.name} to={i.name} {...Const.reactScrollProps}>
+                  <div>{i.name}</div>
+                </Link>
+              ))}
               <Divider />
-            </div>
+            </>
           ))}
-        </Menu>
+        </>
       </Drawer>
     </div>
   )

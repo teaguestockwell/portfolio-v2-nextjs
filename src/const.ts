@@ -17,6 +17,8 @@ export interface CustomTheme {
 }
 
 export const Const: {
+  titles: {[key: string]: string}
+  reactScrollProps: any
   rad: number
   pad: number
   fontSizes: {
@@ -29,6 +31,18 @@ export const Const: {
     [key: string]: CustomTheme
   }
 } = {
+  titles: {
+    tech: 'Technologies',
+    projects: 'Projects',
+    education: 'Education',
+  },
+  reactScrollProps: {
+    spy: true,
+    smooth: true,
+    duration: 400,
+    activeClass: 'scroll-active',
+    offset: -80,
+  },
   rad: 10,
   pad: 20,
   fontSizes: {

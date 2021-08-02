@@ -2,6 +2,8 @@ import {Menu} from 'antd'
 import {Const} from '../../const'
 import {menuData} from '../../data'
 import {useTheme} from '../../hooks/use_theme'
+import {Link} from 'react-scroll'
+import {v4} from 'uuid'
 
 export const NavMenu = ({style}: {style?: any}) => {
   const theme = useTheme()
@@ -14,12 +16,12 @@ export const NavMenu = ({style}: {style?: any}) => {
     >
       {menuData.map((ig) => (
         <Menu.SubMenu
+          key={ig.title}
+          title={ig.title}
           style={{
             color: theme.fontColor0,
             fontSize: Const.fontSizes.md,
           }}
-          key={ig.title}
-          title={ig.title}
         >
           {ig.items.map((i) => (
             <Menu.Item
@@ -32,6 +34,7 @@ export const NavMenu = ({style}: {style?: any}) => {
               key={ig.title + i.name}
             >
               {i.name}
+              <Link to={i.name} {...Const.reactScrollProps}></Link>
             </Menu.Item>
           ))}
         </Menu.SubMenu>

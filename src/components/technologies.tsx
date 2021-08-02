@@ -3,19 +3,22 @@ import {useTheme} from '../hooks/use_theme'
 import {Svgs} from './svgs'
 import {skills} from '../data'
 import {Content} from './content'
-import {Skill} from './skill'
+import {Tech} from './tech'
 import {Card} from './card'
+import {Element} from 'react-scroll'
 
-export const Skills = () => {
+export const Technologies = () => {
   useTheme()
   const svgs = Svgs(48)
 
   return (
     <Content>
       {skills.map((s) => (
-        <Card key={s.title}>
-          <Skill title={s.title} svgs={s.icons.map((s) => svgs[s])} />
-        </Card>
+        <Element key={s.title} name={s.title}>
+          <Card key={s.title}>
+            <Tech title={s.title} svgs={s.icons.map((s) => svgs[s])} />
+          </Card>
+        </Element>
       ))}
     </Content>
   )

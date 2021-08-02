@@ -4,7 +4,7 @@ import {projects} from '../data'
 import {Content} from '../components/content'
 import {Project} from './project'
 import {Card} from './card'
-import React from 'react'
+import {Element} from 'react-scroll'
 
 export const Projects = () => {
   useTheme()
@@ -14,23 +14,24 @@ export const Projects = () => {
   return (
     <Content>
       {projects.map((p) => (
-        // dont add pad to top because flex layout is dynamic, so each col needs pad top
-        <Card
-          key={p.name}
-          style={{paddingTop: 0, paddingLeft: 0, paddingRight: 0}}
-        >
-          <Project
+        <Element key={p.name} name={p.name}>
+          <Card
             key={p.name}
-            name={p.name}
-            subHeading={p.subHeading}
-            dateRange={p.dateRange}
-            bullets={p.bullets}
-            deploymentSrc={p.deploymentSrc}
-            repoSrc={p.repoSrc}
-            src={p.src}
-            svgs={p.svgs.map((s) => svgs[s])}
-          />
-        </Card>
+            style={{paddingTop: 0, paddingLeft: 0, paddingRight: 0}}
+          >
+            <Project
+              key={p.name}
+              name={p.name}
+              subHeading={p.subHeading}
+              dateRange={p.dateRange}
+              bullets={p.bullets}
+              deploymentSrc={p.deploymentSrc}
+              repoSrc={p.repoSrc}
+              src={p.src}
+              svgs={p.svgs.map((s) => svgs[s])}
+            />
+          </Card>
+        </Element>
       ))}
     </Content>
   )
