@@ -8,6 +8,8 @@ import {Const} from '../../const'
 import {ThemeButton} from '../../hooks/use_theme'
 import {developer} from '../../data'
 
+const appBarHeight = 60
+
 export const Nav = () => {
   const md = Grid.useBreakpoint()?.md as any
   const theme = useTheme()
@@ -25,7 +27,7 @@ export const Nav = () => {
       >
         <div
           style={{
-            height: 60,
+            height: appBarHeight,
             backgroundColor: theme.background2,
             position: 'fixed',
             left: 0,
@@ -34,88 +36,80 @@ export const Nav = () => {
           }}
         />
 
-        {/* 
-          <div
-            style={{
-              position: 'fixed',
-              left: 60,
-              top: 0,
-              cursor: 'pointer',
-            }}
-          >
-            <LogoSvg />
-          </div> */}
-
-        {md ? (
-          <NavMenu
-            style={{
-              top: 8,
-              left: 204,
-              right: 110,
-              position: 'fixed',
-              justifyContent: 'flex-end',
-            }}
-          />
-        ) : (
-          <HamMenu
-            style={{
-              zIndex: 2,
-              position: 'fixed',
-              left: 15,
-              top: 19,
-            }}
-          />
-        )}
-
         <div
           style={{
-            fontSize: md ? Const.fontSizes.lg : Const.fontSizes.md,
-            fontFamily: 'helvetica',
-            color: theme.fontColor0,
+            display: 'flex',
+            justifyContent: 'left',
+            alignItems: 'center',
+            top: 0,
+            left: 0,
+            height: appBarHeight,
             position: 'fixed',
-            top: md ? 12 : 18,
-            left: md ? Const.pad : 50,
           }}
         >
-          {developer.name}
+          {
+            !md ? <HamMenu style={{paddingLeft: Const.pad}} /> : null
+            // <div
+            //   style={{paddingLeft: Const.pad}}
+            // >
+            //   <LogoSvg />
+            // </div>
+          }
+
+          <div
+            style={{
+              fontSize: md ? Const.fontSizes.lg : Const.fontSizes.md,
+              fontFamily: 'helvetica',
+              color: theme.fontColor0,
+              paddingLeft: md ? Const.pad : Const.pad / 2,
+            }}
+          >
+            {developer.name}
+          </div>
         </div>
 
-        <a href={developer.githubSrc} rel="noreferrer" target="_blank">
-          <div
-            className="icon-hover"
-            style={{
-              top: 18,
-              right: Const.pad,
-              position: 'fixed',
-            }}
-          >
-            <Github color={theme.fontColor0} size={24} />
-          </div>
-        </a>
-
-        <a href={developer.linkedInSrc} rel="noreferrer" target="_blank">
-          <div
-            className="icon-hover"
-            style={{
-              position: 'fixed',
-              top: 18,
-              right: Const.pad / 2 + 24 + Const.pad,
-            }}
-          >
-            <Linkedin size={24} color={theme.fontColor0} />
-          </div>
-        </a>
-
         <div
-          className="icon-hover"
           style={{
-            paddingTop: 18,
+            display: 'flex',
+            justifyContent: 'right',
+            alignItems: 'center',
             top: 0,
+            height: appBarHeight,
+            right: Const.pad,
             position: 'fixed',
-            right: Const.pad / 2 + 24 + Const.pad / 2 + 24 + Const.pad,
           }}
         >
-          <ThemeButton fontSize={24} color={theme.fontColor0} />
+          {md && (
+            <NavMenu
+              style={{
+                justifyContent: 'flex-end',
+              }}
+            />
+          )}
+
+          <div
+            className="icon-hover"
+            style={{
+              width: '8vw',
+              maxWidth: 50,
+              paddingBottom: 3,
+              paddingLeft: 2,
+            }}
+          >
+            <ThemeButton fontSize={24} color={theme.fontColor0} />
+          </div>
+
+          <a href={developer.githubSrc} rel="noreferrer" target="_blank">
+            <div className="icon-hover" style={{width: '8vw', maxWidth: 50}}>
+              <Github color={theme.fontColor0} size={24} />
+            </div>
+          </a>
+
+          <a href={developer.linkedInSrc} rel="noreferrer" target="_blank">
+            <div className="icon-hover" style={{}}>
+              <Linkedin size={24} color={theme.fontColor0} />
+            </div>
+          </a>
         </div>
       </div>
     )
@@ -126,7 +120,7 @@ export const WithNav = ({children}: {children?: any}) => {
   return (
     <>
       <Nav />
-      <div style={{paddingTop: 60}}>{children}</div>
+      <div style={{paddingTop: appBarHeight}}>{children}</div>
     </>
   )
 }

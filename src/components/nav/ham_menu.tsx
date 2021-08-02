@@ -11,15 +11,13 @@ export const HamMenu = ({style}: {style?: any}) => {
 
   return (
     <div style={style}>
-      <div style={{}} onClick={toggle}>
-        <MenuOutlined
-          style={{
-            height: 30,
-            fontSize: '150%',
-            color: theme.fontColor0,
-          }}
-        />
-      </div>
+      <MenuOutlined
+        onClick={toggle}
+        style={{
+          fontSize: '150%',
+          color: theme.fontColor0,
+        }}
+      />
 
       <Drawer
         closable={false}
@@ -44,7 +42,6 @@ export const HamMenu = ({style}: {style?: any}) => {
                 title={<div style={{color: theme.fontColor0}}>{ig.title}</div>}
               >
                 {ig.items.map((i) => (
-                  // TODO: next router here
                   <Menu.Item
                     style={{color: theme.fontColor1}}
                     key={ig.title + i.name}
