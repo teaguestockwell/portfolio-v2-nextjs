@@ -1,6 +1,12 @@
 const ipsum =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id ligula maximus, molestie dui vitae, euismod nulla. Etiam tellus eros, blandit nec porta et, porttitor mollis quam. Nullam elementum sem magna, at scelerisque tortor efficitur convallis. Vivamus quis urna lacus. Nam lorem elit, condimentum vitae enim quis, mattis vehicula nibh. Etiam eu diam sed enim aliquet rhoncus. Vivamus sit amet imperdiet turpis. Nullam nec bibendum tellus. Nullam tellus eros, lobortis at elit sit amet, hendrerit dignissim nibh. Nam scelerisque augue finibus metus ornare, sed finibus orci molestie. Maecenas non lorem aliquet, vulputate nisl eget, maximus nisl. Maecenas quis erat leo.'
 
+export const developer = {
+  name: 'Teague Stockwell',
+  linkedInSrc: 'https://www.linkedin.com/in/teague-stockwell',
+  githubSrc: 'https://github.com/tsAppDevelopment',
+}
+
 export const skills: {title: string; icons: string[]}[] = [
   {
     title: 'Languages',

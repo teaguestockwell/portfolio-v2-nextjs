@@ -1,4 +1,4 @@
-import {Button, Divider, Drawer, Menu} from 'antd'
+import {Divider, Drawer, Menu} from 'antd'
 import {MenuOutlined} from '@ant-design/icons'
 import {useState} from 'react'
 import {useTheme} from '../../hooks/use_theme'
@@ -11,19 +11,15 @@ export const HamMenu = ({style}: {style?: any}) => {
 
   return (
     <div style={style}>
-      <Button
-        onClick={toggle}
-        icon={
-          <MenuOutlined
-            style={{
-              height: 30,
-              fontSize: '150%',
-              color: theme.fontColor0,
-            }}
-          />
-        }
-        style={{border: 0, background: 'transparent', boxShadow: 'none'}}
-      />
+      <div style={{}} onClick={toggle}>
+        <MenuOutlined
+          style={{
+            height: 30,
+            fontSize: '150%',
+            color: theme.fontColor0,
+          }}
+        />
+      </div>
 
       <Drawer
         closable={false}
