@@ -1,8 +1,10 @@
+import {Grid} from 'antd'
 import {Const} from '../const'
 import {useTheme} from '../hooks/use_theme'
 
 export const Section = ({title}: {title: string}) => {
   const theme = useTheme()
+  const md = Grid.useBreakpoint()?.md as any
 
   return (
     <div
@@ -21,7 +23,7 @@ export const Section = ({title}: {title: string}) => {
           paddingLeft: Const.pad,
           color: theme.fontColor1,
           textAlign: 'left',
-          fontSize: Const.fontSizes.xl,
+          fontSize: Const.fontSizes[md ? 'lg' : 'md'],
         }}
       >
         {title}
