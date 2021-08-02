@@ -3,15 +3,17 @@ import {useThemeStore} from '../hooks/use_theme'
 import Image from 'next/image'
 
 export const School = ({
-  name,
+  title,
   date,
   subHeading,
   src,
+  svgs,
 }: {
-  name: string
+  title: string
   date: string
   subHeading: string
   src: string
+  svgs?: any
 }) => {
   const theme = useThemeStore.getState().theme
 
@@ -24,7 +26,7 @@ export const School = ({
           fontSize: Const.fontSizes.lg,
         }}
       >
-        {name}
+        {title}
       </div>
       <div
         style={{
@@ -50,7 +52,7 @@ export const School = ({
               src={src}
               width={75}
               height={75}
-              alt={name}
+              alt={title}
             />
 
             <style jsx global>{`

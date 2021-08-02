@@ -1,5 +1,4 @@
 /* eslint-disable react/display-name */
-import {useThemeStore} from '../hooks/use_theme'
 import {Const, CustomTheme} from '../const'
 import {
   // language
@@ -94,9 +93,7 @@ const Svg = ({
   )
 }
 
-export const Svgs = (size: number) => {
-  const theme = useThemeStore.getState().theme
-
+export const Svgs = (size: number, theme: any) => {
   return {
     dart: (
       <Svg

@@ -1,37 +1,34 @@
-const ipsum =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id ligula maximus, molestie dui vitae, euismod nulla. Etiam tellus eros, blandit nec porta et, porttitor mollis quam. Nullam elementum sem magna, at scelerisque tortor efficitur convallis. Vivamus quis urna lacus. Nam lorem elit, condimentum vitae enim quis, mattis vehicula nibh. Etiam eu diam sed enim aliquet rhoncus. Vivamus sit amet imperdiet turpis. Nullam nec bibendum tellus. Nullam tellus eros, lobortis at elit sit amet, hendrerit dignissim nibh. Nam scelerisque augue finibus metus ornare, sed finibus orci molestie. Maecenas non lorem aliquet, vulputate nisl eget, maximus nisl. Maecenas quis erat leo.'
-
-export const developer = {
+const developer = {
   name: 'Teague Stockwell',
   linkedInSrc: 'https://www.linkedin.com/in/teague-stockwell',
   githubSrc: 'https://github.com/tsAppDevelopment',
 }
 
-export const skills: {title: string; icons: string[]}[] = [
+const technologies: {title: string; svgs: string[]}[] = [
   {
     title: 'Languages',
-    icons: ['typescript', 'javascript', 'dart', 'java', 'html5', 'css3'],
+    svgs: ['typescript', 'javascript', 'dart', 'java', 'html5', 'css3'],
   },
   {
     title: 'Frontend',
-    icons: ['reactjs', 'flutter', 'android'],
+    svgs: ['reactjs', 'flutter', 'android'],
   },
   {
     title: 'Backend',
-    icons: ['nodedotjs', 'express', 'nextdotjs', 'prisma'],
+    svgs: ['nodedotjs', 'express', 'nextdotjs', 'prisma'],
   },
   {
     title: 'Services',
-    icons: ['amazonaws', 'postgresql', 'firebase', 'nginx', 'vercel'],
+    svgs: ['amazonaws', 'postgresql', 'firebase', 'nginx', 'vercel'],
   },
   {
     title: 'Workflow',
-    icons: ['docker', 'git', 'jira', 'github', 'gitlab', 'sonarqube', 'figma'],
+    svgs: ['docker', 'git', 'jira', 'github', 'gitlab', 'sonarqube', 'figma'],
   },
 ]
 
 export interface IProject {
-  name: string
+  title: string
   subHeading: string
   dateRange: string
   bullets: string[]
@@ -41,9 +38,9 @@ export interface IProject {
   svgs: string[]
 }
 
-export const projects: IProject[] = [
+const projects: IProject[] = [
   {
-    name: 'Levels',
+    title: 'Levels',
     dateRange: 'March 2021 - Present',
     subHeading: `Developed a production full stack web app to manage aircraft cargo loading for the Air Force`,
     bullets: [
@@ -83,7 +80,7 @@ export const projects: IProject[] = [
     ],
   },
   {
-    name: 'Five Level',
+    title: 'Five Level',
     dateRange: 'Sep 2020 - Mar 2021',
     bullets: [
       'Established CI/CD pipeline for static code analysis, linting, testing, and containerized builds',
@@ -124,37 +121,45 @@ export const projects: IProject[] = [
   },
 ]
 
-export const educations: {
-  name: string
+const educations: {
+  title: string
   date: string
   subHeading: string
   src: string
 }[] = [
   {
-    name: 'Southwestern College',
+    title: 'Southwestern College',
     date: 'May 2021',
     subHeading: `Bachelor of Science, Computer Programming, 3.9 GPA`,
     src: '/bs1.png',
   },
   {
-    name: 'Community College of the Air Force',
+    title: 'Community College of the Air Force',
     date: 'August 2019',
     subHeading: `Associate of Applied Science, Aviation Maintenance Technology, 4.0 GPA`,
     src: '/as1.png',
   },
 ]
 
-export const menuData: {title: string; items: {name: string; a: string}[]}[] = [
+const menuData: {title: string; items: {name: string; a: string}[]}[] = [
   {
     title: 'Technology',
-    items: skills.map((s) => ({name: s.title, a: ''})),
+    items: technologies.map((s) => ({name: s.title, a: ''})),
   },
   {
     title: 'Projects',
-    items: projects.map((p) => ({name: p.name, a: p.deploymentSrc})),
+    items: projects.map((p) => ({name: p.title, a: p.deploymentSrc})),
   },
   {
     title: 'Education',
-    items: educations.map((e) => ({name: e.name, a: ''})),
+    items: educations.map((e) => ({name: e.title, a: ''})),
   },
 ]
+
+export const data = {
+  developer,
+  technologies,
+  projects,
+  educations,
+  menuData,
+}

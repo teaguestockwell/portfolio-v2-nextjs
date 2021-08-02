@@ -5,7 +5,7 @@ import {useTheme} from '../../hooks/use_theme'
 import {Linkedin, Github} from '@icons-pack/react-simple-icons'
 import {Const} from '../../const'
 import {ThemeButton} from '../../hooks/use_theme'
-import {developer} from '../../data'
+import {data} from '../../data'
 
 const appBarHeight = 60
 
@@ -66,7 +66,7 @@ export const Nav = () => {
             paddingLeft: Const.pad / (md ? 1 : 2),
           }}
         >
-          {developer.name}
+          {data.developer.name}
         </div>
       </div>
 
@@ -102,7 +102,7 @@ export const Nav = () => {
           <ThemeButton fontSize={24} color={theme.fontColor0} />
         </div>
 
-        <a href={developer.githubSrc} rel="noreferrer" target="_blank">
+        <a href={data.developer.githubSrc} rel="noreferrer" target="_blank">
           <div
             className="icon-hover"
             style={{width: '8vw', maxWidth: 24 + Const.pad, minWidth: 30}}
@@ -111,7 +111,7 @@ export const Nav = () => {
           </div>
         </a>
 
-        <a href={developer.linkedInSrc} rel="noreferrer" target="_blank">
+        <a href={data.developer.linkedInSrc} rel="noreferrer" target="_blank">
           <div className="icon-hover">
             <Linkedin size={24} color={theme.fontColor0} />
           </div>

@@ -10,7 +10,7 @@ import {Video} from './video'
 import {IProject} from '../data'
 
 export const Project = ({
-  name,
+  title,
   subHeading,
   bullets,
   dateRange,
@@ -58,7 +58,7 @@ export const Project = ({
               fontSize: Const.fontSizes.lg,
             }}
           >
-            {name}
+            {title}
           </div>
 
           <div
@@ -202,7 +202,7 @@ export const Project = ({
                   fontSize: Const.fontSizes.sm,
                 }}
               >
-                {name}
+                {title}
               </div>
             </a>
           ))}

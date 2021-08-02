@@ -2,7 +2,7 @@ import {Divider, Drawer, Menu} from 'antd'
 import {MenuOutlined} from '@ant-design/icons'
 import {useState} from 'react'
 import {useTheme} from '../../hooks/use_theme'
-import {menuData} from '../../data'
+import {data} from '../../data'
 import {Link} from 'react-scroll'
 import {Const} from '../../const'
 
@@ -30,8 +30,8 @@ export const HamMenu = ({style}: {style?: any}) => {
         onClose={toggle}
       >
         <>
-          {menuData.map((ig) => (
-            <>
+          {data.menuData.map((ig) => (
+            <div key={ig.title}>
               <div>{ig.title}</div>
               {ig.items.map((i) => (
                 <Link key={i.name} to={i.name} {...Const.reactScrollProps}>
@@ -39,7 +39,7 @@ export const HamMenu = ({style}: {style?: any}) => {
                 </Link>
               ))}
               <Divider />
-            </>
+            </div>
           ))}
         </>
       </Drawer>

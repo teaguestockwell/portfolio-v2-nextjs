@@ -1,11 +1,12 @@
-import {Technologies} from '../components/technologies'
-import {Projects} from '../components/projects'
 import {useInitTheme} from '../hooks/use_theme'
-import {TopNav} from '../components/top_nav'
 import {Section} from '../components/section'
-import {Educations} from '../components/educations'
 import {WithNav} from '../components/nav/index'
 import {Const} from '../const'
+import {Cards} from '../components/cards'
+import {data} from '../data'
+import {Tech} from '../components/tech'
+import {Project} from '../components/project'
+import {School} from '../components/school'
 
 export default function Home() {
   useInitTheme()
@@ -13,11 +14,49 @@ export default function Home() {
   return (
     <WithNav>
       <Section title={Const.titles.tech} />
-      <Technologies />
+
+      <Cards
+        items={data.technologies}
+        hasSvgs={true}
+        getCell={(t, getSvg) => (
+          <Tech title={t.title} svgs={t.svgs.map((s) => getSvg(s))} />
+        )}
+      />
+
       <Section title={Const.titles.projects} />
-      <Projects />
+
+      <Cards
+        items={data.projects}
+        hasSvgs={true}
+        getCell={(t, getSvg) => (
+          <Project
+            key={t.title}
+            title={t.title}
+            subHeading={t.subHeading}
+            dateRange={t.dateRange}
+            bullets={t.bullets}
+            deploymentSrc={t.deploymentSrc}
+            repoSrc={t.repoSrc}
+            src={t.src}
+            svgs={t.svgs.map((s) => getSvg(s))}
+          />
+        )}
+      />
+
       <Section title={Const.titles.education} />
-      <Educations />
+
+      <Cards
+        items={data.educations}
+        hasSvgs={false}
+        getCell={(t) => (
+          <School
+            title={t.title}
+            date={t.date}
+            subHeading={t.subHeading}
+            src={t.src}
+          />
+        )}
+      />
     </WithNav>
   )
 }
