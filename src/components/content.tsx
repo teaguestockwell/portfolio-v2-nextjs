@@ -14,7 +14,7 @@ export const Content = ({children}: {children: JSX.Element[]}) => {
         style={{
           paddingRight: md ? Const.pad : 0,
           paddingLeft: md ? Const.pad : 0,
-          maxWidth: 1000,
+          maxWidth: 890,
           width: '100%',
         }}
       >

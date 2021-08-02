@@ -36,7 +36,7 @@ export const Project = ({
             paddingTop: Const.pad,
             paddingRight: Const.pad,
             paddingLeft: Const.pad,
-            flex: '0 0 40%',
+            flex: '0 0 20%',
           }}
         >
           <Video src={src} />
@@ -48,7 +48,7 @@ export const Project = ({
             paddingRight: Const.pad,
             paddingLeft: Const.pad,
             width: '100%',
-            flex: '1 0 60%',
+            flex: '1 0 52%',
           }}
         >
           <div
