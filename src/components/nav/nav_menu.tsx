@@ -1,6 +1,6 @@
 import {Menu} from 'antd'
 import {Const} from '../../const'
-import {data} from '../../data'
+import {menuData} from './index'
 import {useTheme} from '../../hooks/use_theme'
 import {Link} from 'react-scroll'
 
@@ -13,7 +13,7 @@ export const NavMenu = ({style}: {style?: any}) => {
       triggerSubMenuAction={'hover'}
       selectedKeys={[]}
     >
-      {data.menuData.map((ig) => (
+      {menuData.map((ig) => (
         <Menu.SubMenu
           key={ig.title}
           title={ig.title}

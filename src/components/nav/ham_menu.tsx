@@ -2,7 +2,7 @@ import {Divider, Drawer, Menu} from 'antd'
 import {MenuOutlined} from '@ant-design/icons'
 import {useState} from 'react'
 import {useTheme} from '../../hooks/use_theme'
-import {data} from '../../data'
+import {menuData} from './index'
 import {Link} from 'react-scroll'
 import {Const} from '../../const'
 
@@ -30,7 +30,7 @@ export const HamMenu = ({style}: {style?: any}) => {
         onClose={toggle}
       >
         <>
-          {data.menuData.map((ig) => (
+          {menuData.map((ig) => (
             <div key={ig.title}>
               <div>{ig.title}</div>
               {ig.items.map((i) => (

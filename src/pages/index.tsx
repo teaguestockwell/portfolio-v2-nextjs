@@ -4,9 +4,9 @@ import {WithNav} from '../components/nav/index'
 import {Const} from '../const'
 import {Cards} from '../components/cards'
 import {data} from '../data'
-import {Tech} from '../components/tech'
-import {Project} from '../components/project'
-import {School} from '../components/school'
+import {Tech} from '../components/card_content/tech'
+import {Project} from '../components/card_content/project'
+import {School} from '../components/card_content/school'
 
 export default function Home() {
   useInitTheme()
@@ -36,7 +36,7 @@ export default function Home() {
             dateRange={t.dateRange}
             bullets={t.bullets}
             deploymentSrc={t.deploymentSrc}
-            repoSrc={t.repoSrc}
+            repos={t.repos}
             src={t.src}
             svgs={t.svgs.map((s) => getSvg(s))}
           />
@@ -46,7 +46,7 @@ export default function Home() {
       <Section title={Const.titles.education} />
 
       <Cards
-        items={data.educations}
+        items={data.education}
         hasSvgs={false}
         getCell={(t) => (
           <School

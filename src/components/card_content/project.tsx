@@ -1,13 +1,13 @@
 import React, {useState} from 'react'
 import {v4} from 'uuid'
-import {useThemeStore} from '../hooks/use_theme'
+import {useThemeStore} from '../../hooks/use_theme'
 import {Divider, Modal} from 'antd'
 import {Github} from '@icons-pack/react-simple-icons'
 import {LinkOutlined} from '@ant-design/icons'
-import {Const} from '../const'
-import {SvgScroll} from './svg_scroll'
-import {Video} from './video'
-import {IProject} from '../data'
+import {Const} from '../../const'
+import {SvgScroll} from '../svgs'
+import {Video} from '../video'
+import {IProject} from '../../data'
 
 export const Project = ({
   title,
@@ -15,7 +15,7 @@ export const Project = ({
   bullets,
   dateRange,
   svgs,
-  repoSrc,
+  repos: repoSrc,
   deploymentSrc,
   src,
 }: Omit<IProject, 'svgs'> & {svgs: JSX.Element[]}) => {
@@ -118,7 +118,7 @@ export const Project = ({
           fontSize: Const.fontSizes.lg,
         }}
       >
-        {'Technologies'}
+        {Const.titles.tech}
       </div>
 
       <div style={{marginRight: Const.pad, marginLeft: Const.pad}}>

@@ -9,6 +9,21 @@ import {data} from '../../data'
 
 const appBarHeight = 60
 
+export const menuData: {title: string; items: {name: string; a: string}[]}[] = [
+  {
+    title: Const.titles.tech,
+    items: data.technologies.map((s) => ({name: s.title, a: ''})),
+  },
+  {
+    title: Const.titles.projects,
+    items: data.projects.map((p) => ({name: p.title, a: p.deploymentSrc})),
+  },
+  {
+    title: Const.titles.education,
+    items: data.education.map((e) => ({name: e.title, a: ''})),
+  },
+]
+
 export const Nav = () => {
   const md = Grid.useBreakpoint()?.md as any
   const theme = useTheme()

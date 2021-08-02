@@ -1,5 +1,5 @@
-import {Const} from '../const'
-import {useThemeStore} from '../hooks/use_theme'
+import {Const} from '../../const'
+import {useThemeStore} from '../../hooks/use_theme'
 import Image from 'next/image'
 
 export const School = ({
@@ -7,13 +7,11 @@ export const School = ({
   date,
   subHeading,
   src,
-  svgs,
 }: {
   title: string
   date: string
   subHeading: string
   src: string
-  svgs?: any
 }) => {
   const theme = useThemeStore.getState().theme
 
