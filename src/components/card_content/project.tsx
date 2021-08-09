@@ -44,6 +44,7 @@ export const Project = ({
 
         <div
           style={{
+            position: 'relative',
             paddingTop: Const.pad,
             paddingRight: Const.pad,
             paddingLeft: Const.pad,
@@ -85,7 +86,7 @@ export const Project = ({
           <ul
             style={{
               marginLeft: -24,
-              marginBottom: 0,
+              marginBottom: 186,
             }}
           >
             {bullets.map((b) => {
@@ -104,26 +105,31 @@ export const Project = ({
               )
             })}
           </ul>
+
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 0,
+            }}
+          >
+            <div
+              style={{
+                textAlign: 'center',
+                color: theme.fontColor1,
+                fontSize: Const.fontSizes.lg,
+              }}
+            >
+              {Const.titles.tech}
+            </div>
+
+            <div style={{display: 'grid'}}>
+              <SvgScroll svgs={svgs} />
+            </div>
+          </div>
         </div>
       </div>
 
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          paddingTop: Const.pad,
-          textAlign: 'center',
-          color: theme.fontColor1,
-          fontSize: Const.fontSizes.lg,
-        }}
-      >
-        {Const.titles.tech}
-      </div>
-
       <div style={{marginRight: Const.pad, marginLeft: Const.pad}}>
-        <SvgScroll svgs={svgs} />
-
         <Divider
           key={v4()}
           style={{
