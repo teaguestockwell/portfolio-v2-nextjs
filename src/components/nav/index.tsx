@@ -5,7 +5,25 @@ import {useTheme} from '../../hooks/use_theme'
 import {Linkedin, Github} from '@icons-pack/react-simple-icons'
 import {Const} from '../../const'
 import {ThemeButton} from '../../hooks/use_theme'
-import {developer} from '../../data'
+import {portfolioData} from '../../portfolio_data'
+
+export const menuData = [
+  {
+    title: Const.titles.tech,
+    items: portfolioData.skills.map((s) => ({name: s.title, a: ''})),
+  },
+  {
+    title: Const.titles.projects,
+    items: portfolioData.projects.map((p) => ({
+      name: p.name,
+      a: p.deploymentSrc,
+    })),
+  },
+  {
+    title: Const.titles.education,
+    items: portfolioData.schools.map((e) => ({name: e.name, a: ''})),
+  },
+]
 
 const appBarHeight = 60
 
@@ -70,7 +88,7 @@ export const Nav = () => {
               paddingLeft: Const.pad / (md ? 1 : 2),
             }}
           >
-            {developer.name}
+            {portfolioData.name}
           </div>
         </div>
 
@@ -106,7 +124,7 @@ export const Nav = () => {
             <ThemeButton fontSize={24} color={theme.fontColor0} />
           </div>
 
-          <a href={developer.githubSrc} rel="noreferrer" target="_blank">
+          <a href={portfolioData.githubSrc} rel="noreferrer" target="_blank">
             <div
               className="icon-hover"
               style={{width: '8vw', maxWidth: 24 + Const.pad, minWidth: 30}}
@@ -115,7 +133,7 @@ export const Nav = () => {
             </div>
           </a>
 
-          <a href={developer.linkedInSrc} rel="noreferrer" target="_blank">
+          <a href={portfolioData.linkedInSrc} rel="noreferrer" target="_blank">
             <div className="icon-hover">
               <Linkedin size={24} color={theme.fontColor0} />
             </div>

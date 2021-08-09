@@ -4,12 +4,12 @@ import Image from 'next/image'
 
 export const School = ({
   name,
-  date,
+  dateRange,
   subHeading,
   src,
 }: {
   name: string
-  date: string
+  dateRange: string
   subHeading: string
   src: string
 }) => {
@@ -69,7 +69,7 @@ export const School = ({
               fontSize: Const.fontSizes.sm,
             }}
           >
-            {date}
+            {dateRange}
           </div>
 
           <div

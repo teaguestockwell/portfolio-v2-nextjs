@@ -6,7 +6,7 @@ import {Educations} from '../components/educations'
 import {WithNav} from '../components/nav/index'
 import {Const} from '../const'
 import Head from 'next/head'
-import {developer} from '../data'
+import {portfolioData} from '../portfolio_data'
 
 export default function Home() {
   useInitTheme()
@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <WithNav>
       <Head>
-        <title>{`Hello, i'm ${developer.name}`}</title>
+        <title>{`Hello, i'm ${portfolioData.name}`}</title>
       </Head>
       <Section title={Const.titles.tech} />
       <Technologies />

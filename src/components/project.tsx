@@ -7,7 +7,7 @@ import {LinkOutlined} from '@ant-design/icons'
 import {Const} from '../const'
 import {SvgScroll} from './svg_scroll'
 import {Video} from './video'
-import {IProject} from '../data'
+import * as Types from '../types'
 
 export const Project = ({
   name,
@@ -15,10 +15,10 @@ export const Project = ({
   bullets,
   dateRange,
   svgs,
-  repoSrc,
+  repos,
   deploymentSrc,
-  src,
-}: Omit<IProject, 'svgs'> & {svgs: JSX.Element[]}) => {
+  m3u8Src,
+}: Omit<Types.Project, 'svgs'> & {svgs: JSX.Element[]}) => {
   const [isModal, setIsModal] = useState(false)
   const theme = useThemeStore.getState().theme
 
@@ -39,7 +39,7 @@ export const Project = ({
             flex: '0 0 20%',
           }}
         >
-          <Video src={src} />
+          <Video src={m3u8Src} />
         </div>
 
         <div
@@ -192,7 +192,7 @@ export const Project = ({
           >
             Git Repo
           </div>
-          {repoSrc.map(({name, src}) => (
+          {repos.map(({name, src}) => (
             <a key={v4()} href={src} target="_blank" rel="noreferrer">
               <div
                 style={{

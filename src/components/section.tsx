@@ -10,11 +10,10 @@ export const Section = ({title}: {title: string}) => {
     <div
       style={{
         display: 'flex',
-        alignContent: 'left',
+        alignItems: 'center',
         justifyContent: 'left',
         backgroundColor: theme.background1,
-        paddingTop: Const.pad / 2,
-        paddingBottom: Const.pad / 2,
+        height: Const.pad * 4,
         marginTop: Const.pad * 2,
       }}
     >

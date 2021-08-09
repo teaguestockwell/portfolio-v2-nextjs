@@ -1,9 +1,8 @@
 import {Menu} from 'antd'
 import {Const} from '../../const'
-import {menuData} from '../../data'
+import {menuData} from './index'
 import {useTheme} from '../../hooks/use_theme'
 import {Link} from 'react-scroll'
-import {v4} from 'uuid'
 
 export const NavMenu = ({style}: {style?: any}) => {
   const theme = useTheme()

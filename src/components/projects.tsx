@@ -1,6 +1,6 @@
 import {useTheme} from '../hooks/use_theme'
 import {Svgs} from './svgs'
-import {projects} from '../data'
+import {portfolioData} from '../portfolio_data'
 import {Content} from '../components/content'
 import {Project} from './project'
 import {Card} from './card'
@@ -13,21 +13,21 @@ export const Projects = () => {
 
   return (
     <Content>
-      {projects.map((p) => (
+      {portfolioData.projects.map((p) => (
         <Element key={p.name} name={p.name}>
           <Card
             key={p.name}
             style={{paddingTop: 0, paddingLeft: 0, paddingRight: 0}}
           >
             <Project
+              m3u8Src={p.m3u8Src}
               key={p.name}
               name={p.name}
               subHeading={p.subHeading}
               dateRange={p.dateRange}
               bullets={p.bullets}
               deploymentSrc={p.deploymentSrc}
-              repoSrc={p.repoSrc}
-              src={p.src}
+              repos={p.repos}
               svgs={p.svgs.map((s) => svgs[s])}
             />
           </Card>

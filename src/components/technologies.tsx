@@ -1,7 +1,7 @@
 import React from 'react'
 import {useTheme} from '../hooks/use_theme'
 import {Svgs} from './svgs'
-import {skills} from '../data'
+import {portfolioData} from '../portfolio_data'
 import {Content} from './content'
 import {Tech} from './tech'
 import {Card} from './card'
@@ -13,7 +13,7 @@ export const Technologies = () => {
 
   return (
     <Content>
-      {skills.map((s) => (
+      {portfolioData.skills.map((s) => (
         <Element key={s.title} name={s.title}>
           <Card key={s.title}>
             <Tech title={s.title} svgs={s.icons.map((s) => svgs[s])} />

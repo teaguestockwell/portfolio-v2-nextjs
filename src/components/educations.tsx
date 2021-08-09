@@ -1,5 +1,4 @@
-import {v4} from 'uuid'
-import {educations} from '../data'
+import {portfolioData} from '../portfolio_data'
 import {useTheme} from '../hooks/use_theme'
 import {Content} from './content'
 import {School} from './school'
@@ -11,7 +10,7 @@ export const Educations = () => {
 
   return (
     <Content>
-      {educations.map((e) => (
+      {portfolioData.schools.map((e) => (
         <Element key={e.name} name={e.name}>
           <Card>
             <School {...e} />
