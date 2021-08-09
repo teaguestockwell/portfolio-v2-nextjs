@@ -1,17 +1,21 @@
 import {Technologies} from '../components/technologies'
 import {Projects} from '../components/projects'
 import {useInitTheme} from '../hooks/use_theme'
-import {TopNav} from '../components/top_nav'
 import {Section} from '../components/section'
 import {Educations} from '../components/educations'
 import {WithNav} from '../components/nav/index'
 import {Const} from '../const'
+import Head from 'next/head'
+import {developer} from '../data'
 
 export default function Home() {
   useInitTheme()
 
   return (
     <WithNav>
+      <Head>
+        <title>{`Hello, i'm ${developer.name}`}</title>
+      </Head>
       <Section title={Const.titles.tech} />
       <Technologies />
       <Section title={Const.titles.projects} />
