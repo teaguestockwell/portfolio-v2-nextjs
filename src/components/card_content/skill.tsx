@@ -1,8 +1,8 @@
-import {Const} from '../const'
-import {useThemeStore} from '../hooks/use_theme'
-import {SvgScroll} from './svg_scroll'
+import {Const} from '../../const'
+import {useThemeStore} from '../../hooks/use_theme'
+import {SvgScroll} from '../svgs'
 
-export const Tech = ({svgs, title}: {svgs: JSX.Element[]; title: string}) => {
+export const Skill = ({svgs, name}: {svgs: JSX.Element[]; name: string}) => {
   const theme = useThemeStore.getState().theme
 
   return (
@@ -14,7 +14,7 @@ export const Tech = ({svgs, title}: {svgs: JSX.Element[]; title: string}) => {
           fontSize: Const.fontSizes.lg,
         }}
       >
-        {title}
+        {name}
       </div>
       <SvgScroll svgs={svgs} />
     </>

@@ -6,24 +6,24 @@ export const portfolioData: Portfolio = {
   githubSrc: 'https://github.com/tsAppDevelopment',
   skills: [
     {
-      title: 'Languages',
-      icons: ['typescript', 'javascript', 'dart', 'java', 'html5', 'css3'],
+      name: 'Languages',
+      svgKeys: ['typescript', 'javascript', 'dart', 'java', 'html5', 'css3'],
     },
     {
-      title: 'Frontend',
-      icons: ['reactjs', 'flutter', 'android'],
+      name: 'Frontend',
+      svgKeys: ['reactjs', 'flutter', 'android'],
     },
     {
-      title: 'Backend',
-      icons: ['nodedotjs', 'express', 'nextdotjs', 'prisma'],
+      name: 'Backend',
+      svgKeys: ['nodedotjs', 'express', 'nextdotjs', 'prisma'],
     },
     {
-      title: 'Services',
-      icons: ['amazonaws', 'postgresql', 'firebase', 'nginx', 'vercel'],
+      name: 'Services',
+      svgKeys: ['amazonaws', 'postgresql', 'firebase', 'nginx', 'vercel'],
     },
     {
-      title: 'Workflow',
-      icons: [
+      name: 'Workflow',
+      svgKeys: [
         'docker',
         'git',
         'jira',

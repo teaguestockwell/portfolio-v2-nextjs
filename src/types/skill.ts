@@ -1,4 +1,4 @@
 export interface Skill {
-  title: string
-  icons: string[]
+  name: string
+  svgKeys: string[]
 }

@@ -1,18 +1,9 @@
-import {Const} from '../const'
-import {useThemeStore} from '../hooks/use_theme'
+import {Const} from '../../const'
+import {useThemeStore} from '../../hooks/use_theme'
 import Image from 'next/image'
+import * as Types from '../../types'
 
-export const School = ({
-  name,
-  dateRange,
-  subHeading,
-  src,
-}: {
-  name: string
-  dateRange: string
-  subHeading: string
-  src: string
-}) => {
+export const School = ({name, dateRange, subHeading, src}: Types.School) => {
   const theme = useThemeStore.getState().theme
 
   return (

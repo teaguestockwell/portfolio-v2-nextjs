@@ -10,7 +10,7 @@ import {portfolioData} from '../../portfolio_data'
 export const menuData = [
   {
     title: Const.titles.tech,
-    items: portfolioData.skills.map((s) => ({name: s.title, a: ''})),
+    items: portfolioData.skills.map((s) => ({name: s.name, a: ''})),
   },
   {
     title: Const.titles.projects,
