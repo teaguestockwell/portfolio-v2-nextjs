@@ -26,8 +26,6 @@ export const menuData = [
   },
 ]
 
-const appBarHeight = 70
-
 export const Nav = () => {
   const {md, lg} = Grid.useBreakpoint() as any
   const theme = useTheme()
@@ -47,17 +45,17 @@ export const Nav = () => {
           left: 0,
           top: 0,
           right: 0,
-          height: appBarHeight,
+          height: Const.topNav,
         }}
       >
         <div
           style={{
-            height: appBarHeight,
-            backgroundColor: theme.background2,
+            height: Const.topNav,
             position: 'fixed',
             left: 0,
             top: 0,
             right: 0,
+            ...theme.nav,
           }}
         />
 
@@ -68,7 +66,7 @@ export const Nav = () => {
             alignItems: 'center',
             top: 0,
             left: 0,
-            height: appBarHeight,
+            height: Const.topNav,
             position: 'fixed',
           }}
         >
@@ -112,7 +110,7 @@ export const Nav = () => {
             justifyContent: 'right',
             alignItems: 'center',
             top: 0,
-            height: appBarHeight,
+            height: Const.topNav,
             right: Const.pad,
             position: 'fixed',
           }}
@@ -162,7 +160,7 @@ export const WithNav = ({children}: {children?: any}) => {
   return (
     <>
       <Nav />
-      <main style={{paddingTop: appBarHeight}}>{children}</main>
+      <main style={{paddingTop: Const.topNav}}>{children}</main>
     </>
   )
 }

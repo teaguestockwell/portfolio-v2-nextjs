@@ -19,7 +19,7 @@ export const Card = ({
         MozBoxShadow: theme.shadow,
         boxShadow: theme.shadow,
         padding: Const.pad,
-        marginTop: Const.pad * 2,
+        marginTop: Const.pad,
         backgroundColor: theme.background1,
         borderRadius: md ? Const.rad : 0,
         ...style,

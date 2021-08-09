@@ -4,7 +4,6 @@ import {useTheme} from '../hooks/use_theme'
 
 export const Section = ({title}: {title: string}) => {
   const theme = useTheme()
-  const md = Grid.useBreakpoint()?.md as any
 
   return (
     <div
@@ -13,8 +12,10 @@ export const Section = ({title}: {title: string}) => {
         alignItems: 'center',
         justifyContent: 'left',
         backgroundColor: theme.background1,
-        height: Const.pad * 4,
-        marginTop: Const.pad * 2,
+        maxHeight: Const.topNav,
+        marginTop: Const.pad,
+        minHeight: Const.topNav / 2,
+        height: '12vw',
       }}
     >
       <div
@@ -22,7 +23,7 @@ export const Section = ({title}: {title: string}) => {
           paddingLeft: Const.pad,
           color: theme.fontColor1,
           textAlign: 'left',
-          fontSize: Const.fontSizes[md ? 'lg' : 'md'],
+          fontSize: Const.fontSizes['lg'],
         }}
       >
         {title}

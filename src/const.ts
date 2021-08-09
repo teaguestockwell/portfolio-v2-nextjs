@@ -1,6 +1,8 @@
 export interface CustomTheme {
   name: string
 
+  nav: any
+
   backGround0: string
   background1: string
   background2: string
@@ -17,6 +19,7 @@ export interface CustomTheme {
 }
 
 export const Const: {
+  topNav: number
   titles: {[key: string]: string}
   reactScrollProps: any
   rad: number
@@ -31,6 +34,7 @@ export const Const: {
     [key: string]: CustomTheme
   }
 } = {
+  topNav: 70,
   titles: {
     tech: 'Technologies',
     projects: 'Projects',
@@ -55,9 +59,13 @@ export const Const: {
     light: {
       name: 'light',
 
-      backGround0: '#f7f7f7',
-      background1: '#e5e5e5',
-      background2: '#d0d0d0',
+      nav: {
+        backgroundColor: '#fff',
+      },
+
+      backGround0: '#EEEEEE',
+      background1: '#FAFAFA',
+      background2: '#fff',
 
       fontColor0: '#222222',
       fontColor1: '#222222',
@@ -72,10 +80,14 @@ export const Const: {
     dark: {
       name: 'dark',
 
-      backGround0: '#1E1E1E',
-      background1: '#2F2F2F',
-      background2: '#383838',
+      nav: {
+        backgroundColor: 'rgba(29,29,31,0.72)',
+        backdropFilter: 'blur(10px)',
+      },
 
+      backGround0: '#000',
+      background1: '#151516',
+      background2: '#383838',
       fontColor0: '#DEffff',
       fontColor1: '#DEffff',
       fontColor2: '#DEffff',
