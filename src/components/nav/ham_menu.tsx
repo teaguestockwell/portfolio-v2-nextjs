@@ -16,7 +16,7 @@ export const HamMenu = ({style}: {style?: any}) => {
       <MenuOutlined
         onClick={toggle}
         style={{
-          fontSize: '150%',
+          fontSize: '200%',
           color: theme.fontColor0,
         }}
       />

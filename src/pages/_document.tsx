@@ -17,7 +17,10 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta name="application-name" content={portfolioData.name} />
+          <meta
+            name="application-name"
+            content={portfolioData.firstName + ' ' + portfolioData.lastName}
+          />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta
             name="apple-mobile-web-app-status-bar-style"
@@ -25,9 +28,12 @@ class MyDocument extends Document {
           />
           <meta
             name="apple-mobile-web-app-title"
-            content={portfolioData.name}
+            content={portfolioData.firstName + ' ' + portfolioData.lastName}
           />
-          <meta name="description" content={portfolioData.name} />
+          <meta
+            name="description"
+            content={portfolioData.firstName + ' ' + portfolioData.lastName}
+          />
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="msapplication-config" content="/browserconfig.xml" />

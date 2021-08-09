@@ -1,7 +1,8 @@
 import * as Types from '.'
 
 export interface Portfolio {
-  name: string
+  firstName: string
+  lastName: string
   linkedInSrc: string
   githubSrc: string
   skills: Types.Skill[]

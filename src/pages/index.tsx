@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <WithNav>
       <Head>
-        <title>{`Hello, i'm ${portfolioData.name}`}</title>
+        <title>{`${portfolioData.firstName} ${portfolioData.lastName} Portfolio`}</title>
       </Head>
       <Section title={Const.titles.tech} />
 

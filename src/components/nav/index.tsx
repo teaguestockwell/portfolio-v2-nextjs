@@ -6,6 +6,7 @@ import {Linkedin, Github} from '@icons-pack/react-simple-icons'
 import {Const} from '../../const'
 import {ThemeButton} from '../../hooks/use_theme'
 import {portfolioData} from '../../portfolio_data'
+import Image from 'next/image'
 
 export const menuData = [
   {
@@ -25,10 +26,10 @@ export const menuData = [
   },
 ]
 
-const appBarHeight = 60
+const appBarHeight = 70
 
 export const Nav = () => {
-  const md = Grid.useBreakpoint()?.md as any
+  const {md, lg} = Grid.useBreakpoint() as any
   const theme = useTheme()
 
   return (
@@ -71,24 +72,37 @@ export const Nav = () => {
             position: 'fixed',
           }}
         >
-          {
-            !md ? <HamMenu style={{paddingLeft: Const.pad}} /> : null
-            // <div
-            //   style={{paddingLeft: Const.pad}}
-            // >
-            //   <LogoSvg />
-            // </div>
-          }
+          {!md ? (
+            <HamMenu style={{paddingLeft: Const.pad}} />
+          ) : (
+            <div style={{paddingLeft: Const.pad}}>
+              <Image
+                src="/favicon-32x32.png"
+                width={32}
+                height={32}
+                alt={portfolioData.firstName + ' ' + portfolioData.lastName}
+              />
+            </div>
+          )}
 
           <div
             style={{
-              fontSize: Const.fontSizes[md ? 'lg' : 'md'],
+              fontSize: Const.fontSizes[lg ? 'lg' : 'md'],
               fontFamily: 'helvetica',
               color: theme.fontColor0,
               paddingLeft: Const.pad / (md ? 1 : 2),
             }}
           >
-            {portfolioData.name}
+            {lg ? (
+              <div>
+                {portfolioData.firstName + ' ' + portfolioData.lastName}
+              </div>
+            ) : (
+              <>
+                <div>{portfolioData.firstName}</div>
+                <div>{portfolioData.lastName}</div>
+              </>
+            )}
           </div>
         </div>
 
@@ -115,27 +129,27 @@ export const Nav = () => {
             className="icon-hover"
             style={{
               width: '8vw',
-              maxWidth: 24 + Const.pad,
-              minWidth: 30,
+              maxWidth: 40 + Const.pad,
+              minWidth: 38,
               paddingBottom: 3,
               paddingLeft: 2,
             }}
           >
-            <ThemeButton fontSize={24} color={theme.fontColor0} />
+            <ThemeButton fontSize={32} color={theme.fontColor0} />
           </div>
 
           <a href={portfolioData.githubSrc} rel="noreferrer" target="_blank">
             <div
               className="icon-hover"
-              style={{width: '8vw', maxWidth: 24 + Const.pad, minWidth: 30}}
+              style={{width: '8vw', maxWidth: 40 + Const.pad, minWidth: 38}}
             >
-              <Github color={theme.fontColor0} size={24} />
+              <Github color={theme.fontColor0} size={32} />
             </div>
           </a>
 
           <a href={portfolioData.linkedInSrc} rel="noreferrer" target="_blank">
             <div className="icon-hover">
-              <Linkedin size={24} color={theme.fontColor0} />
+              <Linkedin size={32} color={theme.fontColor0} />
             </div>
           </a>
         </div>

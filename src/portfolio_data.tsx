@@ -1,7 +1,8 @@
 import {Portfolio} from './types'
 
 export const portfolioData: Portfolio = {
-  name: 'Teague Stockwell',
+  firstName: 'Teague',
+  lastName: 'Stockwell',
   linkedInSrc: 'https://www.linkedin.com/in/teague-stockwell',
   githubSrc: 'https://github.com/tsAppDevelopment',
   skills: [
