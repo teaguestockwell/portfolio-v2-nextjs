@@ -1,7 +1,6 @@
 import create, {State} from 'zustand'
 import {BulbFilled} from '@ant-design/icons'
-import {useEffect} from 'react'
-import {themeService} from '../services/theme_service'
+import {useLayoutEffect} from 'react'
 import {Const, CustomTheme} from '../const'
 
 interface Props {
@@ -27,7 +26,7 @@ const setThemeWrap = (theme: CustomTheme) => {
   const state = useThemeStore.getState()
   state.setTheme(theme)
   document.body.style.backgroundColor = theme.backGround0
-  themeService.putTheme(theme.name)
+  localStorage.setItem('theme', theme.name)
 }
 
 export const toggleTheme = () => {
@@ -55,14 +54,13 @@ export const ThemeButton = ({
 }
 
 export const useInitTheme = () => {
-  return useEffect(() => {
-    themeService.readTheme().then((name) => {
-      if (name) {
-        const theme = name === 'light' ? Const.theme.light : Const.theme.dark
-        if (useThemeStore.getState().theme.name !== theme.name) {
-          setThemeWrap(theme)
-        }
+  return useLayoutEffect(() => {
+    const themeName = localStorage.getItem('theme')
+    if (themeName) {
+      const theme = themeName === 'light' ? Const.theme.light : Const.theme.dark
+      if (useThemeStore.getState().theme.name !== theme.name) {
+        setThemeWrap(theme)
       }
-    })
+    }
   }, [])
 }
