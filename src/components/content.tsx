@@ -18,7 +18,7 @@ export const Content = ({
         style={{
           paddingRight: md ? Const.pad : 0,
           paddingLeft: md ? Const.pad : 0,
-          maxWidth: 890,
+          maxWidth: Const.maxWidth,
           width: '100%',
         }}
       >

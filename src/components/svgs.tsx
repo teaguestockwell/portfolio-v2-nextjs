@@ -94,6 +94,65 @@ const Svg = ({
   )
 }
 
+export const SvgScroll = ({
+  svgs,
+  style = {},
+}: {
+  svgs: JSX.Element[]
+  style?: any
+}) => {
+  return (
+    <div
+      style={{
+        paddingTop: Const.pad,
+        paddingBottom: Const.pad,
+        display: 'flex',
+        overflowX: 'auto',
+        overflowY: 'clip',
+        ...style,
+      }}
+    >
+      {svgs.map((s) => (
+        <div key={v4()}>{s}</div>
+      ))}
+    </div>
+  )
+}
+
+export const SvgScroll2 = ({
+  svgs,
+  style = {},
+}: {
+  svgs: JSX.Element[]
+  style?: any
+}) => {
+  return (
+    <div
+      style={{
+        paddingTop: Const.pad,
+        paddingBottom: Const.pad,
+        display: 'flex',
+        overflowX: 'auto',
+        overflowY: 'clip',
+        ...style,
+      }}
+    >
+      <div>
+        <div style={{display: 'flex'}}>
+          {svgs.slice(0, Math.floor(svgs.length / 2)).map((s) => (
+            <div key={v4()}>{s}</div>
+          ))}
+        </div>
+        <div style={{display: 'flex'}}>
+          {svgs.slice(Math.floor(svgs.length / 2), svgs.length - 1).map((s) => (
+            <div key={v4()}>{s}</div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export const Svgs = (size: number, theme: any) => {
   return {
     dart: (
@@ -292,29 +351,4 @@ export const Svgs = (size: number, theme: any) => {
       />
     ),
   } as {[key: string]: JSX.Element}
-}
-
-export const SvgScroll = ({
-  svgs,
-  style = {},
-}: {
-  svgs: JSX.Element[]
-  style?: any
-}) => {
-  return (
-    <div
-      style={{
-        paddingTop: Const.pad,
-        paddingBottom: Const.pad,
-        display: 'flex',
-        overflowX: 'auto',
-        overflowY: 'clip',
-        ...style,
-      }}
-    >
-      {svgs.map((s) => (
-        <div key={v4()}>{s}</div>
-      ))}
-    </div>
-  )
 }

@@ -8,7 +8,7 @@ interface Props {
   name: string
 }
 
-export const Cards = <T extends Props>({
+export const CardRows = <T extends Props>({
   items,
   getCell,
   hasSvgs = true,

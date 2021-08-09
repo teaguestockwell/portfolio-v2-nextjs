@@ -19,6 +19,7 @@ export interface CustomTheme {
 }
 
 export const Const: {
+  maxWidth: number
   topNav: number
   titles: {[key: string]: string}
   reactScrollProps: any
@@ -34,6 +35,7 @@ export const Const: {
     [key: string]: CustomTheme
   }
 } = {
+  maxWidth: 890,
   topNav: 70,
   titles: {
     tech: 'Technologies',

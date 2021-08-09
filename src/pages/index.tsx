@@ -4,10 +4,11 @@ import {WithNav} from '../components/nav/index'
 import {Const} from '../const'
 import Head from 'next/head'
 import {portfolioData} from '../portfolio_data'
-import {Cards} from '../components/cards'
+import {CardRows} from '../components/card_rows'
 import {Skill} from '../components/card_content/skill'
 import {Project} from '../components/card_content/project'
 import {School} from '../components/card_content/school'
+import {CardGrid} from '../components/card_grid'
 
 export default function Home() {
   useInitTheme()
@@ -19,7 +20,7 @@ export default function Home() {
       </Head>
       <Section title={Const.titles.tech} />
 
-      <Cards
+      <CardRows
         items={portfolioData.skills}
         hasSvgs={true}
         getCell={(t, getSvg) => (
@@ -29,7 +30,7 @@ export default function Home() {
 
       <Section title={Const.titles.projects} />
 
-      <Cards
+      <CardGrid
         items={portfolioData.projects}
         hasSvgs={true}
         getCell={(t, getSvg) => (
@@ -49,7 +50,7 @@ export default function Home() {
 
       <Section title={Const.titles.education} />
 
-      <Cards
+      <CardRows
         items={portfolioData.schools}
         hasSvgs={false}
         getCell={(t) => (

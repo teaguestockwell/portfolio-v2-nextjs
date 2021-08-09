@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 import {v4} from 'uuid'
 import {useThemeStore} from '../../hooks/use_theme'
-import {Divider, Modal} from 'antd'
+import {Divider, Grid, Modal} from 'antd'
 import {Github} from '@icons-pack/react-simple-icons'
 import {LinkOutlined} from '@ant-design/icons'
 import {Const} from '../../const'
-import {SvgScroll} from '../svgs'
+import {SvgScroll, SvgScroll2} from '../svgs'
 import {Video} from '../video'
 import * as Types from '../../types'
 
@@ -86,7 +86,7 @@ export const Project = ({
           <ul
             style={{
               marginLeft: -24,
-              marginBottom: 186,
+              marginBottom: 258,
             }}
           >
             {bullets.map((b) => {
@@ -123,7 +123,7 @@ export const Project = ({
             </div>
 
             <div style={{display: 'grid'}}>
-              <SvgScroll svgs={svgs} />
+              <SvgScroll2 svgs={svgs} />
             </div>
           </div>
         </div>
