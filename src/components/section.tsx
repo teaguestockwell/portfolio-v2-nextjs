@@ -1,4 +1,3 @@
-import {Grid} from 'antd'
 import {Const} from '../const'
 import {useTheme} from '../hooks/use_theme'
 
@@ -12,9 +11,9 @@ export const Section = ({title}: {title: string}) => {
         alignItems: 'center',
         justifyContent: 'left',
         backgroundColor: theme.background1,
-        maxHeight: Const.topNav,
+        maxHeight: Const.topNav * 1.3,
         marginTop: Const.pad,
-        minHeight: Const.topNav / 2,
+        minHeight: Const.topNav * 0.7,
         height: '12vw',
       }}
     >
@@ -23,7 +22,9 @@ export const Section = ({title}: {title: string}) => {
           paddingLeft: Const.pad,
           color: theme.fontColor1,
           textAlign: 'left',
-          fontSize: Const.fontSizes['lg'],
+          fontSize: Const.fontSizes.xl,
+          fontWeight: 100,
+          textTransform: 'uppercase',
         }}
       >
         {title}

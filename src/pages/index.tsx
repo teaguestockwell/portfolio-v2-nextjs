@@ -18,6 +18,7 @@ export default function Home() {
       <Head>
         <title>{`${portfolioData.firstName} ${portfolioData.lastName} Portfolio`}</title>
       </Head>
+
       <Section title={Const.titles.tech} />
 
       <CardRows

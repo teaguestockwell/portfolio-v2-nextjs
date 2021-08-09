@@ -1,10 +1,8 @@
-import {Divider, Drawer, Menu} from 'antd'
+import {Divider, Drawer} from 'antd'
 import {MenuOutlined} from '@ant-design/icons'
-import {useState} from 'react'
+import React, {useState} from 'react'
 import {useTheme} from '../../hooks/use_theme'
-import {Link} from 'react-scroll'
-import {Const} from '../../const'
-import {menuData} from './index'
+import {SideBar} from './side_bar'
 
 export const HamMenu = ({style}: {style?: any}) => {
   const theme = useTheme()
@@ -29,19 +27,7 @@ export const HamMenu = ({style}: {style?: any}) => {
         visible={open}
         onClose={toggle}
       >
-        <>
-          {menuData.map((ig) => (
-            <div key={ig.title}>
-              <div>{ig.title}</div>
-              {ig.items.map((i) => (
-                <Link key={i.name} to={i.name} {...Const.reactScrollProps}>
-                  <div>{i.name}</div>
-                </Link>
-              ))}
-              <Divider />
-            </div>
-          ))}
-        </>
+        <SideBar />
       </Drawer>
     </div>
   )

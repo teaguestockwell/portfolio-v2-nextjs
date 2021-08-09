@@ -18,27 +18,11 @@ export interface CustomTheme {
   shadow: string
 }
 
-export const Const: {
-  maxWidth: number
-  topNav: number
-  titles: {[key: string]: string}
-  reactScrollProps: any
-  rad: number
-  pad: number
-  fontSizes: {
-    sm: number
-    md: number
-    lg: number
-    xl: number
-  }
-  theme: {
-    [key: string]: CustomTheme
-  }
-} = {
+export const Const = {
   maxWidth: 890,
   topNav: 70,
   titles: {
-    tech: 'Technologies',
+    tech: 'Stack',
     projects: 'Projects',
     education: 'Education',
   },
@@ -56,6 +40,7 @@ export const Const: {
     md: 16,
     lg: 24,
     xl: 28,
+    xxl: 32,
   },
   theme: {
     light: {
