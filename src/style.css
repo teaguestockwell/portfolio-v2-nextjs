@@ -46,3 +46,26 @@ div.ant-drawer-header {
 .scroll-active {
   color: red;
 }
+
+.skip-link {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.skip-link:focus {
+  background: white;
+  clip: auto;
+  height: auto;
+  left: 0px;
+  padding: 0px;
+  position: fixed;
+  top: 0px;
+  width: auto;
+  z-index: 1001;
+}

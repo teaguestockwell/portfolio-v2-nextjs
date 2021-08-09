@@ -51,7 +51,7 @@ export const projects: IProject[] = [
       'Utilized Node.js to create a REST API that manages cargo and loading configurations against multiple aircraft and user roles',
       'Created containerized React UI for real time aircraft data management, and cargo loading with offline persistence',
     ],
-    deploymentSrc: '',
+    deploymentSrc: 'https://levels.apps.dso.mil',
     src: 'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/levels-hls/master.m3u8',
     repoSrc: [
       {
