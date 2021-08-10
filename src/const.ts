@@ -20,11 +20,15 @@ export interface CustomTheme {
 
 export const Const = {
   maxWidth: 890,
-  topNav: 70,
+  topNav: 64,
+  hamburgerWidth: 220,
   titles: {
+    about: 'About',
     tech: 'Stack',
     projects: 'Projects',
+    experience: 'Experience',
     education: 'Education',
+    contact: 'Contact',
   },
   reactScrollProps: {
     spy: true,

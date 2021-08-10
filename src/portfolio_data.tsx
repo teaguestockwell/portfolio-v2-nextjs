@@ -1,11 +1,15 @@
 import {Portfolio} from './types'
 
 export const portfolioData: Portfolio = {
-  firstName: 'Teague',
-  lastName: 'Stockwell',
-  email: 'tsAppDevelopment@gmail.com',
-  linkedInSrc: 'https://www.linkedin.com/in/teague-stockwell',
-  githubSrc: 'https://github.com/tsAppDevelopment',
+  person: {
+    firstName: 'Teague',
+    lastName: 'Stockwell',
+    email: 'tsAppDevelopment@gmail.com',
+    linkedInSrc: 'https://www.linkedin.com/in/teague-stockwell',
+    githubSrc: 'https://github.com/tsAppDevelopment',
+    jobTitle: 'Software Engineer',
+    location: 'Seattle, WA',
+  },
   skills: [
     {
       name: 'Languages',
