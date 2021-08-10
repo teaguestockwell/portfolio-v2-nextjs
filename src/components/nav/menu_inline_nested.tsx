@@ -4,7 +4,7 @@ import {menuData} from './index'
 import {useTheme} from '../../hooks/use_theme'
 import {Link} from 'react-scroll'
 
-export const NavMenu = ({style}: {style?: any}) => {
+export const MenuInlineNested = ({style}: {style?: any}) => {
   const theme = useTheme()
   return (
     <Menu

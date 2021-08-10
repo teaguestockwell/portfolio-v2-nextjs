@@ -1,10 +1,18 @@
-import {Divider, Drawer} from 'antd'
+import {Drawer} from 'antd'
 import {MenuOutlined} from '@ant-design/icons'
 import React, {useState} from 'react'
 import {useTheme} from '../../hooks/use_theme'
 import {SideBar} from './side_bar'
+import * as Types from '../../types'
+import {Const} from '../../const'
 
-export const HamMenu = ({style}: {style?: any}) => {
+export const HamburgerDrawer = ({
+  portfolio,
+  style,
+}: {
+  portfolio: Types.Portfolio
+  style?: any
+}) => {
   const theme = useTheme()
   const [open, setOpen] = useState(false)
   const toggle = () => setOpen(!open)
@@ -21,13 +29,14 @@ export const HamMenu = ({style}: {style?: any}) => {
 
       <Drawer
         closable={false}
-        style={{padding: '0px'}}
+        style={{padding: '0px', width: Const.hamburgerWidth}}
         bodyStyle={{backgroundColor: theme.background2}}
         placement="left"
         visible={open}
         onClose={toggle}
+        width={Const.hamburgerWidth}
       >
-        <SideBar />
+        <SideBar portfolio={portfolio} />
       </Drawer>
     </div>
   )

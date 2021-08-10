@@ -1,12 +1,13 @@
 import {Grid} from 'antd'
-import {NavMenu} from './nav_menu'
-import {HamMenu} from './ham_menu'
+import {MenuInline} from './menu_inline'
+import {HamburgerDrawer} from './hamburger_drawer'
 import {useTheme} from '../../hooks/use_theme'
 import {Linkedin, Github} from '@icons-pack/react-simple-icons'
 import {Const} from '../../const'
 import {ThemeButton} from '../../hooks/use_theme'
 import {portfolioData} from '../../portfolio_data'
 import Image from 'next/image'
+import {SideBar} from './side_bar'
 
 export const menuData = [
   {
@@ -29,6 +30,7 @@ export const menuData = [
 export const Nav = () => {
   const {md, lg} = Grid.useBreakpoint() as any
   const theme = useTheme()
+  const iconSize = 24
 
   return (
     <>
@@ -71,14 +73,21 @@ export const Nav = () => {
           }}
         >
           {!md ? (
-            <HamMenu style={{paddingLeft: Const.pad}} />
+            <HamburgerDrawer
+              portfolio={portfolioData}
+              style={{paddingLeft: Const.pad}}
+            />
           ) : (
             <div style={{paddingLeft: Const.pad}}>
               <Image
                 src="/favicon-32x32.png"
                 width={32}
                 height={32}
-                alt={portfolioData.firstName + ' ' + portfolioData.lastName}
+                alt={
+                  portfolioData.person.firstName +
+                  ' ' +
+                  portfolioData.person.lastName
+                }
               />
             </div>
           )}
@@ -93,12 +102,14 @@ export const Nav = () => {
           >
             {lg ? (
               <div>
-                {portfolioData.firstName + ' ' + portfolioData.lastName}
+                {portfolioData.person.firstName +
+                  ' ' +
+                  portfolioData.person.lastName}
               </div>
             ) : (
               <>
-                <div>{portfolioData.firstName}</div>
-                <div>{portfolioData.lastName}</div>
+                <div>{portfolioData.person.firstName}</div>
+                <div>{portfolioData.person.lastName}</div>
               </>
             )}
           </div>
@@ -115,39 +126,45 @@ export const Nav = () => {
             position: 'fixed',
           }}
         >
-          {md && (
-            <NavMenu
-              style={{
-                justifyContent: 'flex-end',
-              }}
-            />
-          )}
+          {md && <MenuInline items={Object.values(Const.titles)} />}
 
           <div
             className="icon-hover"
             style={{
-              width: '8vw',
-              maxWidth: 40 + Const.pad,
-              minWidth: 38,
+              width: '12vw',
+              maxWidth: iconSize + Const.pad,
+              minWidth: iconSize + 4,
               paddingBottom: 3,
               paddingLeft: 2,
             }}
           >
-            <ThemeButton fontSize={32} color={theme.fontColor0} />
+            <ThemeButton fontSize={iconSize} color={theme.fontColor0} />
           </div>
 
-          <a href={portfolioData.githubSrc} rel="noreferrer" target="_blank">
+          <a
+            href={portfolioData.person.githubSrc}
+            rel="noreferrer"
+            target="_blank"
+          >
             <div
               className="icon-hover"
-              style={{width: '8vw', maxWidth: 40 + Const.pad, minWidth: 38}}
+              style={{
+                width: '12vw',
+                maxWidth: iconSize + Const.pad,
+                minWidth: iconSize + 4,
+              }}
             >
-              <Github color={theme.fontColor0} size={32} />
+              <Github color={theme.fontColor0} size={iconSize} />
             </div>
           </a>
 
-          <a href={portfolioData.linkedInSrc} rel="noreferrer" target="_blank">
+          <a
+            href={portfolioData.person.linkedInSrc}
+            rel="noreferrer"
+            target="_blank"
+          >
             <div className="icon-hover">
-              <Linkedin size={32} color={theme.fontColor0} />
+              <Linkedin size={iconSize} color={theme.fontColor0} />
             </div>
           </a>
         </div>
@@ -157,10 +174,33 @@ export const Nav = () => {
 }
 
 export const WithNav = ({children}: {children?: any}) => {
+  const {xxl} = Grid.useBreakpoint()
   return (
     <>
-      <Nav />
-      <main style={{paddingTop: Const.topNav}}>{children}</main>
+      {xxl ? null : <Nav />}
+      <main
+        style={{
+          paddingTop: Const.topNav,
+          paddingLeft: xxl ? Const.hamburgerWidth : 0,
+        }}
+      >
+        {xxl && (
+          <SideBar
+            portfolio={portfolioData}
+            style={{
+              position: 'fixed',
+              left: 0,
+              top: 0,
+              bottom: 0,
+              width: Const.hamburgerWidth,
+              height: 'initial',
+              borderRight: '1px solid',
+            }}
+          />
+        )}
+
+        {children}
+      </main>
     </>
   )
 }
