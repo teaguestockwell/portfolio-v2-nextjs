@@ -1,5 +1,5 @@
 import {useTheme} from '../hooks/use_theme'
-import {Svgs} from './svgs'
+import {getSimpleSvgs} from './svgs'
 import {Content} from './content'
 import {Card} from './card'
 import {Element} from 'react-scroll'
@@ -18,7 +18,7 @@ export const CardRows = <T extends Props>({
   hasSvgs: boolean
 }) => {
   const theme = useTheme()
-  const svgs = hasSvgs ? Svgs(48, theme) : null
+  const svgs = hasSvgs ? getSimpleSvgs(48, theme) : null
   const getSvg = (key: string) => (svgs ? svgs[key] : <div />)
 
   return (

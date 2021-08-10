@@ -44,7 +44,7 @@ div.ant-drawer-header {
 }
 
 .scroll-active {
-  color: red;
+  border-bottom: solid;
 }
 
 .skip-link {

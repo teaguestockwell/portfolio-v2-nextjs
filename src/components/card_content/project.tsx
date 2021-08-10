@@ -112,6 +112,8 @@ export const Project = ({
             style={{
               position: 'absolute',
               bottom: 0,
+              left: Const.pad,
+              right: Const.pad,
             }}
           >
             <div
