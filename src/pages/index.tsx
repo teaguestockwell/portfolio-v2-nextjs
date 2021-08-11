@@ -1,6 +1,6 @@
 import {useInitTheme} from '../hooks/use_theme'
 import {Section} from '../components/section'
-import {WithNav} from '../components/nav/index'
+import {WithNav} from '../components/nav/nav'
 import {Const} from '../const'
 import Head from 'next/head'
 import {portfolioData} from '../portfolio_data'

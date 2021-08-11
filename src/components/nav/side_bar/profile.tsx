@@ -1,4 +1,4 @@
-import * as Types from '../../../types'
+import * as Types from '../../../types/types'
 import Image from 'next/image'
 import {Const} from '../../../const'
 import {useThemeStore} from '../../../hooks/use_theme'

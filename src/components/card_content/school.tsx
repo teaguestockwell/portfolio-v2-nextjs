@@ -1,7 +1,7 @@
 import {Const} from '../../const'
 import {useThemeStore} from '../../hooks/use_theme'
 import Image from 'next/image'
-import * as Types from '../../types'
+import * as Types from '../../types/types'
 
 export const School = ({name, dateRange, subHeading, src}: Types.School) => {
   const theme = useThemeStore.getState().theme

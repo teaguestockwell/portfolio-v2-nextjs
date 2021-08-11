@@ -3,7 +3,7 @@ import {MenuOutlined} from '@ant-design/icons'
 import React, {useState} from 'react'
 import {useTheme} from '../../hooks/use_theme'
 import {SideBar} from './side_bar/side_bar'
-import * as Types from '../../types'
+import * as Types from '../../types/types'
 import {Const} from '../../const'
 
 export const HamburgerDrawer = ({

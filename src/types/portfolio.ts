@@ -1,4 +1,4 @@
-import * as Types from '.'
+import * as Types from './types'
 
 export interface Portfolio {
   person: Types.Person

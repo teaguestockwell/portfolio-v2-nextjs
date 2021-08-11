@@ -7,7 +7,7 @@ import {LinkOutlined} from '@ant-design/icons'
 import {Const} from '../../const'
 import {SvgScroll, SvgScroll2} from '../svgs'
 import {Video} from '../video'
-import * as Types from '../../types'
+import * as Types from '../../types/types'
 
 export const Project = ({
   name,
