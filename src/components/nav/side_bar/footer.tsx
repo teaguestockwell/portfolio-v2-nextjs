@@ -2,6 +2,7 @@ import {ThemeButton, useThemeStore} from '../../../hooks/use_theme'
 import {Linkedin, Github} from '@icons-pack/react-simple-icons'
 import MailFilled from '@ant-design/icons/MailFilled'
 import * as Types from '../../../types'
+import {Const} from '../../../const'
 
 export const Footer = ({person}: {person: Types.Person}) => {
   const iconSize = 32
@@ -30,6 +31,7 @@ export const Footer = ({person}: {person: Types.Person}) => {
 
       <div
         style={{
+          paddingTop: Const.pad,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-evenly',

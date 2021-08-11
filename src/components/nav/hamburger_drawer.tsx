@@ -30,7 +30,7 @@ export const HamburgerDrawer = ({
       <Drawer
         closable={false}
         style={{padding: '0px', width: Const.hamburgerWidth}}
-        bodyStyle={{backgroundColor: theme.background2}}
+        bodyStyle={{backgroundColor: theme.background1}}
         placement="left"
         visible={open}
         onClose={toggle}

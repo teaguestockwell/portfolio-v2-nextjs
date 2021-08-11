@@ -28,7 +28,6 @@ export const Menu = () => {
           <div
             style={{
               marginLeft: Const.pad / 2,
-              marginRight: Const.pad / 2,
               color: theme.fontColor0,
               fontSize: Const.fontSizes.lg,
             }}

@@ -2,10 +2,20 @@ import * as Types from '../../../types'
 import Image from 'next/image'
 import {Const} from '../../../const'
 import {useThemeStore} from '../../../hooks/use_theme'
+import {textSpanOverlapsWith} from 'typescript'
 
 export const Profile = ({person}: {person: Types.Person}) => {
   const picW = Const.hamburgerWidth - Const.pad * 2
   const theme = useThemeStore.getState().theme
+  const fullName = person.firstName + ' ' + person.lastName
+
+  const textWrap =
+    fullName.length < 18
+      ? {
+          marginRight: Const.pad * -1,
+          marginLeft: Const.pad * -1,
+        }
+      : {}
 
   return (
     <div>
@@ -48,12 +58,13 @@ export const Profile = ({person}: {person: Types.Person}) => {
           color: theme.fontColor0,
           paddingTop: Const.pad,
           textAlign: 'center',
-          fontWeight: 500,
+          fontWeight: 400,
           fontSize: Const.fontSizes.lg,
           overflowWrap: 'break-word',
+          ...textWrap,
         }}
       >
-        {person.firstName + ' ' + person.lastName}
+        {fullName}
       </div>
 
       <div
