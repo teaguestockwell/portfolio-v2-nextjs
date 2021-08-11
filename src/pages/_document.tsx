@@ -19,7 +19,11 @@ class MyDocument extends Document {
         <Head>
           <meta
             name="application-name"
-            content={portfolioData.firstName + ' ' + portfolioData.lastName}
+            content={
+              portfolioData.person.firstName +
+              ' ' +
+              portfolioData.person.lastName
+            }
           />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta
@@ -28,11 +32,19 @@ class MyDocument extends Document {
           />
           <meta
             name="apple-mobile-web-app-title"
-            content={portfolioData.firstName + ' ' + portfolioData.lastName}
+            content={
+              portfolioData.person.firstName +
+              ' ' +
+              portfolioData.person.lastName
+            }
           />
           <meta
             name="description"
-            content={portfolioData.firstName + ' ' + portfolioData.lastName}
+            content={
+              portfolioData.person.firstName +
+              ' ' +
+              portfolioData.person.lastName
+            }
           />
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
