@@ -5,7 +5,7 @@ import {useThemeStore} from '../../../hooks/use_theme'
 import {textSpanOverlapsWith} from 'typescript'
 
 export const Profile = ({person}: {person: Types.Person}) => {
-  const picW = Const.hamburgerWidth - Const.pad * 2
+  const picW = Const.drawerWidth - Const.pad * 2
   const theme = useThemeStore.getState().theme
   const fullName = person.firstName + ' ' + person.lastName
 

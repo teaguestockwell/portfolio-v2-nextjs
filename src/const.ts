@@ -21,7 +21,7 @@ export interface CustomTheme {
 export const Const = {
   maxWidth: 890,
   topNav: 64,
-  hamburgerWidth: 220,
+  drawerWidth: 220,
   titles: {
     about: 'About',
     tech: 'Stack',

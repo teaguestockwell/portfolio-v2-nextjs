@@ -1,6 +1,5 @@
 import {Grid} from 'antd'
 import {MenuInline} from './menu_inline'
-import {HamburgerDrawer} from './hamburger_drawer'
 import {useTheme} from '../../hooks/use_theme'
 import {Linkedin, Github} from '@icons-pack/react-simple-icons'
 import {Const} from '../../const'
@@ -8,6 +7,9 @@ import {ThemeButton} from '../../hooks/use_theme'
 import {portfolioData} from '../../portfolio_data'
 import Image from 'next/image'
 import {SideBar} from './side_bar/side_bar'
+import {Drawer} from './drawer'
+import {MenuOutlined} from '@ant-design/icons'
+import {useDrawerStore} from '../../hooks/use_drawer'
 
 export const menuData = [
   {
@@ -27,6 +29,8 @@ export const menuData = [
   },
 ]
 
+const openDrawer = () => useDrawerStore.getState().set({isOpen: true})
+
 export const Nav = () => {
   const {md, lg} = Grid.useBreakpoint() as any
   const theme = useTheme()
@@ -39,7 +43,7 @@ export const Nav = () => {
       </a>
       <header
         style={{
-          zIndex: 1000,
+          zIndex: 10,
           position: 'fixed',
           WebkitBoxShadow: theme.shadow,
           MozBoxShadow: theme.shadow,
@@ -73,10 +77,19 @@ export const Nav = () => {
           }}
         >
           {!md ? (
-            <HamburgerDrawer
-              person={portfolioData.person}
-              style={{paddingLeft: Const.pad}}
-            />
+            <div
+              style={{
+                paddingLeft: Const.pad,
+              }}
+            >
+              <MenuOutlined
+                onClick={openDrawer}
+                style={{
+                  fontSize: '200%',
+                  color: theme.fontColor0,
+                }}
+              />
+            </div>
           ) : (
             <div style={{paddingLeft: Const.pad}}>
               <Image
@@ -98,6 +111,7 @@ export const Nav = () => {
               fontFamily: 'helvetica',
               color: theme.fontColor0,
               paddingLeft: Const.pad / (md ? 1 : 2),
+              zIndex: 10,
             }}
           >
             {lg ? (
@@ -123,7 +137,7 @@ export const Nav = () => {
             top: 0,
             height: Const.topNav,
             right: Const.pad,
-            position: 'fixed',
+            position: 'absolute',
           }}
         >
           {md && <MenuInline items={Object.values(Const.titles)} />}
@@ -181,10 +195,10 @@ export const WithNav = ({children}: {children?: any}) => {
       <main
         style={{
           paddingTop: Const.topNav,
-          paddingLeft: xxl ? Const.hamburgerWidth : 0,
+          paddingLeft: xxl ? Const.drawerWidth : 0,
         }}
       >
-        {xxl && (
+        {xxl ? (
           <SideBar
             person={portfolioData.person}
             style={{
@@ -192,11 +206,15 @@ export const WithNav = ({children}: {children?: any}) => {
               left: 0,
               top: 0,
               bottom: 0,
-              width: Const.hamburgerWidth,
+              width: Const.drawerWidth,
               height: 'initial',
               borderRight: '1px solid',
             }}
           />
+        ) : (
+          <Drawer>
+            <SideBar person={portfolioData.person} />
+          </Drawer>
         )}
 
         {children}
