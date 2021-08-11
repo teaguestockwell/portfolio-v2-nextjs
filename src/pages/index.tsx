@@ -37,7 +37,7 @@ export default function Home() {
 
       <Element name={Const.titles.projects} key={Const.titles.projects}>
         <Section title={Const.titles.projects} />
-        <CardGrid
+        <CardRows
           items={portfolioData.projects}
           hasSvgs={true}
           getCell={(t, getSvg) => (
@@ -62,7 +62,7 @@ export default function Home() {
 
       <Element name={Const.titles.education} key={Const.titles.education}>
         <Section title={Const.titles.education} />
-        <CardRows
+        <CardGrid
           items={portfolioData.schools}
           hasSvgs={false}
           getCell={(t) => (

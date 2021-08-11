@@ -7,7 +7,7 @@ import {Const} from '../../const'
 import {ThemeButton} from '../../hooks/use_theme'
 import {portfolioData} from '../../portfolio_data'
 import Image from 'next/image'
-import {SideBar} from './side_bar'
+import {SideBar} from './side_bar/side_bar'
 
 export const menuData = [
   {
@@ -74,7 +74,7 @@ export const Nav = () => {
         >
           {!md ? (
             <HamburgerDrawer
-              portfolio={portfolioData}
+              person={portfolioData.person}
               style={{paddingLeft: Const.pad}}
             />
           ) : (
@@ -186,7 +186,7 @@ export const WithNav = ({children}: {children?: any}) => {
       >
         {xxl && (
           <SideBar
-            portfolio={portfolioData}
+            person={portfolioData.person}
             style={{
               position: 'fixed',
               left: 0,

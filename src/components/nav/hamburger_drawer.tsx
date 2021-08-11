@@ -2,15 +2,15 @@ import {Drawer} from 'antd'
 import {MenuOutlined} from '@ant-design/icons'
 import React, {useState} from 'react'
 import {useTheme} from '../../hooks/use_theme'
-import {SideBar} from './side_bar'
+import {SideBar} from './side_bar/side_bar'
 import * as Types from '../../types'
 import {Const} from '../../const'
 
 export const HamburgerDrawer = ({
-  portfolio,
+  person,
   style,
 }: {
-  portfolio: Types.Portfolio
+  person: Types.Person
   style?: any
 }) => {
   const theme = useTheme()
@@ -36,7 +36,7 @@ export const HamburgerDrawer = ({
         onClose={toggle}
         width={Const.hamburgerWidth}
       >
-        <SideBar portfolio={portfolio} />
+        <SideBar person={person} />
       </Drawer>
     </div>
   )
