@@ -88,7 +88,7 @@ export const Project = ({
           <ul
             style={{
               marginLeft: -24,
-              marginBottom: 258,
+              marginBottom: 278,
             }}
           >
             {bullets.map((b) => {

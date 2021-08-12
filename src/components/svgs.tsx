@@ -218,7 +218,7 @@ export const SvgScroll2 = ({
             <div key={v4()}>{s}</div>
           ))}
         </div>
-        <div style={{display: 'flex'}}>
+        <div style={{display: 'flex', paddingLeft: 58, paddingTop: 20}}>
           {svgs.slice(Math.floor(svgs.length / 2), svgs.length - 1).map((s) => (
             <div key={v4()}>{s}</div>
           ))}
