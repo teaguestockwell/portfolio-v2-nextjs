@@ -1,20 +1,17 @@
-import create, {State} from 'zustand'
+import create from 'zustand'
+import {combine} from 'zustand/middleware'
 import {BulbFilled} from '@ant-design/icons'
 import {useLayoutEffect} from 'react'
 import {Const, CustomTheme} from '../const'
 
-interface Props {
-  theme: CustomTheme
-  setTheme: (theme: CustomTheme) => void
-}
-
-export const useThemeStore = create<State & Props>((set) => ({
-  theme: Const.theme.light,
-  setTheme: (theme) =>
-    set((s) => {
-      s.theme = theme
-    }),
-}))
+export const useThemeStore = create(
+  combine(
+    {
+      theme: Const.theme.light as CustomTheme,
+    },
+    (set) => ({set})
+  )
+)
 
 export const useTheme = () =>
   useThemeStore(
@@ -23,8 +20,7 @@ export const useTheme = () =>
   )
 
 const setThemeWrap = (theme: CustomTheme) => {
-  const state = useThemeStore.getState()
-  state.setTheme(theme)
+  useThemeStore.setState({theme})
   document.body.style.backgroundColor = theme.backGround0
   localStorage.setItem('theme', theme.name)
 }
