@@ -1,17 +1,10 @@
 import {useTheme} from '../../../hooks/use_theme'
-import * as Types from '../../../types/types'
 import {Profile} from './profile'
 import {Menu} from './menu'
 import {Footer} from './footer'
 import {Const} from '../../../const'
 
-export const SideBar = ({
-  person,
-  style = {},
-}: {
-  person: Types.Person
-  style?: any
-}) => {
+export const SideBar = ({style = {}}: {style?: any}) => {
   const theme = useTheme()
 
   return (
@@ -27,9 +20,9 @@ export const SideBar = ({
         ...style,
       }}
     >
-      <Profile person={person} />
+      <Profile />
       <Menu />
-      <Footer person={person} />
+      <Footer />
     </div>
   )
 }

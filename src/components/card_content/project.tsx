@@ -1,15 +1,16 @@
 import React, {useState} from 'react'
 import {v4} from 'uuid'
 import {useThemeStore} from '../../hooks/use_theme'
-import {Divider, Grid, Modal} from 'antd'
+import {Divider, Modal} from 'antd'
 import {Github} from '@icons-pack/react-simple-icons'
 import {LinkOutlined} from '@ant-design/icons'
 import {Const} from '../../const'
-import {SvgScroll, SvgScroll2} from '../svgs'
+import {SvgScroll2} from '../svgs'
 import {Video} from '../video'
 import * as Types from '../../types/types'
 
 export const Project = ({
+  techName,
   name,
   subHeading,
   bullets,
@@ -18,7 +19,7 @@ export const Project = ({
   repos,
   deploymentSrc,
   m3u8Src,
-}: Omit<Types.Project, 'svgs'> & {svgs: JSX.Element[]}) => {
+}: Omit<Types.Project, 'svgs'> & {svgs: JSX.Element[]; techName: string}) => {
   const [isModal, setIsModal] = useState(false)
   const theme = useThemeStore.getState().theme
 
@@ -125,7 +126,7 @@ export const Project = ({
                 textTransform: 'capitalize',
               }}
             >
-              {Const.titles.tech}
+              {techName}
             </div>
 
             <div style={{display: 'grid'}}>

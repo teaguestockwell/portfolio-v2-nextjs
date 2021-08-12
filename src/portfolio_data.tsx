@@ -10,6 +10,24 @@ export const portfolioData: Portfolio = {
     jobTitle: 'Software Engineer',
     location: 'Seattle, WA',
   },
+
+  titles: {
+    about: 'About',
+    tech: 'Stack',
+    projects: 'Projects',
+    experience: 'Experience',
+    education: 'Education',
+    contact: 'Contact Me',
+  },
+  subTitles: {
+    about: undefined,
+    tech: undefined,
+    projects: 'Web meets mobile. Full stack and microservice architecture.',
+    experience: undefined,
+    education: undefined,
+    contact: `See me on Github, connect on LinkedIn, or send me an email.`,
+  },
+
   skills: [
     {
       name: 'Languages',
@@ -35,6 +53,8 @@ export const portfolioData: Portfolio = {
         'jira',
         'github',
         'gitlab',
+        'visualStudioCode',
+        'androidStudio',
         'sonarqube',
         'figma',
       ],

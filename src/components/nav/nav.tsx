@@ -4,35 +4,37 @@ import {useTheme} from '../../hooks/use_theme'
 import {Linkedin, Github} from '@icons-pack/react-simple-icons'
 import {Const} from '../../const'
 import {ThemeButton} from '../../hooks/use_theme'
-import {portfolioData} from '../../portfolio_data'
 import Image from 'next/image'
 import {SideBar} from './side_bar/side_bar'
 import {Drawer} from './drawer'
 import {MenuOutlined} from '@ant-design/icons'
 import {useDrawerStore} from '../../hooks/use_drawer'
+import {PortfolioContext} from '../../pages'
+import {useContext} from 'react'
 
-export const menuData = [
-  {
-    title: Const.titles.tech,
-    items: portfolioData.skills.map((s) => ({name: s.name, a: ''})),
-  },
-  {
-    title: Const.titles.projects,
-    items: portfolioData.projects.map((p) => ({
-      name: p.name,
-      a: p.deploymentSrc,
-    })),
-  },
-  {
-    title: Const.titles.education,
-    items: portfolioData.schools.map((e) => ({name: e.name, a: ''})),
-  },
-]
+// export const menuData = [
+//   {
+//     title: Const.titles.tech,
+//     items: portfolio.skills.map((s) => ({name: s.name, a: ''})),
+//   },
+//   {
+//     title: Const.titles.projects,
+//     items: portfolio.projects.map((p) => ({
+//       name: p.name,
+//       a: p.deploymentSrc,
+//     })),
+//   },
+//   {
+//     title: Const.titles.education,
+//     items: portfolio.schools.map((e) => ({name: e.name, a: ''})),
+//   },
+// ]
 
 const openDrawer = () => useDrawerStore.getState().set({isOpen: true})
 
 export const Nav = () => {
   const {md, lg} = Grid.useBreakpoint() as any
+  const portfolio = useContext(PortfolioContext)
   const theme = useTheme()
   const iconSize = 24
 
@@ -97,9 +99,7 @@ export const Nav = () => {
                 width={32}
                 height={32}
                 alt={
-                  portfolioData.person.firstName +
-                  ' ' +
-                  portfolioData.person.lastName
+                  portfolio.person.firstName + ' ' + portfolio.person.lastName
                 }
               />
             </div>
@@ -116,14 +116,12 @@ export const Nav = () => {
           >
             {lg ? (
               <div>
-                {portfolioData.person.firstName +
-                  ' ' +
-                  portfolioData.person.lastName}
+                {portfolio.person.firstName + ' ' + portfolio.person.lastName}
               </div>
             ) : (
               <>
-                <div>{portfolioData.person.firstName}</div>
-                <div>{portfolioData.person.lastName}</div>
+                <div>{portfolio.person.firstName}</div>
+                <div>{portfolio.person.lastName}</div>
               </>
             )}
           </div>
@@ -140,7 +138,7 @@ export const Nav = () => {
             position: 'absolute',
           }}
         >
-          {md && <MenuInline items={Object.values(Const.titles)} />}
+          {md && <MenuInline items={Object.values(portfolio.titles)} />}
 
           <div
             className="icon-hover"
@@ -155,11 +153,7 @@ export const Nav = () => {
             <ThemeButton fontSize={iconSize} color={theme.fontColor0} />
           </div>
 
-          <a
-            href={portfolioData.person.githubSrc}
-            rel="noreferrer"
-            target="_blank"
-          >
+          <a href={portfolio.person.githubSrc} rel="noreferrer" target="_blank">
             <div
               className="icon-hover"
               style={{
@@ -173,7 +167,7 @@ export const Nav = () => {
           </a>
 
           <a
-            href={portfolioData.person.linkedInSrc}
+            href={portfolio.person.linkedInSrc}
             rel="noreferrer"
             target="_blank"
           >
@@ -189,6 +183,7 @@ export const Nav = () => {
 
 export const WithNav = ({children}: {children?: any}) => {
   const {xxl} = Grid.useBreakpoint()
+
   return (
     <>
       {xxl ? null : <Nav />}
@@ -200,7 +195,6 @@ export const WithNav = ({children}: {children?: any}) => {
       >
         {xxl ? (
           <SideBar
-            person={portfolioData.person}
             style={{
               position: 'fixed',
               left: 0,
@@ -213,7 +207,7 @@ export const WithNav = ({children}: {children?: any}) => {
           />
         ) : (
           <Drawer>
-            <SideBar person={portfolioData.person} />
+            <SideBar />
           </Drawer>
         )}
 

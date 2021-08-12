@@ -9,7 +9,6 @@ export const Glow = ({
   children: JSX.Element | JSX.Element[]
   tlwh: [number, number, number, number]
 }) => {
-  const theme = useTheme()
   const {md} = Grid.useBreakpoint()
 
   return (
@@ -21,7 +20,7 @@ export const Glow = ({
         overflow: 'hidden',
       }}
     >
-      {theme.name === 'dark' && md ? (
+      {md ? (
         <img
           src={'/glow.png'}
           alt="glow"

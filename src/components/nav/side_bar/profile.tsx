@@ -1,12 +1,13 @@
-import * as Types from '../../../types/types'
 import Image from 'next/image'
+import {useContext} from 'react'
 import {Const} from '../../../const'
 import {useThemeStore} from '../../../hooks/use_theme'
-import {textSpanOverlapsWith} from 'typescript'
+import {PortfolioContext} from '../../../pages'
 
-export const Profile = ({person}: {person: Types.Person}) => {
+export const Profile = () => {
   const picW = Const.drawerWidth - Const.pad * 2
   const theme = useThemeStore.getState().theme
+  const {person} = useContext(PortfolioContext)
   const fullName = person.firstName + ' ' + person.lastName
 
   const textWrap =

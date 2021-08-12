@@ -2,14 +2,17 @@ import {Link} from 'react-scroll'
 import {Const} from '../../../const'
 import {useThemeStore} from '../../../hooks/use_theme'
 import {getCustomSvgs} from '../../svgs'
+import {useContext} from 'react'
+import {PortfolioContext} from '../../../pages'
 
 export const Menu = () => {
   const theme = useThemeStore.getState().theme
-  const customSvgs = getCustomSvgs(theme.fontColor0, 24, 24)
+  const {titles} = useContext(PortfolioContext)
+  const customSvgs = getCustomSvgs(theme.fontColor0, 24, 24, titles)
 
   return (
     <div>
-      {Object.values(Const.titles).map((i) => (
+      {Object.values(titles).map((i) => (
         <Link
           key={i}
           to={i}

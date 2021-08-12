@@ -22,14 +22,6 @@ export const Const = {
   maxWidth: 1000,
   topNav: 64,
   drawerWidth: 275,
-  titles: {
-    about: 'About',
-    tech: 'Stack',
-    projects: 'Projects',
-    experience: 'Experience',
-    education: 'Education',
-    contact: 'Contact',
-  },
   reactScrollProps: {
     spy: true,
     smooth: true,
@@ -45,6 +37,7 @@ export const Const = {
     lg: 24,
     xl: 28,
     xxl: 32,
+    xxxl: 40,
   },
   theme: {
     light: {
@@ -80,8 +73,9 @@ export const Const = {
       backGround0: '#000',
       background1: '#151516',
       background2: '#383838',
-      fontColor0: '#DEffff',
-      fontColor1: '#DEffff',
+
+      fontColor0: '#ffff',
+      fontColor1: '#8B949E',
       fontColor2: '#DEffff',
 
       paletColor0: '#f7f7f7',

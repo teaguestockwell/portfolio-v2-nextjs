@@ -1,12 +1,14 @@
 import {ThemeButton, useThemeStore} from '../../../hooks/use_theme'
 import {Linkedin, Github} from '@icons-pack/react-simple-icons'
 import MailFilled from '@ant-design/icons/MailFilled'
-import * as Types from '../../../types/types'
 import {Const} from '../../../const'
+import {useContext} from 'react'
+import {PortfolioContext} from '../../../pages'
 
-export const Footer = ({person}: {person: Types.Person}) => {
+export const Footer = () => {
   const iconSize = 32
   const theme = useThemeStore.getState().theme
+  const {person} = useContext(PortfolioContext)
 
   return (
     <div>
