@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import {Grid} from 'antd'
 import {useTheme} from '../hooks/use_theme'
 
 export const Glow = ({
@@ -9,6 +10,7 @@ export const Glow = ({
   tlwh: [number, number, number, number]
 }) => {
   const theme = useTheme()
+  const {md} = Grid.useBreakpoint()
 
   return (
     <div
@@ -19,7 +21,7 @@ export const Glow = ({
         overflow: 'hidden',
       }}
     >
-      {theme.name === 'dark' ? (
+      {theme.name === 'dark' && md ? (
         <img
           src={'/glow.png'}
           alt="glow"

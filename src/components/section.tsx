@@ -12,7 +12,7 @@ export const Section = ({title}: {title: string}) => {
         justifyContent: 'left',
         backgroundColor: theme.background1,
         maxHeight: Const.topNav * 1.3,
-        marginTop: Const.pad,
+        marginTop: Const.pad * 4,
         minHeight: Const.topNav * 0.7,
         height: '12vw',
       }}
