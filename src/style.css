@@ -1,3 +1,7 @@
+html {
+  /* -webkit-font-smoothing: antialiased; */
+}
+
 .icon-hover > * {
   transition: transform 0.3s ease, filter 0.25s ease-in-out;
   -webkit-transition: transform 0.3s ease, filter 0.25s ease-in-out;

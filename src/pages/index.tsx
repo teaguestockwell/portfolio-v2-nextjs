@@ -10,6 +10,7 @@ import {Project} from '../components/card_content/project'
 import {School} from '../components/card_content/school'
 import {CardGrid} from '../components/card_grid'
 import {Element} from 'react-scroll'
+import {Glow} from '../components/glow'
 
 export default function Home() {
   useInitTheme()
@@ -37,23 +38,26 @@ export default function Home() {
 
       <Element name={Const.titles.projects} key={Const.titles.projects}>
         <Section title={Const.titles.projects} />
-        <CardRows
-          items={portfolioData.projects}
-          hasSvgs={true}
-          getCell={(t, getSvg) => (
-            <Project
-              key={t.name}
-              name={t.name}
-              subHeading={t.subHeading}
-              dateRange={t.dateRange}
-              bullets={t.bullets}
-              deploymentSrc={t.deploymentSrc}
-              repos={t.repos}
-              m3u8Src={t.m3u8Src}
-              svgs={t.svgs.map((s) => getSvg(s))}
-            />
-          )}
-        />
+
+        <Glow tlwh={[-10, -5, 110, 125]}>
+          <CardRows
+            items={portfolioData.projects}
+            hasSvgs={true}
+            getCell={(t, getSvg) => (
+              <Project
+                key={t.name}
+                name={t.name}
+                subHeading={t.subHeading}
+                dateRange={t.dateRange}
+                bullets={t.bullets}
+                deploymentSrc={t.deploymentSrc}
+                repos={t.repos}
+                m3u8Src={t.m3u8Src}
+                svgs={t.svgs.map((s) => getSvg(s))}
+              />
+            )}
+          />
+        </Glow>
       </Element>
 
       <Element name={Const.titles.experience} key={Const.titles.experience}>
