@@ -18,7 +18,6 @@ export const Video = React.memo(({src}: {src: string}) => {
         ref={videoRef}
         className="video-js vjs-big-play-centered"
         style={{
-          maxWidth: '59vw',
           height: '70vh',
           // aspectRatio: '6/13', // I Phone X
           borderRadius: 10,
@@ -38,6 +37,9 @@ export const Video = React.memo(({src}: {src: string}) => {
           {
             //autoplay: 'muted',
             controls: true,
+            controlBar: {
+              volumePanel: false,
+            },
             responsive: false,
             fluid: false,
             loop: true,
