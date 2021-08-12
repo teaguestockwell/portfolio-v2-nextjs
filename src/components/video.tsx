@@ -12,25 +12,19 @@ export const Video = React.memo(({src}: {src: string}) => {
   // This seperate functional component fixes the removal of the videoelement
   // from the DOM when calling the dispose() method on a player
   const VideoHtml = useRef(
-    <div
-      ref={ref as any}
-      style={{
-        width: 'fit-content',
-        maxHeight: '70vh',
-        borderRadius: 10,
-        overflow: 'hidden',
-        WebkitTransform: 'translateZ(0)',
-        aspectRatio: '6/13', // I Phone X
-      }}
-    >
-      <div data-vjs-player>
-        <video
-          muted
-          ref={videoRef}
-          className="video-js vjs-big-play-centered"
-          style={{maxWidth: '100%', maxHeight: '100%'}}
-        />
-      </div>
+    <div data-vjs-player ref={ref as any}>
+      <video
+        muted
+        ref={videoRef}
+        className="video-js vjs-big-play-centered"
+        style={{
+          maxWidth: '59vw',
+          height: '70vh',
+          // aspectRatio: '6/13', // I Phone X
+          borderRadius: 10,
+          width: 'calc(70vh * .4615)',
+        }}
+      />
     </div>
   )
 

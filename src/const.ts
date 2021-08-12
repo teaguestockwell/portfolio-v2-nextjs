@@ -74,6 +74,7 @@ export const Const = {
       nav: {
         backgroundColor: 'rgba(29,29,31,0.72)',
         backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
       },
 
       backGround0: '#000',
