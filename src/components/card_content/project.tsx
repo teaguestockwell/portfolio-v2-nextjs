@@ -57,7 +57,7 @@ export const Project = ({
               textAlign: 'center',
               color: theme.fontColor1,
               fontSize: Const.fontSizes.lg,
-              fontWeight: 200,
+              fontWeight: 400,
               textTransform: 'capitalize',
             }}
           >
@@ -121,6 +121,8 @@ export const Project = ({
                 textAlign: 'center',
                 color: theme.fontColor1,
                 fontSize: Const.fontSizes.lg,
+                fontWeight: 400,
+                textTransform: 'capitalize',
               }}
             >
               {Const.titles.tech}

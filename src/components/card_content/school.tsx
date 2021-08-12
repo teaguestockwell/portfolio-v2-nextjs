@@ -13,6 +13,7 @@ export const School = ({name, dateRange, subHeading, src}: Types.School) => {
           textAlign: 'center',
           color: theme.fontColor1,
           fontSize: Const.fontSizes.lg,
+          fontWeight: 400,
         }}
       >
         {name}

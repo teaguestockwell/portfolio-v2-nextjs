@@ -35,6 +35,8 @@ import {
   Gitlab,
   Jira,
   Figma,
+  Androidstudio,
+  Visualstudiocode,
 } from '@icons-pack/react-simple-icons'
 import {v4} from 'uuid'
 
@@ -124,47 +126,39 @@ const Svg = ({
 }) => {
   return (
     <div
+      className="icon-hover"
       style={{
-        paddingLeft: Const.pad,
-        paddingRight: Const.pad,
+        width: 100,
+        height: 100,
+        padding: 5,
       }}
     >
       <div
-        className="icon-hover"
         style={{
-          width: 75,
-          height: 75,
-          padding: 5,
-          paddingLeft: Const.pad,
-          paddingRight: Const.pad,
+          paddingTop: 4,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
+        {svg}
+      </div>
+
+      {name && (
         <div
           style={{
             paddingTop: 4,
+            color: theme.fontColor1,
+            fontSize: Const.fontSizes.sm,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            textAlign: 'center',
           }}
         >
-          {svg}
+          {name}
         </div>
-
-        {name && (
-          <div
-            style={{
-              paddingTop: 4,
-              color: theme.fontColor1,
-              fontSize: Const.fontSizes.sm,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            {name}
-          </div>
-        )}
-      </div>
+      )}
     </div>
   )
 }
@@ -204,8 +198,7 @@ export const SvgScroll2 = ({
   return (
     <div
       style={{
-        paddingTop: Const.pad,
-        paddingBottom: Const.pad,
+        paddingTop: Const.pad / 2,
         display: 'flex',
         overflowX: 'auto',
         overflowY: 'clip',
@@ -243,6 +236,22 @@ export const getSimpleSvgs = (size: number, theme: any) => {
         name={'Java'}
         theme={theme}
         svg={<Java size={size} color={'#007396'} />}
+      />
+    ),
+
+    androidStudio: (
+      <Svg
+        name={'Android Studio'}
+        theme={theme}
+        svg={<Androidstudio size={size} color={'#3DDC84'} />}
+      />
+    ),
+
+    visualStudioCode: (
+      <Svg
+        name={'VS Code'}
+        theme={theme}
+        svg={<Visualstudiocode size={size} color={'#007ACC'} />}
       />
     ),
 

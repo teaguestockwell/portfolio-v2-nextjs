@@ -18,7 +18,7 @@ export const CardRows = <T extends Props>({
   hasSvgs: boolean
 }) => {
   const theme = useTheme()
-  const svgs = hasSvgs ? getSimpleSvgs(48, theme) : null
+  const svgs = hasSvgs ? getSimpleSvgs(42, theme) : null
   const getSvg = (key: string) => (svgs ? svgs[key] : <div />)
 
   return (
