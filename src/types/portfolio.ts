@@ -7,4 +7,5 @@ export interface Portfolio {
   schools: Types.School[]
   titles: Types.SectionTitles
   subTitles: Partial<Types.SectionTitles>
+  jobs: Types.Job[]
 }

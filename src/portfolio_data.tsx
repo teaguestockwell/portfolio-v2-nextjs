@@ -11,6 +11,39 @@ export const portfolioData: Portfolio = {
     location: 'Seattle, WA',
   },
 
+  jobs: [
+    {
+      name: 'Software Engineer',
+      company: 'Rainier Spark Tron',
+      dateRange: 'October 2020 - Present',
+      description:
+        'asda asdas  asdnjnakjsnd jkashdkjha kahjsdlkh kalhhsdklha lkajhsd',
+      src: 'https://www.linkedin.com/company/tron-air-force',
+      location: 'Joint Base Lewis McChord, WA',
+      imgSrc: '/rainier.png',
+    },
+    {
+      name: 'Software Engineer',
+      company: 'Aloha Spark Tron',
+      dateRange: 'October 2020 - Present',
+      description:
+        'asda asdas  asdnjnakjsnd jkashdkjha kahjsdlkh kalhhsdklha lkajhsd',
+      src: 'https://www.linkedin.com/company/tron-air-force',
+      location: 'Remote',
+      imgSrc: '/tron1.png',
+    },
+    {
+      name: 'Aerospace Maintenance Technician',
+      company: 'United States Air Force',
+      dateRange: 'October 2017 - December 2020',
+      description:
+        'asda asdas  asdnjnakjsnd jkashdkjha kahjsdlkh kalhhsdklha lkajhsd',
+      src: 'https://www.airforce.com/careers/detail/airlift-special-mission-aircraft-maintenance',
+      location: 'Joint Base Lewis McChord, WA',
+      imgSrc: '/af1.png',
+    },
+  ],
+
   titles: {
     about: 'About',
     tech: 'Stack',
