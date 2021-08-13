@@ -1,9 +1,9 @@
 import {Element} from 'react-scroll'
 import {SectionHeader} from '../section_header'
-import {CardGrid} from '../card_grid'
 import {School} from '../card_content/school'
 import {PortfolioContext} from '../../pages'
 import {useContext} from 'react'
+import {CardRows} from '../card_rows'
 
 export const SchoolsSection = () => {
   const portfolio = useContext(PortfolioContext)
@@ -14,15 +14,15 @@ export const SchoolsSection = () => {
         title={portfolio.titles.education}
         subTitle={portfolio.subTitles.education}
       />
-      <CardGrid
+      <CardRows
         items={portfolio.schools}
         hasSvgs={false}
         getCell={(t) => (
           <School
-            name={t.name}
-            dateRange={t.dateRange}
-            subHeading={t.subHeading}
-            src={t.src}
+            href={t.href}
+            title={t.name}
+            imgSrc={t.imgSrc}
+            rows={[t.dateRange, t.subHeading]}
           />
         )}
       />

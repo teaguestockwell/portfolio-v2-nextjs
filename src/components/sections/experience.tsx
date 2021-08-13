@@ -1,14 +1,12 @@
 import {Element} from 'react-scroll'
 import {SectionHeader} from '../section_header'
+import {CardGrid} from '../card_grid'
+import {ImgCardCell} from '../card_content/img_card_cell'
 import {PortfolioContext} from '../../pages'
 import {useContext} from 'react'
-import {VerticalTimeline} from 'react-vertical-timeline-component'
-import {Job} from '../card_content/job'
-import {useTheme} from '../../hooks/use_theme'
 
 export const ExperienceSection = () => {
   const portfolio = useContext(PortfolioContext)
-  useTheme()
 
   return (
     <Element
@@ -19,11 +17,18 @@ export const ExperienceSection = () => {
         title={portfolio.titles.experience}
         subTitle={portfolio.subTitles.experience}
       />
-      <VerticalTimeline animate={false}>
-        {portfolio.jobs.map((job) => (
-          <Job key={job.name} job={job} />
-        ))}
-      </VerticalTimeline>
+      <CardGrid
+        items={portfolio.jobs}
+        hasSvgs={false}
+        getCell={(t) => (
+          <ImgCardCell
+            title={t.name}
+            href={t.src ?? ''}
+            imgSrc={t.imgSrc}
+            rows={[t.dateRange, t.company, t.location, t.description]}
+          />
+        )}
+      />
     </Element>
   )
 }

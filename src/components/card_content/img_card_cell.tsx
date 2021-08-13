@@ -2,7 +2,7 @@ import {Const} from '../../const'
 import {useThemeStore} from '../../hooks/use_theme'
 import Image from 'next/image'
 
-export const School = ({
+export const ImgCardCell = ({
   title,
   rows,
   imgSrc,
@@ -18,22 +18,29 @@ export const School = ({
   return (
     <div
       style={{
-        padding: Const.pad,
         display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'start',
-        alignItems: 'center',
+        padding: Const.pad,
       }}
     >
+      {/* <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'start'
+            }}
+          > */}
       <a
         href={href}
-        rel="noreferrer"
         target="_blank"
+        rel="noreferrer"
         style={{
           width: 75,
           height: 75,
           minWidth: 75,
           minHeight: 75,
-          marginRight: Const.pad,
         }}
       >
         {/* https://github.com/vercel/next.js/discussions/18312 */}
@@ -56,38 +63,33 @@ export const School = ({
 
       <div
         style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'start',
-          alignItems: 'top',
-          paddingLeft: Const.pad,
+          wordWrap: 'break-word',
+          paddingTop: Const.pad * 2,
+          paddingBottom: Const.pad,
+          textAlign: 'left',
+          color: theme.fontColor1,
+          fontSize: Const.fontSizes.lg,
+          fontWeight: 400,
+          lineHeight: `${Const.fontSizes.lg}px`,
         }}
       >
+        {title}
+        {/* </div> */}
+      </div>
+
+      {rows.map((row) => (
         <div
+          key={row}
           style={{
             textAlign: 'left',
             color: theme.fontColor1,
-            fontSize: Const.fontSizes.lg,
-            fontWeight: 400,
+            fontSize: Const.fontSizes.sm,
+            paddingTop: Const.pad / 2,
           }}
         >
-          {title}
+          {row}
         </div>
-
-        {rows.map((row) => (
-          <div
-            key={row}
-            style={{
-              textAlign: 'left',
-              color: theme.fontColor1,
-              fontSize: Const.fontSizes.sm,
-              paddingTop: Const.pad / 2,
-            }}
-          >
-            {row}
-          </div>
-        ))}
-      </div>
+      ))}
     </div>
   )
 }

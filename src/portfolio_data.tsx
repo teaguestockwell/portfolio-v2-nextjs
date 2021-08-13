@@ -182,13 +182,15 @@ export const portfolioData: Portfolio = {
       name: 'Southwestern College',
       dateRange: 'May 2021',
       subHeading: `Bachelor of Science, Computer Programming, 3.9 GPA`,
-      src: '/bs1.png',
+      imgSrc: '/bs1.png',
+      href: 'https://www.sckans.edu/',
     },
     {
       name: 'Community College of the Air Force',
       dateRange: 'August 2019',
       subHeading: `Associate of Applied Science, Aviation Maintenance Technology, 4.0 GPA`,
-      src: '/as1.png',
+      imgSrc: '/as1.png',
+      href: 'https://www.ccaf.af.mil/',
     },
   ],
 }

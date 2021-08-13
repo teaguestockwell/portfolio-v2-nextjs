@@ -2,5 +2,6 @@ export interface School {
   name: string
   dateRange: string
   subHeading: string
-  src: string
+  imgSrc: string
+  href: string
 }
