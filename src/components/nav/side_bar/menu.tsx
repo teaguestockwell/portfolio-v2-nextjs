@@ -4,6 +4,7 @@ import {useThemeStore} from '../../../hooks/use_theme'
 import {getCustomSvgs} from '../../svgs'
 import {useContext} from 'react'
 import {PortfolioContext} from '../../../pages'
+import {useDrawerStore} from '../../../hooks/use_drawer'
 
 export const Menu = () => {
   const theme = useThemeStore.getState().theme
@@ -33,6 +34,7 @@ export const Menu = () => {
         >
           {customSvgs[i]}
           <div
+            onClick={() => useDrawerStore.setState({isOpen: false})}
             style={{
               marginLeft: Const.pad / 2,
               color: theme.fontColor0,
