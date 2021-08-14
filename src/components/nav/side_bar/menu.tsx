@@ -18,30 +18,30 @@ export const Menu = () => {
       }}
     >
       {Object.values(titles).map((i) => (
-        <Link
-          key={i}
-          to={i}
-          {...Const.reactScrollProps}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'left',
-            height: 48,
-            fontWeight: 200,
-            fontSize: Const.fontSizes.lg,
-            color: theme.fontColor0,
-          }}
-        >
-          {customSvgs[i]}
+        <Link key={i} to={i} {...Const.reactScrollProps}>
           <div
-            onClick={() => useDrawerStore.setState({isOpen: false})}
+            className="menu-sidebar"
             style={{
-              marginLeft: Const.pad / 2,
-              color: theme.fontColor0,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'left',
+              height: 48,
+              fontWeight: 200,
               fontSize: Const.fontSizes.lg,
+              color: theme.fontColor0,
             }}
           >
-            {i}
+            {customSvgs[i]}
+            <div
+              onClick={() => useDrawerStore.setState({isOpen: false})}
+              style={{
+                marginLeft: Const.pad / 2,
+                color: theme.fontColor0,
+                fontSize: Const.fontSizes.lg,
+              }}
+            >
+              {i}
+            </div>
           </div>
         </Link>
       ))}

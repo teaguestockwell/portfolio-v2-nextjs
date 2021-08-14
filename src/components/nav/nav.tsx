@@ -138,7 +138,11 @@ export const Nav = () => {
             position: 'absolute',
           }}
         >
-          {md && <MenuInline items={Object.values(portfolio.titles)} />}
+          {md && (
+            <>
+              <MenuInline items={Object.values(portfolio.titles)} />
+            </>
+          )}
 
           <div
             className="icon-hover"

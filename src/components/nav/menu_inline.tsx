@@ -17,22 +17,24 @@ export const MenuInline = ({
         alignItems: 'center',
         justifyContent: 'right',
         marginLeft: Const.pad / 2,
+        marginRight: Const.pad / 2,
       }}
     >
       {items.map((i) => {
         return (
-          <Link
-            key={i}
-            to={i}
-            style={{
-              marginLeft: Const.pad / 2,
-              marginRight: Const.pad / 2,
-              color: theme.fontColor0,
-              fontSize: Const.fontSizes.md,
-            }}
-            {...Const.reactScrollProps}
-          >
-            {i}
+          <Link key={i} to={i} {...Const.reactScrollProps}>
+            <div
+              className="menu-inline"
+              style={{
+                marginLeft: Const.pad / 2,
+                marginRight: Const.pad / 2,
+                color: theme.fontColor0,
+                fontSize: Const.fontSizes.md,
+                // marginTop: '0px !important',
+              }}
+            >
+              {i}
+            </div>
           </Link>
         )
       })}

@@ -47,8 +47,17 @@ div.ant-drawer-header {
   position: fixed !important;
 }
 
-.scroll-active {
+.scroll-active .menu-sidebar {
   border-bottom: solid;
+}
+
+.scroll-active .menu-sidebar > * {
+  margin-top: 3px;
+}
+
+.scroll-active .menu-inline {
+  border-bottom: solid;
+  margin-top: 3px;
 }
 
 .skip-link {
