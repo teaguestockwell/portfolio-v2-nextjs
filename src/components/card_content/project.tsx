@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {v4} from 'uuid'
 import {useThemeStore} from '../../hooks/use_theme'
-import {Divider, Modal} from 'antd'
+import {Modal} from 'antd'
 import {Github} from '@icons-pack/react-simple-icons'
 import {LinkOutlined} from '@ant-design/icons'
 import {Const} from '../../const'
@@ -137,11 +137,15 @@ export const Project = ({
       </div>
 
       <div style={{marginRight: Const.pad, marginLeft: Const.pad}}>
-        <Divider
+        <div
           key={v4()}
           style={{
-            backgroundColor: theme.fontColor2,
+            color: theme.fontColor0,
             marginBottom: Const.pad,
+            marginTop: Const.pad,
+            borderTop: `solid 1px`,
+            width: '100%',
+            display: 'flex',
           }}
         />
 

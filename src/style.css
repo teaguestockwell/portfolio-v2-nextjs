@@ -20,33 +20,6 @@ html {
   background-color: rgba(0, 0, 0, 0) !important;
 }
 
-div.ant-drawer-body {
-  padding: 0px;
-}
-
-ul.ant-menu-overflow.ant-menu.ant-menu-root.ant-menu-horizontal.ant-menu-light {
-  border-bottom: 0px;
-  background: transparent;
-}
-
-div.ant-drawer-header {
-  padding: 12px 24px;
-}
-
-.ant-menu {
-  border-bottom: 0px !important;
-}
-
-.ant-menu-inline,
-.ant-menu-vertical,
-.ant-menu-vertical-left {
-  border-right: 0px !important;
-}
-
-.ant-menu-submenu-popup {
-  position: fixed !important;
-}
-
 .scroll-active .menu-sidebar {
   border-bottom: solid;
 }
