@@ -50,7 +50,7 @@ export const portfolioData: Portfolio = {
     projects: 'Projects',
     experience: 'Experience',
     education: 'Education',
-    contact: 'Contact Me',
+    contact: 'Contact',
   },
   subTitles: {
     about: undefined,
@@ -95,17 +95,51 @@ export const portfolioData: Portfolio = {
   ],
   projects: [
     {
+      name: 'Buildable 🚧 WIP 🚧 ',
+      dateRange: 'Apr 2021 - Present',
+      subHeading:
+        'Created a social media platform for exploring and sharing buildable items utilizing React, S3, Postgres, Oauth 2.0, and a Next.js serverless API',
+      bullets: [
+        'Utilized Next.js to create a scalable collection of user content that is incrementally statically regenerated and served on edge',
+        'Created post interaction with threaded comments, likes, saves, and rich text editing',
+        'Implemented a serverless REST API that the manages the lifecycle of securely uploading images from the client using presigned urls',
+      ],
+      deploymentSrc: 'http://hello-next-auth.vercel.app/all-time',
+      m3u8Src:
+        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/buildable-hls/master.m3u8',
+      repos: [
+        {
+          name: 'mono repo',
+          src: 'https://github.com/tsAppDevelopment/buildable',
+        },
+      ],
+      svgs: [
+        'docker',
+        'postgresql',
+        'reactjs',
+        'nodedotjs',
+        'amazonaws',
+        'vercel',
+        'typescript',
+        'prisma',
+        'github',
+        'git',
+        'css3',
+        'html5',
+      ],
+    },
+    {
       name: 'Levels',
       dateRange: 'March 2021 - Present',
       subHeading: `Developed a production full stack web app to manage aircraft cargo loading for the Air Force`,
       bullets: [
-        'Leveraged CI/CD pipelines, TDD, hardened Docker imgs, and Agile to accredit and securely deploy a prod app in < 5 months',
+        'Leveraged CI/CD pipelines, TDD, hardened Docker imgs, and Agile to accredit and deploy a prod app in < 5 months to a secure network',
         'Utilized Node.js to create a REST API that manages cargo and loading configurations against multiple aircraft and user roles',
         'Created containerized React UI for real time aircraft data management, and cargo loading with offline persistence',
       ],
       deploymentSrc: 'https://levels.apps.dso.mil',
       m3u8Src:
-        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/levels-hls/master.m3u8',
+        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/level-2-hls/master.m3u8',
       repos: [
         {
           name: 'Frontend',
@@ -175,6 +209,69 @@ export const portfolioData: Portfolio = {
         'git',
         'figma',
       ],
+    },
+    {
+      name: 'Dog of the Day',
+      dateRange: 'Mar 2021',
+      subHeading: `A lighthearted React app to share your favorite animals during standup`,
+      bullets: [
+        'Consumed a restful api to browse, showcase, and persist animals in a React/Material-UI',
+      ],
+      deploymentSrc: 'https://dog-of-the-day-2692f.web.app/',
+      m3u8Src:
+        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/dod-hls/master.m3u8',
+      repos: [
+        {
+          name: 'Frontend',
+          src: 'https://github.com/tsAppDevelopment/dog-of-the-day',
+        },
+      ],
+      svgs: [
+        'firebase',
+        'reactjs',
+        'typescript',
+        'html5',
+        'css3',
+        'git',
+        'github',
+      ],
+    },
+    {
+      name: '5 Level',
+      dateRange: 'Sep 2020 - March 2020',
+      subHeading: `Developed, and deployed A native android application with Java for aircraft weight and balance`,
+      bullets: [],
+      deploymentSrc:
+        'https://play.google.com/store/apps/details?id=com.TsAppDevelopment.c17mac',
+      m3u8Src:
+        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/5-level-2-hls/master.m3u8',
+      repos: [
+        {
+          name: 'Android UI',
+          src: 'https://github.com/tsAppDevelopment/levels-v1-android',
+        },
+      ],
+      svgs: ['android', 'java', 'git', 'github'],
+    },
+    {
+      name: `Doctor's Patient Portal`,
+      subHeading: `Developed a demo Flutter UI to consume real time checkups to a doctor's office`,
+      dateRange: 'March 2021',
+      m3u8Src:
+        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/lpg-hls/master.m3u8',
+      repos: [
+        {
+          name: 'Frontend',
+          src: 'https://github.com/tsAppDevelopment/doctors-patient-database',
+        },
+      ],
+      svgs: ['flutter', 'firebase', 'git', 'github', 'dart'],
+      bullets: [
+        `Utilized Firebase auth to authenticate care providers who want to maintain patient data`,
+        `Implemented real time searching of patients against NoSQL database (Firebase)`,
+        'email:  guest@email.com, password: password',
+      ],
+      deploymentSrc: 'https://doctors-patient-database.web.app',
     },
   ],
   schools: [
