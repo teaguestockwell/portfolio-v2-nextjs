@@ -1,7 +1,6 @@
 import {Grid} from 'antd'
 import {Const} from '../const'
 import {useTheme} from '../hooks/use_theme'
-// import ScrollAnimation from 'react-animate-on-scroll'
 
 export const Card = ({
   children,
@@ -14,7 +13,6 @@ export const Card = ({
   const md = Grid.useBreakpoint().md
 
   return (
-    // <ScrollAnimation offset={-500} duration={0.3} animateIn="animate__fadeIn" animateOnce>
     <div
       style={{
         WebkitBoxShadow: theme.shadow,
@@ -29,6 +27,5 @@ export const Card = ({
     >
       {children}
     </div>
-    // </ScrollAnimation>
   )
 }

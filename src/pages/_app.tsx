@@ -1,7 +1,6 @@
 import type {AppProps} from 'next/app'
 import 'video.js/dist/video-js.css'
 import '../style.css'
-import 'animate.css/animate.min.css'
 
 export default function App({Component, pageProps}: AppProps) {
   return (
