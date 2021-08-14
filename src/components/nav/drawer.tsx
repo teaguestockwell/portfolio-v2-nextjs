@@ -42,6 +42,7 @@ export const Drawer = ({children}: {children: JSX.Element | JSX.Element[]}) => {
         style={{
           backgroundColor: 'rgba(0, 0, 0, 0.61)',
           backdropFilter: 'blur(5px)',
+          WebkitBackdropFilter: 'blur(5px)',
           position: 'absolute',
           height: '100%',
           width: '100%',
