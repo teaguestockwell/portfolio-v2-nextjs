@@ -1,13 +1,12 @@
-import React, {useState} from 'react'
 import {v4} from 'uuid'
 import {useThemeStore} from '../../hooks/use_theme'
-import {Modal} from 'antd'
 import {Github} from '@icons-pack/react-simple-icons'
 import {LinkOutlined} from '@ant-design/icons'
 import {Const} from '../../const'
 import {SvgScroll2} from '../svgs'
 import {Video} from '../video'
 import * as Types from '../../types/types'
+import {useModalStore} from '../../hooks/use_modal'
 
 export const Project = ({
   techName,
@@ -20,8 +19,43 @@ export const Project = ({
   deploymentSrc,
   m3u8Src,
 }: Omit<Types.Project, 'svgs'> & {svgs: JSX.Element[]; techName: string}) => {
-  const [isModal, setIsModal] = useState(false)
   const theme = useThemeStore.getState().theme
+
+  const openModal = () => {
+    useModalStore.setState({
+      contentStyle: {
+        minWidth: '30vw',
+      },
+      children: (
+        <>
+          <div
+            style={{
+              width: '100%',
+              textAlign: 'center',
+              fontSize: Const.fontSizes.md,
+              color: theme.fontColor1,
+            }}
+          >
+            Git Repo
+          </div>
+          {repos.map(({name, src}) => (
+            <a key={v4()} href={src} target="_blank" rel="noreferrer">
+              <div
+                style={{
+                  paddingTop: Const.pad / 2,
+                  paddingBottom: Const.pad / 2,
+                  color: theme.fontColor1,
+                  fontSize: Const.fontSizes.sm,
+                }}
+              >
+                {name}
+              </div>
+            </a>
+          ))}
+        </>
+      ),
+    })
+  }
 
   return (
     <>
@@ -159,7 +193,7 @@ export const Project = ({
         >
           <div
             className="icon-hover"
-            onClick={() => setIsModal(!isModal)}
+            onClick={openModal}
             style={{
               textAlign: 'center',
               cursor: 'pointer',
@@ -184,47 +218,6 @@ export const Project = ({
           </div>
         </div>
       </div>
-
-      <Modal
-        centered
-        closeIcon={null}
-        footer={null}
-        title={null}
-        closable={false}
-        bodyStyle={{
-          backgroundColor: theme.background2,
-          borderRadius: Const.rad,
-        }}
-        visible={isModal}
-        onCancel={() => setIsModal(false)}
-      >
-        <>
-          <div
-            style={{
-              width: '100%',
-              textAlign: 'center',
-              fontSize: Const.fontSizes.md,
-              color: theme.fontColor1,
-            }}
-          >
-            Git Repo
-          </div>
-          {repos.map(({name, src}) => (
-            <a key={v4()} href={src} target="_blank" rel="noreferrer">
-              <div
-                style={{
-                  paddingTop: Const.pad / 2,
-                  paddingBottom: Const.pad / 2,
-                  color: theme.fontColor1,
-                  fontSize: Const.fontSizes.sm,
-                }}
-              >
-                {name}
-              </div>
-            </a>
-          ))}
-        </>
-      </Modal>
     </>
   )
 }

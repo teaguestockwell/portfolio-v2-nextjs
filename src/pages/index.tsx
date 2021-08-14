@@ -9,6 +9,7 @@ import {SchoolsSection} from '../components/sections/school'
 import {ContactSection} from '../components/sections/contact'
 import Head from 'next/head'
 import React from 'react'
+import {Modal} from '../hooks/use_modal'
 
 export const PortfolioContext = React.createContext(portfolioData)
 
@@ -33,6 +34,8 @@ export default function Home() {
         <SchoolsSection />
 
         <ContactSection />
+
+        <Modal />
       </WithNav>
     </PortfolioContext.Provider>
   )
