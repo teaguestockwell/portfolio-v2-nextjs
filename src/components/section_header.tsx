@@ -13,7 +13,6 @@ export const SectionHeader = ({
   return (
     <div
       style={{
-        paddingTop: Const.pad * 4,
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',

@@ -16,7 +16,7 @@ export const ProjectsSection = () => {
         subTitle={portfolio.subTitles.projects}
       />
 
-      <Glow tlwh={[-10, -5, 110, 125]}>
+      <Glow tlwh={[-5, -5, 115, 110]}>
         <CardRows
           items={portfolio.projects}
           hasSvgs={true}

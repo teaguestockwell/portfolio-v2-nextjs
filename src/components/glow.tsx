@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import {Grid} from 'antd'
-import {useTheme} from '../hooks/use_theme'
 
 export const Glow = ({
   children,
@@ -13,6 +12,7 @@ export const Glow = ({
 
   return (
     <div
+      data-test-id={'glow'}
       style={{
         position: 'relative',
         display: 'inline-block',

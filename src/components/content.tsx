@@ -17,11 +17,13 @@ export const Content = ({
       }}
     >
       <div
+        data-test-id={'inner content wrapper'}
         style={{
           paddingRight: md ? Const.pad : 0,
           paddingLeft: md ? Const.pad : 0,
           maxWidth: Const.maxWidth,
           width: '100%',
+          paddingBottom: Const.pad * 10,
           ...style,
         }}
       >
