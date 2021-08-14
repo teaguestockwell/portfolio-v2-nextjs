@@ -1,9 +1,11 @@
 import {Const} from '../../const'
 import {useDrawerStore} from '../../hooks/use_drawer'
+import {useTheme} from '../../hooks/use_theme'
 
 export const Drawer = ({children}: {children: JSX.Element | JSX.Element[]}) => {
   const store = useDrawerStore()
   const isOpen = store.isOpen
+  const theme = useTheme()
 
   return isOpen ? (
     <div
@@ -24,6 +26,8 @@ export const Drawer = ({children}: {children: JSX.Element | JSX.Element[]}) => {
           bottom: 0,
           left: 0,
           width: Const.drawerWidth,
+          backgroundColor: theme.background1,
+          overflowY: 'auto',
         }}
       >
         {children}

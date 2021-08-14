@@ -11,7 +11,11 @@ export const Footer = () => {
   const {person} = useContext(PortfolioContext)
 
   return (
-    <div>
+    <div
+      style={{
+        paddingTop: Const.pad,
+      }}
+    >
       <div
         style={{
           display: 'flex',

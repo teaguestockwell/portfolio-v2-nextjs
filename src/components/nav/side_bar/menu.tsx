@@ -11,7 +11,11 @@ export const Menu = () => {
   const customSvgs = getCustomSvgs(theme.fontColor0, 24, 24, titles)
 
   return (
-    <div>
+    <div
+      style={{
+        paddingTop: Const.pad,
+      }}
+    >
       {Object.values(titles).map((i) => (
         <Link
           key={i}

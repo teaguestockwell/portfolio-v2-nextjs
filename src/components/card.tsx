@@ -1,7 +1,7 @@
 import {Grid} from 'antd'
 import {Const} from '../const'
 import {useTheme} from '../hooks/use_theme'
-import ScrollAnimation from 'react-animate-on-scroll'
+// import ScrollAnimation from 'react-animate-on-scroll'
 
 export const Card = ({
   children,
@@ -14,21 +14,21 @@ export const Card = ({
   const md = Grid.useBreakpoint().md
 
   return (
-    <ScrollAnimation duration={0.3} animateIn="animate__fadeIn" animateOnce>
-      <div
-        style={{
-          WebkitBoxShadow: theme.shadow,
-          MozBoxShadow: theme.shadow,
-          boxShadow: theme.shadow,
-          padding: Const.pad,
-          marginTop: Const.pad * 4,
-          backgroundColor: theme.background1,
-          borderRadius: md ? Const.rad : 0,
-          ...style,
-        }}
-      >
-        {children}
-      </div>
-    </ScrollAnimation>
+    // <ScrollAnimation offset={-500} duration={0.3} animateIn="animate__fadeIn" animateOnce>
+    <div
+      style={{
+        WebkitBoxShadow: theme.shadow,
+        MozBoxShadow: theme.shadow,
+        boxShadow: theme.shadow,
+        padding: Const.pad,
+        marginTop: Const.pad * 4,
+        backgroundColor: theme.background1,
+        borderRadius: md ? Const.rad : 0,
+        ...style,
+      }}
+    >
+      {children}
+    </div>
+    // </ScrollAnimation>
   )
 }
