@@ -2,13 +2,7 @@ import {Const} from '../../const'
 import {useTheme} from '../../hooks/use_theme'
 import {Link} from 'react-scroll'
 
-export const MenuInline = ({
-  items,
-  style = {},
-}: {
-  items: string[]
-  style?: any
-}) => {
+export const MenuInline = ({items}: {items: string[]}) => {
   const theme = useTheme()
   return (
     <>
@@ -18,8 +12,8 @@ export const MenuInline = ({
             <div
               className="menu-inline"
               style={{
-                marginLeft: Const.pad / 2,
-                marginRight: Const.pad / 2,
+                marginRight: '0.75vw',
+                marginLeft: '0.75vw',
                 color: theme.fontColor0,
                 fontSize: Const.fontSizes.md,
                 wordWrap: 'break-word',

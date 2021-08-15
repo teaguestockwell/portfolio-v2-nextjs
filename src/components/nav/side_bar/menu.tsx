@@ -26,7 +26,6 @@ export const Menu = () => {
               alignItems: 'center',
               justifyContent: 'left',
               height: 48,
-              fontWeight: 200,
               fontSize: Const.fontSizes.lg,
               wordWrap: 'break-word',
               color: theme.fontColor0,

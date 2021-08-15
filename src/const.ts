@@ -33,31 +33,30 @@ export const Const = {
   pad: 20,
   fontSizes: {
     sm: 14,
-    md: 16,
+    md: 18,
     lg: 24,
     xl: 28,
     xxl: 32,
-    xxxl: 40,
+    xxxl: 48,
   },
   theme: {
     light: {
       name: 'light',
 
       nav: {
-        backgroundColor: '#fff',
+        backgroundColor: 'rgba(255,255,255,0.72)',
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
       },
 
-      backGround0: '#EEEEEE',
-      background1: '#FAFAFA',
-      background2: '#fff',
+      backGround0: '#F5F5F7',
+      background1: '#Fff',
 
-      fontColor0: '#222222',
-      fontColor1: '#222222',
-      fontColor2: '#222222',
+      fontColor0: '#1d1d1f',
+      fontColor1: '#6e6e73',
 
       paletColor0: '#f7f7f7',
       paletColor1: '#f7f7f7',
-      paletColor2: '#f7f7f7',
 
       shadow: '1px 1px 10px 1px rgb(0, 0, 0, 0.3)',
     },
@@ -72,15 +71,12 @@ export const Const = {
 
       backGround0: '#000',
       background1: '#151516',
-      background2: '#383838',
 
-      fontColor0: '#ffff',
-      fontColor1: '#8B949E',
-      fontColor2: '#DEffff',
+      fontColor0: '#f5f5f7',
+      fontColor1: '#A1A1A6',
 
       paletColor0: '#f7f7f7',
       paletColor1: '#f7f7f7',
-      paletColor2: '#f7f7f7',
 
       shadow: '',
     },

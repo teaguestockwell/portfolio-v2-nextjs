@@ -10,12 +10,12 @@ export const Skill = ({svgs, name}: {svgs: JSX.Element[]; name: string}) => {
       <div
         style={{
           textAlign: 'center',
-          color: theme.fontColor1,
-          fontSize: Const.fontSizes.lg,
+          color: theme.fontColor0,
+          fontSize: Const.fontSizes.xl,
           wordWrap: 'break-word',
-          fontWeight: 400,
           textTransform: 'capitalize',
           overflowY: 'hidden',
+          fontWeight: 600,
         }}
       >
         {name}

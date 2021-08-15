@@ -67,9 +67,9 @@ export const ImgCardCell = ({
           paddingTop: Const.pad * 2,
           paddingBottom: Const.pad,
           textAlign: 'left',
-          color: theme.fontColor1,
-          fontSize: Const.fontSizes.lg,
-          fontWeight: 400,
+          color: theme.fontColor0,
+          fontSize: Const.fontSizes.xl,
+          fontWeight: 600,
           lineHeight: `${Const.fontSizes.lg}px`,
         }}
       >

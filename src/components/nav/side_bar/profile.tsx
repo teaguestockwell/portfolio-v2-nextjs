@@ -55,13 +55,14 @@ export const Profile = () => {
       </div>
 
       <div
+        className="name"
         style={{
           color: theme.fontColor0,
           paddingTop: Const.pad,
           textAlign: 'center',
-          fontWeight: 400,
           fontSize: Const.fontSizes.lg,
           overflowWrap: 'break-word',
+          fontWeight: 600,
           ...textWrap,
         }}
       >
@@ -71,7 +72,6 @@ export const Profile = () => {
       <div
         style={{
           color: theme.fontColor0,
-          fontWeight: 200,
           fontSize: Const.fontSizes.md,
           overflowWrap: 'break-word',
         }}
@@ -82,7 +82,6 @@ export const Profile = () => {
       <div
         style={{
           color: theme.fontColor0,
-          fontWeight: 200,
           fontSize: Const.fontSizes.md,
           overflowWrap: 'break-word',
         }}

@@ -89,20 +89,19 @@ export const Nav = () => {
             style={{
               fontSize: Const.fontSizes[lg ? 'lg' : 'md'],
               wordWrap: 'break-word',
-              fontFamily: 'helvetica',
               color: theme.fontColor0,
               paddingLeft: Const.pad / (md ? 1 : 2),
               zIndex: 10,
             }}
           >
             {lg ? (
-              <div>
+              <div className="name">
                 {portfolio.person.firstName + ' ' + portfolio.person.lastName}
               </div>
             ) : (
               <>
-                <div>{portfolio.person.firstName}</div>
-                <div>{portfolio.person.lastName}</div>
+                <div className="name">{portfolio.person.firstName}</div>
+                <div className="name">{portfolio.person.lastName}</div>
               </>
             )}
           </div>
@@ -173,18 +172,18 @@ export const Nav = () => {
 }
 
 export const WithNav = ({children}: {children?: any}) => {
-  const xxl = useBreakpoint.xxl()
+  const xl = useBreakpoint.xl()
 
   return (
     <>
-      {xxl ? null : <Nav />}
+      {xl ? null : <Nav />}
       <main
         style={{
           paddingTop: Const.topNav,
-          paddingLeft: xxl ? Const.drawerWidth : 0,
+          paddingLeft: xl ? Const.drawerWidth : 0,
         }}
       >
-        {xxl ? (
+        {xl ? (
           <SideBar
             style={{
               position: 'fixed',

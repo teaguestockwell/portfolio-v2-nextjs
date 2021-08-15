@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.name {
+  font-family: Lobster, Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
 html {
   -webkit-font-smoothing: antialiased;
 }
@@ -6,6 +13,8 @@ body {
   margin: 0px;
   line-height: 1.5715;
   font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
 }
 
 *,
