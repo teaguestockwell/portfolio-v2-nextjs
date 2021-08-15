@@ -25,15 +25,13 @@ export const CardGrid = <T extends Props>({
   const md = useBreakpoint.md()
 
   return (
-    <Content
-      style={{
-        paddingLeft: 0,
-        paddingRight: 0,
-      }}
-    >
+    <Content>
       <div
         style={{
+          marginTop: Const.pad * 4,
           display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(375px, 1fr))',
+          gap: Const.pad * 4,
         }}
       >
         {items.map((i) => (
@@ -42,7 +40,7 @@ export const CardGrid = <T extends Props>({
               key={i.name}
               style={{
                 height: 450,
-                marginTop: Const.pad,
+                marginTop: 0,
               }}
             >
               {getCell(i, getSvg)}
