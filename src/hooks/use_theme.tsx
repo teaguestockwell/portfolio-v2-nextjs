@@ -1,8 +1,8 @@
 import create from 'zustand'
 import {combine} from 'zustand/middleware'
-import {useLayoutEffect} from 'react'
+import {useEffect} from 'react'
 import {Const, CustomTheme} from '../const'
-import {getInteractiveSvgs} from '../components/svgs'
+import {useMedia} from 'react-use'
 
 export const useThemeStore = create(
   combine(
@@ -33,13 +33,25 @@ export const toggleTheme = () => {
 }
 
 export const useInitTheme = () => {
-  return useLayoutEffect(() => {
+  const initDarkPref = useMedia('(prefers-color-scheme: dark)')
+
+  useEffect(() => {
     const themeName = localStorage.getItem('theme')
+
     if (themeName) {
       const theme = themeName === 'light' ? Const.theme.light : Const.theme.dark
       if (useThemeStore.getState().theme.name !== theme.name) {
         setThemeWrap(theme)
       }
+      return
     }
-  }, [])
+
+    if (initDarkPref !== undefined) {
+      const theme = initDarkPref ? Const.theme.dark : Const.theme.light
+      if (useThemeStore.getState().theme.name !== theme.name) {
+        useThemeStore.setState({theme})
+        document.body.style.backgroundColor = theme.backGround0
+      }
+    }
+  }, [initDarkPref])
 }
