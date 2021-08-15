@@ -1,4 +1,4 @@
-import {Grid} from 'antd'
+import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint'
 import {Const} from '../const'
 import {useTheme} from '../hooks/use_theme'
 
@@ -10,7 +10,7 @@ export const Card = ({
   style?: any
 }) => {
   const theme = useTheme()
-  const md = Grid.useBreakpoint().md
+  const md = useBreakpoint().md
 
   return (
     <div
