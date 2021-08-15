@@ -1,4 +1,5 @@
 export interface School {
+  id: string
   name: string
   dateRange: string
   subHeading: string

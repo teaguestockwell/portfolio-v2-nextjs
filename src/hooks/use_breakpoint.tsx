@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import {useMedia} from 'react-use'
 
-type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'
+type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs' | 'projectsBreak'
 
 const breakpoints: Record<
   Breakpoint,
@@ -29,6 +29,10 @@ const breakpoints: Record<
   },
   xxl: {
     mediaQuery: '(min-width: 1600px)',
+    defaultState: false,
+  },
+  projectsBreak: {
+    mediaQuery: '(min-width: 816px)',
     defaultState: false,
   },
 }

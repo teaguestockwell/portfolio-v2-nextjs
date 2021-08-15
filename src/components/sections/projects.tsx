@@ -22,7 +22,6 @@ export const ProjectsSection = () => {
           hasSvgs={true}
           getCell={(t, getSvg) => (
             <Project
-              key={t.name}
               techName={portfolio.titles.tech}
               name={t.name}
               subHeading={t.subHeading}

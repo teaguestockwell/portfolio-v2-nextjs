@@ -6,6 +6,7 @@ import {Element} from 'react-scroll'
 
 interface Props {
   name: string
+  id: string
 }
 
 export const CardRows = <T extends Props>({
@@ -24,9 +25,7 @@ export const CardRows = <T extends Props>({
   return (
     <Content>
       {items.map((i) => (
-        <Element key={i.name} name={i.name}>
-          <Card key={i.name}>{getCell(i, getSvg)}</Card>
-        </Element>
+        <Card key={i.id}>{getCell(i, getSvg)}</Card>
       ))}
     </Content>
   )

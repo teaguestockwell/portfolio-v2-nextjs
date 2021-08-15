@@ -8,6 +8,7 @@ import {useBreakpoint} from '../hooks/use_breakpoint'
 
 interface Props {
   name: string
+  id: string
 }
 
 export const CardGrid = <T extends Props>({
@@ -22,7 +23,7 @@ export const CardGrid = <T extends Props>({
   const theme = useTheme()
   const svgs = hasSvgs ? getSimpleSvgs(42, theme) : null
   const getSvg = (key: string) => (svgs ? svgs[key] : <div />)
-  const md = useBreakpoint.md()
+  const breakPoint = useBreakpoint.projectsBreak()
 
   return (
     <Content>
@@ -32,22 +33,20 @@ export const CardGrid = <T extends Props>({
           maxWidth: '100%',
           display: 'grid',
           //gridTemplateColumns: 'repeat(auto-fit, minmax(40vw, 1fr))',
-          gridTemplateColumns: md ? '1fr 1fr' : '1fr',
+          gridTemplateColumns: breakPoint ? '1fr 1fr' : '1fr',
           gap: Const.pad * 4,
         }}
       >
         {items.map((i) => (
-          <Element key={i.name} name={i.name}>
-            <Card
-              key={i.name}
-              style={{
-                height: 450,
-                marginTop: 0,
-              }}
-            >
-              {getCell(i, getSvg)}
-            </Card>
-          </Element>
+          <Card
+            key={i.id}
+            style={{
+              height: 450,
+              marginTop: 0,
+            }}
+          >
+            {getCell(i, getSvg)}
+          </Card>
         ))}
       </div>
     </Content>

@@ -1,4 +1,5 @@
 export interface Job {
+  id: string
   name: string
   company: string
   dateRange: string

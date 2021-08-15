@@ -1,7 +1,10 @@
 import {Portfolio} from './types/types'
+import {v4} from 'uuid'
 
 export const portfolioData: Portfolio = {
+  id: v4(),
   person: {
+    id: v4(),
     firstName: 'Teague',
     lastName: 'Stockwell',
     email: 'tsAppDevelopment@gmail.com',
@@ -13,6 +16,7 @@ export const portfolioData: Portfolio = {
 
   jobs: [
     {
+      id: v4(),
       name: 'Software Engineer',
       company: 'Rainier Spark Tron',
       dateRange: 'October 2020 - Present',
@@ -23,6 +27,7 @@ export const portfolioData: Portfolio = {
       imgSrc: '/rainier.png',
     },
     {
+      id: v4(),
       name: 'Software Engineer',
       company: 'Aloha Spark Tron',
       dateRange: 'October 2020 - Present',
@@ -33,6 +38,7 @@ export const portfolioData: Portfolio = {
       imgSrc: '/tron1.png',
     },
     {
+      id: v4(),
       name: 'Aerospace Maintenance Technician',
       company: 'United States Air Force',
       dateRange: 'October 2017 - December 2020',
@@ -63,22 +69,27 @@ export const portfolioData: Portfolio = {
 
   skills: [
     {
+      id: v4(),
       name: 'Languages',
-      svgKeys: ['typescript', 'javascript', 'dart', 'java', 'html5', 'css3'],
+      svgKeys: ['typescript', 'javascript', 'dart', 'java'],
     },
     {
+      id: v4(),
       name: 'Frontend',
-      svgKeys: ['reactjs', 'flutter', 'android'],
+      svgKeys: ['reactjs', 'flutter', 'android', 'html5', 'css3'],
     },
     {
+      id: v4(),
       name: 'Backend',
       svgKeys: ['nodedotjs', 'express', 'nextdotjs', 'prisma'],
     },
     {
+      id: v4(),
       name: 'Services',
       svgKeys: ['amazonaws', 'postgresql', 'firebase', 'nginx', 'vercel'],
     },
     {
+      id: v4(),
       name: 'Workflow',
       svgKeys: [
         'docker',
@@ -95,6 +106,7 @@ export const portfolioData: Portfolio = {
   ],
   projects: [
     {
+      id: v4(),
       name: 'Buildable 🚧 WIP 🚧 ',
       dateRange: 'Apr 2021 - Present',
       subHeading:
@@ -129,6 +141,7 @@ export const portfolioData: Portfolio = {
       ],
     },
     {
+      id: v4(),
       name: 'Levels',
       dateRange: 'March 2021 - Present',
       subHeading: `Developed a production full stack web app to manage aircraft cargo loading for the Air Force`,
@@ -170,6 +183,7 @@ export const portfolioData: Portfolio = {
       ],
     },
     {
+      id: v4(),
       name: 'Five Level',
       dateRange: 'Sep 2020 - Mar 2021',
       bullets: [
@@ -211,6 +225,7 @@ export const portfolioData: Portfolio = {
       ],
     },
     {
+      id: v4(),
       name: 'Dog of the Day',
       dateRange: 'Mar 2021',
       subHeading: `A lighthearted React app to share your favorite animals during standup`,
@@ -237,6 +252,7 @@ export const portfolioData: Portfolio = {
       ],
     },
     {
+      id: v4(),
       name: '5 Level',
       dateRange: 'Sep 2020 - March 2020',
       subHeading: `Developed, and deployed A native android application with Java for aircraft weight and balance`,
@@ -254,6 +270,7 @@ export const portfolioData: Portfolio = {
       svgs: ['android', 'java', 'git', 'github'],
     },
     {
+      id: v4(),
       name: `Doctor's Patient Portal`,
       subHeading: `Developed a demo Flutter UI to consume real time checkups to a doctor's office`,
       dateRange: 'March 2021',
@@ -276,6 +293,7 @@ export const portfolioData: Portfolio = {
   ],
   schools: [
     {
+      id: v4(),
       name: 'Southwestern College',
       dateRange: 'May 2021',
       subHeading: `Bachelor of Science, Computer Programming, 3.9 GPA`,
@@ -283,6 +301,7 @@ export const portfolioData: Portfolio = {
       href: 'https://www.sckans.edu/',
     },
     {
+      id: v4(),
       name: 'Community College of the Air Force',
       dateRange: 'August 2019',
       subHeading: `Associate of Applied Science, Aviation Maintenance Technology, 4.0 GPA`,

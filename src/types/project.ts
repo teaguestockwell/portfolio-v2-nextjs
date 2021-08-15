@@ -1,4 +1,5 @@
 export interface Project {
+  id: string
   name: string
   subHeading: string
   dateRange: string
