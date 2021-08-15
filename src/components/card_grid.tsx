@@ -3,7 +3,6 @@ import {getSimpleSvgs} from './svgs'
 import {Content} from './content'
 import {Card} from './card'
 import {Element} from 'react-scroll'
-import {Row, Col} from 'antd'
 import {Const} from '../const'
 import {useBreakpoint} from '../hooks/use_breakpoint'
 
@@ -26,42 +25,31 @@ export const CardGrid = <T extends Props>({
   const md = useBreakpoint.md()
 
   return (
-    <Content style={{paddingLeft: 0, paddingRight: 0}}>
-      <Row
-        align="top"
-        gutter={md ? Const.pad : 0}
+    <Content
+      style={{
+        paddingLeft: 0,
+        paddingRight: 0,
+      }}
+    >
+      <div
         style={{
-          marginRight: md ? Const.pad * 0.6 : 0,
-          marginLeft: md ? Const.pad * 0.6 : 0,
-          justifyContent: 'space-evenly',
-          alignItems: 'start',
-          paddingTop: Const.pad * 3,
+          display: 'grid',
         }}
       >
-        {items.map((i) => {
-          return (
-            <Col
+        {items.map((i) => (
+          <Element key={i.name} name={i.name}>
+            <Card
               key={i.name}
-              xs={24}
-              sm={24}
-              md={24}
-              lg={12}
-              xl={12}
-              xxl={12}
               style={{
-                maxWidth: Const.maxWidth,
-                width: '100%',
+                height: 450,
+                marginTop: Const.pad,
               }}
             >
-              <Element key={i.name} name={i.name}>
-                <Card style={{height: 450, marginTop: Const.pad}} key={i.name}>
-                  {getCell(i, getSvg)}
-                </Card>
-              </Element>
-            </Col>
-          )
-        })}
-      </Row>
+              {getCell(i, getSvg)}
+            </Card>
+          </Element>
+        ))}
+      </div>
     </Content>
   )
 }

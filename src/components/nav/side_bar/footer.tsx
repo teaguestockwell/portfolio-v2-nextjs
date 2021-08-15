@@ -1,14 +1,15 @@
-import {ThemeButton, useThemeStore} from '../../../hooks/use_theme'
+import {toggleTheme, useThemeStore} from '../../../hooks/use_theme'
 import {Linkedin, Github} from '@icons-pack/react-simple-icons'
-import MailFilled from '@ant-design/icons/MailFilled'
 import {Const} from '../../../const'
 import {useContext} from 'react'
 import {PortfolioContext} from '../../../pages'
+import {getInteractiveSvgs} from '../../svgs'
 
 export const Footer = () => {
   const iconSize = 32
   const theme = useThemeStore.getState().theme
   const {person} = useContext(PortfolioContext)
+  const svgs = getInteractiveSvgs(theme.fontColor1, iconSize)
 
   return (
     <div
@@ -25,13 +26,14 @@ export const Footer = () => {
         }}
       >
         <div
+          onClick={toggleTheme}
           className="icon-hover"
           style={{
             paddingBottom: 5,
             paddingLeft: 2,
           }}
         >
-          <ThemeButton fontSize={iconSize} color={theme.fontColor0} />
+          {theme.name === 'light' ? svgs.darkMode : svgs.lightMode}
         </div>
       </div>
 
@@ -63,7 +65,7 @@ export const Footer = () => {
           aria-label="Email"
         >
           <div className="icon-hover" style={{}}>
-            <MailFilled style={{fontSize: iconSize, color: theme.fontColor0}} />
+            {svgs.mail}
           </div>
         </a>
       </div>

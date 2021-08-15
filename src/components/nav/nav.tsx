@@ -1,16 +1,15 @@
 import {MenuInline} from './menu_inline'
-import {useTheme} from '../../hooks/use_theme'
+import {toggleTheme, useTheme} from '../../hooks/use_theme'
 import {Linkedin, Github} from '@icons-pack/react-simple-icons'
 import {Const} from '../../const'
-import {ThemeButton} from '../../hooks/use_theme'
 import Image from 'next/image'
 import {SideBar} from './side_bar/side_bar'
 import {Drawer} from './drawer'
-import {MenuOutlined} from '@ant-design/icons'
 import {useDrawerStore} from '../../hooks/use_drawer'
 import {PortfolioContext} from '../../pages'
 import {useContext} from 'react'
 import {useBreakpoint} from '../../hooks/use_breakpoint'
+import {getInteractiveSvgs} from '../svgs'
 
 const openDrawer = () => useDrawerStore.getState().set({isOpen: true})
 
@@ -20,6 +19,7 @@ export const Nav = () => {
   const portfolio = useContext(PortfolioContext)
   const theme = useTheme()
   const iconSize = 24
+  const svgs = getInteractiveSvgs(theme.fontColor0, iconSize)
 
   return (
     <>
@@ -63,17 +63,13 @@ export const Nav = () => {
         >
           {!md ? (
             <div
+              onClick={openDrawer}
               style={{
                 paddingLeft: Const.pad,
+                cursor: 'pointer',
               }}
             >
-              <MenuOutlined
-                onClick={openDrawer}
-                style={{
-                  fontSize: '200%',
-                  color: theme.fontColor0,
-                }}
-              />
+              {svgs.hamburger}
             </div>
           ) : (
             <div style={{paddingLeft: Const.pad}}>
@@ -121,23 +117,19 @@ export const Nav = () => {
             position: 'absolute',
           }}
         >
-          {md && (
-            <>
-              <MenuInline items={Object.values(portfolio.titles)} />
-            </>
-          )}
+          {md ? <MenuInline items={Object.values(portfolio.titles)} /> : null}
 
           <div
+            onClick={toggleTheme}
             className="icon-hover"
             style={{
               width: '12vw',
               maxWidth: iconSize + Const.pad,
               minWidth: iconSize + 4,
-              paddingBottom: 3,
-              paddingLeft: 2,
+              cursor: 'pointer',
             }}
           >
-            <ThemeButton fontSize={iconSize} color={theme.fontColor0} />
+            {theme.name === 'light' ? svgs.darkMode : svgs.lightMode}
           </div>
 
           <a href={portfolio.person.githubSrc} rel="noreferrer" target="_blank">

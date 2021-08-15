@@ -1,8 +1,8 @@
 import create from 'zustand'
 import {combine} from 'zustand/middleware'
-import {BulbFilled} from '@ant-design/icons'
 import {useLayoutEffect} from 'react'
 import {Const, CustomTheme} from '../const'
+import {getInteractiveSvgs} from '../components/svgs'
 
 export const useThemeStore = create(
   combine(
@@ -29,23 +29,6 @@ export const toggleTheme = () => {
   const state = useThemeStore.getState()
   setThemeWrap(
     state.theme.name === 'light' ? Const.theme.dark : Const.theme.light
-  )
-}
-
-export const ThemeButton = ({
-  fontSize,
-  color,
-}: {
-  fontSize: number
-  color: string
-}) => {
-  const theme = useThemeStore(
-    (s) => s.theme,
-    (s1, s2) => s1.name === s2.name
-  )
-
-  return (
-    <BulbFilled className="" style={{color, fontSize}} onClick={toggleTheme} />
   )
 }
 

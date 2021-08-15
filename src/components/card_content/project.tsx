@@ -1,9 +1,8 @@
 import {v4} from 'uuid'
 import {useThemeStore} from '../../hooks/use_theme'
 import {Github} from '@icons-pack/react-simple-icons'
-import {LinkOutlined} from '@ant-design/icons'
 import {Const} from '../../const'
-import {SvgScroll2} from '../svgs'
+import {getInteractiveSvgs, SvgScroll2} from '../svgs'
 import {Video} from '../video'
 import * as Types from '../../types/types'
 import {useModalStore} from '../../hooks/use_modal'
@@ -20,6 +19,7 @@ export const Project = ({
   m3u8Src,
 }: Omit<Types.Project, 'svgs'> & {svgs: JSX.Element[]; techName: string}) => {
   const theme = useThemeStore.getState().theme
+  const link = getInteractiveSvgs(theme.fontColor0, 36).link
 
   const openModal = () => {
     useModalStore.setState({
@@ -210,10 +210,7 @@ export const Project = ({
             }}
           >
             <a href={deploymentSrc} target="_blank" rel="noreferrer">
-              <LinkOutlined
-                size={30}
-                style={{color: theme.fontColor0, fontSize: 30}}
-              />
+              {link}
             </a>
           </div>
         </div>
