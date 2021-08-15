@@ -3,8 +3,9 @@ import {getSimpleSvgs} from './svgs'
 import {Content} from './content'
 import {Card} from './card'
 import {Element} from 'react-scroll'
-import {Row, Col, Grid} from 'antd'
+import {Row, Col} from 'antd'
 import {Const} from '../const'
+import {useBreakpoint} from '../hooks/use_breakpoint'
 
 interface Props {
   name: string
@@ -22,7 +23,7 @@ export const CardGrid = <T extends Props>({
   const theme = useTheme()
   const svgs = hasSvgs ? getSimpleSvgs(42, theme) : null
   const getSvg = (key: string) => (svgs ? svgs[key] : <div />)
-  const {md} = Grid.useBreakpoint()
+  const md = useBreakpoint.md()
 
   return (
     <Content style={{paddingLeft: 0, paddingRight: 0}}>

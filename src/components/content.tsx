@@ -1,4 +1,4 @@
-import {Grid} from 'antd'
+import {useBreakpoint} from '../hooks/use_breakpoint'
 import {Const} from '../const'
 export const Content = ({
   children,
@@ -7,7 +7,7 @@ export const Content = ({
   children: JSX.Element[] | JSX.Element
   style?: any
 }) => {
-  const md = Grid.useBreakpoint()?.md as any
+  const md = useBreakpoint.md()
   return (
     <div
       style={{

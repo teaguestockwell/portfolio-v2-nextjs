@@ -1,4 +1,3 @@
-import {Grid} from 'antd'
 import {MenuInline} from './menu_inline'
 import {useTheme} from '../../hooks/use_theme'
 import {Linkedin, Github} from '@icons-pack/react-simple-icons'
@@ -11,29 +10,13 @@ import {MenuOutlined} from '@ant-design/icons'
 import {useDrawerStore} from '../../hooks/use_drawer'
 import {PortfolioContext} from '../../pages'
 import {useContext} from 'react'
-
-// export const menuData = [
-//   {
-//     title: Const.titles.tech,
-//     items: portfolio.skills.map((s) => ({name: s.name, a: ''})),
-//   },
-//   {
-//     title: Const.titles.projects,
-//     items: portfolio.projects.map((p) => ({
-//       name: p.name,
-//       a: p.deploymentSrc,
-//     })),
-//   },
-//   {
-//     title: Const.titles.education,
-//     items: portfolio.schools.map((e) => ({name: e.name, a: ''})),
-//   },
-// ]
+import {useBreakpoint} from '../../hooks/use_breakpoint'
 
 const openDrawer = () => useDrawerStore.getState().set({isOpen: true})
 
 export const Nav = () => {
-  const {md, lg} = Grid.useBreakpoint() as any
+  const md = useBreakpoint.md()
+  const lg = useBreakpoint.lg()
   const portfolio = useContext(PortfolioContext)
   const theme = useTheme()
   const iconSize = 24
@@ -186,7 +169,7 @@ export const Nav = () => {
 }
 
 export const WithNav = ({children}: {children?: any}) => {
-  const {xxl} = Grid.useBreakpoint()
+  const xxl = useBreakpoint.xxl()
 
   return (
     <>

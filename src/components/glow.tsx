@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import {Grid} from 'antd'
+import {useBreakpoint} from '../hooks/use_breakpoint'
 
 export const Glow = ({
   children,
@@ -8,7 +8,7 @@ export const Glow = ({
   children: JSX.Element | JSX.Element[]
   tlwh: [number, number, number, number]
 }) => {
-  const {md} = Grid.useBreakpoint()
+  const md = useBreakpoint.md()
 
   return (
     <div
