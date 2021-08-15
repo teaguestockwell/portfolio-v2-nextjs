@@ -2,6 +2,18 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+body {
+  margin: 0px;
+  line-height: 1.5715;
+  font-size: 14px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .icon-hover > * {
   transition: transform 0.3s ease, filter 0.25s ease-in-out;
   -webkit-transition: transform 0.3s ease, filter 0.25s ease-in-out;

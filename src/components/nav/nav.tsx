@@ -20,6 +20,7 @@ export const Nav = () => {
   const theme = useTheme()
   const iconSize = 24
   const svgs = getInteractiveSvgs(theme.fontColor0, iconSize)
+  const hamburger = getInteractiveSvgs(theme.fontColor0, 32).hamburger
 
   return (
     <>
@@ -69,7 +70,7 @@ export const Nav = () => {
                 cursor: 'pointer',
               }}
             >
-              {svgs.hamburger}
+              {hamburger}
             </div>
           ) : (
             <div style={{paddingLeft: Const.pad}}>
@@ -117,7 +118,17 @@ export const Nav = () => {
             position: 'absolute',
           }}
         >
-          {md ? <MenuInline items={Object.values(portfolio.titles)} /> : null}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'right',
+              marginLeft: Const.pad / 2,
+              marginRight: Const.pad / 2,
+            }}
+          >
+            {md ? <MenuInline items={Object.values(portfolio.titles)} /> : null}
+          </div>
 
           <div
             onClick={toggleTheme}

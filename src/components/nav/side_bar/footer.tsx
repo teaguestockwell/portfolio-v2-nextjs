@@ -9,7 +9,7 @@ export const Footer = () => {
   const iconSize = 32
   const theme = useThemeStore.getState().theme
   const {person} = useContext(PortfolioContext)
-  const svgs = getInteractiveSvgs(theme.fontColor1, iconSize)
+  const svgs = getInteractiveSvgs(theme.fontColor0, iconSize)
 
   return (
     <div
@@ -31,6 +31,7 @@ export const Footer = () => {
           style={{
             paddingBottom: 5,
             paddingLeft: 2,
+            cursor: 'pointer',
           }}
         >
           {theme.name === 'light' ? svgs.darkMode : svgs.lightMode}

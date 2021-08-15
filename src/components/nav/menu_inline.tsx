@@ -11,15 +11,7 @@ export const MenuInline = ({
 }) => {
   const theme = useTheme()
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'right',
-        marginLeft: Const.pad / 2,
-        marginRight: Const.pad / 2,
-      }}
-    >
+    <>
       {items.map((i) => {
         return (
           <Link key={i} to={i} {...Const.reactScrollProps}>
@@ -30,7 +22,6 @@ export const MenuInline = ({
                 marginRight: Const.pad / 2,
                 color: theme.fontColor0,
                 fontSize: Const.fontSizes.md,
-                // marginTop: '0px !important',
               }}
             >
               {i}
@@ -38,6 +29,6 @@ export const MenuInline = ({
           </Link>
         )
       })}
-    </div>
+    </>
   )
 }
