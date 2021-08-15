@@ -84,6 +84,7 @@ export const ImgCardCell = ({
             textAlign: 'left',
             color: theme.fontColor1,
             fontSize: Const.fontSizes.sm,
+            wordWrap: 'break-word',
             paddingTop: Const.pad / 2,
           }}
         >

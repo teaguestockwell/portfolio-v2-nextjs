@@ -69,6 +69,8 @@ export const School = ({
             color: theme.fontColor1,
             fontSize: Const.fontSizes.lg,
             fontWeight: 400,
+            wordWrap: 'break-word',
+            wordBreak: 'break-word',
           }}
         >
           {title}
@@ -82,6 +84,7 @@ export const School = ({
               color: theme.fontColor1,
               fontSize: Const.fontSizes.sm,
               paddingTop: Const.pad / 2,
+              wordWrap: 'break-word',
             }}
           >
             {row}

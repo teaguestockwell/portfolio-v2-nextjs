@@ -29,8 +29,10 @@ export const CardGrid = <T extends Props>({
       <div
         style={{
           marginTop: Const.pad * 4,
+          maxWidth: '100%',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(375px, 1fr))',
+          //gridTemplateColumns: 'repeat(auto-fit, minmax(40vw, 1fr))',
+          gridTemplateColumns: md ? '1fr 1fr' : '1fr',
           gap: Const.pad * 4,
         }}
       >

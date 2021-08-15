@@ -13,10 +13,11 @@ const options = {
       dest: 'public',
       disable: process.env.NODE_ENV === 'development',
     },
+    // https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-build#.RuntimeCachingEntry
     runtimeCaching: [
       {
         urlPattern: /^https?.*/,
-        handler: 'StaleWhileRevalidate',
+        handler: 'CacheFirst',
         options: {
           cacheName: 'offlineCache',
           expiration: {

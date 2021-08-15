@@ -33,6 +33,7 @@ export const Project = ({
               width: '100%',
               textAlign: 'center',
               fontSize: Const.fontSizes.md,
+              wordWrap: 'break-word',
               color: theme.fontColor1,
             }}
           >
@@ -46,6 +47,7 @@ export const Project = ({
                   paddingBottom: Const.pad / 2,
                   color: theme.fontColor1,
                   fontSize: Const.fontSizes.sm,
+                  wordWrap: 'break-word',
                 }}
               >
                 {name}
@@ -92,6 +94,7 @@ export const Project = ({
               textAlign: 'center',
               color: theme.fontColor1,
               fontSize: Const.fontSizes.lg,
+              wordWrap: 'break-word',
               fontWeight: 400,
               textTransform: 'capitalize',
             }}
@@ -104,6 +107,7 @@ export const Project = ({
               textAlign: 'left',
               color: theme.fontColor1,
               fontSize: Const.fontSizes.sm,
+              wordWrap: 'break-word',
             }}
           >
             {dateRange}
@@ -115,6 +119,7 @@ export const Project = ({
               color: theme.fontColor1,
               fontSize: Const.fontSizes.sm,
               paddingTop: Const.pad,
+              wordWrap: 'break-word',
             }}
           >
             {subHeading}
@@ -135,6 +140,7 @@ export const Project = ({
                     color: theme.fontColor1,
                     fontSize: Const.fontSizes.sm,
                     textAlign: 'left',
+                    wordWrap: 'break-word',
                   }}
                 >
                   {b}
@@ -158,6 +164,7 @@ export const Project = ({
                 fontSize: Const.fontSizes.lg,
                 fontWeight: 400,
                 textTransform: 'capitalize',
+                wordWrap: 'break-word',
               }}
             >
               {techName}
@@ -209,7 +216,12 @@ export const Project = ({
               cursor: 'pointer',
             }}
           >
-            <a href={deploymentSrc} target="_blank" rel="noreferrer">
+            <a
+              href={deploymentSrc}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${name} live deployment`}
+            >
               {link}
             </a>
           </div>

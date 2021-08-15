@@ -217,6 +217,7 @@ const Svg = ({
             paddingTop: 4,
             color: theme.fontColor1,
             fontSize: Const.fontSizes.sm,
+            wordWrap: 'break-word',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',

@@ -26,6 +26,7 @@ export const SectionHeader = ({
           color: theme.fontColor0,
           fontSize: Const.fontSizes.xxxl,
           fontWeight: 800,
+          wordWrap: 'break-word',
         }}
       >
         {title}
@@ -35,6 +36,7 @@ export const SectionHeader = ({
         <div
           style={{
             fontSize: Const.fontSizes.lg,
+            wordWrap: 'break-word',
             color: theme.fontColor1,
             textAlign: 'center',
             maxWidth: Const.maxWidth,

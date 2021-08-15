@@ -22,6 +22,7 @@ export const MenuInline = ({
                 marginRight: Const.pad / 2,
                 color: theme.fontColor0,
                 fontSize: Const.fontSizes.md,
+                wordWrap: 'break-word',
               }}
             >
               {i}

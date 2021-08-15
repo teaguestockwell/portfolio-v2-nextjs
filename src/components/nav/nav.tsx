@@ -88,6 +88,7 @@ export const Nav = () => {
           <div
             style={{
               fontSize: Const.fontSizes[lg ? 'lg' : 'md'],
+              wordWrap: 'break-word',
               fontFamily: 'helvetica',
               color: theme.fontColor0,
               paddingLeft: Const.pad / (md ? 1 : 2),

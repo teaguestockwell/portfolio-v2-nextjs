@@ -28,6 +28,7 @@ export const Menu = () => {
               height: 48,
               fontWeight: 200,
               fontSize: Const.fontSizes.lg,
+              wordWrap: 'break-word',
               color: theme.fontColor0,
             }}
           >
@@ -38,6 +39,7 @@ export const Menu = () => {
                 marginLeft: Const.pad / 2,
                 color: theme.fontColor0,
                 fontSize: Const.fontSizes.lg,
+                wordWrap: 'break-word',
               }}
             >
               {i}
