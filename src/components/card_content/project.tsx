@@ -38,9 +38,9 @@ export const Project = React.memo(
               style={{
                 width: '100%',
                 textAlign: 'center',
-                fontSize: Const.fontSizes.md,
+                fontSize: Const.fontSizes.lg,
                 wordWrap: 'break-word',
-                color: theme.fontColor1,
+                color: theme.fontColor0,
               }}
             >
               Git Repo
@@ -52,7 +52,7 @@ export const Project = React.memo(
                     paddingTop: Const.pad / 2,
                     paddingBottom: Const.pad / 2,
                     color: theme.fontColor1,
-                    fontSize: Const.fontSizes.sm,
+                    fontSize: Const.fontSizes.md,
                     wordWrap: 'break-word',
                   }}
                 >
@@ -174,9 +174,9 @@ export const Project = React.memo(
           <div
             key={v4()}
             style={{
-              color: theme.fontColor0,
-              marginBottom: Const.pad,
-              marginTop: Const.pad,
+              color: theme.fontColor1,
+              marginBottom: Const.pad * 2,
+              marginTop: Const.pad * 2,
               borderTop: `solid 1px`,
               width: '100%',
               display: 'flex',
@@ -191,6 +191,7 @@ export const Project = React.memo(
               justifyContent: 'space-evenly',
             }}
           >
+            {repos.length > 1}
             <div
               className="icon-hover"
               onClick={openModal}

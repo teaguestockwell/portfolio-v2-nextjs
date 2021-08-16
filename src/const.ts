@@ -13,6 +13,7 @@ export interface CustomTheme {
   paletColor1: string
 
   shadow: string
+  border: string
 }
 
 export const Const = {
@@ -56,6 +57,8 @@ export const Const = {
       paletColor1: '#f7f7f7',
 
       shadow: '1px 1px 10px 1px rgb(0, 0, 0, 0.3)',
+
+      border: '',
     },
     dark: {
       name: 'dark',
@@ -76,6 +79,8 @@ export const Const = {
       paletColor1: '#f7f7f7',
 
       shadow: '',
+
+      border: '1px solid #000',
     },
   },
 }

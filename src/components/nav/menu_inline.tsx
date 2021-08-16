@@ -10,10 +10,10 @@ export const MenuInline = ({items}: {items: string[]}) => {
         return (
           <Link key={i} to={i} {...Const.reactScrollProps}>
             <div
-              className="menu-inline"
+              className={`menu-inline ${theme.name}`}
               style={{
-                marginRight: '0.75vw',
-                marginLeft: '0.75vw',
+                paddingRight: '0.75vw',
+                paddingLeft: '0.75vw',
                 color: theme.fontColor0,
                 fontSize: Const.fontSizes.md,
                 wordWrap: 'break-word',

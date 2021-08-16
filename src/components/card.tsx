@@ -22,6 +22,7 @@ export const Card = ({
         marginTop: Const.pad * 4,
         backgroundColor: theme.background1,
         borderRadius: md ? Const.rad : 0,
+        border: theme.border,
         ...style,
       }}
     >

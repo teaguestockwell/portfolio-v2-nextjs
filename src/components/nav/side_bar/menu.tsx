@@ -20,7 +20,7 @@ export const Menu = () => {
       {Object.values(titles).map((i) => (
         <Link key={i} to={i} {...Const.reactScrollProps}>
           <div
-            className="menu-sidebar"
+            className={`menu-sidebar ${theme.name}`}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -29,6 +29,10 @@ export const Menu = () => {
               fontSize: Const.fontSizes.lg,
               wordWrap: 'break-word',
               color: theme.fontColor0,
+              width: '-webkit-fill-available',
+              paddingLeft: Const.pad,
+              marginLeft: Const.pad * -1,
+              marginRight: Const.pad * -1,
             }}
           >
             {customSvgs[i]}
