@@ -5,15 +5,12 @@ export interface CustomTheme {
 
   backGround0: string
   background1: string
-  background2: string
 
   fontColor0: string
   fontColor1: string
-  fontColor2: string
 
   paletColor0: string
   paletColor1: string
-  paletColor2: string
 
   shadow: string
 }

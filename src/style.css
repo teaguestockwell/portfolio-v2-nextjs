@@ -23,6 +23,10 @@ body {
   box-sizing: border-box;
 }
 
+a {
+  cursor: pointer;
+}
+
 .icon-hover > * {
   transition: transform 0.3s ease, filter 0.25s ease-in-out;
   -webkit-transition: transform 0.3s ease, filter 0.25s ease-in-out;

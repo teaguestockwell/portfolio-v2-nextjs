@@ -65,6 +65,7 @@ export const Nav = () => {
           {!md ? (
             <div
               onClick={openDrawer}
+              className="icon-hover"
               style={{
                 paddingLeft: Const.pad,
                 cursor: 'pointer',
