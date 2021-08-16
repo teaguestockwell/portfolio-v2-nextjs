@@ -245,6 +245,7 @@ export const SvgScroll = ({
         paddingBottom: Const.pad,
         display: 'flex',
         overflowX: 'auto',
+        WebkitOverflowScrolling: 'auto',
         overflowY: 'clip',
         ...style,
       }}

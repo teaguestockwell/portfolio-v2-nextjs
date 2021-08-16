@@ -17,6 +17,7 @@ export const Video = React.memo(({src}: {src: string}) => {
         muted
         ref={videoRef}
         className="video-js vjs-big-play-centered"
+        playsInline
         style={{
           height: '70vh',
           // aspectRatio: '6/13', // I Phone X
