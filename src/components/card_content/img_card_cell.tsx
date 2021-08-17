@@ -21,17 +21,8 @@ export const ImgCardCell = ({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'start',
-        padding: Const.pad,
       }}
     >
-      {/* <div
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'start'
-            }}
-          > */}
       <a
         href={href}
         target="_blank"
@@ -65,16 +56,14 @@ export const ImgCardCell = ({
         style={{
           wordWrap: 'break-word',
           paddingTop: Const.pad * 2,
-          paddingBottom: Const.pad,
           textAlign: 'left',
           color: theme.fontColor0,
           fontSize: Const.fontSizes.xl,
           fontWeight: 600,
-          lineHeight: `${Const.fontSizes.lg}px`,
+          lineHeight: `${Const.fontSizes.xl}px`,
         }}
       >
         {title}
-        {/* </div> */}
       </div>
 
       {rows.map((row) => (
@@ -85,7 +74,7 @@ export const ImgCardCell = ({
             color: theme.fontColor1,
             fontSize: Const.fontSizes.sm,
             wordWrap: 'break-word',
-            paddingTop: Const.pad / 2,
+            paddingTop: Const.pad,
           }}
         >
           {row}

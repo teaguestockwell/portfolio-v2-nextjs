@@ -93,6 +93,8 @@ export const Project = React.memo(
               paddingLeft: Const.pad,
               width: '100%',
               flex: '1 0 52%',
+              display: 'flex',
+              flexDirection: 'column',
             }}
           >
             <div
@@ -103,6 +105,7 @@ export const Project = React.memo(
                 wordWrap: 'break-word',
                 textTransform: 'capitalize',
                 fontWeight: 600,
+                lineHeight: `${Const.fontSizes.xl}px`,
               }}
             >
               {name}
@@ -110,62 +113,51 @@ export const Project = React.memo(
 
             <div
               style={{
+                marginTop: Const.pad,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'left',
+                alignItems: 'flex-start',
                 textAlign: 'left',
                 color: theme.fontColor1,
                 fontSize: Const.fontSizes.sm,
                 wordWrap: 'break-word',
+                overflowY: 'auto',
+                maxHeight: 350,
               }}
             >
-              {dateRange}
-            </div>
+              <div>{dateRange}</div>
 
-            <div
-              style={{
-                textAlign: 'left',
-                color: theme.fontColor1,
-                fontSize: Const.fontSizes.sm,
-                paddingTop: Const.pad,
-                wordWrap: 'break-word',
-              }}
-            >
-              {subHeading}
-            </div>
+              <div style={{paddingTop: Const.pad}}>{subHeading}</div>
 
-            <ul
-              style={{
-                marginLeft: -24,
-                marginBottom: 278,
-              }}
-            >
-              {bullets.map((b) => {
-                return (
-                  <li
-                    key={b}
-                    style={{
-                      paddingTop: Const.pad,
-                      color: theme.fontColor1,
-                      fontSize: Const.fontSizes.sm,
-                      textAlign: 'left',
-                      wordWrap: 'break-word',
-                    }}
-                  >
-                    {b}
-                  </li>
-                )
-              })}
-            </ul>
-
-            <div
-              style={{
-                position: 'absolute',
-                bottom: 0,
-                left: Const.pad,
-                right: Const.pad,
-              }}
-            >
-              <div style={{display: 'grid'}}>
-                <SvgScroll2 svgs={svgs} />
+              <div>
+                {bullets.map((b) => {
+                  return (
+                    <li
+                      key={b}
+                      style={{
+                        paddingTop: Const.pad,
+                        color: theme.fontColor1,
+                        fontSize: Const.fontSizes.sm,
+                        textAlign: 'left',
+                        wordWrap: 'break-word',
+                      }}
+                    >
+                      {b}
+                    </li>
+                  )
+                })}
               </div>
+            </div>
+
+            <div style={{flex: 1}}></div>
+            <div
+              style={{
+                display: 'grid',
+                justifyContent: 'center',
+              }}
+            >
+              <SvgScroll2 svgs={svgs} />
             </div>
           </div>
         </div>

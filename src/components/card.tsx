@@ -18,7 +18,7 @@ export const Card = ({
         WebkitBoxShadow: theme.shadow,
         MozBoxShadow: theme.shadow,
         boxShadow: theme.shadow,
-        padding: Const.pad,
+        padding: Const.pad * 2,
         marginTop: Const.pad * 4,
         backgroundColor: theme.background1,
         borderRadius: md ? Const.rad : 0,

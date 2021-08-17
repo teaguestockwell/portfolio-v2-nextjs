@@ -1,6 +1,6 @@
+import React from 'react'
 import {Const} from '../../const'
 import {useThemeStore} from '../../hooks/use_theme'
-import {SvgScroll} from '../svgs'
 
 export const Skill = ({svgs, name}: {svgs: JSX.Element[]; name: string}) => {
   const theme = useThemeStore.getState().theme
@@ -20,7 +20,18 @@ export const Skill = ({svgs, name}: {svgs: JSX.Element[]; name: string}) => {
       >
         {name}
       </div>
-      <SvgScroll svgs={svgs} />
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, 100px)',
+          justifyContent: 'center',
+          paddingTop: Const.pad,
+        }}
+      >
+        {React.Children.map(svgs, (svg) => (
+          <div key={svg.key}>{svg}</div>
+        ))}
+      </div>
     </>
   )
 }

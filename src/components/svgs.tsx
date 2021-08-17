@@ -193,28 +193,22 @@ const Svg = ({
 }) => {
   return (
     <div
+      key={v4()}
       className="icon-hover"
       style={{
         width: 100,
         height: 100,
-        padding: 5,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
       }}
     >
-      <div
-        style={{
-          paddingTop: 4,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        {svg}
-      </div>
+      {svg}
 
       {name && (
         <div
           style={{
-            paddingTop: 4,
             color: theme.fontColor1,
             fontSize: Const.fontSizes.sm,
             wordWrap: 'break-word',
