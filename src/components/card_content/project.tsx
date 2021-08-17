@@ -130,7 +130,12 @@ export const Project = React.memo(
 
               <div style={{paddingTop: Const.pad}}>{subHeading}</div>
 
-              <div>
+              <ul
+                style={{
+                  margin: 0,
+                  marginLeft: -24,
+                }}
+              >
                 {bullets.map((b) => {
                   return (
                     <li
@@ -147,7 +152,7 @@ export const Project = React.memo(
                     </li>
                   )
                 })}
-              </div>
+              </ul>
             </div>
 
             <div style={{flex: 1}}></div>
