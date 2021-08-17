@@ -5,6 +5,7 @@ export interface CustomTheme {
 
   backGround0: string
   background1: string
+  background2: string
 
   fontColor0: string
   fontColor1: string
@@ -49,6 +50,7 @@ export const Const = {
 
       backGround0: '#F5F5F7',
       background1: '#Fff',
+      background2: '#Fff',
 
       fontColor0: '#1d1d1f',
       fontColor1: '#6e6e73',
@@ -71,6 +73,7 @@ export const Const = {
 
       backGround0: '#000',
       background1: '#151516',
+      background2: '#1D1D20',
 
       fontColor0: '#f5f5f7',
       fontColor1: '#A1A1A6',

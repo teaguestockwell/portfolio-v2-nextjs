@@ -25,6 +25,7 @@ export const SectionHeader = ({
           maxWidth: Const.maxWidth,
           color: theme.fontColor0,
           fontSize: Const.fontSizes.xxxl,
+          lineHeight: `${Const.fontSizes.xxxl}px`,
           fontWeight: 800,
           wordWrap: 'break-word',
         }}

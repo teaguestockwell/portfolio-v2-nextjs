@@ -42,6 +42,18 @@ import {v4} from 'uuid'
 import * as Types from '../types/types'
 
 export const getInteractiveSvgs = (fill: string, size: number) => ({
+  upArrow: (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height={size}
+      viewBox="0 0 24 24"
+      width={size}
+      fill={fill}
+    >
+      <path d="M0 0h24v24H0V0z" fill="none" />
+      <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z" />
+    </svg>
+  ),
   hamburger: (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -64,7 +64,7 @@ export const portfolioData: Portfolio = {
     projects: 'Web meets mobile. Full stack and microservice architecture.',
     experience: undefined,
     education: undefined,
-    contact: `See me on Github, connect on LinkedIn, or send me an email.`,
+    contact: ``,
   },
 
   skills: [
