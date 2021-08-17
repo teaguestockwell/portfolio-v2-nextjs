@@ -25,6 +25,14 @@ export const portfolioData: Portfolio = {
       src: 'https://www.linkedin.com/company/tron-air-force',
       location: 'Joint Base Lewis McChord, WA',
       imgSrc: '/rainier.png',
+      bullets: [
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum autem nostrum vitae placeat repellat nesciunt libero nam aliquid laboriosam rerum!',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore voluptatum quibusdam deleniti sint natus quae!',
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias harum aperiam accusamus! Adipisci, quibusdam. Qui harum doloremque nemo natus accusamus.',
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum autem nostrum vitae placeat repellat nesciunt libero nam aliquid laboriosam rerum!',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore voluptatum quibusdam deleniti sint natus quae!',
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias harum aperiam accusamus! Adipisci, quibusdam. Qui harum doloremque nemo natus accusamus.',
+      ],
     },
     {
       id: v4(),
@@ -36,6 +44,11 @@ export const portfolioData: Portfolio = {
       src: 'https://www.linkedin.com/company/tron-air-force',
       location: 'Remote',
       imgSrc: '/tron1.png',
+      bullets: [
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum autem nostrum vitae placeat repellat nesciunt libero nam aliquid laboriosam rerum!',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore voluptatum quibusdam deleniti sint natus quae!',
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias harum aperiam accusamus! Adipisci, quibusdam. Qui harum doloremque nemo natus accusamus.',
+      ],
     },
     {
       id: v4(),
@@ -47,6 +60,11 @@ export const portfolioData: Portfolio = {
       src: 'https://www.airforce.com/careers/detail/airlift-special-mission-aircraft-maintenance',
       location: 'Joint Base Lewis McChord, WA',
       imgSrc: '/af1.png',
+      bullets: [
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum autem nostrum vitae placeat repellat nesciunt libero nam aliquid laboriosam rerum!',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore voluptatum quibusdam deleniti sint natus quae!',
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias harum aperiam accusamus! Adipisci, quibusdam. Qui harum doloremque nemo natus accusamus.',
+      ],
     },
   ],
 

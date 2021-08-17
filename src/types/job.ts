@@ -7,4 +7,5 @@ export interface Job {
   src: string | undefined
   location: string
   imgSrc: string
+  bullets: string[]
 }

@@ -2,9 +2,10 @@ import {useTheme} from '../hooks/use_theme'
 import {getSimpleSvgs} from './svgs'
 import {Content} from './content'
 import {Card} from './card'
-import {Element} from 'react-scroll'
 import {Const} from '../const'
 import {useBreakpoint} from '../hooks/use_breakpoint'
+import React from 'react'
+import {CardFlip} from './card_flip'
 
 interface Props {
   name: string
@@ -13,16 +14,14 @@ interface Props {
 
 export const CardGrid = <T extends Props>({
   items,
-  getCell,
-  hasSvgs = true,
+  getCellFront,
+  getCellBack,
 }: {
   items: Array<T>
-  getCell: (item: T, getSvg: (key: string) => JSX.Element) => JSX.Element
-  hasSvgs: boolean
+  getCellFront: (item: T) => JSX.Element
+  getCellBack: (item: T) => JSX.Element
 }) => {
   const theme = useTheme()
-  const svgs = hasSvgs ? getSimpleSvgs(42, theme) : null
-  const getSvg = (key: string) => (svgs ? svgs[key] : <div />)
   const breakPoint = useBreakpoint.projectsBreak()
 
   return (
@@ -38,15 +37,16 @@ export const CardGrid = <T extends Props>({
         }}
       >
         {items.map((i) => (
-          <Card
+          <CardFlip
             key={i.id}
             style={{
               height: 450,
               marginTop: 0,
+              overflowY: 'auto',
             }}
-          >
-            {getCell(i, getSvg)}
-          </Card>
+            front={getCellFront(i)}
+            back={getCellBack(i)}
+          />
         ))}
       </div>
     </Content>

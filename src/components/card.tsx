@@ -5,9 +5,11 @@ import {useTheme} from '../hooks/use_theme'
 export const Card = ({
   children,
   style,
+  icon: topRightIcon,
 }: {
   children: JSX.Element | JSX.Element[]
   style?: any
+  icon?: JSX.Element
 }) => {
   const theme = useTheme()
   const md = useBreakpoint.md()
@@ -26,6 +28,7 @@ export const Card = ({
         ...style,
       }}
     >
+      {topRightIcon}
       {children}
     </div>
   )

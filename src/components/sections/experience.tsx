@@ -4,6 +4,7 @@ import {CardGrid} from '../card_grid'
 import {ImgCardCell} from '../card_content/img_card_cell'
 import {PortfolioContext} from '../../pages'
 import {useContext} from 'react'
+import {BulletCardCell} from '../bullet_card_cell'
 
 export const ExperienceSection = () => {
   const portfolio = useContext(PortfolioContext)
@@ -19,14 +20,16 @@ export const ExperienceSection = () => {
       />
       <CardGrid
         items={portfolio.jobs}
-        hasSvgs={false}
-        getCell={(t) => (
+        getCellFront={(t) => (
           <ImgCardCell
             title={t.name}
             href={t.src ?? ''}
             imgSrc={t.imgSrc}
-            rows={[t.dateRange, t.company, t.location, t.description]}
+            rows={[t.dateRange, t.company + ', ' + t.location, t.description]}
           />
+        )}
+        getCellBack={(t) => (
+          <BulletCardCell title={'Accomplishments'} bullets={t.bullets} />
         )}
       />
     </Element>

@@ -42,6 +42,30 @@ import {v4} from 'uuid'
 import * as Types from '../types/types'
 
 export const getInteractiveSvgs = (fill: string, size: number) => ({
+  toBack: (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height={size}
+      viewBox="0 0 24 24"
+      width={size}
+      fill={fill}
+    >
+      <path d="M0 0h24v24H0V0z" fill="none" />
+      <path d="M9 7H7v2h2V7zm0 4H7v2h2v-2zm0-8c-1.11 0-2 .9-2 2h2V3zm4 12h-2v2h2v-2zm6-12v2h2c0-1.1-.9-2-2-2zm-6 0h-2v2h2V3zM9 17v-2H7c0 1.1.89 2 2 2zm10-4h2v-2h-2v2zm0-4h2V7h-2v2zm0 8c1.1 0 2-.9 2-2h-2v2zM5 7H3v12c0 1.1.89 2 2 2h12v-2H5V7zm10-2h2V3h-2v2zm0 12h2v-2h-2v2z" />
+    </svg>
+  ),
+  toFront: (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height={size}
+      viewBox="0 0 24 24"
+      width={size}
+      fill={fill}
+    >
+      <path d="M0 0h24v24H0V0z" fill="none" />
+      <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm2 4v-2H3c0 1.1.89 2 2 2zM3 9h2V7H3v2zm12 12h2v-2h-2v2zm4-18H9c-1.11 0-2 .9-2 2v10c0 1.1.89 2 2 2h10c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 12H9V5h10v10zm-8 6h2v-2h-2v2zm-4 0h2v-2H7v2z" />
+    </svg>
+  ),
   upArrow: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
