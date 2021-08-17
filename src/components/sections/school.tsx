@@ -1,8 +1,8 @@
 import {Element} from 'react-scroll'
 import {SectionHeader} from '../section_header'
-import {School} from '../card_content/school'
+import {ImgCardCell} from '../card_content/img_card_cell'
 import {PortfolioContext} from '../../pages'
-import {useContext} from 'react'
+import React, {useContext} from 'react'
 import {CardRows} from '../card_rows'
 
 export const SchoolsSection = () => {
@@ -18,7 +18,7 @@ export const SchoolsSection = () => {
         items={portfolio.schools}
         hasSvgs={false}
         getCell={(t) => (
-          <School
+          <ImgCardCell
             href={t.href}
             title={t.name}
             imgSrc={t.imgSrc}

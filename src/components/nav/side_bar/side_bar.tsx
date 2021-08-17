@@ -13,7 +13,7 @@ export const SideBar = React.memo(
     return (
       <div
         style={{
-          padding: Const.pad,
+          padding: Const.pad * 2,
           width: '100%',
           height: '100%',
           display: 'flex',

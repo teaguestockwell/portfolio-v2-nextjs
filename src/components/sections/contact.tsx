@@ -10,17 +10,17 @@ import {Link} from 'react-scroll'
 import {useBreakpoint} from '../../hooks/use_breakpoint'
 
 export const ContactSection = () => {
-  const xl = useBreakpoint.xl()
   const iconSize = 50
   const theme = useTheme()
   const portfolio = useContext(PortfolioContext)
   const svgs = getInteractiveSvgs(theme.fontColor0, iconSize)
   const space = Const.pad * 2
+  const xl = useBreakpoint.xl()
 
   return (
     <Element
       style={{
-        minHeight: xl ? '100vh' : `calc(100vh - ${Const.topNav}px)`,
+        minHeight: '100vh',
         backgroundColor: theme.background1,
         position: 'relative',
       }}
@@ -29,13 +29,15 @@ export const ContactSection = () => {
     >
       <div
         style={{
-          paddingTop: space,
+          paddingTop: Const.topNav + space,
         }}
       >
-        <SectionHeader
-          title={portfolio.titles.contact}
-          subTitle={portfolio.subTitles.contact}
-        />
+        <div style={{marginTop: xl ? Const.topNav * -1 : 0}}>
+          <SectionHeader
+            title={portfolio.titles.contact}
+            subTitle={portfolio.subTitles.contact}
+          />
+        </div>
 
         <div
           style={{
@@ -45,6 +47,7 @@ export const ContactSection = () => {
             paddingRight: space,
             backgroundColor: theme.background1,
             paddingBottom: '35vh',
+            textDecoration: 'none',
           }}
         >
           <a
@@ -55,8 +58,13 @@ export const ContactSection = () => {
             style={{paddingTop: space}}
           >
             <div
-              className="icon-hover"
-              style={{display: 'flex', alignItems: 'center'}}
+              className={`${theme.name}`}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                width: 'fit-content',
+                paddingRight: Const.pad,
+              }}
             >
               <Github color={theme.fontColor0} size={iconSize} />
               <div
@@ -64,6 +72,8 @@ export const ContactSection = () => {
                   fontSize: Const.fontSizes.lg,
                   color: theme.fontColor1,
                   paddingLeft: space,
+                  width: 'fit-content',
+                  paddingRight: Const.pad,
                 }}
               >
                 See my work on Github
@@ -79,8 +89,13 @@ export const ContactSection = () => {
             style={{paddingTop: space}}
           >
             <div
-              className="icon-hover"
-              style={{display: 'flex', alignItems: 'center'}}
+              className={`${theme.name}`}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                width: 'fit-content',
+                paddingRight: Const.pad,
+              }}
             >
               <Linkedin size={iconSize} color={theme.fontColor0} />
               <div
@@ -88,6 +103,8 @@ export const ContactSection = () => {
                   fontSize: Const.fontSizes.lg,
                   color: theme.fontColor1,
                   paddingLeft: space,
+                  width: 'fit-content',
+                  paddingRight: Const.pad,
                 }}
               >
                 Connect on LinkedIn
@@ -103,8 +120,13 @@ export const ContactSection = () => {
             style={{paddingTop: space}}
           >
             <div
-              className="icon-hover"
-              style={{display: 'flex', alignItems: 'center'}}
+              className={`${theme.name}`}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                width: 'fit-content',
+                paddingRight: Const.pad,
+              }}
             >
               {svgs.mail}
               <div

@@ -5,6 +5,7 @@ import {Project} from '../card_content/project'
 import {Glow} from '../glow'
 import {PortfolioContext} from '../../pages'
 import {useContext} from 'react'
+import {Const} from '../../const'
 
 export const ProjectsSection = () => {
   const portfolio = useContext(PortfolioContext)
@@ -18,6 +19,11 @@ export const ProjectsSection = () => {
 
       <Glow tlwh={[-5, -5, 115, 110]}>
         <CardRows
+          cardStyle={{
+            paddingRight: Const.pad,
+            paddingLeft: Const.pad,
+            paddingTop: Const.pad,
+          }}
           items={portfolio.projects}
           hasSvgs={true}
           getCell={(t, getSvg) => (

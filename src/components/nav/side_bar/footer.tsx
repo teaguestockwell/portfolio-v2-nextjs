@@ -29,8 +29,6 @@ export const Footer = () => {
           onClick={toggleTheme}
           className="icon-hover"
           style={{
-            paddingBottom: 5,
-            paddingLeft: 2,
             cursor: 'pointer',
           }}
         >

@@ -5,7 +5,7 @@ import {useThemeStore} from '../../../hooks/use_theme'
 import {PortfolioContext} from '../../../pages'
 
 export const Profile = () => {
-  const picW = Const.drawerWidth - Const.pad * 2
+  const picW = Const.drawerWidth - Const.pad * 4
   const theme = useThemeStore.getState().theme
   const {person} = useContext(PortfolioContext)
   const fullName = person.firstName + ' ' + person.lastName

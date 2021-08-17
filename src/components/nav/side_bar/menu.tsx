@@ -5,11 +5,23 @@ import {getCustomSvgs} from '../../svgs'
 import {useContext} from 'react'
 import {PortfolioContext} from '../../../pages'
 import {useDrawerStore} from '../../../hooks/use_drawer'
+import {useBreakpoint} from '../../../hooks/use_breakpoint'
 
 export const Menu = () => {
   const theme = useThemeStore.getState().theme
   const {titles} = useContext(PortfolioContext)
   const customSvgs = getCustomSvgs(theme.fontColor0, 24, 24, titles)
+  const titleVals = Object.values(titles)
+  const xl = useBreakpoint.xl()
+  const getOffset = (idx: number) => {
+    if (idx === titleVals.length - 1) {
+      return 0
+    }
+    if (xl) {
+      return Const.pad * 2 * -1
+    }
+    return (Const.topNav + Const.pad * 2) * -1
+  }
 
   return (
     <div
@@ -17,8 +29,8 @@ export const Menu = () => {
         paddingTop: Const.pad,
       }}
     >
-      {Object.values(titles).map((i) => (
-        <Link key={i} to={i} {...Const.reactScrollProps}>
+      {titleVals.map((x, i) => (
+        <Link key={x} to={x} {...Const.reactScrollProps} offset={getOffset(i)}>
           <div
             className={`menu-sidebar ${theme.name}`}
             style={{
@@ -30,12 +42,9 @@ export const Menu = () => {
               wordWrap: 'break-word',
               color: theme.fontColor0,
               width: '-webkit-fill-available',
-              paddingLeft: Const.pad,
-              marginLeft: Const.pad * -1,
-              marginRight: Const.pad * -1,
             }}
           >
-            {customSvgs[i]}
+            {customSvgs[x]}
             <div
               onClick={() => useDrawerStore.setState({isOpen: false})}
               style={{
@@ -45,7 +54,7 @@ export const Menu = () => {
                 wordWrap: 'break-word',
               }}
             >
-              {i}
+              {x}
             </div>
           </div>
         </Link>
