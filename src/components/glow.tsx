@@ -4,9 +4,11 @@ import {useBreakpoint} from '../hooks/use_breakpoint'
 export const Glow = ({
   children,
   tlwh,
+  publicSrc = '/glow.png',
 }: {
   children: JSX.Element | JSX.Element[]
   tlwh: [number, number, number, number]
+  publicSrc?: string
 }) => {
   const md = useBreakpoint.md()
 
@@ -22,7 +24,7 @@ export const Glow = ({
     >
       {md ? (
         <img
-          src={'/glow.png'}
+          src={publicSrc}
           alt="glow"
           style={{
             position: 'absolute',
