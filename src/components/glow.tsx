@@ -5,10 +5,12 @@ export const Glow = ({
   children,
   tlwh,
   publicSrc = '/glow.png',
+  removeOnMdBreak = true,
 }: {
   children: JSX.Element | JSX.Element[]
   tlwh: [number, number, number, number]
   publicSrc?: string
+  removeOnMdBreak?: boolean
 }) => {
   const md = useBreakpoint.md()
 
@@ -22,7 +24,9 @@ export const Glow = ({
         overflow: 'hidden',
       }}
     >
-      {md ? (
+      {!md && removeOnMdBreak ? (
+        <> </>
+      ) : (
         <img
           src={publicSrc}
           alt="glow"
@@ -35,8 +39,6 @@ export const Glow = ({
             height: `${tlwh[3]}%`,
           }}
         />
-      ) : (
-        <> </>
       )}
 
       {children}

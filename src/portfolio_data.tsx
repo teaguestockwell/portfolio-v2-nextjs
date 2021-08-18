@@ -2,6 +2,8 @@ import {Portfolio} from './types/types'
 import {v4} from 'uuid'
 
 export const portfolioData: Portfolio = {
+  heroM3u8Src:
+    'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/level-2-hls/master.m3u8',
   id: v4(),
   person: {
     id: v4(),

@@ -18,23 +18,29 @@ export const AboutSection = () => {
 
   return (
     <Element name={portfolio.titles.about} key={portfolio.titles.about}>
-      <Glow tlwh={[-14, 10, 115, 110]} publicSrc="/glow1.png">
+      <Glow
+        tlwh={[-14, 10, 115, 110]}
+        publicSrc="/glow1.png"
+        removeOnMdBreak={false}
+      >
         {/* Above the fold */}
         <Content>
           <div
             style={{
+              paddingTop: Const.pad * 2,
               minHeight: '100vh',
               display: 'grid',
-              gridTemplateColumns: 'minmax(300px, 500px) 1fr',
+              gridTemplateColumns: md ? 'minmax(300px, 500px) 1fr' : '1fr',
               gap: Const.pad * 2,
               alignItems: 'center',
+              paddingLeft: Const.pad,
+              paddingRight: Const.pad,
             }}
           >
             <div
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                paddingLeft: Const.pad,
               }}
             >
               <div
@@ -77,10 +83,10 @@ export const AboutSection = () => {
                     fontSize: Const.fontSizes.lg,
                     wordWrap: 'break-word',
                     color: theme.fontColor0,
-                    marginLeft: Const.pad * -1,
                     paddingLeft: Const.pad,
                     paddingRight: Const.pad,
                     width: 'fit-content',
+                    textAlign: 'left',
                   }}
                 >
                   {'Contact me'}
@@ -97,7 +103,7 @@ export const AboutSection = () => {
                 gridTemplateColumns: 'repeat(2, 1fr)',
               }}
             >
-              <Home />
+              <Home m3u8Src={portfolio.heroM3u8Src} />
               <Dash />
             </div>
           </div>
