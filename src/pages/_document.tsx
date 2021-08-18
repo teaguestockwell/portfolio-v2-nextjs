@@ -93,13 +93,28 @@ class MyDocument extends Document {
             <meta name='twitter:image' content='https://yourdomain.com/android-chrome-192x192.png' />
             <meta name='twitter:creator' content='@DavidWShadow' />
             
-            <meta property='og:type' content='website' />
-            <meta property='og:title' content='PWA App' />
-            <meta property='og:description' content='Best PWA App in the world' />
-            <meta property='og:site_name' content='PWA App' />
-            <meta property='og:url' content='https://yourdomain.com' />
-            <meta property='og:image' content='https://yourdomain.com/apple-touch-icon.png' /> 
-            */}
+          <meta property='og:site_name' content='PWA App' />
+          */}
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="Teague Stockwell's Portfolio" />
+          <meta
+            property="og:description"
+            content="Hello, im Teague Stockwell. I have a passion for developing software that solves everyday problems."
+          />
+          <meta property="og:url" content="https://teaguestockwell.com" />
+
+          <meta
+            property="og:image"
+            content="https://teaguestockwel.com/og-hero.png"
+          />
+          <meta
+            property="og:image:secure_url"
+            content="https://teaguestockwel.com/og-hero.png"
+          />
+          <meta property="og:image:type" content="image/png" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="627" />
+          <meta property="og:image:alt" content="Levels - cargo loading app" />
         </Head>
         <body>
           <Main />
