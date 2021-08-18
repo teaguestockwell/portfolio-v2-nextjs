@@ -26,8 +26,8 @@ export const CardFlip = ({
       onClick={() => setIsFlipped(!isFlipped)}
       style={{
         position: 'absolute',
-        top: Const.pad,
-        right: Const.pad,
+        bottom: Const.pad / 2,
+        right: Const.pad / 2,
         cursor: 'pointer',
       }}
     >
