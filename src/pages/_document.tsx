@@ -105,11 +105,11 @@ class MyDocument extends Document {
 
           <meta
             property="og:image"
-            content="https://teaguestockwel.com/og-hero.png"
+            content="https://teaguestockwell.com/og-hero.png"
           />
           <meta
             property="og:image:secure_url"
-            content="https://teaguestockwel.com/og-hero.png"
+            content="https://teaguestockwell.com/og-hero.png"
           />
           <meta property="og:image:type" content="image/png" />
           <meta property="og:image:width" content="1200" />
