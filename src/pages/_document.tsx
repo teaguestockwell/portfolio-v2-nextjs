@@ -81,40 +81,30 @@ class MyDocument extends Document {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
           <link rel="shortcut icon" href="/favicon.ico" />
 
-          {/* 
-            <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' />
-             */}
-
-          {/*
-            <meta name='twitter:card' content='summary' />
-            <meta name='twitter:url' content='https://yourdomain.com' />
-            <meta name='twitter:title' content='PWA App' />
-            <meta name='twitter:description' content='Best PWA App in the world' />
-            <meta name='twitter:image' content='https://yourdomain.com/android-chrome-192x192.png' />
-            <meta name='twitter:creator' content='@DavidWShadow' />
-            
-          <meta property='og:site_name' content='PWA App' />
-          */}
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Teague Stockwell's Portfolio" />
+          <meta property="og:url" content="https://teaguestockwell.com" />
           <meta
             property="og:description"
             content="Hello, im Teague Stockwell. I have a passion for developing software that solves everyday problems."
           />
-          <meta property="og:url" content="https://teaguestockwell.com" />
-
           <meta
             property="og:image"
             content="https://teaguestockwell.com/og-hero.png"
           />
+          <meta property="og:image:alt" content="Levels - cargo loading app" />
+
+          <meta name="twitter:card" content="summary_large_imag" />
+          <meta name="twitter:url" content="https://teaguestockwell.com" />
+          <meta name="twitter:title" content="Teague Stockwell's Portfolio" />
           <meta
-            property="og:image:secure_url"
+            name="twitter:description"
+            content="Hello, im Teague Stockwell. I have a passion for developing software that solves everyday problems."
+          />
+          <meta
+            name="twitter:image"
             content="https://teaguestockwell.com/og-hero.png"
           />
-          <meta property="og:image:type" content="image/png" />
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="627" />
-          <meta property="og:image:alt" content="Levels - cargo loading app" />
         </Head>
         <body>
           <Main />
