@@ -180,7 +180,7 @@ export const WithNav = ({children}: {children?: any}) => {
       {xl ? null : <Nav />}
       <main
         style={{
-          paddingTop: Const.topNav,
+          paddingTop: xl ? Const.pad * 2 : Const.topNav + Const.pad * 2,
           paddingLeft: xl ? Const.drawerWidth : 0,
         }}
       >

@@ -1,5 +1,5 @@
-import {Const} from '../const'
-import {useTheme} from '../hooks/use_theme'
+import {Const} from '../../const'
+import {useTheme} from '../../hooks/use_theme'
 
 export const BulletCardCell = ({
   title,

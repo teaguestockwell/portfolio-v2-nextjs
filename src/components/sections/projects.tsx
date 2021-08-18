@@ -1,6 +1,6 @@
 import {Element} from 'react-scroll'
 import {SectionHeader} from '../section_header'
-import {CardRows} from '../card_rows'
+import {CardRows} from '../card_wrappers/card_rows'
 import {Project} from '../card_content/project'
 import {Glow} from '../glow'
 import {PortfolioContext} from '../../pages'

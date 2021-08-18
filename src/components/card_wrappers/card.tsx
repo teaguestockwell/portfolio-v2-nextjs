@@ -1,6 +1,6 @@
-import {useBreakpoint} from '../hooks/use_breakpoint'
-import {Const} from '../const'
-import {useTheme} from '../hooks/use_theme'
+import {useBreakpoint} from '../../hooks/use_breakpoint'
+import {Const} from '../../const'
+import {useTheme} from '../../hooks/use_theme'
 
 export const Card = ({
   children,

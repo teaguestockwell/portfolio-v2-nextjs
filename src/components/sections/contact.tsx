@@ -161,7 +161,9 @@ export const ContactSection = () => {
             left: 0,
             right: 0,
             display: 'flex',
+            flexDirection: 'column',
             justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
           <Link
@@ -171,6 +173,23 @@ export const ContactSection = () => {
           >
             <div className="icon-hover">{svgs.upArrow}</div>
           </Link>
+
+          <a
+            className={theme.name}
+            href={`https://github.com/tsAppDevelopment/hello2`}
+            rel="noreferrer"
+            target="_blank"
+            style={{
+              fontSize: Const.fontSizes.md,
+              color: theme.fontColor1,
+              textAlign: 'center',
+              marginTop: space / 2,
+              paddingLeft: space,
+              paddingRight: space,
+            }}
+          >
+            See this site on Github
+          </a>
         </div>
       </Element>
     </>

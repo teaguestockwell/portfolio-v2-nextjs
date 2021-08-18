@@ -1,10 +1,10 @@
 import {useRef, useState} from 'react'
 import {Card} from './card'
 import ReactCardFlip from 'react-card-flip'
-import {useBreakpoint} from '../hooks/use_breakpoint'
-import {useTheme} from '../hooks/use_theme'
-import {getInteractiveSvgs} from './svgs'
-import {Const} from '../const'
+import {useBreakpoint} from '../../hooks/use_breakpoint'
+import {useTheme} from '../../hooks/use_theme'
+import {getInteractiveSvgs} from '../svgs'
+import {Const} from '../../const'
 
 export const CardFlip = ({
   front,

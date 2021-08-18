@@ -3,7 +3,7 @@ import {SectionHeader} from '../section_header'
 import {ImgCardCell} from '../card_content/img_card_cell'
 import {PortfolioContext} from '../../pages'
 import React, {useContext} from 'react'
-import {CardRows} from '../card_rows'
+import {CardRows} from '../card_wrappers/card_rows'
 
 export const SchoolsSection = () => {
   const portfolio = useContext(PortfolioContext)

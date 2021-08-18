@@ -1,9 +1,7 @@
-import {useTheme} from '../hooks/use_theme'
-import {getSimpleSvgs} from './svgs'
-import {Content} from './content'
-import {Card} from './card'
-import {Const} from '../const'
-import {useBreakpoint} from '../hooks/use_breakpoint'
+import {useTheme} from '../../hooks/use_theme'
+import {Content} from '../content'
+import {Const} from '../../const'
+import {useBreakpoint} from '../../hooks/use_breakpoint'
 import React from 'react'
 import {CardFlip} from './card_flip'
 
