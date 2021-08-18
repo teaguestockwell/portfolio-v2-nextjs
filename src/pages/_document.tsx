@@ -92,6 +92,7 @@ class MyDocument extends Document {
             <meta name='twitter:description' content='Best PWA App in the world' />
             <meta name='twitter:image' content='https://yourdomain.com/android-chrome-192x192.png' />
             <meta name='twitter:creator' content='@DavidWShadow' />
+            
             <meta property='og:type' content='website' />
             <meta property='og:title' content='PWA App' />
             <meta property='og:description' content='Best PWA App in the world' />

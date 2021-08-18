@@ -12,6 +12,7 @@ export const portfolioData: Portfolio = {
     githubSrc: 'https://github.com/tsAppDevelopment',
     jobTitle: 'Software Engineer',
     location: 'Seattle, WA',
+    shortAbout: `Hello, im Teague Stockwell. I have a passion for creating software that solves everyday problems.`,
   },
 
   jobs: [

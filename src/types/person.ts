@@ -7,4 +7,5 @@ export interface Person {
   email: string
   linkedInSrc: string
   githubSrc: string
+  shortAbout: string
 }
