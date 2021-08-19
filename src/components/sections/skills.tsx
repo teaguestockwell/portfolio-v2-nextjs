@@ -5,9 +5,13 @@ import {Skill} from '../card_content/skill'
 import {PortfolioContext} from '../../pages'
 import React, {useContext} from 'react'
 import {TagCloud} from '../tag_cloud'
+import {useTheme} from '../../hooks/use_theme'
+import {getSimpleSvgs} from '../svgs'
 
 export const SkillsSection = () => {
   const portfolio = useContext(PortfolioContext)
+  const theme = useTheme()
+  const svgs = getSimpleSvgs(42, theme)
 
   return (
     <Element name={portfolio.titles.tech} key={portfolio.titles.tech}>
@@ -15,14 +19,8 @@ export const SkillsSection = () => {
         title={portfolio.titles.tech}
         subTitle={portfolio.subTitles.tech}
       />
-      <CardRows
-        items={portfolio.skills}
-        hasSvgs={true}
-        getCell={(t, getSvg) => (
-          <Skill name={t.name} svgs={t.svgKeys.map((s) => getSvg(s))} />
-        )}
-      />
-      <TagCloud />
+
+      <TagCloud svgs={portfolio.skills[0].svgKeys.map((s) => svgs[s])} />
     </Element>
   )
 }
