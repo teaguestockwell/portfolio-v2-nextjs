@@ -225,10 +225,6 @@ export const portfolioData: Portfolio = {
           name: 'Backend Server',
           src: 'https://github.com/tsAppDevelopment/levels-v2v3-express',
         },
-        {
-          name: 'Backend Serverless',
-          src: 'https://firebase.google.com/products/firestore?gclsrc=ds&gclsrc=ds&gclid=CMK6ivX89_ECFUMNrQYdrFIFkQ',
-        },
       ],
       svgs: [
         'docker',
@@ -243,6 +239,24 @@ export const portfolioData: Portfolio = {
         'git',
         'figma',
       ],
+    },
+    {
+      id: v4(),
+      name: '5 Level',
+      dateRange: 'Sep 2020 - March 2020',
+      subHeading: `Developed, and deployed A native android application with Java for aircraft weight and balance`,
+      bullets: [],
+      deploymentSrc:
+        'https://play.google.com/store/apps/details?id=com.TsAppDevelopment.c17mac',
+      m3u8Src:
+        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/5-level-2-hls/master.m3u8',
+      repos: [
+        {
+          name: 'Android UI',
+          src: 'https://github.com/tsAppDevelopment/levels-v1-android',
+        },
+      ],
+      svgs: ['android', 'java', 'git', 'github'],
     },
     {
       id: v4(),
@@ -273,24 +287,6 @@ export const portfolioData: Portfolio = {
     },
     {
       id: v4(),
-      name: '5 Level',
-      dateRange: 'Sep 2020 - March 2020',
-      subHeading: `Developed, and deployed A native android application with Java for aircraft weight and balance`,
-      bullets: [],
-      deploymentSrc:
-        'https://play.google.com/store/apps/details?id=com.TsAppDevelopment.c17mac',
-      m3u8Src:
-        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/5-level-2-hls/master.m3u8',
-      repos: [
-        {
-          name: 'Android UI',
-          src: 'https://github.com/tsAppDevelopment/levels-v1-android',
-        },
-      ],
-      svgs: ['android', 'java', 'git', 'github'],
-    },
-    {
-      id: v4(),
       name: `Doctor's Patient Portal`,
       subHeading: `Developed a demo Flutter UI to consume real time checkups to a doctor's office`,
       dateRange: 'March 2021',
@@ -316,7 +312,7 @@ export const portfolioData: Portfolio = {
       id: v4(),
       name: 'Southwestern College',
       dateRange: 'May 2021',
-      subHeading: `Bachelor of Science, Computer Programming, 3.9 GPA`,
+      subHeading: `Bachelor of Science, Computer Programming`,
       imgSrc: '/bs1.png',
       href: 'https://www.sckans.edu/',
     },
@@ -324,7 +320,7 @@ export const portfolioData: Portfolio = {
       id: v4(),
       name: 'Community College of the Air Force',
       dateRange: 'August 2019',
-      subHeading: `Associate of Applied Science, Aviation Maintenance Technology, 4.0 GPA`,
+      subHeading: `Associate of Applied Science, Aviation Maintenance Technology`,
       imgSrc: '/as1.png',
       href: 'https://www.ccaf.af.mil/',
     },

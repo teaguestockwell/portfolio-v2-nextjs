@@ -66,14 +66,13 @@ export const ContactSection = () => {
               href={portfolio.person.githubSrc}
               rel="noreferrer"
               target="_blank"
-              style={{paddingTop: space}}
+              style={{marginTop: space, width: 'fit-content'}}
             >
               <div
                 className={`${theme.name}`}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  width: 'fit-content',
                   paddingRight: Const.pad,
                 }}
               >
@@ -83,7 +82,6 @@ export const ContactSection = () => {
                     fontSize: Const.fontSizes.lg,
                     color: theme.fontColor1,
                     paddingLeft: space,
-                    width: 'fit-content',
                     paddingRight: Const.pad,
                   }}
                 >
@@ -97,14 +95,13 @@ export const ContactSection = () => {
               href={portfolio.person.linkedInSrc}
               rel="noreferrer"
               target="_blank"
-              style={{paddingTop: space}}
+              style={{marginTop: space, width: 'fit-content'}}
             >
               <div
                 className={`${theme.name}`}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  width: 'fit-content',
                   paddingRight: Const.pad,
                 }}
               >
@@ -114,7 +111,6 @@ export const ContactSection = () => {
                     fontSize: Const.fontSizes.lg,
                     color: theme.fontColor1,
                     paddingLeft: space,
-                    width: 'fit-content',
                     paddingRight: Const.pad,
                   }}
                 >
@@ -128,14 +124,13 @@ export const ContactSection = () => {
               target="_blank"
               href={`mailto:${portfolio.person.email}?subject=Hello`}
               aria-label="Email"
-              style={{paddingTop: space}}
+              style={{marginTop: space, width: 'fit-content'}}
             >
               <div
                 className={`${theme.name}`}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  width: 'fit-content',
                   paddingRight: Const.pad,
                 }}
               >

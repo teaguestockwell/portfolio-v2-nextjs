@@ -48,9 +48,12 @@ export const Project = React.memo(
             {repos.map(({name, src}) => (
               <a key={v4()} href={src} target="_blank" rel="noreferrer">
                 <div
+                  className={`${theme.name}`}
                   style={{
-                    paddingTop: Const.pad / 2,
-                    paddingBottom: Const.pad / 2,
+                    width: 'fit-content',
+                    paddingLeft: Const.pad,
+                    paddingRight: Const.pad,
+                    marginTop: Const.pad,
                     color: theme.fontColor1,
                     fontSize: Const.fontSizes.md,
                     wordWrap: 'break-word',
