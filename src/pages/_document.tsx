@@ -19,11 +19,7 @@ class MyDocument extends Document {
         <Head>
           <meta
             name="application-name"
-            content={
-              portfolioData.person.firstName +
-              ' ' +
-              portfolioData.person.lastName
-            }
+            content={`${portfolioData.person.firstName} ${portfolioData.person.lastName}'s Portfolio`}
           />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta
@@ -32,19 +28,12 @@ class MyDocument extends Document {
           />
           <meta
             name="apple-mobile-web-app-title"
-            content={
-              portfolioData.person.firstName +
-              ' ' +
-              portfolioData.person.lastName
-            }
+            content={`${portfolioData.person.firstName} ${portfolioData.person.lastName}'s Portfolio`}
           />
+
           <meta
             name="description"
-            content={
-              portfolioData.person.firstName +
-              ' ' +
-              portfolioData.person.lastName
-            }
+            content={`${portfolioData.person.firstName} ${portfolioData.person.lastName}'s Portfolio`}
           />
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
@@ -82,28 +71,34 @@ class MyDocument extends Document {
           <link rel="shortcut icon" href="/favicon.ico" />
 
           <meta property="og:type" content="website" />
-          <meta property="og:title" content="Teague Stockwell's Portfolio" />
-          <meta property="og:url" content="https://teaguestockwell.com" />
+          <meta
+            property="og:title"
+            content={`${portfolioData.person.firstName} ${portfolioData.person.lastName}'s Portfolio`}
+          />
+          <meta property="og:url" content={portfolioData.domain} />
           <meta
             property="og:description"
-            content="Hello, im Teague Stockwell. I have a passion for developing software that solves everyday problems."
+            content={portfolioData.person.shortAbout}
           />
           <meta
             property="og:image"
-            content="https://teaguestockwell.com/og-hero.png"
+            content={`${portfolioData.domain}/og-image.jpg`}
           />
           <meta property="og:image:alt" content="Levels - cargo loading app" />
 
-          <meta name="twitter:card" content="summary_large_imag" />
-          <meta name="twitter:url" content="https://teaguestockwell.com" />
-          <meta name="twitter:title" content="Teague Stockwell's Portfolio" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:url" content={portfolioData.domain} />
+          <meta
+            name="twitter:title"
+            content={`${portfolioData.person.firstName} ${portfolioData.person.lastName}'s Portfolio`}
+          />
           <meta
             name="twitter:description"
-            content="Hello, im Teague Stockwell. I have a passion for developing software that solves everyday problems."
+            content={portfolioData.person.shortAbout}
           />
           <meta
             name="twitter:image"
-            content="https://teaguestockwell.com/og-hero.png"
+            content={`${portfolioData.domain}/og-image.jpg`}
           />
         </Head>
         <body>
