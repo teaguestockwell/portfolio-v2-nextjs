@@ -53,3 +53,4 @@ npm run dev
 - [React Card Flip](https://aaronccwong.github.io/react-card-flip/)
 - [Vercel](https://vercel.com)
 - [Img Shields](https://shields.io)
+- [Brady Haden's Portfolio](https://bradyhaden.com)
