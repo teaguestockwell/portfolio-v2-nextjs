@@ -32,9 +32,12 @@
     "@types/react-scroll": "^1.8.3",
     "@types/uuid": "^8.3.1",
     "@types/video.js": "^7.3.26",
+    "axios": "^0.21.1",
     "babel-plugin-import": "^1.13.3",
+    "color-convert": "^2.0.1",
     "eslint": "7.30.0",
     "eslint-config-next": "11.0.1",
+    "hex-rgb": "^5.0.0",
     "husky": "^7.0.0",
     "jest": "^27.0.6",
     "next": "11.0.1",
@@ -52,5 +55,8 @@
     "uuid": "^8.3.2",
     "video.js": "^7.14.3",
     "zustand": "^3.5.7"
+  },
+  "devDependencies": {
+    "@types/color-convert": "^2.0.0"
   }
 }

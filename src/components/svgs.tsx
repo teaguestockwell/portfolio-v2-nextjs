@@ -535,3 +535,33 @@ export const getSimpleSvgs = (size: number, theme: any) => {
     ),
   } as {[key: string]: JSX.Element}
 }
+
+export const colorMap = (oridColor: string) => ({
+  dart: '#0175C2',
+  java: '#007396',
+  androidstudio: '#3DDC84',
+  visualstudiocode: '#007ACC',
+  typescript: '#3178C6',
+  javascript: '#F7DF1E',
+  html5: '#E34F26',
+  css3: '#1572B6',
+  android: '#3DDC84',
+  react: '#61DBFB',
+  flutter: '#02569B',
+  nginx: '#009639',
+  figma: '#F24E1E',
+  nodedotjs: '#339933',
+  prisma: '#009639',
+  postgresql: '#4169E1',
+  firebase: '#FFCA28',
+  amazonaws: oridColor,
+  express: oridColor,
+  nextdotjs: oridColor,
+  docker: '#2496ED',
+  github: oridColor,
+  git: '#F05032',
+  gitlab: '#FCA121',
+  jira: '#0052CC',
+  vercel: oridColor,
+  sonarqube: '#4E9BCD',
+})
