@@ -57,6 +57,7 @@
     "zustand": "^3.5.7"
   },
   "devDependencies": {
-    "@types/color-convert": "^2.0.0"
+    "@types/color-convert": "^2.0.0",
+    "@types/react-dom": "^17.0.9"
   }
 }

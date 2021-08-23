@@ -16,7 +16,7 @@ export const SkillsSection = () => {
         subTitle={portfolio.subTitles.tech}
       />
       <Content>
-        <TagCloud />
+        <TagCloud svgKeys={portfolio.skills} />
       </Content>
     </Element>
   )
