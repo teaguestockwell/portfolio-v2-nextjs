@@ -65,10 +65,8 @@ export const TagCloud = ({svgKeys}: {svgKeys: string[]}) => {
   useEffect(() => {
     if (isLoaded.loaded) {
       if (visible) {
-        console.log('playing')
         eval(`TagCanvas.Resume("myCanvas")`)
       } else {
-        console.log('pausing')
         eval(`TagCanvas.Pause("myCanvas")`)
       }
     }
