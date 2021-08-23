@@ -16,7 +16,6 @@ export const SchoolsSection = () => {
       />
       <CardRows
         items={portfolio.schools}
-        hasSvgs={false}
         getCell={(t) => (
           <ImgCardCell
             href={t.href}

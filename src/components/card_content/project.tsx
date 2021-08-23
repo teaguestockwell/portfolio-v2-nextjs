@@ -2,7 +2,7 @@ import {v4} from 'uuid'
 import {useTheme, useThemeStore} from '../../hooks/use_theme'
 import {Github} from '@icons-pack/react-simple-icons'
 import {Const} from '../../const'
-import {getInteractiveSvgs, SvgScroll2} from '../svgs'
+import {getInteractiveSvgs, getSimpleSvgs, SvgScroll2} from '../svgs'
 import {Video} from '../video'
 import * as Types from '../../types/types'
 import {useModalStore} from '../../hooks/use_modal'
@@ -20,12 +20,12 @@ export const Project = React.memo(
     repos,
     deploymentSrc,
     m3u8Src,
-  }: Omit<Types.Project, 'svgs' | 'id'> & {
-    svgs: JSX.Element[]
+  }: Omit<Types.Project, 'id'> & {
     techName: string
   }) => {
     const theme = useTheme()
     const link = getInteractiveSvgs(theme.fontColor0, 36).link
+    const simpleSvgs = getSimpleSvgs(36, theme)
 
     const openModal = () => {
       useModalStore.setState({
@@ -165,7 +165,10 @@ export const Project = React.memo(
                 justifyContent: 'center',
               }}
             >
-              <SvgScroll2 svgs={svgs} />
+              <SvgScroll2
+                key={v4()}
+                svgs={svgs.map((key) => simpleSvgs[key])}
+              />
             </div>
           </div>
         </div>

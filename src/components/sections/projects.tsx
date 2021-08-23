@@ -25,8 +25,7 @@ export const ProjectsSection = () => {
             paddingTop: Const.pad,
           }}
           items={portfolio.projects}
-          hasSvgs={true}
-          getCell={(t, getSvg) => (
+          getCell={(t) => (
             <Project
               techName={portfolio.titles.tech}
               name={t.name}
@@ -36,7 +35,7 @@ export const ProjectsSection = () => {
               deploymentSrc={t.deploymentSrc}
               repos={t.repos}
               m3u8Src={t.m3u8Src}
-              svgs={t.svgs.map((s) => getSvg(s))}
+              svgs={t.svgs}
             />
           )}
         />
