@@ -5,6 +5,7 @@ import React, {useContext} from 'react'
 import {TagCloud} from '../tag_cloud'
 
 import {Content} from '../content'
+import {Const} from '../../const'
 
 export const SkillsSection = () => {
   const portfolio = useContext(PortfolioContext)
@@ -15,7 +16,7 @@ export const SkillsSection = () => {
         title={portfolio.titles.tech}
         subTitle={portfolio.subTitles.tech}
       />
-      <Content>
+      <Content style={{paddingTop: Const.pad * 4}}>
         <TagCloud svgKeys={portfolio.skills} />
       </Content>
     </Element>

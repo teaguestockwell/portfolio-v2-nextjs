@@ -2,7 +2,6 @@
 export * from './portfolio'
 export * from './project'
 export * from './school'
-export * from './skill'
 export * from './person'
 export * from './section_titles'
 export * from './job'

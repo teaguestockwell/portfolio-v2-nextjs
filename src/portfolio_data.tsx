@@ -80,7 +80,7 @@ export const portfolioData: Portfolio = {
   },
   subTitles: {
     about: undefined,
-    tech: undefined,
+    tech: 'Tools that I have worked with. See my projects for more info',
     projects: 'Web meets mobile. Full stack and microservice architecture.',
     experience: undefined,
     education: undefined,

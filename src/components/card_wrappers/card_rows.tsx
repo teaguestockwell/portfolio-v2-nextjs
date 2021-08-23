@@ -12,23 +12,17 @@ interface Props {
 export const CardRows = <T extends Props>({
   items,
   getCell,
-  hasSvgs = true,
   cardStyle = {},
 }: {
   items: Array<T>
-  getCell: (item: T, getSvg: (key: string) => JSX.Element) => JSX.Element
-  hasSvgs: boolean
+  getCell: (item: T) => JSX.Element
   cardStyle?: any
 }) => {
-  const theme = useTheme()
-  const svgs = hasSvgs ? getSimpleSvgs(42, theme) : null
-  const getSvg = (key: string) => (svgs ? svgs[key] : <div />)
-
   return (
     <Content>
       {items.map((i) => (
         <Card style={cardStyle} key={i.id}>
-          {getCell(i, getSvg)}
+          {getCell(i)}
         </Card>
       ))}
     </Content>
