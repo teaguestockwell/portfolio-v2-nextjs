@@ -66,6 +66,7 @@ export const Video = React.memo(
           player.dispose()
         }
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [src])
 
     // given the visible hook fires,

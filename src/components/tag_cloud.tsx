@@ -43,7 +43,10 @@ export const TagCloud = ({svgKeys}: {svgKeys: string[]}) => {
           imageScale: 2,
           activeCursor: 'default',
           tooltip: 'native',
-          initial: [0.1,-0.1]
+          initial: [0.1,-0.1],
+          clickToFront: 500,
+          tooltip: 'native',
+          tooltipDelay: 0
         });
       } catch(e) {
         // something went wrong, hide the canvas container
@@ -111,7 +114,7 @@ export const TagCloud = ({svgKeys}: {svgKeys: string[]}) => {
 
       <div id="tags" style={{fontSize: '70%', display: 'none'}}>
         {svgHtmls.map((html) => (
-          <a key={v4()} onClick={(e) => e.preventDefault()}>
+          <a key={v4()} href="javascript:;" title={html.title}>
             <img height={size} alt="simple" width={size} src={html.html} />
           </a>
         ))}

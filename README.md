@@ -97,3 +97,6 @@ Teague Stockwell - [LinkedIn](https://www.linkedin.com/in/teague-stockwell)
 ## Acknowledgements
 
 - [Brady Haden's Portfolio](https://github.com/bhaden94/react-portfolio)
+- [Simple Icons](https://github.com/simple-icons/simple-icons)
+- [Video JS](https://github.com/videojs/video.js)
+- [Tag Canvas](https://github.com/goat1000/TagCanvas)
