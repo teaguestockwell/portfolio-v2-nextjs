@@ -52,25 +52,27 @@ export const TagCloud = ({svgKeys}: {svgKeys: string[]}) => {
     `
     )
 
+  // given the canvas is loaded, when the theme is changed, then update the tags to change fallback color
   useEffect(() => {
-    // given the canvas is loaded, when the theme is changed, then update the tags
     if (isLoaded.loaded) {
       eval(`TagCanvas.Reload("myCanvas")`)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme.name])
 
-  // useEffect(()=>{
-  //   console.log(visible, 'isvisible canvas')
-  //   if(isLoaded.loaded){
-  //     if (visible){
-  //       console.log('playing')
-  //       eval(`TagCanvas.Resume("myCanvas")`)
-  //     } else{
-  //       console.log('pausing')
-  //       eval(`TagCanvas.Pause("myCanvas")`)
-  //     }
-  //   }
-  // },[visible, isLoaded.loaded])
+  // given the canvas is loaded, when it is not visible, then stop the canvas
+  // given the canvas is loaded, when it is visible, then start the canvas
+  useEffect(() => {
+    if (isLoaded.loaded) {
+      if (visible) {
+        console.log('playing')
+        eval(`TagCanvas.Resume("myCanvas")`)
+      } else {
+        console.log('pausing')
+        eval(`TagCanvas.Pause("myCanvas")`)
+      }
+    }
+  }, [visible, isLoaded.loaded])
 
   return (
     <>
@@ -78,9 +80,10 @@ export const TagCloud = ({svgKeys}: {svgKeys: string[]}) => {
         id="stripe-js"
         src="/tagcanvas.js"
         onLoad={() => {
+          // when the script is loaded, load the canvas, and pause the animation
           loadTagCanvas()
           isLoaded.loaded = true
-          // eval(`TagCanvas.Pause("myCanvas")`)
+          eval(`TagCanvas.Pause("myCanvas")`)
         }}
       />
       <div ref={ref as any}>
