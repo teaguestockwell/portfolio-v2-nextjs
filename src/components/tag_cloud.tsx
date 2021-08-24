@@ -49,7 +49,7 @@ export const TagCloud = ({svgKeys}: {svgKeys: string[]}) => {
           tooltip: 'native',
           tooltipDelay: 0,
           dragControl: ${supportsTouch ? 'true,' : 'false,'}
-          maxSpeed: ${supportsTouch ? '0.015' : '0.05'}
+          maxSpeed: ${supportsTouch ? '0.01' : '0.05'}
         });
       } catch(e) {
         // something went wrong, hide the canvas container

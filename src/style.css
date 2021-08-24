@@ -61,12 +61,22 @@ a {
 }
 
 .dark:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 10px;
+}
+
+.light6:hover {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  border-radius: 10px;
+}
+
+.dark6:hover {
+  background-color: rgba(255, 255, 255, 0.6) !important;
   border-radius: 10px;
 }
 
 .light:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1) !important;
   border-radius: 10px;
 }
 
