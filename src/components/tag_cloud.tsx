@@ -29,7 +29,8 @@ export const TagCloud = ({svgKeys}: {svgKeys: string[]}) => {
     }
   })
 
-  const loadTagCanvas = () =>
+  const loadTagCanvas = () => {
+    const supportsTouch = 'ontouchstart' in window || navigator.maxTouchPoints
     eval(
       `
         try {
@@ -46,7 +47,9 @@ export const TagCloud = ({svgKeys}: {svgKeys: string[]}) => {
           initial: [0.1,-0.1],
           clickToFront: 500,
           tooltip: 'native',
-          tooltipDelay: 0
+          tooltipDelay: 0,
+          dragControl: ${supportsTouch ? 'true,' : 'false,'}
+          maxSpeed: ${supportsTouch ? '0.015' : '0.05'}
         });
       } catch(e) {
         // something went wrong, hide the canvas container
@@ -54,6 +57,7 @@ export const TagCloud = ({svgKeys}: {svgKeys: string[]}) => {
       } 
     `
     )
+  }
 
   // given the canvas is loaded, when the theme is changed, then update the tags to change fallback color
   useEffect(() => {
@@ -103,12 +107,7 @@ export const TagCloud = ({svgKeys}: {svgKeys: string[]}) => {
             height="1000"
             style={{width: '100%', maxWidth: '70vh'}}
             id="myCanvas"
-          >
-            <p>
-              Anything in here will be replaced on browsers that support the
-              canvas element
-            </p>
-          </canvas>
+          />
         </div>
       </div>
 
