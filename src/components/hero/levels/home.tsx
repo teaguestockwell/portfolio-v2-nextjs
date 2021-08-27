@@ -53,8 +53,8 @@ export const Home = ({m3u8Src}: {m3u8Src: string}) => {
         objectFit="fill"
         quality="100"
         src={'/levels-home.png'}
-        width={376}
-        height={814}
+        width={560}
+        height={1216}
         alt={'Levels'}
       />
     </div>
