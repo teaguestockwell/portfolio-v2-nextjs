@@ -75,7 +75,7 @@ class MyDocument extends Document {
             property="og:title"
             content={`${portfolioData.person.firstName} ${portfolioData.person.lastName}'s Portfolio`}
           />
-          <meta property="og:url" content={portfolioData.domain} />
+          
           <meta
             property="og:description"
             content={portfolioData.person.shortAbout}
