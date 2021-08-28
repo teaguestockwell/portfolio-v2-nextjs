@@ -82,6 +82,7 @@ class MyDocument extends Document {
           />
           <meta
             property="og:image"
+            name="image"
             content={`${portfolioData.domain}/og-image.jpg`}
           />
           <meta property="og:image:alt" content="Levels - cargo loading app" />
