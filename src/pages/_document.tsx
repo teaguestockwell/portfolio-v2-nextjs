@@ -83,7 +83,7 @@ class MyDocument extends Document {
           <meta
             property="og:image"
             name="image"
-            content={`${portfolioData.domain}/og-image.jpg`}
+            content={`${portfolioData.domain}/og-hero.png`}
           />
           <meta property="og:image:alt" content="Levels - cargo loading app" />
 
@@ -99,7 +99,7 @@ class MyDocument extends Document {
           />
           <meta
             name="twitter:image"
-            content={`${portfolioData.domain}/og-image.jpg`}
+            content={`${portfolioData.domain}/og-hero.png`}
           />
         </Head>
         <body>
