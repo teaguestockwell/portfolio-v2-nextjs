@@ -75,14 +75,15 @@ class MyDocument extends Document {
             property="og:title"
             content={`${portfolioData.person.firstName} ${portfolioData.person.lastName}'s Portfolio`}
           />
-          <meta property="og:url" content={portfolioData.domain} />
+
           <meta
             property="og:description"
             content={portfolioData.person.shortAbout}
           />
           <meta
             property="og:image"
-            content={`${portfolioData.domain}/og-image.jpg`}
+            name="image"
+            content={`${portfolioData.domain}/og-hero.png`}
           />
           <meta property="og:image:alt" content="Levels - cargo loading app" />
 
@@ -98,7 +99,7 @@ class MyDocument extends Document {
           />
           <meta
             name="twitter:image"
-            content={`${portfolioData.domain}/og-image.jpg`}
+            content={`${portfolioData.domain}/og-hero.png`}
           />
         </Head>
         <body>
