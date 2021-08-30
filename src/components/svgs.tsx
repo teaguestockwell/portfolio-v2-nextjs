@@ -37,6 +37,9 @@ import {
   Figma,
   Androidstudio,
   Visualstudiocode,
+  Jest,
+  Testinglibrary,
+  Cypress,
 } from '@icons-pack/react-simple-icons'
 import {v4} from 'uuid'
 import * as Types from '../types/types'
@@ -330,6 +333,36 @@ export const getSimpleSvgs = (size: number, theme: any, wrapped = true) => {
       />
     ) : (
       <Dart size={size} color={'#0175C2'} />
+    ),
+
+    jest: wrapped ? (
+      <Svg
+        name={'Jest'}
+        theme={theme}
+        svg={<Jest size={size} color={'#C21325'} />}
+      />
+    ) : (
+      <Jest size={size} color={'#C21325'} />
+    ),
+
+    cypress: wrapped ? (
+      <Svg
+        name={'Cypress'}
+        theme={theme}
+        svg={<Cypress size={size} color={theme.fontColor1} />}
+      />
+    ) : (
+      <Cypress size={size} color={theme.fontColor1} />
+    ),
+
+    testinglibrary: wrapped ? (
+      <Svg
+        name={'Testing Lib'}
+        theme={theme}
+        svg={<Testinglibrary size={size} color={'#E33332'} />}
+      />
+    ) : (
+      <Testinglibrary size={size} color={'#E33332'} />
     ),
 
     java: wrapped ? (
