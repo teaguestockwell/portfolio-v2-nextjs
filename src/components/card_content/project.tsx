@@ -10,8 +10,8 @@ import {
 import {Video} from '../video'
 import * as Types from '../../types/types'
 import {useModalStore} from '../../hooks/use_modal'
-import React, {useContext} from 'react'
-import {PortfolioContext} from '../../pages'
+import React from 'react'
+import {usePortfolio} from '../../hooks/use_portfolio_context'
 import github from 'simple-icons/icons/github'
 
 // eslint-disable-next-line react/display-name
@@ -31,7 +31,7 @@ export const Project = React.memo(
   }) => {
     const theme = useTheme()
     const link = getInteractiveSvgs(theme.fontColor0, 36).link
-    const portfolio = useContext(PortfolioContext)
+    const portfolio = usePortfolio()
     const simpleSvgs = getSimpleSvgs(36, theme, true, portfolio.icons)
 
     const openModal = () => {

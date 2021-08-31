@@ -1,12 +1,11 @@
 import {Element} from 'react-scroll'
 import {SectionHeader} from '../section_header'
 import {ImgCardCell} from '../card_content/img_card_cell'
-import {PortfolioContext} from '../../pages'
-import React, {useContext} from 'react'
+import {usePortfolio} from '../../hooks/use_portfolio_context'
 import {CardRows} from '../card_wrappers/card_rows'
 
 export const SchoolsSection = () => {
-  const portfolio = useContext(PortfolioContext)
+  const portfolio = usePortfolio()
 
   return (
     <Element name={portfolio.titles.education} key={portfolio.titles.education}>

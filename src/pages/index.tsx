@@ -12,10 +12,26 @@ import React from 'react'
 import {Modal} from '../hooks/use_modal'
 import {GetStaticProps} from 'next'
 import * as Types from '../types/types'
+import {PortfolioContext} from '../hooks/use_portfolio_context'
 
+// all icons live on inside the serverless functions, only the icons defined inside the data are send to the client
 import allIcons from 'simple-icons'
+export const getStaticProps: GetStaticProps = async () => {
+  portfolioData.icons = portfolioData.skills.map((skill) => {
+    const icon = allIcons.Get(skill)
 
-export const PortfolioContext = React.createContext(portfolioData)
+    return {
+      title: icon.title !== undefined ? icon.title : null,
+      slug: icon.slug !== undefined ? icon.slug : null,
+      path: icon.path !== undefined ? icon.path : null,
+      hex: icon.hex !== undefined ? icon.hex : null,
+    }
+  })
+
+  return {
+    props: portfolioData,
+  }
+}
 
 export default function Home(portfolio: Types.Portfolio) {
   useInitTheme()
@@ -43,21 +59,4 @@ export default function Home(portfolio: Types.Portfolio) {
       </WithNav>
     </PortfolioContext.Provider>
   )
-}
-
-export const getStaticProps: GetStaticProps = async (context) => {
-  portfolioData.icons = portfolioData.skills.map((skill) => {
-    const icon = allIcons.Get(skill)
-
-    return {
-      title: icon.title !== undefined ? icon.title : null,
-      slug: icon.slug !== undefined ? icon.slug : null,
-      path: icon.path !== undefined ? icon.path : null,
-      hex: icon.hex !== undefined ? icon.hex : null,
-    }
-  })
-
-  return {
-    props: portfolioData,
-  }
 }

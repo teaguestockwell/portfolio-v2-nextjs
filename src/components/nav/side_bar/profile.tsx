@@ -1,13 +1,12 @@
 import Image from 'next/image'
-import {useContext} from 'react'
 import {Const} from '../../../const'
 import {useThemeStore} from '../../../hooks/use_theme'
-import {PortfolioContext} from '../../../pages'
+import {usePortfolio} from '../../../hooks/use_portfolio_context'
 
 export const Profile = () => {
   const picW = Const.drawerWidth - Const.pad * 4
   const theme = useThemeStore.getState().theme
-  const {person} = useContext(PortfolioContext)
+  const {person} = usePortfolio()
   const fullName = person.firstName + ' ' + person.lastName
 
   const textWrap =
