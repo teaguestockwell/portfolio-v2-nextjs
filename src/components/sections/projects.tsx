@@ -3,12 +3,11 @@ import {SectionHeader} from '../section_header'
 import {CardRows} from '../card_wrappers/card_rows'
 import {Project} from '../card_content/project'
 import {Glow} from '../glow'
-import {PortfolioContext} from '../../pages'
-import {useContext} from 'react'
+import {usePortfolio} from '../../hooks/use_portfolio_context'
 import {Const} from '../../const'
 
 export const ProjectsSection = () => {
-  const portfolio = useContext(PortfolioContext)
+  const portfolio = usePortfolio()
 
   return (
     <Element name={portfolio.titles.projects} key={portfolio.titles.projects}>

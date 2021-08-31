@@ -37,5 +37,6 @@ module.exports = withPlugins(
 
   {
     webpack5: true,
+    trailingSlash: true,
   }
 )

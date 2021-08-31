@@ -5,8 +5,7 @@ import Image from 'next/image'
 import {SideBar} from './side_bar/side_bar'
 import {Drawer} from './drawer'
 import {useDrawerStore} from '../../hooks/use_drawer'
-import {PortfolioContext} from '../../pages'
-import {useContext} from 'react'
+import {usePortfolio} from '../../hooks/use_portfolio_context'
 import {useBreakpoint} from '../../hooks/use_breakpoint'
 import {getInteractiveSvgs, getSvgFromSimpleIcon} from '../svgs'
 import github from 'simple-icons/icons/github'
@@ -17,7 +16,7 @@ const openDrawer = () => useDrawerStore.getState().set({isOpen: true})
 export const Nav = () => {
   const md = useBreakpoint.md()
   const lg = useBreakpoint.lg()
-  const portfolio = useContext(PortfolioContext)
+  const portfolio = usePortfolio()
   const theme = useTheme()
   const iconSize = 24
   const svgs = getInteractiveSvgs(theme.fontColor0, iconSize)

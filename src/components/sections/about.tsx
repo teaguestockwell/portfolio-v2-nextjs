@@ -1,7 +1,6 @@
 import {Element} from 'react-scroll'
-import {SectionHeader} from '../section_header'
-import {PortfolioContext} from '../../pages'
-import React, {useContext} from 'react'
+import {usePortfolio} from '../../hooks/use_portfolio_context'
+import React from 'react'
 import {Home} from '../hero/levels/home'
 import {Dash} from '../hero/levels/dash'
 import {Const} from '../../const'
@@ -12,7 +11,7 @@ import {Link} from 'react-scroll'
 import {Glow} from '../glow'
 
 export const AboutSection = () => {
-  const portfolio = useContext(PortfolioContext)
+  const portfolio = usePortfolio()
   const theme = useTheme()
   const md = useBreakpoint.md()
 

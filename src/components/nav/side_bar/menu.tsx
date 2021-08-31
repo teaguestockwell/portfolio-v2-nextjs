@@ -2,14 +2,13 @@ import {Link} from 'react-scroll'
 import {Const} from '../../../const'
 import {useThemeStore} from '../../../hooks/use_theme'
 import {getCustomSvgs} from '../../svgs'
-import {useContext} from 'react'
-import {PortfolioContext} from '../../../pages'
+import {usePortfolio} from '../../../hooks/use_portfolio_context'
 import {useDrawerStore} from '../../../hooks/use_drawer'
 import {useBreakpoint} from '../../../hooks/use_breakpoint'
 
 export const Menu = () => {
   const theme = useThemeStore.getState().theme
-  const {titles} = useContext(PortfolioContext)
+  const {titles} = usePortfolio()
   const customSvgs = getCustomSvgs(theme.fontColor0, 24, 24, titles)
   const titleVals = Object.values(titles)
   const xl = useBreakpoint.xl()

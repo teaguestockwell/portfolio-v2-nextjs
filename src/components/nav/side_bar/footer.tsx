@@ -2,14 +2,13 @@ import {toggleTheme, useThemeStore} from '../../../hooks/use_theme'
 import github from 'simple-icons/icons/github'
 import linkedin from 'simple-icons/icons/linkedin'
 import {Const} from '../../../const'
-import {useContext} from 'react'
-import {PortfolioContext} from '../../../pages'
+import {usePortfolio} from '../../../hooks/use_portfolio_context'
 import {getInteractiveSvgs, getSvgFromSimpleIcon} from '../../svgs'
 
 export const Footer = () => {
   const iconSize = 32
   const theme = useThemeStore.getState().theme
-  const {person} = useContext(PortfolioContext)
+  const {person} = usePortfolio()
   const svgs = getInteractiveSvgs(theme.fontColor0, iconSize)
 
   return (

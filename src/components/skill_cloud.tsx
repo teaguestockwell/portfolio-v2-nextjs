@@ -2,11 +2,11 @@ import {v4} from 'uuid'
 import {useTheme} from '../hooks/use_theme'
 import {TagCanvasOptions, IconCloud, IconTag} from 'react-icon-cloud'
 import {Const} from '../const'
-import React, {useContext} from 'react'
-import {PortfolioContext} from '../pages/index'
+import React from 'react'
+import {usePortfolio} from '../hooks/use_portfolio_context'
 
 export const TagCloud = () => {
-  const portfolio = useContext(PortfolioContext)
+  const portfolio = usePortfolio()
 
   const theme = useTheme()
 

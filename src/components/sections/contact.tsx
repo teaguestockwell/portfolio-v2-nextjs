@@ -1,7 +1,7 @@
 import {Element} from 'react-scroll'
 import {SectionHeader} from '../section_header'
-import {PortfolioContext} from '../../pages'
-import React, {useContext} from 'react'
+import {PortfolioContext, usePortfolio} from '../../hooks/use_portfolio_context'
+import React from 'react'
 import {useTheme} from '../../hooks/use_theme'
 import {Const} from '../../const'
 import linkedIn from 'simple-icons/icons/linkedin'
@@ -13,7 +13,7 @@ import {useBreakpoint} from '../../hooks/use_breakpoint'
 export const ContactSection = () => {
   const iconSize = 50
   const theme = useTheme()
-  const portfolio = useContext(PortfolioContext)
+  const portfolio = usePortfolio()
   const svgs = getInteractiveSvgs(theme.fontColor0, iconSize)
   const space = Const.pad * 2
   const xl = useBreakpoint.xl()

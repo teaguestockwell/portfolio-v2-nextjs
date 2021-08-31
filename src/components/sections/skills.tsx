@@ -1,14 +1,14 @@
 import {Element} from 'react-scroll'
 import {SectionHeader} from '../section_header'
-import {PortfolioContext} from '../../pages'
-import React, {useContext} from 'react'
+import {usePortfolio} from '../../hooks/use_portfolio_context'
+import React from 'react'
 import {TagCloud as SkillCloud} from '../skill_cloud'
 
 import {Content} from '../content'
 import {Const} from '../../const'
 
 export const SkillsSection = () => {
-  const portfolio = useContext(PortfolioContext)
+  const portfolio = usePortfolio()
 
   return (
     <Element name={portfolio.titles.tech} key={portfolio.titles.tech}>
