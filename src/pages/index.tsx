@@ -37,26 +37,28 @@ export default function Home(portfolio: Types.Portfolio) {
   useInitTheme()
 
   return (
-    <PortfolioContext.Provider value={portfolio}>
-      <WithNav>
-        <Head>
-          <title>{`${portfolioData.person.firstName} ${portfolioData.person.lastName} Portfolio`}</title>
-        </Head>
+    <>
+      <Head>
+        <title>{`${portfolio.person.firstName} ${portfolio.person.lastName} Portfolio`}</title>
+      </Head>
 
-        <AboutSection />
+      <PortfolioContext.Provider value={portfolio}>
+        <WithNav>
+          <AboutSection />
 
-        <SkillsSection />
+          <SkillsSection />
 
-        <ProjectsSection />
+          <ProjectsSection />
 
-        <ExperienceSection />
+          <ExperienceSection />
 
-        <SchoolsSection />
+          <SchoolsSection />
 
-        <ContactSection />
+          <ContactSection />
 
-        <Modal />
-      </WithNav>
-    </PortfolioContext.Provider>
+          <Modal />
+        </WithNav>
+      </PortfolioContext.Provider>
+    </>
   )
 }

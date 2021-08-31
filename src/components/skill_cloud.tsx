@@ -5,7 +5,7 @@ import {Const} from '../const'
 import React from 'react'
 import {usePortfolio} from '../hooks/use_portfolio_context'
 
-export const TagCloud = () => {
+export const SkillCloud = () => {
   const portfolio = usePortfolio()
 
   const theme = useTheme()

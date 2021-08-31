@@ -1,9 +1,7 @@
 import {Element} from 'react-scroll'
 import {SectionHeader} from '../section_header'
 import {usePortfolio} from '../../hooks/use_portfolio_context'
-import React from 'react'
-import {TagCloud as SkillCloud} from '../skill_cloud'
-
+import {SkillCloud} from '../skill_cloud'
 import {Content} from '../content'
 import {Const} from '../../const'
 

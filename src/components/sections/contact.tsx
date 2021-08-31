@@ -1,6 +1,6 @@
 import {Element} from 'react-scroll'
 import {SectionHeader} from '../section_header'
-import {PortfolioContext, usePortfolio} from '../../hooks/use_portfolio_context'
+import {usePortfolio} from '../../hooks/use_portfolio_context'
 import React from 'react'
 import {useTheme} from '../../hooks/use_theme'
 import {Const} from '../../const'
