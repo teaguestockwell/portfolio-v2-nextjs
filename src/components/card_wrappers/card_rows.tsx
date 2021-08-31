@@ -1,8 +1,5 @@
-import {useTheme} from '../../hooks/use_theme'
-import {getSimpleSvgs} from '../svgs'
 import {Content} from '../content'
 import {Card} from './card'
-import {Element} from 'react-scroll'
 
 interface Props {
   name: string

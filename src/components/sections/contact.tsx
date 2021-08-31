@@ -4,8 +4,9 @@ import {PortfolioContext} from '../../pages'
 import React, {useContext} from 'react'
 import {useTheme} from '../../hooks/use_theme'
 import {Const} from '../../const'
-import {Linkedin, Github} from '@icons-pack/react-simple-icons'
-import {getInteractiveSvgs} from '../svgs'
+import linkedIn from 'simple-icons/icons/linkedin'
+import gitHub from 'simple-icons/icons/github'
+import {getInteractiveSvgs, getSvgFromSimpleIcon} from '../svgs'
 import {Link} from 'react-scroll'
 import {useBreakpoint} from '../../hooks/use_breakpoint'
 
@@ -76,7 +77,7 @@ export const ContactSection = () => {
                   paddingRight: Const.pad,
                 }}
               >
-                <Github color={theme.fontColor0} size={iconSize} />
+                {getSvgFromSimpleIcon(gitHub, iconSize, theme.fontColor0)}
                 <div
                   style={{
                     fontSize: Const.fontSizes.lg,
@@ -105,7 +106,7 @@ export const ContactSection = () => {
                   paddingRight: Const.pad,
                 }}
               >
-                <Linkedin size={iconSize} color={theme.fontColor0} />
+                {getSvgFromSimpleIcon(linkedIn, iconSize, theme.fontColor0)}
                 <div
                   style={{
                     fontSize: Const.fontSizes.lg,

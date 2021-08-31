@@ -55,9 +55,7 @@ export const Video = React.memo(
                 },
               ],
             },
-            () => {
-              // console.log('player is ready')
-            }
+            () => {}
           )
         )
       }

@@ -1,9 +1,10 @@
 import {toggleTheme, useThemeStore} from '../../../hooks/use_theme'
-import {Linkedin, Github} from '@icons-pack/react-simple-icons'
+import github from 'simple-icons/icons/github'
+import linkedin from 'simple-icons/icons/linkedin'
 import {Const} from '../../../const'
 import {useContext} from 'react'
 import {PortfolioContext} from '../../../pages'
-import {getInteractiveSvgs} from '../../svgs'
+import {getInteractiveSvgs, getSvgFromSimpleIcon} from '../../svgs'
 
 export const Footer = () => {
   const iconSize = 32
@@ -47,13 +48,13 @@ export const Footer = () => {
       >
         <a href={person.githubSrc} rel="noreferrer" target="_blank">
           <div className="icon-hover" style={{}}>
-            <Github color={theme.fontColor0} size={iconSize} />
+            {getSvgFromSimpleIcon(github, iconSize, theme.fontColor0)}
           </div>
         </a>
 
         <a href={person.linkedInSrc} rel="noreferrer" target="_blank">
           <div className="icon-hover">
-            <Linkedin size={iconSize} color={theme.fontColor0} />
+            {getSvgFromSimpleIcon(linkedin, iconSize, theme.fontColor0)}
           </div>
         </a>
 

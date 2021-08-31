@@ -15,8 +15,6 @@ export const TagCloud = () => {
     simpleIcon: icon,
   }))
 
-  console.log(tags)
-
   const tagCanvasOptions: TagCanvasOptions = {
     reverse: true,
     depth: 1,

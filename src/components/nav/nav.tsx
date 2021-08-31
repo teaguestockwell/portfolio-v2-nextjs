@@ -1,6 +1,5 @@
 import {MenuInline} from './menu_inline'
 import {toggleTheme, useTheme} from '../../hooks/use_theme'
-import {Linkedin, Github} from '@icons-pack/react-simple-icons'
 import {Const} from '../../const'
 import Image from 'next/image'
 import {SideBar} from './side_bar/side_bar'
@@ -9,7 +8,9 @@ import {useDrawerStore} from '../../hooks/use_drawer'
 import {PortfolioContext} from '../../pages'
 import {useContext} from 'react'
 import {useBreakpoint} from '../../hooks/use_breakpoint'
-import {getInteractiveSvgs} from '../svgs'
+import {getInteractiveSvgs, getSvgFromSimpleIcon} from '../svgs'
+import github from 'simple-icons/icons/github'
+import linkedin from 'simple-icons/icons/linkedin'
 
 const openDrawer = () => useDrawerStore.getState().set({isOpen: true})
 
@@ -153,7 +154,7 @@ export const Nav = () => {
                 minWidth: iconSize + 4,
               }}
             >
-              <Github color={theme.fontColor0} size={iconSize} />
+              {getSvgFromSimpleIcon(github, iconSize, theme.fontColor0)}
             </div>
           </a>
 
@@ -163,7 +164,7 @@ export const Nav = () => {
             target="_blank"
           >
             <div className="icon-hover">
-              <Linkedin size={iconSize} color={theme.fontColor0} />
+              {getSvgFromSimpleIcon(linkedin, iconSize, theme.fontColor0)}
             </div>
           </a>
         </div>

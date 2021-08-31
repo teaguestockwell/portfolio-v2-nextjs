@@ -1,12 +1,18 @@
 import {v4} from 'uuid'
-import {useTheme, useThemeStore} from '../../hooks/use_theme'
-import {Github} from '@icons-pack/react-simple-icons'
+import {useTheme} from '../../hooks/use_theme'
 import {Const} from '../../const'
-import {getInteractiveSvgs, getSimpleSvgs, SvgScroll2} from '../svgs'
+import {
+  getInteractiveSvgs,
+  getSimpleSvgs,
+  getSvgFromSimpleIcon,
+  SvgScroll2,
+} from '../svgs'
 import {Video} from '../video'
 import * as Types from '../../types/types'
 import {useModalStore} from '../../hooks/use_modal'
-import React from 'react'
+import React, {useContext} from 'react'
+import {PortfolioContext} from '../../pages'
+import github from 'simple-icons/icons/github'
 
 // eslint-disable-next-line react/display-name
 export const Project = React.memo(
@@ -25,7 +31,8 @@ export const Project = React.memo(
   }) => {
     const theme = useTheme()
     const link = getInteractiveSvgs(theme.fontColor0, 36).link
-    const simpleSvgs = getSimpleSvgs(36, theme)
+    const portfolio = useContext(PortfolioContext)
+    const simpleSvgs = getSimpleSvgs(36, theme, true, portfolio.icons)
 
     const openModal = () => {
       useModalStore.setState({
@@ -203,7 +210,7 @@ export const Project = React.memo(
                 cursor: 'pointer',
               }}
             >
-              <Github color={theme.fontColor0} size={30} />
+              {getSvgFromSimpleIcon(github, 30, theme.fontColor0)}
             </div>
 
             <div

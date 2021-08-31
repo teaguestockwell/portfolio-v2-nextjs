@@ -1,48 +1,8 @@
 /* eslint-disable react/display-name */
 import {Const, CustomTheme} from '../const'
-import {
-  // language
-  Dart,
-  Java,
-  Typescript,
-  Javascript,
-  Html5,
-  CssThree,
-
-  // ui tooling
-  Android,
-  ReactJs,
-  Flutter,
-
-  // api tooling
-  Nodedotjs,
-  Prisma,
-  Express,
-  Nextdotjs,
-
-  // services
-  Firebase,
-  Amazonaws,
-  Postgresql,
-  Nginx,
-  Vercel,
-  Sonarqube,
-
-  // workflow
-  Docker,
-  Github,
-  Git,
-  Gitlab,
-  Jira,
-  Figma,
-  Androidstudio,
-  Visualstudiocode,
-  Jest,
-  Testinglibrary,
-  Cypress,
-} from '@icons-pack/react-simple-icons'
 import {v4} from 'uuid'
 import * as Types from '../types/types'
+import {hex2contrast} from '@csstools/convert-colors'
 
 export const getInteractiveSvgs = (fill: string, size: number) => ({
   toBack: (
@@ -323,302 +283,57 @@ export const SvgScroll2 = ({
   )
 }
 
-export const getSimpleSvgs = (size: number, theme: any, wrapped = true) => {
-  return {
-    dart: wrapped ? (
-      <Svg
-        name={'Dart'}
-        theme={theme}
-        svg={<Dart size={size} color={'#0175C2'} />}
-      />
-    ) : (
-      <Dart size={size} color={'#0175C2'} />
-    ),
+export const getSvgFromSimpleIcon = (
+  ico: any,
+  size: number,
+  color?: string
+) => {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      height={size}
+      width={size}
+      fill={color ? color : `#${ico.color}`}
+    >
+      {' '}
+      <title>${ico.title}</title> <path d={ico.path}></path>
+    </svg>
+  )
+}
 
-    jest: wrapped ? (
-      <Svg
-        name={'Jest'}
-        theme={theme}
-        svg={<Jest size={size} color={'#C21325'} />}
-      />
-    ) : (
-      <Jest size={size} color={'#C21325'} />
-    ),
+export const getSimpleSvgs = (
+  size: number,
+  theme: any,
+  wrapped = true,
+  icons: any[]
+) => {
+  const getSvg = (icon: any) => {
+    const addHash = (color: string) => (color[0] === '#' ? color : `#${color}`)
 
-    cypress: wrapped ? (
-      <Svg
-        name={'Cypress'}
-        theme={theme}
-        svg={<Cypress size={size} color={theme.fontColor1} />}
-      />
-    ) : (
-      <Cypress size={size} color={theme.fontColor1} />
-    ),
+    const originalHex = addHash(icon.hex)
+    const bgHex = addHash(theme.backGround0)
+    const contrast = hex2contrast(bgHex, originalHex)
+    const isAccessibleColor = contrast > (theme.name === 'dark' ? 2 : 2)
+    const newColor = isAccessibleColor ? originalHex : theme.fontColor1
+    const svg = (
+      <svg viewBox="0 0 24 24" height={size} width={size} fill={newColor}>
+        {' '}
+        <title>${icon.title}</title> <path d={icon.path}></path>
+      </svg>
+    )
 
-    testinglibrary: wrapped ? (
-      <Svg
-        name={'Testing Lib'}
-        theme={theme}
-        svg={<Testinglibrary size={size} color={'#E33332'} />}
-      />
-    ) : (
-      <Testinglibrary size={size} color={'#E33332'} />
-    ),
+    if (wrapped) {
+      return <Svg name={'Dart'} theme={theme} svg={svg} />
+    }
 
-    java: wrapped ? (
-      <Svg
-        name={'Java'}
-        theme={theme}
-        svg={<Java size={size} color={'#007396'} />}
-      />
-    ) : (
-      <Java size={size} color={'#007396'} />
-    ),
+    return svg
+  }
 
-    androidstudio: wrapped ? (
-      <Svg
-        name={'Android Studio'}
-        theme={theme}
-        svg={<Androidstudio size={size} color={'#3DDC84'} />}
-      />
-    ) : (
-      <Androidstudio size={size} color={'#3DDC84'} />
-    ),
+  const map = {} as any
 
-    visualstudiocode: wrapped ? (
-      <Svg
-        name={'VS Code'}
-        theme={theme}
-        svg={<Visualstudiocode size={size} color={'#007ACC'} />}
-      />
-    ) : (
-      <Visualstudiocode size={size} color={'#007ACC'} />
-    ),
+  icons.forEach((ico) => {
+    map[ico.slug] = getSvg(ico)
+  })
 
-    typescript: wrapped ? (
-      <Svg
-        name={'Typescript'}
-        theme={theme}
-        svg={<Typescript size={size} color={'#3178C6'} />}
-      />
-    ) : (
-      <Typescript size={size} color={'#3178C6'} />
-    ),
-
-    javascript: wrapped ? (
-      <Svg
-        name={'Javascript'}
-        theme={theme}
-        svg={<Javascript size={size} color={'#F7DF1E'} />}
-      />
-    ) : (
-      <Javascript size={size} color={'#F7DF1E'} />
-    ),
-
-    html5: wrapped ? (
-      <Svg
-        name={'HTML5'}
-        theme={theme}
-        svg={<Html5 size={size} color={'#E34F26'} />}
-      />
-    ) : (
-      <Html5 size={size} color={'#E34F26'} />
-    ),
-
-    css3: wrapped ? (
-      <Svg
-        name={'CSS3'}
-        theme={theme}
-        svg={<CssThree size={size} color={'#1572B6'} />}
-      />
-    ) : (
-      <CssThree size={size} color={'#1572B6'} />
-    ),
-
-    android: wrapped ? (
-      <Svg
-        name={'Android'}
-        theme={theme}
-        svg={<Android size={size} color={'#3DDC84'} />}
-      />
-    ) : (
-      <Android size={size} color={'#3DDC84'} />
-    ),
-
-    react: wrapped ? (
-      <Svg
-        name={'React.js'}
-        theme={theme}
-        svg={<ReactJs size={size} color={'#61DBFB'} />}
-      />
-    ) : (
-      <ReactJs size={size} color={'#61DBFB'} />
-    ),
-
-    flutter: wrapped ? (
-      <Svg
-        name={'Flutter'}
-        theme={theme}
-        svg={<Flutter size={size} color={'#02569B'} />}
-      />
-    ) : (
-      <Flutter size={size} color={'#02569B'} />
-    ),
-
-    nginx: wrapped ? (
-      <Svg
-        name={'Nginx'}
-        theme={theme}
-        svg={<Nginx size={size} color={'#009639'} />}
-      />
-    ) : (
-      <Nginx size={size} color={'#009639'} />
-    ),
-
-    figma: wrapped ? (
-      <Svg
-        name={'Figma'}
-        theme={theme}
-        svg={<Figma size={size} color={'#F24E1E'} />}
-      />
-    ) : (
-      <Figma size={size} color={'#F24E1E'} />
-    ),
-
-    nodedotjs: wrapped ? (
-      <Svg
-        name={'Node.js'}
-        theme={theme}
-        svg={<Nodedotjs size={size} color={'#339933'} />}
-      />
-    ) : (
-      <Nodedotjs size={size} color={'#339933'} />
-    ),
-
-    prisma: wrapped ? (
-      <Svg
-        name={'Prisma'}
-        theme={theme}
-        svg={<Prisma size={size} color={theme.fontColor1} />}
-      />
-    ) : (
-      <Prisma size={size} color={theme.fontColor1} />
-    ),
-
-    postgresql: wrapped ? (
-      <Svg
-        name={'Postgresql'}
-        theme={theme}
-        svg={<Postgresql size={size} color={'#4169E1'} />}
-      />
-    ) : (
-      <Postgresql size={size} color={'#4169E1'} />
-    ),
-
-    firebase: wrapped ? (
-      <Svg
-        name={'Firebase'}
-        theme={theme}
-        svg={<Firebase size={size} color={'#FFCA28'} />}
-      />
-    ) : (
-      <Firebase size={size} color={'#FFCA28'} />
-    ),
-
-    amazonaws: wrapped ? (
-      <Svg
-        name={'Amazonaws'}
-        theme={theme}
-        svg={<Amazonaws size={size} color={theme.fontColor1} />}
-      />
-    ) : (
-      <Amazonaws size={size} color={theme.fontColor1} />
-    ),
-
-    express: wrapped ? (
-      <Svg
-        name={'Express.js'}
-        theme={theme}
-        svg={<Express size={size} color={theme.fontColor1} />}
-      />
-    ) : (
-      <Express size={size} color={theme.fontColor1} />
-    ),
-
-    nextdotjs: wrapped ? (
-      <Svg
-        name={'Next.js'}
-        theme={theme}
-        svg={<Nextdotjs size={size} color={theme.fontColor1} />}
-      />
-    ) : (
-      <Nextdotjs size={size} color={theme.fontColor1} />
-    ),
-
-    docker: wrapped ? (
-      <Svg
-        name={'Docker'}
-        theme={theme}
-        svg={<Docker size={size} color={'#2496ED'} />}
-      />
-    ) : (
-      <Docker size={size} color={'#2496ED'} />
-    ),
-
-    github: wrapped ? (
-      <Svg
-        name={'Github'}
-        theme={theme}
-        svg={<Github size={size} color={theme.fontColor1} />}
-      />
-    ) : (
-      <Github size={size} color={theme.fontColor1} />
-    ),
-
-    git: wrapped ? (
-      <Svg
-        name={'Git'}
-        theme={theme}
-        svg={<Git size={size} color={'#F05032'} />}
-      />
-    ) : (
-      <Git size={size} color={'#F05032'} />
-    ),
-    gitlab: wrapped ? (
-      <Svg
-        name={'Gitlab'}
-        theme={theme}
-        svg={<Gitlab size={size} color={'#FCA121'} />}
-      />
-    ) : (
-      <Gitlab size={size} color={'#FCA121'} />
-    ),
-    jira: wrapped ? (
-      <Svg
-        name={'Jira'}
-        theme={theme}
-        svg={<Jira size={size} color={'#0052CC'} />}
-      />
-    ) : (
-      <Jira size={size} color={'#0052CC'} />
-    ),
-    vercel: wrapped ? (
-      <Svg
-        name={'Vercel'}
-        theme={theme}
-        svg={<Vercel size={size} color={theme.fontColor1} />}
-      />
-    ) : (
-      <Vercel size={size} color={theme.fontColor1} />
-    ),
-    sonarqube: wrapped ? (
-      <Svg
-        name={'Sonarqube'}
-        theme={theme}
-        svg={<Sonarqube size={size} color={'#4E9BCD'} />}
-      />
-    ) : (
-      <Sonarqube size={size} color={'#4E9BCD'} />
-    ),
-  } as {[key: string]: JSX.Element}
+  return map
 }
