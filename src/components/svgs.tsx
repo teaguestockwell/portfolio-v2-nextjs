@@ -313,7 +313,7 @@ export const getSimpleSvgs = (
     const originalHex = addHash(icon.hex)
     const bgHex = addHash(theme.backGround0)
     const contrast = hex2contrast(bgHex, originalHex)
-    const isAccessibleColor = contrast > (theme.name === 'dark' ? 2 : 2)
+    const isAccessibleColor = contrast > (theme.name === 'dark' ? 2 : 1)
     const newColor = isAccessibleColor ? originalHex : theme.fontColor1
     const svg = (
       <svg viewBox="0 0 24 24" height={size} width={size} fill={newColor}>

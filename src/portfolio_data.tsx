@@ -15,7 +15,7 @@ export const portfolioData: Portfolio = {
     githubSrc: 'https://github.com/tsAppDevelopment',
     jobTitle: 'Software Engineer',
     location: 'Seattle, WA',
-    shortAbout: `Hello, im Teague Stockwell. I have a passion for developing software that solves everyday problems.`,
+    shortAbout: `Hello, i'm Teague Stockwell. I have a passion for developing software that solves everyday problems.`,
   },
   icons: [],
 
@@ -24,7 +24,7 @@ export const portfolioData: Portfolio = {
       id: v4(),
       name: 'Lead Software Engineer',
       company: 'Rainier Spark Tron',
-      dateRange: 'October 2020 - Present',
+      dateRange: 'June 2021 - Present',
       description:
         'Mentor new developers to stand up software development team for JBLM',
       src: 'https://www.linkedin.com/company/tron-air-force',
@@ -82,8 +82,8 @@ export const portfolioData: Portfolio = {
   },
   subTitles: {
     about: undefined,
-    tech: 'Tools that I have worked with. See my projects for more info',
-    projects: 'Web meets mobile. Full stack and microservice architecture.',
+    tech: 'Tools that I have worked with. See my projects to learn more.',
+    projects: 'Mobile first web apps that are micro service oriented.',
     experience: undefined,
     education: undefined,
     contact: ``,
