@@ -375,7 +375,7 @@ export const getSimpleSvgs = (size: number, theme: any, wrapped = true) => {
       <Java size={size} color={'#007396'} />
     ),
 
-    androidStudio: wrapped ? (
+    androidstudio: wrapped ? (
       <Svg
         name={'Android Studio'}
         theme={theme}
@@ -385,7 +385,7 @@ export const getSimpleSvgs = (size: number, theme: any, wrapped = true) => {
       <Androidstudio size={size} color={'#3DDC84'} />
     ),
 
-    visualStudioCode: wrapped ? (
+    visualstudiocode: wrapped ? (
       <Svg
         name={'VS Code'}
         theme={theme}
@@ -445,7 +445,7 @@ export const getSimpleSvgs = (size: number, theme: any, wrapped = true) => {
       <Android size={size} color={'#3DDC84'} />
     ),
 
-    reactjs: wrapped ? (
+    react: wrapped ? (
       <Svg
         name={'React.js'}
         theme={theme}

@@ -10,14 +10,18 @@ import {ContactSection} from '../components/sections/contact'
 import Head from 'next/head'
 import React from 'react'
 import {Modal} from '../hooks/use_modal'
+import {GetStaticProps} from 'next'
+import * as Types from '../types/types'
+
+import allIcons from 'simple-icons'
 
 export const PortfolioContext = React.createContext(portfolioData)
 
-export default function Home() {
+export default function Home(portfolio: Types.Portfolio) {
   useInitTheme()
 
   return (
-    <PortfolioContext.Provider value={portfolioData}>
+    <PortfolioContext.Provider value={portfolio}>
       <WithNav>
         <Head>
           <title>{`${portfolioData.person.firstName} ${portfolioData.person.lastName} Portfolio`}</title>
@@ -39,4 +43,21 @@ export default function Home() {
       </WithNav>
     </PortfolioContext.Provider>
   )
+}
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  portfolioData.icons = portfolioData.skills.map((skill) => {
+    const icon = allIcons.Get(skill)
+
+    return {
+      title: icon.title !== undefined ? icon.title : null,
+      slug: icon.slug !== undefined ? icon.slug : null,
+      path: icon.path !== undefined ? icon.path : null,
+      hex: icon.hex !== undefined ? icon.hex : null,
+    }
+  })
+
+  return {
+    props: portfolioData,
+  }
 }

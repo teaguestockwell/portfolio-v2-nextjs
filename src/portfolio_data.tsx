@@ -17,6 +17,7 @@ export const portfolioData: Portfolio = {
     location: 'Seattle, WA',
     shortAbout: `Hello, im Teague Stockwell. I have a passion for developing software that solves everyday problems.`,
   },
+  icons: [],
 
   jobs: [
     {
@@ -93,7 +94,7 @@ export const portfolioData: Portfolio = {
     'javascript',
     'dart',
     'java',
-    'reactjs',
+    'react',
     'flutter',
     'android',
     'html5',
@@ -115,8 +116,8 @@ export const portfolioData: Portfolio = {
     'jira',
     'github',
     'gitlab',
-    'visualStudioCode',
-    'androidStudio',
+    'visualstudiocode',
+    'androidstudio',
     'sonarqube',
     'figma',
   ],
@@ -144,7 +145,7 @@ export const portfolioData: Portfolio = {
       svgs: [
         'docker',
         'postgresql',
-        'reactjs',
+        'react',
         'nodedotjs',
         'amazonaws',
         'vercel',
@@ -183,7 +184,7 @@ export const portfolioData: Portfolio = {
         'docker',
         'postgresql',
         'express',
-        'reactjs',
+        'react',
         'nodedotjs',
         'amazonaws',
         'nginx',
@@ -276,7 +277,7 @@ export const portfolioData: Portfolio = {
       ],
       svgs: [
         'firebase',
-        'reactjs',
+        'react',
         'typescript',
         'html5',
         'css3',

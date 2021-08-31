@@ -11,4 +11,5 @@ export interface Portfolio {
   subTitles: Partial<Types.SectionTitles>
   jobs: Types.Job[]
   domain: string
+  icons: any[]
 }
