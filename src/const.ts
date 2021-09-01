@@ -71,7 +71,7 @@ export const Const = {
         WebkitBackdropFilter: 'blur(10px)',
       },
 
-      backGround0: '#000',
+      backGround0: '#080510',
       background1: '#151516',
       background2: '#1D1D20',
 

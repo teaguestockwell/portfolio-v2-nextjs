@@ -16,6 +16,8 @@ import {PortfolioContext} from '../hooks/use_portfolio_context'
 
 // all icons live on inside the serverless functions, only the icons defined inside the data are send to the client
 import allIcons from 'simple-icons'
+import {v4} from 'uuid'
+import {DancingLinesWithTheme} from '../components/dancing_lines'
 export const getStaticProps: GetStaticProps = async () => {
   portfolioData.icons = portfolioData.skills.map((skill) => {
     const icon = allIcons.Get(skill)
@@ -59,6 +61,8 @@ export default function Home(portfolio: Types.Portfolio) {
           <Modal />
         </WithNav>
       </PortfolioContext.Provider>
+
+      <DancingLinesWithTheme />
     </>
   )
 }
