@@ -285,27 +285,27 @@ export const portfolioData: Portfolio = {
         'github',
       ],
     },
-    {
-      id: v4(),
-      name: `Doctor's Patient Portal`,
-      subHeading: `Developed a demo Flutter UI to consume real time checkups to a doctor's office`,
-      dateRange: 'March 2021',
-      m3u8Src:
-        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/lpg-hls/master.m3u8',
-      repos: [
-        {
-          name: 'Frontend',
-          src: 'https://github.com/tsAppDevelopment/doctors-patient-database',
-        },
-      ],
-      svgs: ['flutter', 'firebase', 'git', 'github', 'dart'],
-      bullets: [
-        `Utilized Firebase auth to authenticate care providers who want to maintain patient data`,
-        `Implemented real time searching of patients against NoSQL database (Firebase)`,
-        'email:  guest@email.com, password: password',
-      ],
-      deploymentSrc: 'https://doctors-patient-database.web.app',
-    },
+    // {
+    //   id: v4(),
+    //   name: `Doctor's Patient Portal`,
+    //   subHeading: `Developed a demo Flutter UI to consume real time checkups to a doctor's office`,
+    //   dateRange: 'March 2021',
+    //   m3u8Src:
+    //     'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/lpg-hls/master.m3u8',
+    //   repos: [
+    //     {
+    //       name: 'Frontend',
+    //       src: 'https://github.com/tsAppDevelopment/doctors-patient-database',
+    //     },
+    //   ],
+    //   svgs: ['flutter', 'firebase', 'git', 'github', 'dart'],
+    //   bullets: [
+    //     `Utilized Firebase auth to authenticate care providers who want to maintain patient data`,
+    //     `Implemented real time searching of patients against NoSQL database (Firebase)`,
+    //     'email:  guest@email.com, password: password',
+    //   ],
+    //   deploymentSrc: 'https://doctors-patient-database.web.app',
+    // },
   ],
   schools: [
     {
