@@ -21,10 +21,10 @@ export const getStaticProps: GetStaticProps = async () => {
     const icon = allIcons.Get(skill)
 
     return {
-      title: icon.title !== undefined ? icon.title : null,
-      slug: icon.slug !== undefined ? icon.slug : null,
-      path: icon.path !== undefined ? icon.path : null,
-      hex: icon.hex !== undefined ? icon.hex : null,
+      title: icon.title ?? '',
+      slug: icon.slug ?? '',
+      path: icon.path ?? '',
+      hex: icon.hex ?? '',
     }
   })
 

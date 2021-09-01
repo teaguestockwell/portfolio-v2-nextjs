@@ -305,9 +305,9 @@ export const getSimpleSvgs = (
   size: number,
   theme: any,
   wrapped = true,
-  icons: any[]
+  icons: Types.SimpleIcon[]
 ) => {
-  const getSvg = (icon: any) => {
+  const getSvg = (icon: Types.SimpleIcon) => {
     const addHash = (color: string) => (color[0] === '#' ? color : `#${color}`)
 
     const originalHex = addHash(icon.hex)
@@ -323,7 +323,7 @@ export const getSimpleSvgs = (
     )
 
     if (wrapped) {
-      return <Svg name={'Dart'} theme={theme} svg={svg} />
+      return <Svg name={icon.title} theme={theme} svg={svg} />
     }
 
     return svg
