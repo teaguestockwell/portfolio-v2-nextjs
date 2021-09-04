@@ -90,6 +90,7 @@ export const portfolioData: Portfolio = {
   },
 
   skills: [
+    'npm',
     'typescript',
     'javascript',
     'dart',
