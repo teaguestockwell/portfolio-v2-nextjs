@@ -23,6 +23,8 @@ body {
 *::after {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
+  transition: background-color 200ms linear, color 200ms linear,
+    border 200ms linear;
 }
 
 a {

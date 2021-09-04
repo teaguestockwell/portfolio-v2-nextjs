@@ -21,6 +21,7 @@ export const SideBar = React.memo(
           flexDirection: 'column',
           backgroundColor: theme.background1,
           overflowY: 'auto',
+          borderRight: theme.border,
           ...style,
         }}
       >

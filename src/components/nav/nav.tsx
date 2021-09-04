@@ -193,7 +193,6 @@ export const WithNav = ({children}: {children?: any}) => {
               bottom: 0,
               width: Const.drawerWidth,
               height: 'initial',
-              borderRight: '1px solid',
             }}
           />
         ) : (

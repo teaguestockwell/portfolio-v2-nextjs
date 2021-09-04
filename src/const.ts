@@ -48,7 +48,7 @@ export const Const = {
         WebkitBackdropFilter: 'blur(10px)',
       },
 
-      backGround0: '#F5F5F7',
+      backGround0: '#F3F2EF',
       background1: '#Fff',
       background2: '#Fff',
 
@@ -60,7 +60,7 @@ export const Const = {
 
       shadow: '1px 1px 10px 1px rgb(0, 0, 0, 0.3)',
 
-      border: '',
+      border: '1px solid #E2E1DE',
     },
     dark: {
       name: 'dark',
