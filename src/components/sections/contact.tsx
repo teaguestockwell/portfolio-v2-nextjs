@@ -37,7 +37,7 @@ export const ContactSection = () => {
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M0,0 a1,1 0 0,0 100,0" fill={theme.backGround0}></path>
+          <path style={{fill: theme.backGround0}} d="M 0,0 a 1,1 0 0,0 100,0" />
         </svg>
         <div
           style={{

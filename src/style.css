@@ -15,7 +15,7 @@ body {
   font-size: 14px;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   font-weight: 400;
-  background-color: #f5f5f7;
+  background-color: #f3f2ef;
 }
 
 *,
@@ -24,7 +24,7 @@ body {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   transition: background-color 200ms linear, color 200ms linear,
-    border 200ms linear;
+    fill 200ms linear, border 200ms linear;
 }
 
 a {
