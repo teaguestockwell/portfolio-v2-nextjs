@@ -1,7 +1,7 @@
 {
-    "theme_color": "#fff",
-    "background_color": "#fff",
-    "display": "fullscreen",
+    "theme_color": "#000",
+    "background_color": "#000",
+    "display": "standalone",
     "scope": "/",
     "start_url": "/",
     "name": "Teague Stockwell",

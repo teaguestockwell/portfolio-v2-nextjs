@@ -32,10 +32,10 @@ class MyDocument extends Document {
             content={`${portfolioData.person.firstName} ${portfolioData.person.lastName}'s Portfolio`}
           />
           <meta name="apple-mobile-web-app-capable" content="yes" />
-          <meta
-            name="apple-mobile-web-app-status-bar-style"
-            content="default"
-          />
+          <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+          <meta name="theme-color" content="#000000" />
+
           <meta
             name="apple-mobile-web-app-title"
             content={`${portfolioData.person.firstName} ${portfolioData.person.lastName}'s Portfolio`}
@@ -50,7 +50,6 @@ class MyDocument extends Document {
           <meta name="msapplication-config" content="/browserconfig.xml" />
           <meta name="msapplication-TileColor" content="#2B5797" />
           <meta name="msapplication-tap-highlight" content="no" />
-          <meta name="theme-color" content="#000000" />
 
           <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
           <link
