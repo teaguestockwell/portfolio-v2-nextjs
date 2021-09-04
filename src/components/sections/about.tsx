@@ -43,6 +43,7 @@ export const AboutSection = () => {
               }}
             >
               <div
+                className="name"
                 style={{
                   color: theme.fontColor0,
                   fontSize: `clamp(${Const.fontSizes.xxxl}px, 5vw, ${

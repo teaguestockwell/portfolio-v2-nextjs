@@ -21,6 +21,7 @@ export const SectionHeader = ({
       }}
     >
       <div
+        className="name"
         style={{
           maxWidth: Const.maxWidth,
           color: theme.fontColor0,

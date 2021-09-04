@@ -86,10 +86,8 @@ export const Project = React.memo(
         >
           <div
             style={{
-              paddingTop: Const.pad,
-              paddingRight: Const.pad,
-              paddingLeft: Const.pad,
               flex: '0 0 20%',
+              padding: Const.pad,
             }}
           >
             <Video src={m3u8Src} key={m3u8Src} />
@@ -98,9 +96,7 @@ export const Project = React.memo(
           <div
             style={{
               position: 'relative',
-              paddingTop: Const.pad,
-              paddingRight: Const.pad,
-              paddingLeft: Const.pad,
+              padding: Const.pad,
               width: '100%',
               flex: '1 0 52%',
               display: 'flex',
@@ -186,7 +182,7 @@ export const Project = React.memo(
             style={{
               color: theme.fontColor1,
               marginBottom: Const.pad * 2,
-              marginTop: Const.pad * 2,
+              marginTop: Const.pad,
               borderTop: `solid 1px`,
               width: '100%',
               display: 'flex',
