@@ -31,7 +31,11 @@ export const SkillsSection = () => {
               justifyContent: 'center',
             }}
           >
-            <a href="https://www.npmjs.com/package/react-icon-cloud">
+            <a
+              href="https://www.npmjs.com/package/react-icon-cloud"
+              target="_blank"
+              rel="noreferrer"
+            >
               <div
                 className={theme.name + '6'}
                 style={{
