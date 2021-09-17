@@ -75,11 +75,11 @@ export const AboutSection = () => {
                 to={portfolio.titles.contact}
                 {...Const.reactScrollProps}
                 offset={0}
+                style={{marginTop: Const.pad, width: 'fit-content'}}
               >
                 <div
                   className={theme.name + '6'}
                   style={{
-                    marginTop: Const.pad,
                     fontSize: Const.fontSizes.lg,
                     wordWrap: 'break-word',
                     color: theme.backGround0,

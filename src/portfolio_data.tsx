@@ -40,7 +40,7 @@ export const portfolioData: Portfolio = {
       id: v4(),
       name: 'Software Engineer',
       company: 'Aloha Spark Tron',
-      dateRange: 'October 2020 - Present',
+      dateRange: 'October 2020 - June 2021',
       description: `Test, implement, and deliver accredited software to include pipeline management and stakeholder validation`,
       src: 'https://www.linkedin.com/company/tron-air-force',
       location: 'Remote',
