@@ -58,7 +58,7 @@ export const portfolioData: Portfolio = {
       id: v4(),
       name: 'Aerospace Mechanic',
       company: 'United States Air Force',
-      dateRange: 'October 2017 - December 2020',
+      dateRange: 'October 2017 - October 2020',
       description:
         'Lead & perform repairs / inspections on 20 assigned C-17 aircraft valued at $3.2B',
       src: 'https://www.airforce.com/careers/detail/airlift-special-mission-aircraft-maintenance',
@@ -259,33 +259,33 @@ export const portfolioData: Portfolio = {
       ],
       svgs: ['android', 'java', 'git', 'github'],
     },
-    {
-      id: v4(),
-      name: 'Dog of the Day',
-      dateRange: 'Mar 2021',
-      subHeading: `A lighthearted React app to share your favorite animals during standup`,
-      bullets: [
-        'Consumed a restful api to browse, showcase, and persist animals in a React/Material-UI',
-      ],
-      deploymentSrc: 'https://dog-of-the-day-2692f.web.app/',
-      m3u8Src:
-        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/dod-hls/master.m3u8',
-      repos: [
-        {
-          name: 'Frontend',
-          src: 'https://github.com/tsAppDevelopment/dog-of-the-day',
-        },
-      ],
-      svgs: [
-        'firebase',
-        'react',
-        'typescript',
-        'html5',
-        'css3',
-        'git',
-        'github',
-      ],
-    },
+    // {
+    //   id: v4(),
+    //   name: 'Dog of the Day',
+    //   dateRange: 'Mar 2021',
+    //   subHeading: `A lighthearted React app to share your favorite animals during standup`,
+    //   bullets: [
+    //     'Consumed a restful api to browse, showcase, and persist animals in a React/Material-UI',
+    //   ],
+    //   deploymentSrc: 'https://dog-of-the-day-2692f.web.app/',
+    //   m3u8Src:
+    //     'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/dod-hls/master.m3u8',
+    //   repos: [
+    //     {
+    //       name: 'Frontend',
+    //       src: 'https://github.com/tsAppDevelopment/dog-of-the-day',
+    //     },
+    //   ],
+    //   svgs: [
+    //     'firebase',
+    //     'react',
+    //     'typescript',
+    //     'html5',
+    //     'css3',
+    //     'git',
+    //     'github',
+    //   ],
+    // },
     // {
     //   id: v4(),
     //   name: `Doctor's Patient Portal`,
