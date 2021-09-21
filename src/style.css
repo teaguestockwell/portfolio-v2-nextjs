@@ -55,6 +55,7 @@ a {
   border-bottom: solid;
   background-color: rgba(0, 0, 0, 0) !important;
   border-radius: 0px !important;
+  transition: none !important;
 }
 
 .scroll-active .menu-sidebar > * {
@@ -86,6 +87,7 @@ a {
   margin-top: 3px;
   background-color: rgba(0, 0, 0, 0) !important;
   border-radius: 0px !important;
+  transition: none !important;
 }
 
 .skip-link {

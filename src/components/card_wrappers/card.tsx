@@ -17,9 +17,9 @@ export const Card = ({
   return (
     <div
       style={{
-        // WebkitBoxShadow: theme.shadow,
-        // MozBoxShadow: theme.shadow,
-        // boxShadow: theme.shadow,
+        WebkitBoxShadow: theme.shadow,
+        MozBoxShadow: theme.shadow,
+        boxShadow: theme.shadow,
         padding: Const.pad * 2,
         marginTop: Const.pad * 4,
         backgroundColor: theme.background1,

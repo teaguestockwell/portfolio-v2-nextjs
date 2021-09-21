@@ -58,7 +58,7 @@ export const Const = {
       paletColor0: '#f7f7f7',
       paletColor1: '#f7f7f7',
 
-      shadow: '1px 1px 10px 1px rgb(0, 0, 0, 0.3)',
+      shadow: '0px 1px 10px 0px rgb(0, 0, 0, 0.2)',
 
       border: '1px solid #E2E1DE',
     },

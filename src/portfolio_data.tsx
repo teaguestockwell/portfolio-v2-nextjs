@@ -33,7 +33,7 @@ export const portfolioData: Portfolio = {
       bullets: [
         `Securely deployed Levels as Air force web app`,
         `Pioneered software dev capability for JBLM spark cell. 1 new developer onboarded`,
-        `Lead software dev team by communication user needs to key stakeholder`,
+        `Lead software dev team by communication user needs to key stakeholders`,
       ],
     },
     {
@@ -82,8 +82,8 @@ export const portfolioData: Portfolio = {
   },
   subTitles: {
     about: undefined,
-    tech: 'Tools that I have worked with. See my projects to learn more.',
-    projects: 'Mobile first web apps that are micro service oriented.',
+    tech: 'Tools that I have worked with. See my projects to learn more',
+    projects: 'Mobile first web apps that are micro service oriented',
     experience: undefined,
     education: undefined,
     contact: ``,

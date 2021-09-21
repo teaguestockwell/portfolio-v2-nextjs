@@ -183,7 +183,7 @@ export const Project = React.memo(
               color: theme.fontColor1,
               marginBottom: Const.pad * 2,
               marginTop: Const.pad,
-              borderTop: `solid 1px`,
+              borderTop: theme.border,
               width: '100%',
               display: 'flex',
             }}
