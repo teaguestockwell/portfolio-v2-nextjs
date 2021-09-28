@@ -134,7 +134,7 @@ export const portfolioData: Portfolio = {
         'Created post interaction with threaded comments, likes, saves, and rich text editing',
         'Implemented a serverless REST API that the manages the lifecycle of securely uploading images from the client using presigned urls',
       ],
-      deploymentSrc: 'http://hello-next-auth.vercel.app/all-time',
+      deploymentSrc: 'http://hello-next-auth.vercel.app',
       m3u8Src:
         'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/buildable-hls/master.m3u8',
       repos: [
