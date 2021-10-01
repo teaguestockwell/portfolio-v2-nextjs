@@ -217,6 +217,7 @@ export const Project = React.memo(
               }}
             >
               <a
+                className="icon-hover"
                 href={deploymentSrc}
                 target="_blank"
                 rel="noreferrer"

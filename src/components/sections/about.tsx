@@ -78,7 +78,7 @@ export const AboutSection = () => {
                 style={{marginTop: Const.pad, width: 'fit-content'}}
               >
                 <div
-                  className={theme.name + '6'}
+                  className="hover-button"
                   style={{
                     fontSize: Const.fontSizes.lg,
                     wordWrap: 'break-word',
@@ -89,9 +89,6 @@ export const AboutSection = () => {
                     textAlign: 'left',
                     borderRadius: 20,
                     backgroundColor: theme.fontColor0,
-                    boxShadow: theme.shadow,
-                    WebkitBoxShadow: theme.shadow,
-                    MozBoxShadow: theme.shadow,
                   }}
                 >
                   {'Contact me'}

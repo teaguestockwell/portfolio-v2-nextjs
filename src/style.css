@@ -67,19 +67,23 @@ a {
   border-radius: 10px;
 }
 
-.light6:hover {
-  background-color: rgba(0, 0, 0, 0.6) !important;
-  border-radius: 10px;
-}
-
-.dark6:hover {
-  background-color: rgba(255, 255, 255, 0.6) !important;
-  border-radius: 10px;
-}
-
 .light:hover {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+}
+
+.hover-button {
+  -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.2);
+}
+
+.hover-button:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+  -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.5);
 }
 
 .scroll-active .menu-inline {

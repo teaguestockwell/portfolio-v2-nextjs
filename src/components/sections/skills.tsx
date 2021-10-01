@@ -37,7 +37,7 @@ export const SkillsSection = () => {
               rel="noreferrer"
             >
               <div
-                className={theme.name + '6'}
+                className="hover-button"
                 style={{
                   marginTop: Const.pad * 4,
                   fontSize: Const.fontSizes.lg,
@@ -49,9 +49,6 @@ export const SkillsSection = () => {
                   textAlign: 'left',
                   borderRadius: 20,
                   backgroundColor: theme.fontColor0,
-                  boxShadow: theme.shadow,
-                  WebkitBoxShadow: theme.shadow,
-                  MozBoxShadow: theme.shadow,
                   display: 'flex',
                   alignItems: 'center',
                 }}
