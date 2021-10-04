@@ -25,7 +25,8 @@ export const ProjectsSection = () => {
           }}
           items={portfolio.projects}
           getCell={(t) => (
-            <a id={t.id} href={'#' + t.id}>
+            <>
+              <a id={t.id} href={'#' + t.id} />
               <Project
                 techName={portfolio.titles.tech}
                 name={t.name}
@@ -37,7 +38,7 @@ export const ProjectsSection = () => {
                 m3u8Src={t.m3u8Src}
                 svgs={t.svgs}
               />
-            </a>
+            </>
           )}
         />
       </Glow>
