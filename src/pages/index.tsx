@@ -18,6 +18,7 @@ import {PortfolioContext} from '../hooks/use_portfolio_context'
 import allIcons from 'simple-icons'
 import {v4} from 'uuid'
 import {DancingLinesWithTheme} from '../components/dancing_lines'
+import {UseScrollToA} from '../hooks/use_scroll_to_a'
 export const getStaticProps: GetStaticProps = async () => {
   portfolioData.icons = portfolioData.skills.map((skill) => {
     const icon = allIcons.Get(skill)
@@ -37,6 +38,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 export default function Home(portfolio: Types.Portfolio) {
   useInitTheme()
+  UseScrollToA()
 
   return (
     <>

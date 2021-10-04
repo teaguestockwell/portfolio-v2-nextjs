@@ -25,17 +25,19 @@ export const ProjectsSection = () => {
           }}
           items={portfolio.projects}
           getCell={(t) => (
-            <Project
-              techName={portfolio.titles.tech}
-              name={t.name}
-              subHeading={t.subHeading}
-              dateRange={t.dateRange}
-              bullets={t.bullets}
-              deploymentSrc={t.deploymentSrc}
-              repos={t.repos}
-              m3u8Src={t.m3u8Src}
-              svgs={t.svgs}
-            />
+            <a id={t.id} href={'#' + t.id}>
+              <Project
+                techName={portfolio.titles.tech}
+                name={t.name}
+                subHeading={t.subHeading}
+                dateRange={t.dateRange}
+                bullets={t.bullets}
+                deploymentSrc={t.deploymentSrc}
+                repos={t.repos}
+                m3u8Src={t.m3u8Src}
+                svgs={t.svgs}
+              />
+            </a>
           )}
         />
       </Glow>

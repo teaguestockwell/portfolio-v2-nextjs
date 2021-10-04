@@ -124,7 +124,7 @@ export const portfolioData: Portfolio = {
   ],
   projects: [
     {
-      id: v4(),
+      id: 'buildable',
       name: 'Buildable 🚧 WIP 🚧 ',
       dateRange: 'Apr 2021 - Present',
       subHeading:
@@ -159,7 +159,7 @@ export const portfolioData: Portfolio = {
       ],
     },
     {
-      id: v4(),
+      id: 'levels',
       name: 'Levels',
       dateRange: 'March 2021 - Present',
       subHeading: `Developed a production full stack web app to manage aircraft cargo loading for the Air Force`,
@@ -204,7 +204,7 @@ export const portfolioData: Portfolio = {
       ],
     },
     {
-      id: v4(),
+      id: 'five-level',
       name: 'Five Level',
       dateRange: 'Sep 2020 - Mar 2021',
       bullets: [
@@ -242,7 +242,7 @@ export const portfolioData: Portfolio = {
       ],
     },
     {
-      id: v4(),
+      id: '5-level',
       name: '5 Level',
       dateRange: 'Sep 2020 - March 2020',
       subHeading: `Developed, and deployed A native android application with Java for aircraft weight and balance`,
