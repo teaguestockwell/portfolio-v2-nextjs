@@ -38,8 +38,6 @@ export const SkillCloud = () => {
 
   return (
     <IconCloud
-      key={v4()}
-      id={'1'}
       iconSize={42}
       minContrastRatio={theme.name === 'dark' ? 2 : 1.2}
       canvasStyle={{}}
