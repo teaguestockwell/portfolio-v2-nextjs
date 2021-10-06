@@ -25,7 +25,7 @@ export const Footer = () => {
           width: '100%',
         }}
       >
-        <div
+        <button
           onClick={toggleTheme}
           className="icon-hover"
           style={{
@@ -33,7 +33,7 @@ export const Footer = () => {
           }}
         >
           {theme.name === 'light' ? svgs.darkMode : svgs.lightMode}
-        </div>
+        </button>
       </div>
 
       <div
@@ -45,16 +45,26 @@ export const Footer = () => {
           width: '100%',
         }}
       >
-        <a href={person.githubSrc} rel="noreferrer" target="_blank">
-          <div className="icon-hover" style={{}}>
+        <a
+          href={person.githubSrc}
+          rel="noreferrer"
+          target="_blank"
+          tabIndex={-1}
+        >
+          <button className="icon-hover" style={{}}>
             {getSvgFromSimpleIcon(github, iconSize, theme.fontColor0)}
-          </div>
+          </button>
         </a>
 
-        <a href={person.linkedInSrc} rel="noreferrer" target="_blank">
-          <div className="icon-hover">
+        <a
+          href={person.linkedInSrc}
+          rel="noreferrer"
+          target="_blank"
+          tabIndex={-1}
+        >
+          <button className="icon-hover">
             {getSvgFromSimpleIcon(linkedin, iconSize, theme.fontColor0)}
-          </div>
+          </button>
         </a>
 
         <a
@@ -62,10 +72,11 @@ export const Footer = () => {
           target="_blank"
           href={`mailto:${person.email}?subject=Hello`}
           aria-label="Email"
+          tabIndex={-1}
         >
-          <div className="icon-hover" style={{}}>
+          <button className="icon-hover" style={{}}>
             {svgs.mail}
-          </div>
+          </button>
         </a>
       </div>
     </div>

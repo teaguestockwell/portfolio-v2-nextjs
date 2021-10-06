@@ -131,7 +131,7 @@ export const Nav = () => {
             {md ? <MenuInline items={Object.values(portfolio.titles)} /> : null}
           </div>
 
-          <div
+          <button
             onClick={toggleTheme}
             className="icon-hover"
             style={{
@@ -142,10 +142,15 @@ export const Nav = () => {
             }}
           >
             {theme.name === 'light' ? svgs.darkMode : svgs.lightMode}
-          </div>
+          </button>
 
-          <a href={portfolio.person.githubSrc} rel="noreferrer" target="_blank">
-            <div
+          <a
+            tabIndex={-1}
+            href={portfolio.person.githubSrc}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <button
               className="icon-hover"
               style={{
                 width: '12vw',
@@ -154,17 +159,18 @@ export const Nav = () => {
               }}
             >
               {getSvgFromSimpleIcon(github, iconSize, theme.fontColor0)}
-            </div>
+            </button>
           </a>
 
           <a
             href={portfolio.person.linkedInSrc}
             rel="noreferrer"
             target="_blank"
+            tabIndex={-1}
           >
-            <div className="icon-hover">
+            <button className="icon-hover">
               {getSvgFromSimpleIcon(linkedin, iconSize, theme.fontColor0)}
-            </div>
+            </button>
           </a>
         </div>
       </header>

@@ -22,17 +22,18 @@ export const CardFlip = ({
   const svgs = getInteractiveSvgs(theme.fontColor0, 32)
 
   const flipIcon = (
-    <div
+    <button
       onClick={() => setIsFlipped(!isFlipped)}
       style={{
         position: 'absolute',
         bottom: Const.pad,
         right: Const.pad,
         cursor: 'pointer',
+        zIndex: 2,
       }}
     >
       {isFlipped ? svgs.toFront : svgs.toBack}
-    </div>
+    </button>
   )
 
   return (

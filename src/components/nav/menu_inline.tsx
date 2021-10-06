@@ -25,7 +25,7 @@ export const MenuInline = ({items}: {items: string[]}) => {
             {...Const.reactScrollProps}
             offset={getOffset(i)}
           >
-            <div
+            <button
               className={`menu-inline ${theme.name}`}
               style={{
                 paddingRight: '0.75vw',
@@ -36,7 +36,7 @@ export const MenuInline = ({items}: {items: string[]}) => {
               }}
             >
               {x}
-            </div>
+            </button>
           </Link>
         )
       })}

@@ -30,7 +30,7 @@ export const Menu = () => {
     >
       {titleVals.map((x, i) => (
         <Link key={x} to={x} {...Const.reactScrollProps} offset={getOffset(i)}>
-          <div
+          <button
             className={`menu-sidebar ${theme.name}`}
             style={{
               display: 'flex',
@@ -55,7 +55,7 @@ export const Menu = () => {
             >
               {x}
             </div>
-          </div>
+          </button>
         </Link>
       ))}
     </div>

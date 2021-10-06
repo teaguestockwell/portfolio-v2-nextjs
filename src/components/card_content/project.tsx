@@ -14,6 +14,65 @@ import React from 'react'
 import {usePortfolio} from '../../hooks/use_portfolio_context'
 import github from 'simple-icons/icons/github'
 
+const Repos = ({
+  repos,
+  theme,
+}: {
+  repos: {name: string; src: string}[]
+  theme: any
+}) => {
+  const ref = React.useRef() as any
+  React.useEffect(() => {
+    ref.current.focus()
+  }, [])
+
+  return (
+    <>
+      <div
+        style={{
+          width: '100%',
+          textAlign: 'center',
+          fontSize: Const.fontSizes.lg,
+          wordWrap: 'break-word',
+          color: theme.fontColor0,
+        }}
+      >
+        Git Repo
+      </div>
+
+      <div
+        style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}
+      >
+        {repos.map(({name, src}, i) => (
+          <a
+            tabIndex={-1}
+            key={v4()}
+            href={src}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <button
+              ref={i === 0 ? ref : undefined}
+              className={`${theme.name}`}
+              style={{
+                width: 'fit-content',
+                paddingLeft: Const.pad,
+                paddingRight: Const.pad,
+                marginTop: Const.pad,
+                color: theme.fontColor1,
+                fontSize: Const.fontSizes.md,
+                wordWrap: 'break-word',
+              }}
+            >
+              {name}
+            </button>
+          </a>
+        ))}
+      </div>
+    </>
+  )
+}
+
 // eslint-disable-next-line react/display-name
 export const Project = React.memo(
   ({
@@ -36,42 +95,8 @@ export const Project = React.memo(
 
     const openModal = () => {
       useModalStore.setState({
-        contentStyle: {
-          minWidth: '30vw',
-        },
-        children: (
-          <>
-            <div
-              style={{
-                width: '100%',
-                textAlign: 'center',
-                fontSize: Const.fontSizes.lg,
-                wordWrap: 'break-word',
-                color: theme.fontColor0,
-              }}
-            >
-              Git Repo
-            </div>
-            {repos.map(({name, src}) => (
-              <a key={v4()} href={src} target="_blank" rel="noreferrer">
-                <div
-                  className={`${theme.name}`}
-                  style={{
-                    width: 'fit-content',
-                    paddingLeft: Const.pad,
-                    paddingRight: Const.pad,
-                    marginTop: Const.pad,
-                    color: theme.fontColor1,
-                    fontSize: Const.fontSizes.md,
-                    wordWrap: 'break-word',
-                  }}
-                >
-                  {name}
-                </div>
-              </a>
-            ))}
-          </>
-        ),
+        contentStyle: {minWidth: '30vw'},
+        children: <Repos theme={theme} repos={repos} />,
       })
     }
 
@@ -197,35 +222,28 @@ export const Project = React.memo(
               justifyContent: 'space-evenly',
             }}
           >
-            {repos.length > 1}
-            <div
-              className="icon-hover"
-              onClick={openModal}
-              style={{
-                textAlign: 'center',
-                cursor: 'pointer',
-              }}
-            >
-              {getSvgFromSimpleIcon(github, 30, theme.fontColor0)}
-            </div>
-
-            <div
-              className="icon-hover"
-              style={{
-                textAlign: 'center',
-                cursor: 'pointer',
-              }}
-            >
-              <a
+            {repos.length > 0 && (
+              <button
                 className="icon-hover"
-                href={deploymentSrc}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`${name} live deployment`}
+                onClick={openModal}
+                style={{
+                  textAlign: 'center',
+                  cursor: 'pointer',
+                }}
               >
-                {link}
-              </a>
-            </div>
+                {getSvgFromSimpleIcon(github, 30, theme.fontColor0)}
+              </button>
+            )}
+
+            <a
+              className="icon-hover"
+              href={deploymentSrc}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${name} live deployment`}
+            >
+              {link}
+            </a>
           </div>
         </div>
       </>

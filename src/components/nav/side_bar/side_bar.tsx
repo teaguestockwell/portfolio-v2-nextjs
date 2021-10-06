@@ -25,6 +25,9 @@ export const SideBar = React.memo(
           ...style,
         }}
       >
+        <a className="skip-link" href="#main-content">
+          Skip Nav
+        </a>
         <Profile />
         <Menu />
         <Footer />

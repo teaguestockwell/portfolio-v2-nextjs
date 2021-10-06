@@ -1,8 +1,8 @@
 import {Element} from 'react-scroll'
 import {usePortfolio} from '../../hooks/use_portfolio_context'
 import React from 'react'
-import {Home} from '../hero/levels/home'
-import {Dash} from '../hero/levels/dash'
+import {MobileHero} from '../hero/levels/mobile_hero'
+import {DesktopHero} from '../hero/levels/desktop_hero'
 import {Const} from '../../const'
 import {useTheme} from '../../hooks/use_theme'
 import {useBreakpoint} from '../../hooks/use_breakpoint'
@@ -77,7 +77,7 @@ export const AboutSection = () => {
                 offset={0}
                 style={{marginTop: Const.pad, width: 'fit-content'}}
               >
-                <div
+                <button
                   className="hover-button"
                   style={{
                     fontSize: Const.fontSizes.lg,
@@ -92,7 +92,7 @@ export const AboutSection = () => {
                   }}
                 >
                   {'Contact me'}
-                </div>
+                </button>
               </Link>
             </div>
 
@@ -105,8 +105,8 @@ export const AboutSection = () => {
                 gridTemplateColumns: 'repeat(2, 1fr)',
               }}
             >
-              <Home m3u8Src={portfolio.heroM3u8Src} />
-              <Dash />
+              <MobileHero m3u8Src={portfolio.heroM3u8Src} />
+              <DesktopHero />
             </div>
           </div>
         </Content>

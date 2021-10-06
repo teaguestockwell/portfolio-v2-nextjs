@@ -33,12 +33,32 @@ a {
   text-decoration: none;
 }
 
+a:focus {
+  outline: none;
+}
+
+button {
+  all: unset;
+}
+
+button:focus {
+  outline: 1px blue;
+}
+
+.hero:hover {
+  z-index: 3 !important;
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
 .icon-hover > * {
   transition: transform 0.3s ease, filter 0.25s ease-in-out;
   -webkit-transition: transform 0.3s ease, filter 0.25s ease-in-out;
 }
 
-.icon-hover:hover > * {
+.icon-hover:hover > *,
+.icon-hover:focus > * {
   -webkit-filter: drop-shadow(1px 1px 1px rgba(30, 30, 30, 0.7));
   filter: drop-shadow(1px 1px 1px rgba(30, 30, 30, 0.7));
   -webkit-transform: scale(1.2);
@@ -62,12 +82,14 @@ a {
   margin-top: 3px;
 }
 
-.dark:hover {
+.dark:hover,
+.dark:focus {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
 }
 
-.light:hover {
+.light:hover,
+.light:focus {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
@@ -78,7 +100,8 @@ a {
   box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.2);
 }
 
-.hover-button:hover {
+.hover-button:hover,
+.hover-button:focus {
   opacity: 0.8;
   transform: translateY(-1px);
   -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.5);

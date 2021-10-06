@@ -68,8 +68,9 @@ export const ContactSection = () => {
               rel="noreferrer"
               target="_blank"
               style={{marginTop: space, width: 'fit-content'}}
+              tabIndex={-1}
             >
-              <div
+              <button
                 className={`${theme.name}`}
                 style={{
                   display: 'flex',
@@ -88,7 +89,7 @@ export const ContactSection = () => {
                 >
                   See my work on Github
                 </div>
-              </div>
+              </button>
             </a>
 
             <a
@@ -97,8 +98,9 @@ export const ContactSection = () => {
               rel="noreferrer"
               target="_blank"
               style={{marginTop: space, width: 'fit-content'}}
+              tabIndex={-1}
             >
-              <div
+              <button
                 className={`${theme.name}`}
                 style={{
                   display: 'flex',
@@ -117,7 +119,7 @@ export const ContactSection = () => {
                 >
                   Connect on LinkedIn
                 </div>
-              </div>
+              </button>
             </a>
 
             <a
@@ -126,8 +128,9 @@ export const ContactSection = () => {
               href={`mailto:${portfolio.person.email}?subject=Hello`}
               aria-label="Email"
               style={{marginTop: space, width: 'fit-content'}}
+              tabIndex={-1}
             >
-              <div
+              <button
                 className={`${theme.name}`}
                 style={{
                   display: 'flex',
@@ -145,7 +148,7 @@ export const ContactSection = () => {
                 >
                   Send me an email
                 </div>
-              </div>
+              </button>
             </a>
           </div>
         </div>
@@ -167,7 +170,7 @@ export const ContactSection = () => {
             to={portfolio.titles.about}
             {...Const.reactScrollProps}
           >
-            <div className="icon-hover">{svgs.upArrow}</div>
+            <button className="icon-hover">{svgs.upArrow}</button>
           </Link>
 
           <a

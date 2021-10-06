@@ -35,8 +35,9 @@ export const SkillsSection = () => {
               href="https://www.npmjs.com/package/react-icon-cloud"
               target="_blank"
               rel="noreferrer"
+              tabIndex={-1}
             >
-              <div
+              <button
                 className="hover-button"
                 style={{
                   marginTop: Const.pad * 4,
@@ -69,7 +70,7 @@ export const SkillsSection = () => {
                   </div>
                 }
                 {`react-icon-cloud`}
-              </div>
+              </button>
             </a>
           </div>
         ) : (
