@@ -170,7 +170,7 @@ export const portfolioData: Portfolio = {
       ],
       deploymentSrc: 'https://levels.apps.dso.mil',
       m3u8Src:
-        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/level-2-hls/master.m3u8',
+        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/levels-3-hls/master.m3u8',
       repos: [
         {
           name: 'Frontend',
