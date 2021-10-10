@@ -21,7 +21,7 @@ const options = {
         options: {
           cacheName: 'offlineCache',
           expiration: {
-            maxEntries: 200,
+            maxEntries: 1000,
           },
         },
       },
