@@ -9,7 +9,7 @@ export const SkillCloud = () => {
   const portfolio = usePortfolio()
   const themeName = useTheme((s) => s.themeName)
   const bgHex = themeName === 'light' ? '#f3f2ef' : '#080510'
-  const fallback = themeName === 'light' ? '#f3f2ef' : '#080510'
+  const fallback = themeName === 'light' ? '#6e6e73' : '#a1a1a6'
 
   const tags: IconTag[] = portfolio.icons.map((icon) => ({
     id: v4(),
