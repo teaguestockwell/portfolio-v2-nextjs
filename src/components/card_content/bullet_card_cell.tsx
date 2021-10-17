@@ -14,9 +14,9 @@ export const BulletCardCell = ({
           wordWrap: 'break-word',
           textAlign: 'left',
           color: Const.css.fc0,
-          fontSize: Const.css.xlg,
+          fontSize: Const.css.lg,
           fontWeight: 600,
-          lineHeight: Const.css.xlg,
+          lineHeight: Const.css.lg,
         }}
       >
         {title}

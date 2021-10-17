@@ -26,14 +26,14 @@ export const CardGrid = <T extends Props>({
           display: 'grid',
           //gridTemplateColumns: 'repeat(auto-fit, minmax(40vw, 1fr))',
           gridTemplateColumns: Const.css.cardGrid,
-          gap: Const.pad * 4,
+          gap: Const.pad * 2,
         }}
       >
         {items.map((i) => (
           <CardFlip
             key={i.id}
             style={{
-              height: 450,
+              height: 475,
               marginTop: 0,
               overflowY: 'auto',
             }}
