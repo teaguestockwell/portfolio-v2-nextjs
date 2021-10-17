@@ -1,10 +1,7 @@
 import {Const} from '../../const'
 import {Link} from 'react-scroll'
 import {useBreakpoint} from '../../hooks/use_breakpoint'
-import {useTheme} from '../../hooks/use_theme_2'
-
 export const MenuInline = ({items}: {items: string[]}) => {
-  const themeName = useTheme((s) => s.themeName)
   const xl = useBreakpoint.xl()
   const getOffset = (idx: number) => {
     if (idx === items.length - 1) {
@@ -26,13 +23,14 @@ export const MenuInline = ({items}: {items: string[]}) => {
             offset={getOffset(i)}
           >
             <button
-              className={`menu-inline ${themeName}`}
+              className={`menu-inline`}
               style={{
                 paddingRight: '0.75vw',
                 paddingLeft: '0.75vw',
                 color: Const.css.fc0,
                 fontSize: Const.css.md,
                 wordWrap: 'break-word',
+                borderRadius: Const.rad,
               }}
             >
               {x}

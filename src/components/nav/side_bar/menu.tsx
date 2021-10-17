@@ -4,7 +4,6 @@ import {getCustomSvgs} from '../../svgs'
 import {usePortfolio} from '../../../hooks/use_portfolio_context'
 import {useDrawerStore} from '../../../hooks/use_drawer'
 import {useBreakpoint} from '../../../hooks/use_breakpoint'
-import {useTheme} from '../../../hooks/use_theme_2'
 
 export const Menu = () => {
   const {titles} = usePortfolio()
@@ -20,7 +19,6 @@ export const Menu = () => {
     }
     return (Const.topNav + Const.pad * 2) * -1
   }
-  const themeName = useTheme((s) => s.themeName)
 
   return (
     <div

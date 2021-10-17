@@ -1,4 +1,3 @@
-import {useInitTheme} from '../hooks/use_theme_2'
 import {WithNav} from '../components/nav/nav'
 import {portfolioData} from '../portfolio_data'
 import {AboutSection} from '../components/sections/about'
@@ -37,7 +36,6 @@ export const getStaticProps: GetStaticProps = async () => {
 }
 
 export default function Home(portfolio: Types.Portfolio) {
-  useInitTheme()
   UseScrollToA()
 
   return (
