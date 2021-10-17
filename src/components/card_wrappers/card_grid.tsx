@@ -1,7 +1,5 @@
-import {useTheme} from '../../hooks/use_theme'
 import {Content} from '../content'
 import {Const} from '../../const'
-import {useBreakpoint} from '../../hooks/use_breakpoint'
 import React from 'react'
 import {CardFlip} from './card_flip'
 
@@ -19,9 +17,6 @@ export const CardGrid = <T extends Props>({
   getCellFront: (item: T) => JSX.Element
   getCellBack: (item: T) => JSX.Element
 }) => {
-  const theme = useTheme()
-  const breakPoint = useBreakpoint.projectsBreak()
-
   return (
     <Content>
       <div
@@ -30,7 +25,7 @@ export const CardGrid = <T extends Props>({
           maxWidth: '100%',
           display: 'grid',
           //gridTemplateColumns: 'repeat(auto-fit, minmax(40vw, 1fr))',
-          gridTemplateColumns: breakPoint ? '1fr 1fr' : '1fr',
+          gridTemplateColumns: Const.css.cardGrid,
           gap: Const.pad * 4,
         }}
       >

@@ -1,5 +1,4 @@
 import {Const} from '../../const'
-import {useTheme} from '../../hooks/use_theme'
 
 export const BulletCardCell = ({
   title,
@@ -8,18 +7,16 @@ export const BulletCardCell = ({
   title: string
   bullets: string[]
 }) => {
-  const theme = useTheme()
-
   return (
     <div>
       <div
         style={{
           wordWrap: 'break-word',
           textAlign: 'left',
-          color: theme.fontColor0,
-          fontSize: Const.fontSizes.xl,
+          color: Const.css.fc0,
+          fontSize: Const.css.xlg,
           fontWeight: 600,
-          lineHeight: `${Const.fontSizes.xl}px`,
+          lineHeight: Const.css.xlg,
         }}
       >
         {title}
@@ -36,8 +33,8 @@ export const BulletCardCell = ({
             key={row}
             style={{
               textAlign: 'left',
-              color: theme.fontColor1,
-              fontSize: Const.fontSizes.sm,
+              color: Const.css.fc1,
+              fontSize: Const.css.sm,
               wordWrap: 'break-word',
               paddingTop: Const.pad,
             }}

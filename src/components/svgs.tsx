@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import {Const, CustomTheme} from '../const'
+import {Const} from '../const'
 import {v4} from 'uuid'
 import * as Types from '../types/types'
 import {hex2contrast} from '@csstools/convert-colors'
@@ -205,15 +205,7 @@ export const getCustomSvgs = (
   ),
 })
 
-const Svg = ({
-  name,
-  svg,
-  theme,
-}: {
-  name?: string | undefined
-  svg: any
-  theme: CustomTheme
-}) => {
+const Svg = ({name, svg}: {name?: string | undefined; svg: any}) => {
   return (
     <div
       key={v4()}
@@ -232,8 +224,8 @@ const Svg = ({
       {name && (
         <div
           style={{
-            color: theme.fontColor1,
-            fontSize: Const.fontSizes.sm,
+            color: Const.css.fc1,
+            fontSize: Const.css.sm,
             wordWrap: 'break-word',
             display: 'flex',
             alignItems: 'center',
@@ -327,7 +319,7 @@ export const getSvgFromSimpleIcon = (
 
 export const getSimpleSvgs = (
   size: number,
-  theme: any,
+  themeName: string,
   wrapped = true,
   icons: Types.SimpleIcon[]
 ) => {
@@ -335,10 +327,10 @@ export const getSimpleSvgs = (
     const addHash = (color: string) => (color[0] === '#' ? color : `#${color}`)
 
     const originalHex = addHash(icon.hex)
-    const bgHex = addHash(theme.backGround0)
+    const bgHex = themeName === 'light' ? '#f3f2ef' : '#080510'
     const contrast = hex2contrast(bgHex, originalHex)
-    const isAccessibleColor = contrast > (theme.name === 'dark' ? 2 : 1)
-    const newColor = isAccessibleColor ? originalHex : theme.fontColor1
+    const isAccessibleColor = contrast > (themeName === 'dark' ? 2 : 1)
+    const newColor = isAccessibleColor ? originalHex : Const.css.fc1
     const svg = (
       <svg viewBox="0 0 24 24" height={size} width={size} fill={newColor}>
         {' '}
@@ -347,7 +339,7 @@ export const getSimpleSvgs = (
     )
 
     if (wrapped) {
-      return <Svg name={icon.title} theme={theme} svg={svg} />
+      return <Svg name={icon.title} svg={svg} />
     }
 
     return svg

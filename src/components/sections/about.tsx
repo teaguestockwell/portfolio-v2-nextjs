@@ -4,24 +4,16 @@ import React from 'react'
 import {MobileHero} from '../hero/levels/mobile_hero'
 import {DesktopHero} from '../hero/levels/desktop_hero'
 import {Const} from '../../const'
-import {useTheme} from '../../hooks/use_theme'
-import {useBreakpoint} from '../../hooks/use_breakpoint'
 import {Content} from '../content'
 import {Link} from 'react-scroll'
 import {Glow} from '../glow'
 
 export const AboutSection = () => {
   const portfolio = usePortfolio()
-  const theme = useTheme()
-  const md = useBreakpoint.md()
 
   return (
     <Element name={portfolio.titles.about} key={portfolio.titles.about}>
-      <Glow
-        tlwh={[-14, 10, 115, 110]}
-        publicSrc="/glow1.png"
-        removeOnMdBreak={false}
-      >
+      <Glow tlwh={[-14, 10, 115, 110]} publicSrc="/glow1.png">
         {/* Above the fold */}
         <Content>
           <div
@@ -29,7 +21,7 @@ export const AboutSection = () => {
               paddingTop: Const.pad * 2,
               minHeight: '100vh',
               display: 'grid',
-              gridTemplateColumns: md ? 'minmax(300px, 500px) 1fr' : '1fr',
+              gridTemplateColumns: Const.css.aboutGrid,
               gap: Const.pad * 2,
               alignItems: 'center',
               paddingLeft: Const.pad,
@@ -45,13 +37,9 @@ export const AboutSection = () => {
               <div
                 className="name"
                 style={{
-                  color: theme.fontColor0,
-                  fontSize: `clamp(${Const.fontSizes.xxxl}px, 5vw, ${
-                    Const.fontSizes.xxxl * 1.5
-                  }px)`,
-                  lineHeight: `clamp(${Const.fontSizes.xxxl}px, 5vw, ${
-                    Const.fontSizes.xxxl * 1.5
-                  }px)`,
+                  color: Const.css.fc0,
+                  fontSize: Const.css.xxxlg,
+                  lineHeight: Const.css.xxxlg,
                   fontWeight: 800,
                   wordWrap: 'break-word',
                 }}
@@ -61,9 +49,9 @@ export const AboutSection = () => {
 
               <div
                 style={{
-                  fontSize: Const.fontSizes.lg,
+                  fontSize: Const.css.lg,
                   wordWrap: 'break-word',
-                  color: theme.fontColor0,
+                  color: Const.css.fc0,
                   paddingTop: Const.pad,
                 }}
               >
@@ -80,15 +68,15 @@ export const AboutSection = () => {
                 <button
                   className="hover-button"
                   style={{
-                    fontSize: Const.fontSizes.lg,
+                    fontSize: Const.css.lg,
                     wordWrap: 'break-word',
-                    color: theme.backGround0,
+                    color: Const.css.bgc0,
                     paddingLeft: Const.pad,
                     paddingRight: Const.pad,
                     width: 'fit-content',
                     textAlign: 'left',
                     borderRadius: 20,
-                    backgroundColor: theme.fontColor0,
+                    backgroundColor: Const.css.fc0,
                   }}
                 >
                   {'Contact me'}

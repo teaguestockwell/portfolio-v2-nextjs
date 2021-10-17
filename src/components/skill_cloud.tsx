@@ -1,5 +1,5 @@
 import {v4} from 'uuid'
-import {useTheme} from '../hooks/use_theme'
+import {useTheme} from '../hooks/use_theme_2'
 import {TagCanvasOptions, IconCloud, IconTag} from 'react-icon-cloud'
 import {Const} from '../const'
 import React from 'react'
@@ -7,8 +7,9 @@ import {usePortfolio} from '../hooks/use_portfolio_context'
 
 export const SkillCloud = () => {
   const portfolio = usePortfolio()
-
-  const theme = useTheme()
+  const themeName = useTheme((s) => s.themeName)
+  const bgHex = themeName === 'light' ? '#f3f2ef' : '#080510'
+  const fallback = themeName === 'light' ? '#f3f2ef' : '#080510'
 
   const tags: IconTag[] = portfolio.icons.map((icon) => ({
     id: v4(),
@@ -39,12 +40,12 @@ export const SkillCloud = () => {
   return (
     <IconCloud
       iconSize={42}
-      minContrastRatio={theme.name === 'dark' ? 2 : 1.2}
+      minContrastRatio={themeName === 'dark' ? 2 : 1.2}
       canvasStyle={{}}
       canvasContainerStyle={canvasContainerStyle}
       tagCanvasOptions={tagCanvasOptions}
-      backgroundHexColor={theme.backGround0}
-      fallbackHexColor={theme.fontColor1}
+      backgroundHexColor={bgHex}
+      fallbackHexColor={fallback}
       tags={tags}
     />
   )

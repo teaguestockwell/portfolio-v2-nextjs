@@ -15,7 +15,7 @@ body {
   font-size: 14px;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   font-weight: 400;
-  background-color: #f3f2ef;
+  background-color: var(--bgc-0);
 }
 
 *,
@@ -82,15 +82,13 @@ button:focus {
   margin-top: 3px;
 }
 
-.dark:hover,
-.dark:focus {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+.menu-sidebar:hover {
+  background-color: var(--hovbg);
 }
 
-.light:hover,
-.light:focus {
-  background-color: rgba(0, 0, 0, 0.1);
+.hovbg:hover,
+.hovbg:focus {
+  background-color: var(--hovbg);
   border-radius: 10px;
 }
 

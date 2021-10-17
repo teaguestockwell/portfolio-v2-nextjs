@@ -1,4 +1,4 @@
-import {toggleTheme, useThemeStore} from '../../../hooks/use_theme'
+import {setOrToggleTheme, useTheme} from '../../../hooks/use_theme_2'
 import github from 'simple-icons/icons/github'
 import linkedin from 'simple-icons/icons/linkedin'
 import {Const} from '../../../const'
@@ -7,9 +7,8 @@ import {getInteractiveSvgs, getSvgFromSimpleIcon} from '../../svgs'
 
 export const Footer = () => {
   const iconSize = 32
-  const theme = useThemeStore.getState().theme
   const {person} = usePortfolio()
-  const svgs = getInteractiveSvgs(theme.fontColor0, iconSize)
+  const svgs = getInteractiveSvgs(Const.css.fc0, iconSize)
 
   return (
     <div
@@ -26,13 +25,15 @@ export const Footer = () => {
         }}
       >
         <button
-          onClick={toggleTheme}
+          onClick={() => setOrToggleTheme()}
           className="icon-hover"
           style={{
             cursor: 'pointer',
           }}
         >
-          {theme.name === 'light' ? svgs.darkMode : svgs.lightMode}
+          {useTheme.getState().themeName === 'light'
+            ? svgs.darkMode
+            : svgs.lightMode}
         </button>
       </div>
 
@@ -52,7 +53,7 @@ export const Footer = () => {
           tabIndex={-1}
         >
           <button className="icon-hover" style={{}}>
-            {getSvgFromSimpleIcon(github, iconSize, theme.fontColor0)}
+            {getSvgFromSimpleIcon(github, iconSize, Const.css.fc0)}
           </button>
         </a>
 
@@ -63,7 +64,7 @@ export const Footer = () => {
           tabIndex={-1}
         >
           <button className="icon-hover">
-            {getSvgFromSimpleIcon(linkedin, iconSize, theme.fontColor0)}
+            {getSvgFromSimpleIcon(linkedin, iconSize, Const.css.fc0)}
           </button>
         </a>
 

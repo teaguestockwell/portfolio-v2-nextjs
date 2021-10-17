@@ -1,15 +1,14 @@
 import {Link} from 'react-scroll'
 import {Const} from '../../../const'
-import {useThemeStore} from '../../../hooks/use_theme'
 import {getCustomSvgs} from '../../svgs'
 import {usePortfolio} from '../../../hooks/use_portfolio_context'
 import {useDrawerStore} from '../../../hooks/use_drawer'
 import {useBreakpoint} from '../../../hooks/use_breakpoint'
+import {useTheme} from '../../../hooks/use_theme_2'
 
 export const Menu = () => {
-  const theme = useThemeStore.getState().theme
   const {titles} = usePortfolio()
-  const customSvgs = getCustomSvgs(theme.fontColor0, 24, 24, titles)
+  const customSvgs = getCustomSvgs(Const.css.fc0, 24, 24, titles)
   const titleVals = Object.values(titles)
   const xl = useBreakpoint.xl()
   const getOffset = (idx: number) => {
@@ -21,6 +20,7 @@ export const Menu = () => {
     }
     return (Const.topNav + Const.pad * 2) * -1
   }
+  const themeName = useTheme((s) => s.themeName)
 
   return (
     <div
@@ -31,16 +31,17 @@ export const Menu = () => {
       {titleVals.map((x, i) => (
         <Link key={x} to={x} {...Const.reactScrollProps} offset={getOffset(i)}>
           <button
-            className={`menu-sidebar ${theme.name}`}
+            className={'menu-sidebar'}
             style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'left',
-              height: 48,
-              fontSize: Const.fontSizes.lg,
+              height: 50,
+              fontSize: Const.css.lg,
               wordWrap: 'break-word',
-              color: theme.fontColor0,
+              color: Const.css.fc0,
               width: '-webkit-fill-available',
+              borderRadius: Const.rad,
             }}
           >
             {customSvgs[x]}
@@ -48,8 +49,8 @@ export const Menu = () => {
               onClick={() => useDrawerStore.setState({isOpen: false})}
               style={{
                 marginLeft: Const.pad / 2,
-                color: theme.fontColor0,
-                fontSize: Const.fontSizes.lg,
+                color: Const.css.fc0,
+                fontSize: Const.css.lg,
                 wordWrap: 'break-word',
               }}
             >

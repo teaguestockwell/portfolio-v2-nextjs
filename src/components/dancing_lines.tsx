@@ -1,12 +1,12 @@
 import DancingLines from 'react-dancing-lines'
-import {useTheme} from '../hooks/use_theme'
+import {useTheme} from '../hooks/use_theme_2'
 
 export const DancingLinesWithTheme = () => {
-  const theme = useTheme()
+  const themeName = useTheme((s) => s.themeName)
 
   const getSupportsTouch = () =>
     'ontouchstart' in window || navigator.maxTouchPoints ? true : false
 
   // can not be dark on SSR
-  return theme.name === 'dark' && !getSupportsTouch() ? <DancingLines /> : <></>
+  return themeName === 'dark' && !getSupportsTouch() ? <DancingLines /> : <></>
 }

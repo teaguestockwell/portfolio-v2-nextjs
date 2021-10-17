@@ -1,5 +1,4 @@
 import {Const} from '../const'
-import {useTheme} from '../hooks/use_theme'
 import create from 'zustand'
 import {combine} from 'zustand/middleware'
 
@@ -14,7 +13,6 @@ export const useModalStore = create(
 )
 
 export const Modal = () => {
-  const theme = useTheme()
   const {children, contentStyle} = useModalStore()
 
   const styleOverride = contentStyle ? contentStyle : {}
@@ -37,7 +35,7 @@ export const Modal = () => {
         style={{
           zIndex: 12,
           borderRadius: Const.rad,
-          backgroundColor: theme.background1,
+          backgroundColor: Const.css.bgc1,
           overflowY: 'auto',
           padding: Const.pad * 2,
           ...styleOverride,

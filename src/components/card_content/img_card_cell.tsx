@@ -1,5 +1,4 @@
 import {Const} from '../../const'
-import {useTheme} from '../../hooks/use_theme'
 import Image from 'next/image'
 import React from 'react'
 
@@ -16,8 +15,6 @@ export const ImgCardCell = React.memo(
     title: string
     rows: string[]
   }) => {
-    const theme = useTheme()
-
     return (
       <div
         style={{
@@ -58,12 +55,12 @@ export const ImgCardCell = React.memo(
         <div
           style={{
             wordWrap: 'break-word',
-            paddingTop: Const.pad * 2,
+            paddingTop: Const.pad,
             textAlign: 'left',
-            color: theme.fontColor0,
-            fontSize: Const.fontSizes.xl,
+            color: Const.css.fc0,
+            fontSize: Const.css.xlg,
             fontWeight: 600,
-            lineHeight: `${Const.fontSizes.xl}px`,
+            lineHeight: Const.css.xlg,
           }}
         >
           {title}
@@ -74,8 +71,8 @@ export const ImgCardCell = React.memo(
             key={row}
             style={{
               textAlign: 'left',
-              color: theme.fontColor1,
-              fontSize: Const.fontSizes.sm,
+              color: Const.css.fc1,
+              fontSize: Const.css.sm,
               wordWrap: 'break-word',
               paddingTop: Const.pad,
             }}

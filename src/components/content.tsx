@@ -1,5 +1,5 @@
-import {useBreakpoint} from '../hooks/use_breakpoint'
 import {Const} from '../const'
+
 export const Content = ({
   children,
   style = {},
@@ -7,7 +7,6 @@ export const Content = ({
   children: JSX.Element[] | JSX.Element
   style?: any
 }) => {
-  const md = useBreakpoint.md()
   return (
     <div
       style={{
@@ -19,8 +18,8 @@ export const Content = ({
       <div
         data-test-id={'inner content wrapper'}
         style={{
-          paddingRight: md ? Const.pad : 0,
-          paddingLeft: md ? Const.pad : 0,
+          paddingRight: Const.css.contentPad,
+          paddingLeft: Const.css.contentPad,
           maxWidth: Const.maxWidth,
           width: '100%',
           paddingBottom: Const.pad * 10,

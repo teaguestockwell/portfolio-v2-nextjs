@@ -1,5 +1,4 @@
 import {Const} from '../const'
-import {useTheme} from '../hooks/use_theme'
 
 export const SectionHeader = ({
   title,
@@ -8,8 +7,6 @@ export const SectionHeader = ({
   title: string
   subTitle?: string | null
 }) => {
-  const theme = useTheme()
-
   return (
     <div
       style={{
@@ -24,9 +21,9 @@ export const SectionHeader = ({
         className="name"
         style={{
           maxWidth: Const.maxWidth,
-          color: theme.fontColor0,
-          fontSize: Const.fontSizes.xxxl,
-          lineHeight: `${Const.fontSizes.xxxl}px`,
+          color: Const.css.fc0,
+          fontSize: Const.css.xxxlg,
+          lineHeight: `${Const.css.xxxlg}px`,
           fontWeight: 800,
           wordWrap: 'break-word',
         }}
@@ -37,9 +34,9 @@ export const SectionHeader = ({
       {subTitle && (
         <div
           style={{
-            fontSize: Const.fontSizes.lg,
+            fontSize: Const.css.lg,
             wordWrap: 'break-word',
-            color: theme.fontColor1,
+            color: Const.css.fc1,
             textAlign: 'center',
             maxWidth: Const.maxWidth,
             paddingTop: Const.pad / 2,

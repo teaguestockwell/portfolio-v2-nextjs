@@ -1,5 +1,4 @@
 import {v4} from 'uuid'
-import {useTheme} from '../../hooks/use_theme'
 import {Const} from '../../const'
 import {
   getInteractiveSvgs,
@@ -13,14 +12,9 @@ import {useModalStore} from '../../hooks/use_modal'
 import React from 'react'
 import {usePortfolio} from '../../hooks/use_portfolio_context'
 import github from 'simple-icons/icons/github'
+import {useTheme} from '../../hooks/use_theme_2'
 
-const Repos = ({
-  repos,
-  theme,
-}: {
-  repos: {name: string; src: string}[]
-  theme: any
-}) => {
+const Repos = ({repos}: {repos: {name: string; src: string}[]}) => {
   const ref = React.useRef() as any
   React.useEffect(() => {
     ref.current.focus()
@@ -32,9 +26,9 @@ const Repos = ({
         style={{
           width: '100%',
           textAlign: 'center',
-          fontSize: Const.fontSizes.lg,
+          fontSize: Const.css.lg,
           wordWrap: 'break-word',
-          color: theme.fontColor0,
+          color: Const.css.fc0,
         }}
       >
         Git Repo
@@ -53,14 +47,13 @@ const Repos = ({
           >
             <button
               ref={i === 0 ? ref : undefined}
-              className={`${theme.name}`}
               style={{
                 width: 'fit-content',
                 paddingLeft: Const.pad,
                 paddingRight: Const.pad,
                 marginTop: Const.pad,
-                color: theme.fontColor1,
-                fontSize: Const.fontSizes.md,
+                color: Const.css.fc1,
+                fontSize: Const.css.md,
                 wordWrap: 'break-word',
               }}
             >
@@ -88,15 +81,19 @@ export const Project = React.memo(
   }: Omit<Types.Project, 'id'> & {
     techName: string
   }) => {
-    const theme = useTheme()
-    const link = getInteractiveSvgs(theme.fontColor0, 36).link
+    const themeName = useTheme((s) => s.themeName)
+
+    const link = getInteractiveSvgs(
+      themeName === 'light' ? '#080510' : '#f3f2ef',
+      36
+    ).link
     const portfolio = usePortfolio()
-    const simpleSvgs = getSimpleSvgs(36, theme, true, portfolio.icons)
+    const simpleSvgs = getSimpleSvgs(36, themeName, true, portfolio.icons)
 
     const openModal = () => {
       useModalStore.setState({
         contentStyle: {minWidth: '30vw'},
-        children: <Repos theme={theme} repos={repos} />,
+        children: <Repos repos={repos} />,
       })
     }
 
@@ -131,12 +128,12 @@ export const Project = React.memo(
             <div
               style={{
                 textAlign: 'center',
-                color: theme.fontColor0,
-                fontSize: Const.fontSizes.xl,
+                color: Const.css.fc0,
+                fontSize: Const.css.xlg,
                 wordWrap: 'break-word',
                 textTransform: 'capitalize',
                 fontWeight: 600,
-                lineHeight: `${Const.fontSizes.xl}px`,
+                lineHeight: Const.css.xlg,
               }}
             >
               {name}
@@ -150,8 +147,8 @@ export const Project = React.memo(
                 justifyContent: 'left',
                 alignItems: 'flex-start',
                 textAlign: 'left',
-                color: theme.fontColor1,
-                fontSize: Const.fontSizes.sm,
+                color: Const.css.fc1,
+                fontSize: Const.css.sm,
                 wordWrap: 'break-word',
                 overflowY: 'auto',
                 maxHeight: 350,
@@ -173,8 +170,8 @@ export const Project = React.memo(
                       key={b}
                       style={{
                         paddingTop: Const.pad,
-                        color: theme.fontColor1,
-                        fontSize: Const.fontSizes.sm,
+                        color: Const.css.fc1,
+                        fontSize: Const.css.sm,
                         textAlign: 'left',
                         wordWrap: 'break-word',
                       }}
@@ -205,10 +202,10 @@ export const Project = React.memo(
           <div
             key={v4()}
             style={{
-              color: theme.fontColor1,
+              color: Const.css.fc1,
               marginBottom: Const.pad * 2,
               marginTop: Const.pad,
-              borderTop: theme.border,
+              borderTop: Const.css.border,
               width: '100%',
               display: 'flex',
             }}
@@ -216,7 +213,7 @@ export const Project = React.memo(
 
           <div
             style={{
-              backgroundColor: theme.background1,
+              backgroundColor: Const.css.bgc1,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-evenly',
@@ -231,7 +228,7 @@ export const Project = React.memo(
                   cursor: 'pointer',
                 }}
               >
-                {getSvgFromSimpleIcon(github, 30, theme.fontColor0)}
+                {getSvgFromSimpleIcon(github, 30, Const.css.fc0)}
               </button>
             )}
 

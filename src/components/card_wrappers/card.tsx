@@ -1,6 +1,4 @@
-import {useBreakpoint} from '../../hooks/use_breakpoint'
 import {Const} from '../../const'
-import {useTheme} from '../../hooks/use_theme'
 
 export const Card = ({
   children,
@@ -11,20 +9,17 @@ export const Card = ({
   style?: any
   icon?: JSX.Element
 }) => {
-  const theme = useTheme()
-  const md = useBreakpoint.md()
-
   return (
     <div
       style={{
-        WebkitBoxShadow: theme.shadow,
-        MozBoxShadow: theme.shadow,
-        boxShadow: theme.shadow,
+        WebkitBoxShadow: Const.css.shadow,
+        MozBoxShadow: Const.css.shadow,
+        boxShadow: Const.css.shadow,
         padding: Const.pad * 2,
         marginTop: Const.pad * 4,
-        backgroundColor: theme.background1,
-        borderRadius: md ? Const.rad : 0,
-        border: theme.border,
+        backgroundColor: Const.css.bgc1,
+        borderRadius: Const.css.cardRad,
+        border: Const.css.border,
         ...style,
       }}
     >

@@ -1,5 +1,4 @@
 import {MenuInline} from './menu_inline'
-import {toggleTheme, useTheme} from '../../hooks/use_theme'
 import {Const} from '../../const'
 import Image from 'next/image'
 import {SideBar} from './side_bar/side_bar'
@@ -10,6 +9,7 @@ import {useBreakpoint} from '../../hooks/use_breakpoint'
 import {getInteractiveSvgs, getSvgFromSimpleIcon} from '../svgs'
 import github from 'simple-icons/icons/github'
 import linkedin from 'simple-icons/icons/linkedin'
+import {useTheme, setOrToggleTheme} from '../../hooks/use_theme_2'
 
 const openDrawer = () => useDrawerStore.getState().set({isOpen: true})
 
@@ -17,10 +17,10 @@ export const Nav = () => {
   const md = useBreakpoint.md()
   const lg = useBreakpoint.lg()
   const portfolio = usePortfolio()
-  const theme = useTheme()
   const iconSize = 24
-  const svgs = getInteractiveSvgs(theme.fontColor0, iconSize)
-  const hamburger = getInteractiveSvgs(theme.fontColor0, 32).hamburger
+  const svgs = getInteractiveSvgs(Const.css.fc0, iconSize)
+  const hamburger = getInteractiveSvgs(Const.css.fc0, 32).hamburger
+  const themeName = useTheme((s) => s.themeName)
 
   return (
     <>
@@ -31,9 +31,9 @@ export const Nav = () => {
         style={{
           zIndex: 10,
           position: 'fixed',
-          WebkitBoxShadow: theme.shadow,
-          MozBoxShadow: theme.shadow,
-          boxShadow: theme.shadow,
+          WebkitBoxShadow: Const.css.shadow,
+          MozBoxShadow: Const.css.shadow,
+          boxShadow: Const.css.shadow,
           left: 0,
           top: 0,
           right: 0,
@@ -47,7 +47,9 @@ export const Nav = () => {
             left: 0,
             top: 0,
             right: 0,
-            ...theme.nav,
+            WebkitBackdropFilter: 'blur(10px)',
+            backdropFilter: 'blur(10px)',
+            backgroundColor: Const.css.navbg,
           }}
         />
 
@@ -88,21 +90,25 @@ export const Nav = () => {
 
           <div
             style={{
-              fontSize: Const.fontSizes[lg ? 'lg' : 'md'],
+              fontSize: Const.css.lg,
               wordWrap: 'break-word',
-              color: theme.fontColor0,
+              color: Const.css.fc0,
               paddingLeft: Const.pad / (md ? 1 : 2),
               zIndex: 10,
             }}
           >
             {lg ? (
-              <div className="name">
+              <div className="name" style={{fontSize: Const.css.nameSize}}>
                 {portfolio.person.firstName + ' ' + portfolio.person.lastName}
               </div>
             ) : (
               <>
-                <div className="name">{portfolio.person.firstName}</div>
-                <div className="name">{portfolio.person.lastName}</div>
+                <div style={{fontSize: Const.css.nameSize}} className="name">
+                  {portfolio.person.firstName}
+                </div>
+                <div style={{fontSize: Const.css.nameSize}} className="name">
+                  {portfolio.person.lastName}
+                </div>
               </>
             )}
           </div>
@@ -132,7 +138,7 @@ export const Nav = () => {
           </div>
 
           <button
-            onClick={toggleTheme}
+            onClick={() => setOrToggleTheme()}
             className="icon-hover"
             style={{
               width: '12vw',
@@ -141,7 +147,7 @@ export const Nav = () => {
               cursor: 'pointer',
             }}
           >
-            {theme.name === 'light' ? svgs.darkMode : svgs.lightMode}
+            {themeName === 'light' ? svgs.darkMode : svgs.lightMode}
           </button>
 
           <a
@@ -158,7 +164,7 @@ export const Nav = () => {
                 minWidth: iconSize + 4,
               }}
             >
-              {getSvgFromSimpleIcon(github, iconSize, theme.fontColor0)}
+              {getSvgFromSimpleIcon(github, iconSize, Const.css.fc0)}
             </button>
           </a>
 
@@ -169,7 +175,7 @@ export const Nav = () => {
             tabIndex={-1}
           >
             <button className="icon-hover">
-              {getSvgFromSimpleIcon(linkedin, iconSize, theme.fontColor0)}
+              {getSvgFromSimpleIcon(linkedin, iconSize, Const.css.fc0)}
             </button>
           </a>
         </div>

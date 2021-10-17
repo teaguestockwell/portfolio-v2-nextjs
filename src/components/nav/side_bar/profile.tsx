@@ -1,11 +1,9 @@
 import Image from 'next/image'
 import {Const} from '../../../const'
-import {useThemeStore} from '../../../hooks/use_theme'
 import {usePortfolio} from '../../../hooks/use_portfolio_context'
 
 export const Profile = () => {
   const picW = Const.drawerWidth - Const.pad * 4
-  const theme = useThemeStore.getState().theme
   const {person} = usePortfolio()
   const fullName = person.firstName + ' ' + person.lastName
 
@@ -56,10 +54,10 @@ export const Profile = () => {
       <div
         className="name"
         style={{
-          color: theme.fontColor0,
+          color: Const.css.fc0,
           paddingTop: Const.pad,
           textAlign: 'center',
-          fontSize: Const.fontSizes.lg,
+          fontSize: Const.css.lg,
           overflowWrap: 'break-word',
           fontWeight: 600,
           ...textWrap,
@@ -70,8 +68,8 @@ export const Profile = () => {
 
       <div
         style={{
-          color: theme.fontColor0,
-          fontSize: Const.fontSizes.md,
+          color: Const.css.fc0,
+          fontSize: Const.css.md,
           overflowWrap: 'break-word',
         }}
       >
@@ -80,8 +78,8 @@ export const Profile = () => {
 
       <div
         style={{
-          color: theme.fontColor0,
-          fontSize: Const.fontSizes.md,
+          color: Const.css.fc0,
+          fontSize: Const.css.md,
           overflowWrap: 'break-word',
         }}
       >

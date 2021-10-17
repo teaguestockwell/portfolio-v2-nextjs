@@ -2,28 +2,24 @@ import {Element} from 'react-scroll'
 import {SectionHeader} from '../section_header'
 import {usePortfolio} from '../../hooks/use_portfolio_context'
 import React from 'react'
-import {useTheme} from '../../hooks/use_theme'
 import {Const} from '../../const'
 import linkedIn from 'simple-icons/icons/linkedin'
 import gitHub from 'simple-icons/icons/github'
 import {getInteractiveSvgs, getSvgFromSimpleIcon} from '../svgs'
 import {Link} from 'react-scroll'
-import {useBreakpoint} from '../../hooks/use_breakpoint'
 
 export const ContactSection = () => {
   const iconSize = 50
-  const theme = useTheme()
   const portfolio = usePortfolio()
-  const svgs = getInteractiveSvgs(theme.fontColor0, iconSize)
+  const svgs = getInteractiveSvgs(Const.css.fc0, iconSize)
   const space = Const.pad * 2
-  const xl = useBreakpoint.xl()
 
   return (
     <>
       <Element
         style={{
           minHeight: `100vh`,
-          backgroundColor: theme.background1,
+          backgroundColor: Const.css.bgc1,
           position: 'relative',
         }}
         name={portfolio.titles.contact}
@@ -37,7 +33,7 @@ export const ContactSection = () => {
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path style={{fill: theme.backGround0}} d="M 0,0 a 1,1 0 0,0 100,0" />
+          <path style={{fill: Const.css.bgc0}} d="M 0,0 a 1,1 0 0,0 100,0" />
         </svg>
         <div
           style={{
@@ -57,7 +53,7 @@ export const ContactSection = () => {
               flexDirection: 'column',
               paddingLeft: space,
               paddingRight: space,
-              backgroundColor: theme.background1,
+              backgroundColor: Const.css.bgc1,
               paddingBottom: '35vh',
               textDecoration: 'none',
             }}
@@ -71,18 +67,18 @@ export const ContactSection = () => {
               tabIndex={-1}
             >
               <button
-                className={`${theme.name}`}
+                className="hovbg"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   paddingRight: Const.pad,
                 }}
               >
-                {getSvgFromSimpleIcon(gitHub, iconSize, theme.fontColor0)}
+                {getSvgFromSimpleIcon(gitHub, iconSize, Const.css.fc0)}
                 <div
                   style={{
-                    fontSize: Const.fontSizes.lg,
-                    color: theme.fontColor1,
+                    fontSize: Const.css.lg,
+                    color: Const.css.fc1,
                     paddingLeft: space,
                     paddingRight: Const.pad,
                   }}
@@ -101,18 +97,18 @@ export const ContactSection = () => {
               tabIndex={-1}
             >
               <button
-                className={`${theme.name}`}
+                className="hovbg"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   paddingRight: Const.pad,
                 }}
               >
-                {getSvgFromSimpleIcon(linkedIn, iconSize, theme.fontColor0)}
+                {getSvgFromSimpleIcon(linkedIn, iconSize, Const.css.fc0)}
                 <div
                   style={{
-                    fontSize: Const.fontSizes.lg,
-                    color: theme.fontColor1,
+                    fontSize: Const.css.lg,
+                    color: Const.css.fc1,
                     paddingLeft: space,
                     paddingRight: Const.pad,
                   }}
@@ -131,7 +127,7 @@ export const ContactSection = () => {
               tabIndex={-1}
             >
               <button
-                className={`${theme.name}`}
+                className="hovbg"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -141,8 +137,8 @@ export const ContactSection = () => {
                 {svgs.mail}
                 <div
                   style={{
-                    fontSize: Const.fontSizes.lg,
-                    color: theme.fontColor1,
+                    fontSize: Const.css.lg,
+                    color: Const.css.fc1,
                     paddingLeft: space,
                   }}
                 >
@@ -174,17 +170,18 @@ export const ContactSection = () => {
           </Link>
 
           <a
-            className={theme.name}
+            className="hovbg"
             href={`https://github.com/tsAppDevelopment/hello2`}
             rel="noreferrer"
             target="_blank"
             style={{
-              fontSize: Const.fontSizes.md,
-              color: theme.fontColor1,
+              fontSize: Const.css.md,
+              color: Const.css.fc1,
               textAlign: 'center',
               marginTop: space / 2,
               paddingLeft: space,
               paddingRight: space,
+              borderRadius: Const.rad,
             }}
           >
             See this site on Github

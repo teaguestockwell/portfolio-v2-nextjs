@@ -1,4 +1,3 @@
-import {useTheme} from '../../../hooks/use_theme'
 import {Profile} from './profile'
 import {Menu} from './menu'
 import {Footer} from './footer'
@@ -8,8 +7,6 @@ import React from 'react'
 // eslint-disable-next-line react/display-name
 export const SideBar = React.memo(
   ({style = {}}: {style?: any}) => {
-    const theme = useTheme()
-
     return (
       <div
         style={{
@@ -19,9 +16,9 @@ export const SideBar = React.memo(
           display: 'flex',
           justifyContent: 'space-between',
           flexDirection: 'column',
-          backgroundColor: theme.background1,
+          backgroundColor: Const.css.bgc1,
           overflowY: 'auto',
-          borderRight: theme.border,
+          borderRight: Const.css.border,
           ...style,
         }}
       >
