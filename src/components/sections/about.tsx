@@ -59,7 +59,7 @@ export const AboutSection = () => {
                 {portfolio.person.shortAbout}
               </div>
 
-              <TypeWriterText
+              {/* <TypeWriterText
                 lines={portfolio.person.typeWriterCallToActions}
                 style={{
                   fontSize: Const.css.lg,
@@ -67,7 +67,7 @@ export const AboutSection = () => {
                   color: Const.css.fc0,
                   height: 51,
                 }}
-              />
+              /> */}
 
               <Link
                 key={portfolio.titles.contact}
