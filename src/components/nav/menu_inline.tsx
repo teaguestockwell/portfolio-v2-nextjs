@@ -26,13 +26,14 @@ export const MenuInline = ({items}: {items: string[]}) => {
             offset={getOffset(i)}
           >
             <button
-              className={`menu-inline ${themeName}`}
+              className={`menu-inline`}
               style={{
                 paddingRight: '0.75vw',
                 paddingLeft: '0.75vw',
                 color: Const.css.fc0,
                 fontSize: Const.css.md,
                 wordWrap: 'break-word',
+                borderRadius: Const.rad,
               }}
             >
               {x}

@@ -25,9 +25,9 @@ export const TypeWriterText = ({
 
           // end of line, reverses direction after timeout
           if (s.dir === 'f') {
-            new Promise(() =>
+            new Promise((resolve) =>
               setTimeout(() => {
-                set((s) => ({...s, dir: 'b'}))
+                resolve(set((s) => ({...s, dir: 'b'})))
               }, eolDelay)
             )
             return

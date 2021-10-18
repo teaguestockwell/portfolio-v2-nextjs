@@ -44,4 +44,8 @@ export const setOrToggleTheme = (themeName?: string) => {
 
   // update css vars
   document.body.dataset.theme = themeName
+
+  // color-scheme tells browser how to render built-in elements like forms, scrollbars, etc.
+  // if color-scheme is null, this will remove the property
+  document.documentElement.style.setProperty('color-scheme', themeName)
 }
