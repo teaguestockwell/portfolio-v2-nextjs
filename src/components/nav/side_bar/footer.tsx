@@ -1,4 +1,4 @@
-import {useTheme} from 'next-themes'
+import {setOrToggleTheme, useTheme} from '../../../hooks/use_theme_2'
 import github from 'simple-icons/icons/github'
 import linkedin from 'simple-icons/icons/linkedin'
 import {Const} from '../../../const'
@@ -9,11 +9,6 @@ export const Footer = () => {
   const iconSize = 32
   const {person} = usePortfolio()
   const svgs = getInteractiveSvgs(Const.css.fc0, iconSize)
-  const {theme, setTheme} = useTheme()
-
-  const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light')
-  }
 
   return (
     <div
@@ -30,13 +25,15 @@ export const Footer = () => {
         }}
       >
         <button
-          onClick={() => toggleTheme()}
+          onClick={() => setOrToggleTheme()}
           className="icon-hover"
           style={{
             cursor: 'pointer',
           }}
         >
-          {theme === 'light' ? svgs.darkMode : svgs.lightMode}
+          {useTheme.getState().themeName === 'light'
+            ? svgs.darkMode
+            : svgs.lightMode}
         </button>
       </div>
 

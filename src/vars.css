@@ -1,5 +1,4 @@
-[data-theme='light'],
-[data-theme='light'] body {
+body[data-theme='light'] {
   --nav-bg: rgba(255, 255, 255, 0.72);
   --bgc-0: #f3f2ef;
   --bgc-1: #fff;
@@ -13,8 +12,7 @@
   --hovbg: rgba(0, 0, 0, 0.1);
 }
 
-[data-theme='dark'],
-[data-theme='dark'] body {
+body[data-theme='dark'] {
   --nav-bg: rgba(29, 29, 31, 0.72);
   --bgc-0: #080510;
   --bgc-1: #151516;

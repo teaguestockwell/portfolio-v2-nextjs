@@ -9,7 +9,7 @@ import {useBreakpoint} from '../../hooks/use_breakpoint'
 import {getInteractiveSvgs, getSvgFromSimpleIcon} from '../svgs'
 import github from 'simple-icons/icons/github'
 import linkedin from 'simple-icons/icons/linkedin'
-import {useTheme} from 'next-themes'
+import {useTheme, setOrToggleTheme} from '../../hooks/use_theme_2'
 
 const openDrawer = () => useDrawerStore.getState().set({isOpen: true})
 
@@ -20,11 +20,7 @@ export const Nav = () => {
   const iconSize = 24
   const svgs = getInteractiveSvgs(Const.css.fc0, iconSize)
   const hamburger = getInteractiveSvgs(Const.css.fc0, 32).hamburger
-  const {theme, setTheme} = useTheme()
-
-  const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light')
-  }
+  const themeName = useTheme((s) => s.themeName)
 
   return (
     <>
@@ -142,7 +138,7 @@ export const Nav = () => {
           </div>
 
           <button
-            onClick={() => toggleTheme()}
+            onClick={() => setOrToggleTheme()}
             className="icon-hover"
             style={{
               width: '12vw',
@@ -151,7 +147,7 @@ export const Nav = () => {
               cursor: 'pointer',
             }}
           >
-            {theme === 'light' ? svgs.darkMode : svgs.lightMode}
+            {themeName === 'light' ? svgs.darkMode : svgs.lightMode}
           </button>
 
           <a

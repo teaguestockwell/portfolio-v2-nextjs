@@ -29,7 +29,6 @@
     "next": "11.0.1",
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.2.24",
-    "next-themes": "^0.0.15",
     "react": "17.0.2",
     "react-card-flip": "^1.1.3",
     "react-dancing-lines": "^1.1.3",
