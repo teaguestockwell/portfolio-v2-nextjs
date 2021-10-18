@@ -41,8 +41,16 @@ button {
   all: unset;
 }
 
-button:focus {
-  outline: 1px blue;
+button:focus,
+img:focus,
+a:focus {
+  outline: 3px solid blue;
+}
+
+h1,
+h2,
+h3 {
+  all: unset;
 }
 
 .hero:hover {

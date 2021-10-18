@@ -3,7 +3,7 @@ import {Const} from '../../const'
 export const Card = ({
   children,
   style,
-  icon: topRightIcon,
+  icon,
 }: {
   children: JSX.Element | JSX.Element[]
   style?: any
@@ -23,8 +23,8 @@ export const Card = ({
         ...style,
       }}
     >
-      {topRightIcon}
       {children}
+      {icon}
     </div>
   )
 }
