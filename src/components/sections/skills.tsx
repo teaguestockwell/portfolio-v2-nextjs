@@ -36,6 +36,7 @@ export const SkillsSection = () => {
               tabIndex={-1}
             >
               <button
+                aria-label={'react-icon-cloud on npm'}
                 className="hover-button"
                 style={{
                   marginTop: Const.pad * 4,

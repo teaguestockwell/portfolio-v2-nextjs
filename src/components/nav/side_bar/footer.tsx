@@ -25,6 +25,7 @@ export const Footer = () => {
         }}
       >
         <button
+          aria-label={'Toggle Theme'}
           onClick={() => setOrToggleTheme()}
           className="icon-hover"
           style={{
@@ -52,7 +53,7 @@ export const Footer = () => {
           target="_blank"
           tabIndex={-1}
         >
-          <button className="icon-hover" style={{}}>
+          <button className="icon-hover" style={{}} aria-label={'Github'}>
             {getSvgFromSimpleIcon(github, iconSize, Const.css.fc0)}
           </button>
         </a>
@@ -63,7 +64,7 @@ export const Footer = () => {
           target="_blank"
           tabIndex={-1}
         >
-          <button className="icon-hover">
+          <button className="icon-hover" aria-label={'LinkedIn'}>
             {getSvgFromSimpleIcon(linkedin, iconSize, Const.css.fc0)}
           </button>
         </a>
@@ -75,7 +76,11 @@ export const Footer = () => {
           aria-label="Email"
           tabIndex={-1}
         >
-          <button className="icon-hover" style={{}}>
+          <button
+            className="icon-hover"
+            style={{}}
+            aria-label={'Send me an email'}
+          >
             {svgs.mail}
           </button>
         </a>

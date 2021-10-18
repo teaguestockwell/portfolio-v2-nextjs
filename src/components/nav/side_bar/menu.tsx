@@ -31,6 +31,7 @@ export const Menu = () => {
       {titleVals.map((x, i) => (
         <Link key={x} to={x} {...Const.reactScrollProps} offset={getOffset(i)}>
           <button
+            aria-label={x}
             className={'menu-sidebar'}
             style={{
               display: 'flex',

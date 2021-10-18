@@ -221,6 +221,7 @@ export const Project = React.memo(
           >
             {repos.length > 0 && (
               <button
+                aria-label={'Github'}
                 className="icon-hover"
                 onClick={openModal}
                 style={{

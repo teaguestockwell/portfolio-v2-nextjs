@@ -138,6 +138,7 @@ export const Nav = () => {
           </div>
 
           <button
+            aria-label={'Toggle theme'}
             onClick={() => setOrToggleTheme()}
             className="icon-hover"
             style={{
@@ -157,6 +158,7 @@ export const Nav = () => {
             target="_blank"
           >
             <button
+              aria-label={'Github'}
               className="icon-hover"
               style={{
                 width: '12vw',
@@ -174,7 +176,7 @@ export const Nav = () => {
             target="_blank"
             tabIndex={-1}
           >
-            <button className="icon-hover">
+            <button className="icon-hover" aria-label={'LinkedIn'}>
               {getSvgFromSimpleIcon(linkedin, iconSize, Const.css.fc0)}
             </button>
           </a>

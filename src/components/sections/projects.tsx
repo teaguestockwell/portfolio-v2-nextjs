@@ -26,7 +26,9 @@ export const ProjectsSection = () => {
           items={portfolio.projects}
           getCell={(t) => (
             <>
-              <a id={t.id} href={'#' + t.id} />
+              <a id={t.id} href={'#' + t.id} style={{display: 'none'}}>
+                {t.id}
+              </a>
               <Project
                 techName={portfolio.titles.tech}
                 name={t.name}

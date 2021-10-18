@@ -67,6 +67,7 @@ export const ContactSection = () => {
               tabIndex={-1}
             >
               <button
+                aria-label={'Github'}
                 className="hovbg"
                 style={{
                   display: 'flex',
@@ -97,6 +98,7 @@ export const ContactSection = () => {
               tabIndex={-1}
             >
               <button
+                aria-label={'LinkedIn'}
                 className="hovbg"
                 style={{
                   display: 'flex',
@@ -127,6 +129,7 @@ export const ContactSection = () => {
               tabIndex={-1}
             >
               <button
+                aria-label={'Send me an email'}
                 className="hovbg"
                 style={{
                   display: 'flex',
@@ -166,7 +169,9 @@ export const ContactSection = () => {
             to={portfolio.titles.about}
             {...Const.reactScrollProps}
           >
-            <button className="icon-hover">{svgs.upArrow}</button>
+            <button className="icon-hover" aria-label={'Back to top'}>
+              {svgs.upArrow}
+            </button>
           </Link>
 
           <a
