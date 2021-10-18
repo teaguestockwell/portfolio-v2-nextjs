@@ -40,6 +40,8 @@ export const Menu = () => {
               color: Const.css.fc0,
               width: '-webkit-fill-available',
               borderRadius: Const.rad,
+              borderBottom: 'solid',
+              borderColor: 'rgba(0, 0, 0, 0)',
             }}
           >
             {customSvgs[x]}

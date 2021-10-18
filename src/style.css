@@ -76,10 +76,7 @@ button:focus {
   background-color: rgba(0, 0, 0, 0) !important;
   border-radius: 0px !important;
   transition: none !important;
-}
-
-.scroll-active .menu-sidebar > * {
-  margin-top: 3px;
+  border-color: var(--fc-0) !important;
 }
 
 .menu-sidebar:hover {
