@@ -71,6 +71,7 @@ export const Profile = () => {
           color: Const.css.fc0,
           fontSize: Const.css.md,
           overflowWrap: 'break-word',
+          textAlign: 'center',
         }}
       >
         {person.jobTitle}
@@ -81,6 +82,7 @@ export const Profile = () => {
           color: Const.css.fc0,
           fontSize: Const.css.md,
           overflowWrap: 'break-word',
+          textAlign: 'center',
         }}
       >
         {person.location}
