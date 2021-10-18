@@ -7,6 +7,7 @@ import {Const} from '../../const'
 import {Content} from '../content'
 import {Link} from 'react-scroll'
 import {Glow} from '../glow'
+import {TypeWriterText} from '../typewriter_text'
 
 export const AboutSection = () => {
   const portfolio = usePortfolio()
@@ -58,12 +59,22 @@ export const AboutSection = () => {
                 {portfolio.person.shortAbout}
               </div>
 
+              <TypeWriterText
+                lines={portfolio.person.typeWriterCallToActions}
+                style={{
+                  fontSize: Const.css.lg,
+                  wordWrap: 'break-word',
+                  color: Const.css.fc0,
+                  height: 51,
+                }}
+              />
+
               <Link
                 key={portfolio.titles.contact}
                 to={portfolio.titles.contact}
                 {...Const.reactScrollProps}
                 offset={0}
-                style={{marginTop: Const.pad, width: 'fit-content'}}
+                style={{marginTop: Const.pad * 2, width: 'fit-content'}}
               >
                 <button
                   className="hover-button"

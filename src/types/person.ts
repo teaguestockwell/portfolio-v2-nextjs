@@ -8,4 +8,5 @@ export interface Person {
   linkedInSrc: string
   githubSrc: string
   shortAbout: string
+  typeWriterCallToActions: string[]
 }
