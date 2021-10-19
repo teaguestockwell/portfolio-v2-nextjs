@@ -41,11 +41,11 @@ button {
   all: unset;
 }
 
-button:focus,
+/* button:focus,
 img:focus,
 a:focus {
   outline: 3px solid blue;
-}
+} */
 
 h1,
 h2,
