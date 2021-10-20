@@ -1,47 +1,58 @@
 import React from 'react'
+import create from 'zustand'
+import {combine} from 'zustand/middleware'
+
+const store = create(
+  combine({lineI: 0, charI: 0, dir: 'f', eolCount: 0}, (set) => ({set}))
+)
 
 export const TypeWriterText = ({
   lines,
   nextCharDelayMs = 50,
   style = {},
-  eolDelay = 2000,
+  eolWait = 20,
 }: {
   lines: string[]
   nextCharDelayMs?: number
   style?: React.CSSProperties
-  eolDelay?: number
+  eolWait?: number
 }) => {
-  const [s, set] = React.useState({lineI: 0, charI: 0, dir: 'f'})
+  const state = store()
 
   React.useEffect(
     () => {
-      const ticker = setTimeout(
+      // a global store is used because set interval is only created once. if React.useState was used, s would be static.
+      // to solve that you can use a global store with a getter
+      const ticker = setInterval(
         () => {
+          const s = store.getState()
           // add a char
           if (s.dir === 'f' && s.charI < lines[s.lineI].length) {
-            set((s) => ({...s, charI: s.charI + 1}))
+            store.setState({...s, charI: s.charI + 1})
             return
           }
 
-          // end of line, reverses direction after timeout
-          if (s.dir === 'f') {
-            new Promise((resolve) =>
-              setTimeout(() => {
-                resolve(set((s) => ({...s, dir: 'b'})))
-              }, eolDelay)
-            )
+          // end of line, await eol cycle count to === eolWait
+          if (s.dir === 'f' && s.eolCount !== eolWait) {
+            store.setState({...s, eolCount: s.eolCount + 1})
+            return
+          }
+
+          // end of line, reverses direction waiting a few cycles
+          if (s.dir === 'f' && s.eolCount === eolWait) {
+            store.setState({...s, dir: 'b'})
             return
           }
 
           // remove a char,
           if (s.charI > 0) {
-            set((s) => ({...s, charI: s.charI - 1}))
+            store.setState({...s, charI: s.charI - 1})
             return
           }
 
           // next line
           const lineI = s.lineI + 1 === lines.length ? 0 : s.lineI + 1
-          set((s) => ({...s, lineI, dir: 'f'}))
+          store.setState({...s, lineI, dir: 'f', eolCount: 0})
         },
 
         // throttle typing
@@ -49,14 +60,12 @@ export const TypeWriterText = ({
       )
 
       // cleanup timeout, and stop typing
-      return () => clearTimeout(ticker)
+      return () => clearInterval(ticker)
     },
 
-    // run when s changes
-    [s, lines, eolDelay, nextCharDelayMs]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
   )
 
-  const text = lines[s.lineI].substring(0, s.charI)
-
-  return <div style={style}>{text}</div>
+  return <div style={style}>{lines[state.lineI].substring(0, state.charI)}</div>
 }
