@@ -16,6 +16,8 @@ export const Glow = ({
         display: 'inline-block',
         width: '100%',
         overflow: 'hidden',
+        // https://stackoverflow.com/questions/20268962/fixed-attachment-background-image-flicker-disappear-in-chrome-when-coupled-with
+        WebkitTransform: 'translate3d(0,0,0)',
       }}
     >
       <img
