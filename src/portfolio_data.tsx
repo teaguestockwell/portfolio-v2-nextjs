@@ -1,10 +1,11 @@
 import {Portfolio} from './types/types'
 import {v4} from 'uuid'
 
+const cdnDomain = 'd1jdqfkicm13py.cloudfront.net'
+
 export const portfolioData: Portfolio = {
   domain: 'https://teaguestockwell.com',
-  heroM3u8Src:
-    'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/level-2-hls/master.m3u8',
+  heroM3u8Src: `https://${cdnDomain}/level-2-hls/master.m3u8`,
   id: v4(),
   person: {
     id: v4(),
@@ -142,8 +143,7 @@ export const portfolioData: Portfolio = {
         'Implemented a serverless REST API that the manages the lifecycle of securely uploading images from the client using presigned urls',
       ],
       deploymentSrc: 'http://hello-next-auth.vercel.app',
-      m3u8Src:
-        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/buildable-hls/master.m3u8',
+      m3u8Src: `https://${cdnDomain}/buildable-hls/master.m3u8`,
       repos: [
         {
           name: 'mono repo',
@@ -176,8 +176,7 @@ export const portfolioData: Portfolio = {
         'Created containerized React UI for real time aircraft data management, and cargo loading with offline persistence',
       ],
       deploymentSrc: 'https://levels.apps.dso.mil',
-      m3u8Src:
-        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/levels-3-hls/master.m3u8',
+      m3u8Src: `https://${cdnDomain}/levels-3-hls/master.m3u8`,
       repos: [
         {
           name: 'Frontend',
@@ -222,8 +221,7 @@ export const portfolioData: Portfolio = {
       ],
       subHeading: `Developed a X-Platform native UI to manage aircraft cargo loading`,
       deploymentSrc: 'https://fivelevel.web.app',
-      m3u8Src:
-        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/five-level-hls/master.m3u8',
+      m3u8Src: `https://${cdnDomain}/five-level-hls/master.m3u8`,
       repos: [
         {
           name: 'Frontend',
@@ -256,8 +254,7 @@ export const portfolioData: Portfolio = {
       bullets: [],
       deploymentSrc:
         'https://play.google.com/store/apps/details?id=com.TsAppDevelopment.c17mac',
-      m3u8Src:
-        'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/5-level-2-hls/master.m3u8',
+      m3u8Src: `https://${cdnDomain}/5-level-2-hls/master.m3u8`,
       repos: [
         {
           name: 'Android UI',
