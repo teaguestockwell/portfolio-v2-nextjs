@@ -48,7 +48,9 @@ export default function Home(portfolio: Types.Portfolio) {
 
       <PortfolioContext.Provider value={portfolio}>
         <WithNav>
-          <a id="main-content" href="#main-content" />
+          <a id="main-content" href="#main-content" style={{display: 'none'}}>
+            Main Content
+          </a>
           <AboutSection />
 
           <SkillsSection />
