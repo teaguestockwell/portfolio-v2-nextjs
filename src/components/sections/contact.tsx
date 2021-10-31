@@ -149,6 +149,36 @@ export const ContactSection = () => {
                 </div>
               </button>
             </a>
+
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href={portfolio.domain + '/resume.pdf'}
+              aria-label="My resume"
+              style={{marginTop: space, width: 'fit-content'}}
+              tabIndex={-1}
+            >
+              <button
+                aria-label={'Download my resume'}
+                className="hovbg"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  paddingRight: Const.pad,
+                }}
+              >
+                {svgs.pdf}
+                <div
+                  style={{
+                    fontSize: Const.css.lg,
+                    color: Const.css.fc1,
+                    paddingLeft: space,
+                  }}
+                >
+                  Download my resume
+                </div>
+              </button>
+            </a>
           </div>
         </div>
 
