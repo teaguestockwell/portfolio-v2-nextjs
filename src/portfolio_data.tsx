@@ -21,7 +21,7 @@ export const portfolioData: Portfolio = {
       'solves problems',
       'is easy to use',
       'empowers users',
-      'is lighting fast',
+      'is lightning fast',
       'is maintainable',
     ],
   },
