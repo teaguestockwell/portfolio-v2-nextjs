@@ -5,6 +5,32 @@ import {Const} from '../../../const'
 import {usePortfolio} from '../../../hooks/use_portfolio_context'
 import {getInteractiveSvgs, getSvgFromSimpleIcon} from '../../svgs'
 
+const ThemeToggle = () => {
+  const theme = useTheme().themeName
+  const svgs = getInteractiveSvgs(Const.css.fc0, 32)
+  return (
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        width: '100%',
+      }}
+    >
+      <button
+        aria-label={'Toggle Theme'}
+        onClick={() => setOrToggleTheme()}
+        className="icon-hover"
+        style={{
+          cursor: 'pointer',
+        }}
+      >
+        {theme === 'light' ? svgs.darkMode : svgs.lightMode}
+      </button>
+    </div>
+  )
+}
+
 export const Footer = () => {
   const iconSize = 32
   const {person} = usePortfolio()
@@ -16,27 +42,7 @@ export const Footer = () => {
         paddingTop: Const.pad,
       }}
     >
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-evenly',
-          width: '100%',
-        }}
-      >
-        <button
-          aria-label={'Toggle Theme'}
-          onClick={() => setOrToggleTheme()}
-          className="icon-hover"
-          style={{
-            cursor: 'pointer',
-          }}
-        >
-          {useTheme.getState().themeName === 'light'
-            ? svgs.darkMode
-            : svgs.lightMode}
-        </button>
-      </div>
+      <ThemeToggle />
 
       <div
         style={{
