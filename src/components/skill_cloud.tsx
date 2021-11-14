@@ -1,6 +1,5 @@
-import {v4} from 'uuid'
 import {useTheme} from '../hooks/use_theme_2'
-import {TagCanvasOptions, IconCloud, IconTag} from 'react-icon-cloud'
+import {Cloud, ICloud, renderSimpleIcon} from 'react-icon-cloud'
 import {Const} from '../const'
 import React from 'react'
 import {usePortfolio} from '../hooks/use_portfolio_context'
@@ -9,14 +8,10 @@ export const SkillCloud = () => {
   const portfolio = usePortfolio()
   const themeName = useTheme((s) => s.themeName)
   const bgHex = themeName === 'light' ? '#f3f2ef' : '#080510'
-  const fallback = themeName === 'light' ? '#6e6e73' : '#a1a1a6'
+  const fallbackHex = themeName === 'light' ? '#6e6e73' : '#a1a1a6'
+  const minContrastRatio = themeName === 'dark' ? 2 : 1.2
 
-  const tags: IconTag[] = portfolio.icons.map((icon) => ({
-    id: v4(),
-    simpleIcon: icon,
-  }))
-
-  const tagCanvasOptions: TagCanvasOptions = {
+  const options: ICloud['options'] = {
     reverse: true,
     depth: 1,
     wheelZoom: false,
@@ -29,24 +24,35 @@ export const SkillCloud = () => {
     outlineColour: '#0000',
   }
 
-  const canvasContainerStyle: React.CSSProperties = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: Const.pad * 2,
-    marginRight: Const.pad * 2,
+  const containerProps: ICloud['containerProps'] = {
+    style: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginLeft: Const.pad * 2,
+      marginRight: Const.pad * 2,
+    },
   }
 
   return (
-    <IconCloud
-      iconSize={42}
-      minContrastRatio={themeName === 'dark' ? 2 : 1.2}
-      canvasStyle={{}}
-      canvasContainerStyle={canvasContainerStyle}
-      tagCanvasOptions={tagCanvasOptions}
-      backgroundHexColor={bgHex}
-      fallbackHexColor={fallback}
-      tags={tags}
-    />
+    <Cloud
+      options={options}
+      containerProps={containerProps}
+      id={'stable-id-for-CSR-SSR'}
+    >
+      {portfolio.icons.map((icon) =>
+        renderSimpleIcon({
+          icon,
+          bgHex,
+          fallbackHex,
+          minContrastRatio,
+          aProps: {
+            onClick: (e) => {
+              e.preventDefault()
+            },
+          },
+        })
+      )}
+    </Cloud>
   )
 }
