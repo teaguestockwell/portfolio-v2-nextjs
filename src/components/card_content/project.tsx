@@ -1,4 +1,4 @@
-import {v4} from 'uuid'
+import {guid} from '../../utils'
 import {Const} from '../../const'
 import {
   getInteractiveSvgs,
@@ -40,7 +40,7 @@ const Repos = ({repos}: {repos: {name: string; src: string}[]}) => {
         {repos.map(({name, src}, i) => (
           <a
             tabIndex={-1}
-            key={v4()}
+            key={guid()}
             href={src}
             target="_blank"
             rel="noreferrer"
@@ -191,7 +191,7 @@ export const Project = React.memo(
               }}
             >
               <SvgScroll2
-                key={v4()}
+                key={guid()}
                 svgs={svgs.map((key) => simpleSvgs[key])}
               />
             </div>
@@ -200,7 +200,7 @@ export const Project = React.memo(
 
         <div style={{marginRight: Const.pad, marginLeft: Const.pad}}>
           <div
-            key={v4()}
+            key={guid()}
             style={{
               color: Const.css.fc1,
               marginBottom: Const.pad * 2,

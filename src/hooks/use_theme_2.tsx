@@ -1,6 +1,6 @@
 import {combine} from 'zustand/middleware'
 import create from 'zustand'
-import {useMedia} from 'react-use'
+import {useMedia} from '../hooks/use_media'
 import {useEffect} from 'react'
 
 export const useTheme = create(

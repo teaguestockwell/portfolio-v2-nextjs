@@ -1,5 +1,4 @@
 import type {AppProps} from 'next/app'
-import 'video.js/dist/video-js.css'
 import '../style.css'
 import '../vars.css'
 

@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import {Const} from '../const'
-import {v4} from 'uuid'
+import {guid} from '../utils'
 import * as Types from '../types/types'
 import {hex2contrast} from '@csstools/convert-colors'
 
@@ -221,7 +221,7 @@ export const getCustomSvgs = (
 const Svg = ({name, svg}: {name?: string | undefined; svg: any}) => {
   return (
     <div
-      key={v4()}
+      key={guid()}
       className="icon-hover"
       style={{
         width: 100,
@@ -273,7 +273,7 @@ export const SvgScroll = ({
       }}
     >
       {svgs.map((s) => (
-        <div key={v4()}>{s}</div>
+        <div key={guid()}>{s}</div>
       ))}
     </div>
   )
@@ -299,12 +299,12 @@ export const SvgScroll2 = ({
       <div>
         <div style={{display: 'flex'}}>
           {svgs.slice(0, Math.floor(svgs.length / 2)).map((s) => (
-            <div key={v4()}>{s}</div>
+            <div key={guid()}>{s}</div>
           ))}
         </div>
         <div style={{display: 'flex', paddingLeft: 58, paddingTop: 20}}>
           {svgs.slice(Math.floor(svgs.length / 2), svgs.length - 1).map((s) => (
-            <div key={v4()}>{s}</div>
+            <div key={guid()}>{s}</div>
           ))}
         </div>
       </div>

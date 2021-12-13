@@ -74,11 +74,6 @@ h3 {
   transform: scale(1.2);
 }
 
-/* temp fix until aspect-ratio is supported with release of safari 15 */
-.video-js {
-  background-color: rgba(0, 0, 0, 0) !important;
-}
-
 .scroll-active .menu-sidebar {
   border-bottom: solid;
   background-color: rgba(0, 0, 0, 0) !important;

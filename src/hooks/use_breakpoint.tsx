@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import {useMedia} from 'react-use'
+import {useMedia} from '../hooks/use_media'
 
 type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs' | 'projectsBreak'
 

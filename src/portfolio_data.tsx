@@ -1,14 +1,14 @@
 import {Portfolio} from './types/types'
-import {v4} from 'uuid'
+import {guid} from './utils'
 
 const cdnDomain = 'd1jdqfkicm13py.cloudfront.net'
 
 export const portfolioData: Portfolio = {
   domain: 'https://teaguestockwell.com',
   heroM3u8Src: `https://${cdnDomain}/level-2-hls/master.m3u8`,
-  id: v4(),
+  id: guid(),
   person: {
-    id: v4(),
+    id: guid(),
     firstName: 'Teague',
     lastName: 'Stockwell',
     email: 'tsAppDevelopment@gmail.com',
@@ -29,7 +29,7 @@ export const portfolioData: Portfolio = {
 
   jobs: [
     {
-      id: v4(),
+      id: guid(),
       name: 'Lead Software Engineer',
       company: 'Rainier Spark Tron',
       dateRange: 'June 2021 - Present',
@@ -45,7 +45,7 @@ export const portfolioData: Portfolio = {
       ],
     },
     {
-      id: v4(),
+      id: guid(),
       name: 'Software Engineer',
       company: 'Aloha Spark Tron',
       dateRange: 'November 2020 - June 2021',
@@ -63,7 +63,7 @@ export const portfolioData: Portfolio = {
       ],
     },
     {
-      id: v4(),
+      id: guid(),
       name: 'Aerospace Mechanic',
       company: 'United States Air Force',
       dateRange: 'October 2017 - October 2020',
@@ -143,7 +143,7 @@ export const portfolioData: Portfolio = {
         'Implemented a serverless REST API that the manages the lifecycle of securely uploading images from the client using presigned urls',
       ],
       deploymentSrc: 'http://hello-next-auth.vercel.app',
-      m3u8Src: `https://${cdnDomain}/buildable-hls/master.m3u8`,
+      m3u8Src: `https://${cdnDomain}/pre-hls/buildable-encoded.mp4`,
       repos: [
         {
           name: 'mono repo',
@@ -176,7 +176,7 @@ export const portfolioData: Portfolio = {
         'Created containerized React UI for real time aircraft data management, and cargo loading with offline persistence',
       ],
       deploymentSrc: 'https://levels.apps.dso.mil',
-      m3u8Src: `https://${cdnDomain}/levels-3-hls/master.m3u8`,
+      m3u8Src: `https://${cdnDomain}/levels-2021-10-07-encoded-hq.mp4`,
       repos: [
         {
           name: 'Frontend',
@@ -221,7 +221,7 @@ export const portfolioData: Portfolio = {
       ],
       subHeading: `Developed a X-Platform native UI to manage aircraft cargo loading`,
       deploymentSrc: 'https://fivelevel.web.app',
-      m3u8Src: `https://${cdnDomain}/five-level-hls/master.m3u8`,
+      m3u8Src: `https://${cdnDomain}/pre-hls/five-level.mp4`,
       repos: [
         {
           name: 'Frontend',
@@ -254,7 +254,7 @@ export const portfolioData: Portfolio = {
       bullets: [],
       deploymentSrc:
         'https://play.google.com/store/apps/details?id=com.TsAppDevelopment.c17mac',
-      m3u8Src: `https://${cdnDomain}/5-level-2-hls/master.m3u8`,
+      m3u8Src: `https://${cdnDomain}/pre-hls/5-level-2-encoded.mp4`,
       repos: [
         {
           name: 'Android UI',
@@ -264,7 +264,7 @@ export const portfolioData: Portfolio = {
       svgs: ['android', 'java', 'git', 'github'],
     },
     // {
-    //   id: v4(),
+    //   id: guid(),
     //   name: 'Dog of the Day',
     //   dateRange: 'Mar 2021',
     //   subHeading: `A lighthearted React app to share your favorite animals during standup`,
@@ -291,7 +291,7 @@ export const portfolioData: Portfolio = {
     //   ],
     // },
     // {
-    //   id: v4(),
+    //   id: guid(),
     //   name: `Doctor's Patient Portal`,
     //   subHeading: `Developed a demo Flutter UI to consume real time checkups to a doctor's office`,
     //   dateRange: 'March 2021',
@@ -314,7 +314,7 @@ export const portfolioData: Portfolio = {
   ],
   schools: [
     {
-      id: v4(),
+      id: guid(),
       name: 'Southwestern College',
       dateRange: 'May 2021',
       subHeading: `Bachelor of Science, Computer Programming`,
@@ -322,7 +322,7 @@ export const portfolioData: Portfolio = {
       href: 'https://www.sckans.edu/',
     },
     {
-      id: v4(),
+      id: guid(),
       name: 'Community College of the Air Force',
       dateRange: 'August 2019',
       subHeading: `Associate of Applied Science, Aviation Maintenance Technology`,
