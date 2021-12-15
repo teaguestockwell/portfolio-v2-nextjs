@@ -143,3 +143,15 @@ h3 {
   width: auto;
   z-index: 1001;
 }
+
+@keyframes hero-slide {
+  0% {
+    transform: translateY(-8px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}

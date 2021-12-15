@@ -48,6 +48,7 @@ export const MobileHero = ({m3u8Src}: {m3u8Src: string}) => {
         boxShadow: shadow,
         WebkitBoxShadow: shadow,
         MozBoxShadow: shadow,
+        animation: 'hero-slide 8s infinite ease-in-out',
       }}
     >
       <Image
