@@ -30,6 +30,7 @@ export const Glow = ({
           left: `${tlwh[1]}%`,
           width: `${tlwh[2]}%`,
           height: `${tlwh[3]}%`,
+          opacity: 0.8,
         }}
       />
 
