@@ -14,7 +14,11 @@ export const AboutSection = () => {
 
   return (
     <Element name={portfolio.titles.about} key={portfolio.titles.about}>
-      <Glow tlwh={[-14, -10, 115, 110]} publicSrc="/glow1.png">
+      <Glow
+        tlwh={[-36, -10, 115, 135]}
+        publicSrc="/glow1.png"
+        rest={{transform: 'skewY(170deg)'}}
+      >
         {/* Above the fold */}
         <Content>
           <div

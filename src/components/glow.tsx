@@ -3,10 +3,12 @@ export const Glow = ({
   children,
   tlwh,
   publicSrc = '/glow.png',
+  rest = {},
 }: {
   children: JSX.Element | JSX.Element[]
   tlwh: [number, number, number, number]
   publicSrc?: string
+  rest?: any
 }) => {
   return (
     <div
@@ -31,6 +33,7 @@ export const Glow = ({
           width: `${tlwh[2]}%`,
           height: `${tlwh[3]}%`,
           opacity: 0.8,
+          ...rest,
         }}
       />
 
