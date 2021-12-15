@@ -14,7 +14,7 @@ export const AboutSection = () => {
 
   return (
     <Element name={portfolio.titles.about} key={portfolio.titles.about}>
-      <Glow tlwh={[-14, 10, 115, 110]} publicSrc="/glow1.png">
+      <Glow tlwh={[-14, -10, 115, 110]} publicSrc="/glow1.png">
         {/* Above the fold */}
         <Content>
           <div
