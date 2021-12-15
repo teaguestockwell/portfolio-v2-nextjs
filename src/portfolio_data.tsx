@@ -136,14 +136,14 @@ export const portfolioData: Portfolio = {
       name: 'Buildable 🚧 WIP 🚧 ',
       dateRange: 'Apr 2021 - Present',
       subHeading:
-        'Created a social media platform for exploring and sharing buildable items utilizing React, S3, Postgres, Oauth 2.0, and a Next.js serverless API',
+        'Creating a social media platform for exploring and sharing buildable items utilizing React, S3, Postgres, Oauth 2.0, and a Next.js serverless API',
       bullets: [
         'Utilized Next.js to create a scalable collection of user content that is incrementally statically regenerated and served on edge',
         'Created post interaction with threaded comments, likes, saves, and rich text editing',
         'Implemented a serverless REST API that the manages the lifecycle of securely uploading images from the client using presigned urls',
       ],
       deploymentSrc: 'http://hello-next-auth.vercel.app',
-      m3u8Src: `https://${cdnDomain}/pre-hls/buildable-encoded.mp4`,
+      m3u8Src: `https://${cdnDomain}/pre-hls/buildable-2021-12-14.mp4`,
       repos: [
         {
           name: 'mono repo',
