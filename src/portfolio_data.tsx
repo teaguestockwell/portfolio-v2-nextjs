@@ -11,9 +11,9 @@ export const portfolioData: Portfolio = {
     id: guid(),
     firstName: 'Teague',
     lastName: 'Stockwell',
-    email: 'tsAppDevelopment@gmail.com',
+    email: 'teaguestockwell@gmail.com',
     linkedInSrc: 'https://www.linkedin.com/in/teague-stockwell',
-    githubSrc: 'https://github.com/tsAppDevelopment',
+    githubSrc: 'https://github.com/teaguestockwell',
     jobTitle: 'Software Engineer',
     location: 'Seattle, WA',
     shortAbout: `Hello, i'm Teague Stockwell. I have a passion for developing software that:`,
@@ -147,7 +147,7 @@ export const portfolioData: Portfolio = {
       repos: [
         {
           name: 'mono repo',
-          src: 'https://github.com/tsAppDevelopment/buildable',
+          src: 'https://github.com/teaguestockwell/buildable',
         },
       ],
       svgs: [
@@ -180,11 +180,11 @@ export const portfolioData: Portfolio = {
       repos: [
         {
           name: 'Frontend',
-          src: 'https://github.com/tsAppDevelopment/levels-v3-react',
+          src: 'https://github.com/teaguestockwell/levels-v3-react',
         },
         {
           name: 'Backend',
-          src: 'https://github.com/tsAppDevelopment/levels-v2v3-express',
+          src: 'https://github.com/teaguestockwell/levels-v2v3-express',
         },
       ],
       svgs: [
@@ -225,11 +225,11 @@ export const portfolioData: Portfolio = {
       repos: [
         {
           name: 'Frontend',
-          src: 'https://github.com/tsAppDevelopment/levels-v2-flutter',
+          src: 'https://github.com/teaguestockwell/levels-v2-flutter',
         },
         {
           name: 'Backend Server',
-          src: 'https://github.com/tsAppDevelopment/levels-v2v3-express',
+          src: 'https://github.com/teaguestockwell/levels-v2v3-express',
         },
       ],
       svgs: [
@@ -253,12 +253,12 @@ export const portfolioData: Portfolio = {
       subHeading: `Developed, and deployed A native android application with Java for aircraft weight and balance`,
       bullets: [],
       deploymentSrc:
-        'https://play.google.com/store/apps/details?id=com.TsAppDevelopment.c17mac',
+        'https://play.google.com/store/apps/details?id=com.teaguestockwell.c17mac',
       m3u8Src: `https://${cdnDomain}/pre-hls/5-level-2-encoded.mp4`,
       repos: [
         {
           name: 'Android UI',
-          src: 'https://github.com/tsAppDevelopment/levels-v1-android',
+          src: 'https://github.com/teaguestockwell/levels-v1-android',
         },
       ],
       svgs: ['android', 'java', 'git', 'github'],
@@ -277,7 +277,7 @@ export const portfolioData: Portfolio = {
     //   repos: [
     //     {
     //       name: 'Frontend',
-    //       src: 'https://github.com/tsAppDevelopment/dog-of-the-day',
+    //       src: 'https://github.com/teaguestockwell/dog-of-the-day',
     //     },
     //   ],
     //   svgs: [
@@ -300,7 +300,7 @@ export const portfolioData: Portfolio = {
     //   repos: [
     //     {
     //       name: 'Frontend',
-    //       src: 'https://github.com/tsAppDevelopment/doctors-patient-database',
+    //       src: 'https://github.com/teaguestockwell/doctors-patient-database',
     //     },
     //   ],
     //   svgs: ['flutter', 'firebase', 'git', 'github', 'dart'],

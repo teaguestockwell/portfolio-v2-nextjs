@@ -1,8 +1,8 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-[license-shield]: https://img.shields.io/github/license/tsAppDevelopment/hello2.svg
-[license-url]: https://github.com/tsAppDevelopment/hello2/blob/master/licence.txt
+[license-shield]: https://img.shields.io/github/license/teaguestockwell/portfolio-v2-nextjs.svg
+[license-url]: https://github.com/teaguestockwell/portfolio-v2-nextjs/blob/master/licence.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/teague-stockwell/
 
@@ -20,7 +20,7 @@
     <br />
     <a href="https://teaguestockwell.com">View Portfolio</a>
     ·
-    <a href="https://github.com/tsAppDevelopment/hello2/issues">Report Bug</a>
+    <a href="https://github.com/teaguestockwell/portfolio-v2-nextjs/issues">Report Bug</a>
   </p>
 </p>
 
@@ -85,7 +85,7 @@ npm run dev
 
 ## Roadmap
 
-See the [open issues](https://github.com/tsappdevelopment/hello2/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/teaguestockwell/portfolio-v2-nextjs/issues) for a list of proposed features (and known issues).
 
 ## License
 

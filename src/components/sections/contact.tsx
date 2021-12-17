@@ -206,7 +206,7 @@ export const ContactSection = () => {
 
           <a
             className="hovbg"
-            href={`https://github.com/tsAppDevelopment/hello2`}
+            href={`https://github.com/teaguestockwell/portfolio-v2-nextjs`}
             rel="noreferrer"
             target="_blank"
             style={{
