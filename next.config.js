@@ -4,6 +4,7 @@ const withPWA = require('next-pwa')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
+const {withContentlayer} = require('next-contentlayer')
 
 const options = {
   withBundleAnalyzer: {},
@@ -27,12 +28,18 @@ const options = {
       },
     ],
   },
+
+  withContentLayer: {
+    swcMinify: true,
+    reactStrictMode: true,
+  },
 }
 
 module.exports = withPlugins(
   [
     [withBundleAnalyzer, options.withBundleAnalyzer],
     [withPWA, options.withPwa],
+    [withContentlayer, options.withContentLayer],
   ],
 
   {

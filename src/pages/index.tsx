@@ -1,6 +1,6 @@
 import {useInitTheme} from '../hooks/use_theme_2'
 import {WithNav} from '../components/nav/nav'
-import {portfolioData} from '../portfolio_data'
+import {portfolioData} from '../data/portfolio'
 import {AboutSection} from '../components/sections/about'
 import {SkillsSection} from '../components/sections/skills'
 import {ProjectsSection} from '../components/sections/projects'

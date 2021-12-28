@@ -12,4 +12,5 @@ export interface Portfolio {
   jobs: Types.Job[]
   domain: string
   icons: Types.SimpleIcon[]
+  githubProjectName: string
 }

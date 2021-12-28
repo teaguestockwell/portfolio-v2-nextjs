@@ -1,9 +1,10 @@
-import {Portfolio} from './types/types'
-import {guid} from './utils'
+import {Portfolio} from '../types/types'
+import {guid} from '../utils'
 
 const cdnDomain = 'd1jdqfkicm13py.cloudfront.net'
 
 export const portfolioData: Portfolio = {
+  githubProjectName: 'portfolio-v2-nextjs',
   domain: 'https://teaguestockwell.com',
   heroM3u8Src: `https://${cdnDomain}/level-2-hls/master.m3u8`,
   id: guid(),

@@ -5,7 +5,8 @@ import Document, {
   NextScript,
   DocumentContext,
 } from 'next/document'
-import {portfolioData} from '../portfolio_data'
+import {OGMeta} from '../components/og_meta'
+import {portfolioData} from '../data/portfolio'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -79,36 +80,14 @@ class MyDocument extends Document {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
           <link rel="shortcut icon" href="/favicon.ico" />
 
-          <meta property="og:type" content="website" />
-          <meta
-            property="og:title"
-            content={`${portfolioData.person.firstName} ${portfolioData.person.lastName}'s Portfolio`}
-          />
-
-          <meta
-            property="og:description"
-            content={portfolioData.person.shortAbout}
-          />
-          <meta
-            property="og:image"
-            name="image"
-            content={`${portfolioData.domain}/og-hero.png`}
-          />
-          <meta property="og:image:alt" content="Levels - cargo loading app" />
-
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:url" content={portfolioData.domain} />
-          <meta
-            name="twitter:title"
-            content={`${portfolioData.person.firstName} ${portfolioData.person.lastName}'s Portfolio`}
-          />
-          <meta
-            name="twitter:description"
-            content={portfolioData.person.shortAbout}
-          />
-          <meta
-            name="twitter:image"
-            content={`${portfolioData.domain}/og-hero.png`}
+          <OGMeta
+            meta={{
+              title: `${portfolioData.person.firstName} ${portfolioData.person.lastName}'s Portfolio`,
+              description: portfolioData.person.shortAbout,
+              imgAlt: 'Levels - cargo loading app',
+              imgId: 'og-hero.png',
+              path: '',
+            }}
           />
         </Head>
         <body>
