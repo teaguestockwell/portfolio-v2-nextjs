@@ -7,14 +7,12 @@ import {UseViewPortHash} from '../../hooks/use_viewport_hash'
 
 export const SchoolsSection = () => {
   const portfolio = usePortfolio()
+  const name = portfolio.titles.education
 
   return (
-    <Element name={portfolio.titles.education} key={portfolio.titles.education}>
-      <UseViewPortHash hash={portfolio.titles.education} />
-      <SectionHeader
-        title={portfolio.titles.education}
-        subTitle={portfolio.subTitles.education}
-      />
+    <Element name={name} key={name}>
+      <UseViewPortHash hash={name} />
+      <SectionHeader title={name} subTitle={portfolio.subTitles.education} />
       <CardRows
         items={portfolio.schools}
         getCell={(t) => (

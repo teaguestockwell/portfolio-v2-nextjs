@@ -9,14 +9,12 @@ import {UseViewPortHash} from '../../hooks/use_viewport_hash'
 
 export const ProjectsSection = () => {
   const portfolio = usePortfolio()
+  const name = portfolio.titles.projects
 
   return (
-    <Element name={portfolio.titles.projects} key={portfolio.titles.projects}>
-      <UseViewPortHash hash={portfolio.titles.projects} />
-      <SectionHeader
-        title={portfolio.titles.projects}
-        subTitle={portfolio.subTitles.projects}
-      />
+    <Element name={name} key={name}>
+      <UseViewPortHash hash={name} />
+      <SectionHeader title={name} subTitle={portfolio.subTitles.projects} />
 
       <Glow tlwh={[-5, -5, 115, 110]}>
         <CardRows

@@ -10,14 +10,12 @@ import {UseViewPortHash} from '../../hooks/use_viewport_hash'
 
 export const SkillsSection = () => {
   const portfolio = usePortfolio()
+  const name = portfolio.titles.tech
 
   return (
-    <Element name={portfolio.titles.tech} key={portfolio.titles.tech}>
-      <UseViewPortHash hash={portfolio.titles.tech} />
-      <SectionHeader
-        title={portfolio.titles.tech}
-        subTitle={portfolio.subTitles.tech}
-      />
+    <Element name={name} key={name}>
+      <UseViewPortHash hash={name} />
+      <SectionHeader title={name} subTitle={portfolio.subTitles.tech} />
 
       <Content style={{paddingTop: Const.pad * 4}}>
         <SkillCloud />

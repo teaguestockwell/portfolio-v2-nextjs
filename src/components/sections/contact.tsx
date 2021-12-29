@@ -14,6 +14,7 @@ export const ContactSection = () => {
   const portfolio = usePortfolio()
   const svgs = getInteractiveSvgs(Const.css.fc0, iconSize)
   const space = Const.pad * 2
+  const name = portfolio.titles.contact
 
   return (
     <>
@@ -23,10 +24,10 @@ export const ContactSection = () => {
           backgroundColor: Const.css.bgc1,
           position: 'relative',
         }}
-        name={portfolio.titles.contact}
-        key={portfolio.titles.contact}
+        name={name}
+        key={name}
       >
-        <UseViewPortHash hash={portfolio.titles.contact} />
+        <UseViewPortHash hash={name} />
         <svg
           preserveAspectRatio="none"
           viewBox="0 0 100 102"
@@ -44,7 +45,7 @@ export const ContactSection = () => {
         >
           <div>
             <SectionHeader
-              title={portfolio.titles.contact}
+              title={name}
               subTitle={portfolio.subTitles.contact}
             />
           </div>

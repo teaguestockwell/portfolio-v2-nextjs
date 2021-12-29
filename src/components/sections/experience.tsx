@@ -8,17 +8,12 @@ import {UseViewPortHash} from '../../hooks/use_viewport_hash'
 
 export const ExperienceSection = () => {
   const portfolio = usePortfolio()
+  const name = portfolio.titles.experience
 
   return (
-    <Element
-      name={portfolio.titles.experience}
-      key={portfolio.titles.experience}
-    >
-      <UseViewPortHash hash={portfolio.titles.experience} />
-      <SectionHeader
-        title={portfolio.titles.experience}
-        subTitle={portfolio.subTitles.experience}
-      />
+    <Element name={name} key={name}>
+      <UseViewPortHash hash={name} />
+      <SectionHeader title={name} subTitle={portfolio.subTitles.experience} />
       <CardGrid
         items={portfolio.jobs}
         getCellFront={(t) => (
