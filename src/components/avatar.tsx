@@ -7,8 +7,8 @@ export const Avatar = () => {
       <Image
         objectFit="fill"
         src="/headshot.png"
-        width={25}
-        height={25}
+        width={36}
+        height={36}
         alt={
           portfolioData.person.firstName + ' ' + portfolioData.person.lastName
         }

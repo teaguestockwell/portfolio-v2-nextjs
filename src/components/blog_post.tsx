@@ -24,6 +24,9 @@ export const BlogPost = ({b}: {b: Types.BlogPost}) => {
             height: '-webkit-fill-available',
             borderRadius: Const.rad,
             padding: Const.pad,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: Const.pad,
           }}
         >
           <span
@@ -34,6 +37,15 @@ export const BlogPost = ({b}: {b: Types.BlogPost}) => {
             }}
           >
             {b.title}
+          </span>
+          <span
+            style={{
+              color: Const.css.fc0,
+              fontSize: Const.css.md,
+              fontWeight: 600,
+            }}
+          >
+            {b.readingTime.text}
           </span>
         </div>
       </div>

@@ -55,6 +55,7 @@ export const BlogPage = ({
                 color: Const.css.fc0,
                 fontWeight: 700,
                 marginLeft: -4,
+                textAlign: md ? 'left' : 'center',
               }}
             >
               {blog.title}
@@ -66,6 +67,7 @@ export const BlogPage = ({
                 alignItems: 'center',
                 fontSize: Const.css.md,
                 color: Const.css.fc1,
+                width: '100%',
               }}
             >
               <div
@@ -73,16 +75,20 @@ export const BlogPage = ({
                   display: 'flex',
                   flexDirection: md ? 'row' : 'column',
                   alignItems: 'center',
+                  gap: md ? undefined : Const.pad,
+                  width: md ? undefined : '100%',
                 }}
               >
                 <Avatar />
-                <p
+                <span
                   style={{
                     marginLeft: Const.pad / 2,
                   }}
-                >{`${fullName} - ${blog.publishedAt}`}</p>
+                >{`${fullName} - ${blog.publishedAt}${
+                  !md ? ' - ' + blog.readingTime.text : ''
+                }`}</span>
               </div>
-              <p>{blog.readingTime.text}</p>
+              {md && <span>{blog.readingTime.text}</span>}
             </div>
             {children}
             <a

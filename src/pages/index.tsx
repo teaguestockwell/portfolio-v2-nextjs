@@ -25,7 +25,9 @@ import {BlogSection} from '../components/sections/blog'
 export const getStaticProps: GetStaticProps = async () => {
   portfolioData.icons = portfolioData.skills.map((s) => allIcons.Get(s))
   portfolioData.blogs = allBlogs
-    .map((post) => pick(post, ['slug', 'title', 'summary', 'publishedAt']))
+    .map((post) =>
+      pick(post, ['slug', 'title', 'summary', 'publishedAt', 'readingTime'])
+    )
     .sort(
       (a, b) =>
         Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
