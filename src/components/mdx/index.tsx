@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import {Const} from '../../const'
 
 const CustomLink = (props: any) => {
   const href = props.href
@@ -17,7 +18,16 @@ const CustomLink = (props: any) => {
 }
 
 const RoundedImage = (props: any) => {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />
+  return (
+    <>
+      <Image alt={props.alt} {...props} />
+      <style jsx global>{`
+        img {
+          border-radius: ${Const.pad}px;
+        }
+      `}</style>
+    </>
+  )
 }
 
 const MDXComponents = {

@@ -84,8 +84,7 @@ class MyDocument extends Document {
             meta={{
               title: `${portfolioData.person.firstName} ${portfolioData.person.lastName}'s Portfolio`,
               description: portfolioData.person.shortAbout,
-              imgAlt: 'Levels - cargo loading app',
-              imgId: 'og-hero.png',
+              imgPath: '/og-hero.png',
               path: '',
             }}
           />

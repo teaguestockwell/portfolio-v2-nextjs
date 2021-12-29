@@ -27,8 +27,8 @@ body[data-theme='dark'] {
 }
 
 :root {
-  --fs-sm: 0.7rem;
-  --fs-md: 0.8rem;
+  --fs-sm: 0.8rem;
+  --fs-md: 1rem;
   --fs-lg: 1.5rem;
   --fs-xl: clamp(1.5rem, 12vw + 1rem, 2rem);
   --fs-xxl: clamp(2.5rem, 12vw + 1rem, 3rem);

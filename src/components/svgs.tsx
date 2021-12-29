@@ -177,6 +177,19 @@ export const getCustomSvgs = (
       <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z" />
     </svg>
   ),
+  [titles.blog]: (
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      height={h}
+      viewBox="0 0 24 24"
+      width={w}
+      fill={fill}
+    >
+      <path d="M0 0h24v24H0V0z" fill="none" />
+      <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12zM10 9h8v2h-8zm0 3h4v2h-4zm0-6h8v2h-8z" />
+    </svg>
+  ),
   [titles.experience]: (
     <svg
       className={className}

@@ -16,6 +16,7 @@ body {
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   font-weight: 400;
   background-color: var(--bgc-0);
+  font-size: 1.2rem;
 }
 
 *,
@@ -41,15 +42,7 @@ button {
   all: unset;
 }
 
-/* button:focus,
-img:focus,
-a:focus {
-  outline: 3px solid blue;
-} */
-
-h1,
-h2,
-h3 {
+h1 {
   all: unset;
 }
 

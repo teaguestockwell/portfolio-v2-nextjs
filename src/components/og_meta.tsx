@@ -10,9 +10,9 @@ export const OGMeta = ({meta}: {meta: Types.OgMeta}) => {
       <meta
         property="og:image"
         name="image"
-        content={`${portfolioData.domain}/${meta.imgId}`}
+        content={`${portfolioData.domain}${meta.imgPath}`}
       />
-      <meta property="og:image:alt" content={meta.imgAlt} />
+      <meta property="og:image:alt" content={meta.title} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={portfolioData.domain + meta.path} />
@@ -20,7 +20,7 @@ export const OGMeta = ({meta}: {meta: Types.OgMeta}) => {
       <meta name="twitter:description" content={meta.description} />
       <meta
         name="twitter:image"
-        content={`${portfolioData.domain}/${meta.imgId}`}
+        content={`${portfolioData.domain}${meta.imgPath}`}
       />
     </>
   )
