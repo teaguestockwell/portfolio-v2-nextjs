@@ -13,14 +13,23 @@ import {Modal} from '../hooks/use_modal'
 import {GetStaticProps} from 'next'
 import * as Types from '../types/types'
 import {PortfolioContext} from '../hooks/use_portfolio_context'
+import {allBlogs} from '.contentlayer/data'
 
 // all icons live on inside the serverless functions, only the icons defined inside the data are send to the client
 import allIcons from 'simple-icons'
 import {DancingLinesWithTheme} from '../components/dancing_lines'
 import {UseScrollToA} from '../hooks/use_scroll_to_a'
+import {pick} from '../utils'
+import {BlogSection} from '../components/sections/blog'
 
 export const getStaticProps: GetStaticProps = async () => {
   portfolioData.icons = portfolioData.skills.map((s) => allIcons.Get(s))
+  portfolioData.blogs = allBlogs
+    .map((post) => pick(post, ['slug', 'title', 'summary', 'publishedAt']))
+    .sort(
+      (a, b) =>
+        Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+    )
 
   return {
     props: portfolioData,
@@ -47,6 +56,8 @@ export default function Home(portfolio: Types.Portfolio) {
           <SkillsSection />
 
           <ProjectsSection />
+
+          <BlogSection />
 
           <ExperienceSection />
 

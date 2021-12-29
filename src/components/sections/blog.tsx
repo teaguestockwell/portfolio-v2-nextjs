@@ -4,17 +4,31 @@ import {usePortfolio} from '../../hooks/use_portfolio_context'
 import {Content} from '../content'
 import {Const} from '../../const'
 import {UseViewPortHash} from '../../hooks/use_viewport_hash'
+import {BlogPost} from '../blog_post'
 
-export const SkillsSection = () => {
+export const BlogSection = () => {
   const portfolio = usePortfolio()
-  const name = portfolio.titles.tech
+  const name = portfolio.titles.blog
 
   return (
     <Element name={name} key={name}>
       <UseViewPortHash hash={name} />
-      <SectionHeader title={name} subTitle={name} />
-
-      <Content style={{paddingTop: Const.pad * 4}}></Content>
+      <SectionHeader title={name} subTitle={portfolio.subTitles.blog} />
+      <Content style={{paddingTop: Const.pad * 4}}>
+        <div
+          style={{
+            marginTop: Const.pad * 4,
+            maxWidth: '100%',
+            display: 'grid',
+            gridTemplateColumns: Const.css.cardGrid,
+            gap: Const.pad * 2,
+          }}
+        >
+          {portfolio.blogs.map((b) => (
+            <BlogPost key={b.slug} b={b} />
+          ))}
+        </div>
+      </Content>
     </Element>
   )
 }

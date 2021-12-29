@@ -27,7 +27,7 @@ export const portfolioData: Portfolio = {
     ],
   },
   icons: [],
-
+  blogs: [],
   jobs: [
     {
       id: guid(),

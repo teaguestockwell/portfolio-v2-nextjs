@@ -13,4 +13,5 @@ export interface Portfolio {
   domain: string
   icons: Types.SimpleIcon[]
   githubProjectName: string
+  blogs: Types.BlogPost[]
 }

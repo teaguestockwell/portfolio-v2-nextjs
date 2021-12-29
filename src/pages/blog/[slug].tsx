@@ -1,7 +1,7 @@
 import {useMDXComponent} from 'next-contentlayer/hooks'
 import {allBlogs} from '.contentlayer/data'
 import type {Blog as IBlog} from '.contentlayer/types'
-import {Blog} from '../../components/blog'
+import {BlogPage} from '../../components/sections/blog_page'
 import components from '../../components/mdx'
 import {PortfolioContext} from '../../hooks/use_portfolio_context'
 import {useInitTheme} from '../../hooks/use_theme_2'
@@ -21,7 +21,7 @@ export default function Page({blog}: {blog: IBlog}) {
           <a id="main-content" href="#main-content" style={{display: 'none'}}>
             Main Content
           </a>
-          <Blog mdxBlog={blog}>
+          <BlogPage mdxBlog={blog}>
             <Component
               components={
                 {
@@ -29,7 +29,7 @@ export default function Page({blog}: {blog: IBlog}) {
                 } as any
               }
             />
-          </Blog>
+          </BlogPage>
         </WithNav>
       </PortfolioContext.Provider>
     </>
