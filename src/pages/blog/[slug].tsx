@@ -1,7 +1,7 @@
 import {useMDXComponent} from 'next-contentlayer/hooks'
 import {allBlogs} from '.contentlayer/data'
 import type {Blog as IBlog} from '.contentlayer/types'
-import {Blog} from '../../components/sections/blog'
+import {Blog} from '../../components/blog'
 import components from '../../components/mdx'
 import {PortfolioContext} from '../../hooks/use_portfolio_context'
 import {useInitTheme} from '../../hooks/use_theme_2'

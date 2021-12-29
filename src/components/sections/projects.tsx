@@ -5,12 +5,14 @@ import {Project} from '../card_content/project'
 import {Glow} from '../glow'
 import {usePortfolio} from '../../hooks/use_portfolio_context'
 import {Const} from '../../const'
+import {UseViewPortHash} from '../../hooks/use_viewport_hash'
 
 export const ProjectsSection = () => {
   const portfolio = usePortfolio()
 
   return (
     <Element name={portfolio.titles.projects} key={portfolio.titles.projects}>
+      <UseViewPortHash hash={portfolio.titles.projects} />
       <SectionHeader
         title={portfolio.titles.projects}
         subTitle={portfolio.subTitles.projects}
@@ -25,22 +27,18 @@ export const ProjectsSection = () => {
           }}
           items={portfolio.projects}
           getCell={(t) => (
-            <>
-              <a id={t.id} href={'#' + t.id} style={{display: 'none'}}>
-                {t.id}
-              </a>
-              <Project
-                techName={portfolio.titles.tech}
-                name={t.name}
-                subHeading={t.subHeading}
-                dateRange={t.dateRange}
-                bullets={t.bullets}
-                deploymentSrc={t.deploymentSrc}
-                repos={t.repos}
-                m3u8Src={t.m3u8Src}
-                svgs={t.svgs}
-              />
-            </>
+            <Project
+              techName={portfolio.titles.tech}
+              name={t.name}
+              subHeading={t.subHeading}
+              dateRange={t.dateRange}
+              bullets={t.bullets}
+              deploymentSrc={t.deploymentSrc}
+              repos={t.repos}
+              m3u8Src={t.m3u8Src}
+              svgs={t.svgs}
+              id={t.id}
+            />
           )}
         />
       </Glow>

@@ -1,10 +1,8 @@
 import {Const} from '../../const'
 import {Link} from 'react-scroll'
 import {useBreakpoint} from '../../hooks/use_breakpoint'
-import {useTheme} from '../../hooks/use_theme_2'
 
 export const MenuInline = ({items}: {items: string[]}) => {
-  const themeName = useTheme((s) => s.themeName)
   const xl = useBreakpoint.xl()
   const getOffset = (idx: number) => {
     if (idx === items.length - 1) {
@@ -34,6 +32,15 @@ export const MenuInline = ({items}: {items: string[]}) => {
                 fontSize: Const.css.md,
                 wordWrap: 'break-word',
                 borderRadius: Const.rad,
+              }}
+              onClick={(_) => {
+                if (window.location.pathname.includes('blog') && x === 'blog')
+                  return
+
+                if (window.location.pathname.includes('blog') && x !== 'blog') {
+                  window.location.href =
+                    location.protocol + '//' + location.host + '/#' + x
+                }
               }}
             >
               {x}

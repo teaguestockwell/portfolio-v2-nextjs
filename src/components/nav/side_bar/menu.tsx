@@ -37,7 +37,7 @@ export const Menu = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'left',
-              height: 50,
+              height: 42,
               fontSize: Const.css.lg,
               wordWrap: 'break-word',
               color: Const.css.fc0,
@@ -45,6 +45,15 @@ export const Menu = () => {
               borderRadius: Const.rad,
               borderBottom: 'solid',
               borderColor: 'rgba(0, 0, 0, 0)',
+            }}
+            onClick={(_) => {
+              if (window.location.pathname.includes('blog') && x === 'blog')
+                return
+
+              if (window.location.pathname.includes('blog') && x !== 'blog') {
+                window.location.href =
+                  location.protocol + '//' + location.host + '/#' + x
+              }
             }}
           >
             {customSvgs[x]}

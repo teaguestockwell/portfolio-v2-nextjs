@@ -42,8 +42,5 @@ module.exports = withPlugins(
     [withContentlayer, options.withContentLayer],
   ],
 
-  {
-    webpack5: true,
-    trailingSlash: true,
-  }
+  {}
 )

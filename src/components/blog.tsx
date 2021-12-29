@@ -1,11 +1,11 @@
-import {Content} from '../content'
-import {OGMeta} from '../og_meta'
+import {Content} from './content'
+import {OGMeta} from './og_meta'
 import Head from 'next/Head'
-import {Const} from '../../const'
-import {useBreakpoint} from '../../hooks/use_breakpoint'
-import {Avatar} from '../avatar'
-import {portfolioData} from '../../data/portfolio'
-import {portfolioData as p} from '../../data/portfolio'
+import {Const} from '../const'
+import {useBreakpoint} from '../hooks/use_breakpoint'
+import {Avatar} from './avatar'
+import {portfolioData} from '../data/portfolio'
+import {portfolioData as p} from '../data/portfolio'
 import type {Blog as IBlog} from '.contentlayer/types'
 import {Element} from 'react-scroll'
 
@@ -32,7 +32,7 @@ export const Blog = ({
         />
       </Head>
 
-      <Element name="blog" key="blog">
+      <Element name="Blog" key="Blog">
         <Content
           style={{
             paddingLeft: Const.pad,

@@ -7,6 +7,7 @@ import linkedIn from 'simple-icons/icons/linkedin'
 import gitHub from 'simple-icons/icons/github'
 import {getInteractiveSvgs, getSvgFromSimpleIcon} from '../svgs'
 import {Link} from 'react-scroll'
+import {UseViewPortHash} from '../../hooks/use_viewport_hash'
 
 export const ContactSection = () => {
   const iconSize = 50
@@ -25,6 +26,7 @@ export const ContactSection = () => {
         name={portfolio.titles.contact}
         key={portfolio.titles.contact}
       >
+        <UseViewPortHash hash={portfolio.titles.contact} />
         <svg
           preserveAspectRatio="none"
           viewBox="0 0 100 102"

@@ -8,12 +8,14 @@ import {Content} from '../content'
 import {Link} from 'react-scroll'
 import {Glow} from '../glow'
 import {TypeWriterText} from '../typewriter_text'
+import {UseViewPortHash} from '../../hooks/use_viewport_hash'
 
 export const AboutSection = () => {
   const portfolio = usePortfolio()
 
   return (
     <Element name={portfolio.titles.about} key={portfolio.titles.about}>
+      <UseViewPortHash hash={portfolio.titles.about} />
       <Glow
         tlwh={[-36, -10, 115, 135]}
         publicSrc="/glow1.png"
