@@ -6,7 +6,7 @@
     "pretty": "npx prettier --write . && npx prisma format",
     "lint": "next lint",
     "dev": "next dev",
-    "build": "next build && contentlayer build",
+    "build": "contentlayer build && next build",
     "prepare": "husky install",
     "analyze": "ANALYZE=true npm run build"
   },
