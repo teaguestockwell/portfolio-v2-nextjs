@@ -34,5 +34,6 @@ export const Const = {
     cardGrid: 'var(--card-grid)',
     aboutGrid: 'var(--about-grid)',
     hoverBg: 'var(--hovbg)',
+    link: 'var(--link)',
   },
 }

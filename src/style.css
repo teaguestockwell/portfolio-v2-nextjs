@@ -148,3 +148,114 @@ h1 {
     transform: translateY(-8px);
   }
 }
+
+.prose .anchor:after {
+  color: grey;
+}
+
+pre {
+  border: 1px solid grey;
+  border-radius: 20px;
+  background-color: #151516;
+  border-radius: 20px !important;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+code {
+  color: var(--code);
+}
+
+.token.parameter {
+  color: lightblue;
+}
+
+.prose code {
+  color: grey;
+}
+
+.prose pre code {
+  border: initial;
+  color: grey;
+}
+
+.prose img {
+  margin: 0px;
+}
+
+.prose > :first-child {
+  /* Override removing top margin, causing layout shift */
+  margin-top: 1.25em !important;
+  margin-bottom: 1.25em !important;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: grey;
+}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: grey;
+}
+
+.token.punctuation {
+  color: grey;
+}
+
+.token.maybe-class-name {
+  color: rgb(241, 241, 154);
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: lightgreen;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: lavender;
+}
+.token.tag {
+  color: lightskyblue;
+}
+.token.punctuation {
+  color: lightyellow;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: lightyellow;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: lightblue;
+}
+
+.token.function,
+.token.class-name {
+  color: lightpink;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: lightcyan;
+}

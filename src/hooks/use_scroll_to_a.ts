@@ -10,9 +10,9 @@ export const UseScrollToA = () =>
         const id = window.location.href.split('#')[1]
         window.location.href.replace('#', '')
         scroller.scrollTo(id, {
-          duration: 200,
+          duration: 400,
           smooth: true,
-          offset: -1.5 * Const.topNav,
+          offset: -80,
         })
       }, 300)
     }

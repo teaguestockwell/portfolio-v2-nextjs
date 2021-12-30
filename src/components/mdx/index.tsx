@@ -9,12 +9,21 @@ const CustomLink = (props: any) => {
   if (isInternalLink) {
     return (
       <Link href={href}>
-        <a {...props}>{props.children}</a>
+        <a {...props} style={{color: Const.css.link}}>
+          {props.children}
+        </a>
       </Link>
     )
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} />
+  return (
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      {...props}
+      style={{color: Const.css.link}}
+    />
+  )
 }
 
 const RoundedImage = (props: any) => {

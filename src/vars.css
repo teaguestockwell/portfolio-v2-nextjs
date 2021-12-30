@@ -10,6 +10,8 @@ body[data-theme='light'] {
   --shadow: 0px 1px 10px 0px rgb(0, 0, 0, 0.2);
   --border: 1px solid #e2e1de;
   --hovbg: rgba(0, 0, 0, 0.1);
+  --link: #3b82f6;
+  --code: #fabc60;
 }
 
 body[data-theme='dark'] {
@@ -24,6 +26,8 @@ body[data-theme='dark'] {
   --shadow: '';
   --border: 1px solid #000;
   --hovbg: rgba(255, 255, 255, 0.1);
+  --link: #60a5fa;
+  --code: #fabc60;
 }
 
 :root {
