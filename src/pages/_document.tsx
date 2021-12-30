@@ -6,7 +6,7 @@ import Document, {
   DocumentContext,
 } from 'next/document'
 import {OGMeta} from '../components/og_meta'
-import {portfolioData} from '../data/portfolio'
+import {portfolioData} from '../../data/portfolio'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {

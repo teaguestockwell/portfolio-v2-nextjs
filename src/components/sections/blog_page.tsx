@@ -4,8 +4,8 @@ import Head from 'next/Head'
 import {Const} from '../../const'
 import {useBreakpoint} from '../../hooks/use_breakpoint'
 import {Avatar} from '../avatar'
-import {portfolioData} from '../../data/portfolio'
-import {portfolioData as p} from '../../data/portfolio'
+import {portfolioData} from '../../../data/portfolio'
+import {portfolioData as p} from '../../../data/portfolio'
 import type {Blog as IBlog} from '.contentlayer/types'
 import {Element} from 'react-scroll'
 
@@ -109,7 +109,7 @@ export const BlogPage = ({
                 <span
                   style={{
                     fontSize: Const.css.lg,
-                    color: Const.css.fc1,
+                    color: Const.css.fc0,
                     paddingInline: Const.pad,
                   }}
                 >

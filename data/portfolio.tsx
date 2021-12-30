@@ -1,5 +1,5 @@
-import {Portfolio} from '../types/types'
-import {guid} from '../utils'
+import {Portfolio} from '../src/types/types'
+import {guid} from '../src/utils'
 
 const cdnDomain = 'd1jdqfkicm13py.cloudfront.net'
 

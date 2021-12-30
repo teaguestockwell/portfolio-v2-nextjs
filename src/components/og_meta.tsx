@@ -1,4 +1,4 @@
-import {portfolioData} from '../data/portfolio'
+import {portfolioData} from '../../data/portfolio'
 
 export const OGMeta = ({meta}: {meta: Types.OgMeta}) => {
   return (

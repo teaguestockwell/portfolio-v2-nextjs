@@ -33,7 +33,7 @@ const Blog = defineDocumentType(() => ({
 }))
 
 const contentLayerConfig = makeSource({
-  contentDirPath: 'src/data/content',
+  contentDirPath: 'data',
   documentTypes: [Blog],
   mdx: {
     remarkPlugins: [remarkGfm],

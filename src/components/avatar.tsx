@@ -1,4 +1,4 @@
-import {portfolioData} from '../data/portfolio'
+import {portfolioData} from '../../data/portfolio'
 import Image from 'next/image'
 
 export const Avatar = () => {
