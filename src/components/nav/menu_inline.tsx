@@ -1,9 +1,12 @@
 import {Const} from '../../const'
 import {Link} from 'react-scroll'
 import {useBreakpoint} from '../../hooks/use_breakpoint'
+import NextLink from 'next/link'
+import {useRouter} from 'next/router'
 
 export const MenuInline = ({items}: {items: string[]}) => {
   const xl = useBreakpoint.xl()
+  const isBlog = useRouter().asPath.includes('blog')
   const getOffset = (idx: number) => {
     if (idx === items.length - 1) {
       return 0
@@ -16,7 +19,7 @@ export const MenuInline = ({items}: {items: string[]}) => {
   return (
     <>
       {items.map((x, i) => {
-        return (
+        const content = (
           <Link
             key={x}
             to={x}
@@ -33,17 +36,13 @@ export const MenuInline = ({items}: {items: string[]}) => {
                 wordWrap: 'break-word',
                 borderRadius: Const.rad,
               }}
-              onClick={(_) => {
-                if (window.location.pathname.includes('blog')) {
-                  window.location.href =
-                    location.protocol + '//' + location.host + '/#' + x
-                }
-              }}
             >
               {x}
             </button>
           </Link>
         )
+
+        return isBlog ? <NextLink href={`/#${x}`}>{content}</NextLink> : content
       })}
     </>
   )

@@ -1,18 +1,9 @@
 import {UseInViewport} from './use_in_viewport'
 import debounce from 'lodash/debounce'
 
-let lastHash: string
-
 const handle = debounce((hash: string) => {
   if (!window.location.hash.includes(hash)) {
-    lastHash = window.location.href.split('#')[1]
-    if (window.location.href.split('#')[1] === lastHash) {
-      history.replaceState(
-        null,
-        '',
-        location.protocol + '//' + location.host + '/#' + hash
-      )
-    }
+    location.hash = hash
   }
 }, 500)
 
