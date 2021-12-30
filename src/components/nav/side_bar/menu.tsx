@@ -47,10 +47,7 @@ export const Menu = () => {
               borderColor: 'rgba(0, 0, 0, 0)',
             }}
             onClick={(_) => {
-              if (window.location.pathname.includes('blog') && x === 'blog')
-                return
-
-              if (window.location.pathname.includes('blog') && x !== 'blog') {
+              if (window.location.pathname.includes('blog')) {
                 window.location.href =
                   location.protocol + '//' + location.host + '/#' + x
               }

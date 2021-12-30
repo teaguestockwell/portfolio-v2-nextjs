@@ -34,10 +34,7 @@ export const MenuInline = ({items}: {items: string[]}) => {
                 borderRadius: Const.rad,
               }}
               onClick={(_) => {
-                if (window.location.pathname.includes('blog') && x === 'blog')
-                  return
-
-                if (window.location.pathname.includes('blog') && x !== 'blog') {
+                if (window.location.pathname.includes('blog')) {
                   window.location.href =
                     location.protocol + '//' + location.host + '/#' + x
                 }
