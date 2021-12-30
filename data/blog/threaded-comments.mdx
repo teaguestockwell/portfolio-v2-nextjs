@@ -1,5 +1,5 @@
 ---
-title: 'Designing Threaded Comments with Nextjs and React Query'
+title: 'Threaded Comments with React Query'
 publishedAt: '2017-07-15'
 summary: 'Designing threaded comments with infinite scroll, optimistic updates, incremental static regeneration, likes, and sorting.'
 image: '/blog/threaded-comments/thread.png'
@@ -13,16 +13,39 @@ image: '/blog/threaded-comments/thread.png'
   priority
 />
 
-I am building a [social platform](https://github.com/teaguestockwell/buildable) and one of the most important features is the ability to interact with a post. I would like to share how I designed a commenting system to implement:
+## Table of Contents
+
+1.  [About](/blog/threaded-comments#about)
+2.  [The Data Layer](/blog/threaded-comments#the-data-layer)
+3.  [The API Layer](/blog/threaded-comments#the-api-layer)
+4.  [The React Client](/blog/threaded-comments#the-react-client)
+5.  [Results](/blog/threaded-comments#results)
+
+## About
+
+These past 6 months, I've been building a [social platform](https://hello-next-auth.vercel.app/r/all/explore/all-time). As I'm scoping out some of the features I would like this app to have, I ran across one that I could not find many resources on. The feature in question was a commenting system that implemented:
 
 - Threaded Comments
 - Infinite scroll
 - Sorting
 - Incremental Static Regeneration + Client Side Revalidation
+- Optimistic Updates
+- Ability to like comments
 
-### The Data Layer
+After studying the features of some other commenting systems that have been implemented at scale, I was excited to jump in and try my hand at it. Lucky for me, I have all the best tooling to work with. Together with Typescript, these tools have created the best developer experience I've yet to work with.
 
-The DB Schema was generated using [Prisma](https://prisma.io)
+- [Prisma](https://prisma.io) an ORM for creating a type-safe API, and pragmatic database schema
+- [React Query](https://react-query.tanstack.com/) a client library for caching, querying, and mutating server state
+- [Nextjs](https://nextjs.org/) a React framework to implement server-side rendering
+- [Vercel](https://vercel.com/) a platform to implement CI while hosting static content and serverless functions
+
+## The Data Layer
+
+- What schema can a relational database use to store a tree of comments?
+- How can the client lazily load a tree of comments?
+- How can the client mutate a nested model without creating an expensive query to find it?
+
+My first thought was to use a JSON field to store comments within each other, but after some consideration, I found this would significantly reduce how effectively I can query for a comment. A better implementation of this is to have a field that denotes the primary key of a comments parent, where an empty string would refer to a root level comment:
 
 ```tsx
 model Comment {
@@ -79,9 +102,11 @@ ALTER TABLE "_likedComments" ADD FOREIGN KEY ("A") REFERENCES "Comment"("comment
 ALTER TABLE "_likedComments" ADD FOREIGN KEY ("B") REFERENCES "User"("email") ON DELETE CASCADE ON UPDATE CASCADE;
 ```
 
-The PostgreSQL DB is currently hosted on Digital Ocean (DO) using PgBouncer to pool connections, however plan to migrate this to PlanetScale (PS) because:
+With the schema of a comment figured out, the next task would be figuring out how to host the database so that it can support all the connections my serverless functions would throw at it. I tried a handful of cloud providers and some of their hosted solutions for connection pooling including AWS RDS with RDS Proxy, AWS Aurora, and Digital Ocean with PgBouncer. I settled with a new platform called Planet Scale because they made the MySQL sharding middleware used by YouTube: [Vitess](https://vitess.io/). For a few other projects, Planet Scale has been working great with Vercel's functions, and theoretically, this architecture could be used all the way up to planet scale, but I'm not sure how well it would hold up if you are trying to serve web apps to galaxies 😂!
 
-- PS auto scales to the moon with Vitess 🚀
+The PostgreSQL DB is currently hosted on Digital Ocean (DO) using PgBouncer to pool connections, however, I plan to migrate this to PlanetScale (PS) and MySQL soon because:
+
+- PS auto-scales to the moon with Vitess 🚀
 - PS has DB branching
 - PS has better vitals
 - PS has better logging
@@ -89,17 +114,16 @@ The PostgreSQL DB is currently hosted on Digital Ocean (DO) using PgBouncer to p
 - DO has no support for traffic spikes
 - My other DBs are on PS
 
-Lee Robinson also has an excellent write up on this [From Firebase/Redis to MySQL with PlanetScale](https://leerob.io/blog/mysql-planetscale)
+Lee Robinson also has an excellent write up on this topic [From Firebase/Redis to MySQL with PlanetScale](https://leerob.io/blog/mysql-planetscale)
 
-### The API Layer
+## The API Layer
 
-The API is hosted as serverless functions on Vercel using Nextjs's API Routes. Using serverless functions for the routes works great because both are stateless.
+Using the above DB schema allowed me to expose an endpoint that will allow the client to lazily load a tree of comments with the following route:
 
 ### GET /api/comment?params
 
-query comments for a post
-
-- setting `parentCommentId` to an empty string will return the root level comments
+- Passing `parentCommentId` as an empty string in the query params returns a page of root level comments
+- Passing `parentCommentId` as a comment's primary key would return all of that comment's replies
 
 request.params schema
 
@@ -141,29 +165,32 @@ request.params schema
 ]
 ```
 
-400 response.body
+When a PUT or DELETE request is handled, the API will verify the request's JWT is legitimate and that the user making the request has permission to perform the operation. For example:
 
-```json
-{
-  "msg": "a detailed message explaining an invalid parameter"
+```ts
+const comment = await prisma.comment.findUnique({
+  where: {commentId: req.query.commentId},
+})
+const isOwner = jwt.sub === comment.email
+
+if (req.method === 'PUT' && isOwner) {
+  // create or update
+}
+
+if (
+  req.method === 'DELETE' &&
+  (isOwner || (await isModerator(jwt.sub, comment)))
+) {
+  // delete
 }
 ```
+
+This is great because the API can normally verify a user owns a comment using the JWT to avoid making a separate query for the user's model. However, if a user does not own the model, the API can make a query to see if the user is a moderator.
 
 ### PUT /api/comment/[commentId]
 
-- authenticated users may `CREATE`
-- authenticated users who own the comment may `UPDATE`
-
-When a PUT or DELETE request is handled, the API will verify the request's JWT is legitimate then verify the user making the request has permission to perform the operation.
-
-```ts
-const comment = await prisma.comment.findUnique({where: req.query[commentId]})
-if (jwt.sub === comment.email || (await isModerator(jwt.sub, comment))) {
-  // create, update or delete
-} else {
-  res.status(403).json({msg: ''})
-}
-```
+- Authenticated users may `CREATE`
+- Authenticated users who own the comment may `UPDATE`
 
 request.body
 
@@ -194,33 +221,20 @@ request.body
 }
 ```
 
-400 response.body
+Unlike a normal `DELETE` operation, calling this will only soft delete a comment to preserve a deleted comment's replies. To preserve the relationship where every comment must have a user, I created a new user that is assigned all the deleted comments. This way when a comment is "deleted" its text is updated to say it has been deleted, and then its user is changed to the deleted user.
 
-```json
-{
-  "msg": "a detailed message here explaining some missing parameter"
-}
-```
-
-403 response.body
-
-```json
-{
-  "msg": "a detailed message explaining why you are not allowed to do that"
-}
-```
-
-404 response.body
-
-```json
-{
-  "msg": "cant find a resource to update"
-}
-```
+<Image
+  alt={`Soft Delete`}
+  src={`/blog/threaded-comments/soft-delete.png`}
+  width={726 / 2}
+  height={1400 / 2}
+  priority
+/>
 
 ### DELETE /api/comment/[commentId]
 
-- topic moderators or owners may `DELETE` a comment
+- Topic moderators may `DELETE` a comment
+- Comment owner may `DELETE` a comment
 
 200 response.body
 
@@ -240,30 +254,13 @@ request.body
 }
 ```
 
-403 response.body
+## The React Client
 
-```json
-{
-  "msg": "a detailed message explaining why you are not allowed to do that"
-}
-```
+To have great SEO, the first few root comments are ordered by `top` and statically generated during build time for each post. Once the static page is served to the client, React hydrates the page, and React Query can take over to lazily load the tree of comments:
 
-404 response.body
+1. Make a request with `parentCommentId` as an empty string to return a page of root level comments
 
-```json
-{
-  "msg": "cant find a resource to delete"
-}
-```
-
-### The React Client
-
-The first few root comments, ordered by `top`, are statically generated during build time for each post. Once the static page is served to the client:
-
-- React hydrates the page
-- React Query refetch the visible root comments
-
-Then, when the user scrolls to the bottom of the root level comments, a component with an intersection observer will enter the viewport and fire a callback to fetch more comments. React Query will call GET /api/comment?params with the next cursor for that posts root level comments. Once the API responds React will lazily render the next page of comments.
+As the user scrolls to the bottom of the root level comments, a component with an intersection observer will enter the viewport and fire a callback to automatically load more root level comments (infinite scroll).
 
 ```tsx
 export const CommentList = React.memo(
@@ -369,9 +366,20 @@ export const CommentList = React.memo(
 CommentList.displayName = 'CommentList'
 ```
 
-When each `<CommentView/>` enters the viewport, it uses React Query to call the same endpoint GET /api/comment?params. Instead of passing an empty string to parentCommentId to fetch the root levels comments, `<CommentView/>` passes it's own id to fetch a page it's replies. If a `<CommentView/>` has replies, the user may click to show more replies. Showing the replies will recursively render the replies and repeat the cycle to fetch the replies of the replies.
+2. For each root level comment, make a request with `parentCommentId` as the comments key to return a page of comments replies
+3. For each visible reply repeat step two
 
-Unlike root level comments, replies do not implement infinite scroll. Instead, the user may press a button and choose to fetch more comments.
+When each `<CommentView/>` enters the viewport, it uses React Query to GET /api/comment?params. Instead of passing an empty string to parentCommentId to fetch the root levels comments, `<CommentView/>` passes its own id to fetch a page it's replies. If a `<CommentView/>` has replies, the user may click to show more replies. Showing the replies will recursively render the replies and repeat the cycle to fetch the replies of the replies.
+
+Unlike root-level comments, replies do not implement an infinite scroll. Instead, the user may press a button and choose to fetch more comments.
+
+<Image
+  alt={`Load more`}
+  src={`/blog/threaded-comments/load-more.png`}
+  width={726 / 2}
+  height={1453 / 2}
+  priority
+/>
 
 ```tsx
 export const CommentView = React.memo(
@@ -391,7 +399,6 @@ export const CommentView = React.memo(
           cursor,
           parentCommentId: comment.commentId,
           orderBy,
-          // get all replies, where parentId === self
         }).toString()
 
         const {data} = await axios('/api/comment?' + params)
@@ -465,12 +472,12 @@ export const CommentView = React.memo(
       </>
     )
   },
-  (s0, s1) => isEqual(s0, s1)
+  isEqual
 )
 
 CommentView.displayName = 'CommentView'
 ```
 
-# Results
+## Results
 
-Overall, I'm happy with how this design works. I seeded a post with a 10k threaded comments, then I scrolled though and posted a few comments of my own. The performance is great because React can lazily render only the tree of comments that are currently in the viewport. Using React Query and Nextjs to implement this was not only a great experience, but I got the best of both worlds because initially the top comments use incremental static regeneration so pages can be served from a CDN, then after React hydrates the page, it can lazily refetch for the most up to date comments.
+Overall, I'm happy with how this design works. I seeded a post with 10k threaded comments, then scrolled through and posted a few comments of my own. The performance is great because React can lazily render only the tree of comments that are currently in the viewport. Using React Query and Nextjs to implement this was not only a great experience, but I got the best of both worlds because initially, the top comments use incremental static regeneration, so pages can be served from a CDN, then after React hydrates the page, it can lazily refetch for the most up to date comments.

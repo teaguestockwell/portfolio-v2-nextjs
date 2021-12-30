@@ -46,7 +46,6 @@ export const BlogPage = ({
               flexDirection: 'column',
               justifyContent: 'center',
               width: '100%',
-              gap: '1rem',
             }}
           >
             <h1
@@ -93,7 +92,7 @@ export const BlogPage = ({
             {children}
             <a
               aria-label="Edit Article"
-              href={`${p.person.githubSrc}/${p.githubProjectName}/edit/main/src/data/content/blog/${blog.slug}.mdx`}
+              href={`${p.person.githubSrc}/${p.githubProjectName}/edit/main/data/blog/${blog.slug}.mdx`}
               rel="noreferrer"
               target="_blank"
             >
