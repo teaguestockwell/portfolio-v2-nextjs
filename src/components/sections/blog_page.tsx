@@ -1,6 +1,6 @@
 import {Content} from '../content'
 import {OGMeta} from '../og_meta'
-import Head from 'next/Head'
+import Head from 'next/head'
 import {Const} from '../../const'
 import {useBreakpoint} from '../../hooks/use_breakpoint'
 import {Avatar} from '../avatar'
