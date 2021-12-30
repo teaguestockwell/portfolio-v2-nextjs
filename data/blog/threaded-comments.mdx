@@ -1,0 +1,469 @@
+---
+title: 'Designing Threaded Comments with Nextjs and React Query'
+publishedAt: '2017-07-15'
+summary: 'Designing threaded comments with infinite scroll, optimistic updates, incremental static regeneration, likes, and sorting.'
+image: '/blog/threaded-comments/thread.png'
+---
+
+<Image
+  alt={`Comment Thread`}
+  src={`/blog/threaded-comments/thread.png`}
+  width={726 / 2}
+  height={1453 / 2}
+  priority
+/>
+
+I am building a [social platform](https://github.com/teaguestockwell/buildable) and one of the most important features is the ability to interact with a post. I would like to share how I designed a commenting system to implement:
+
+- Threaded Comments
+- Infinite scroll
+- Sorting
+- Incremental Static Regeneration + Client Side Revalidation
+
+### The Data Layer
+
+The DB Schema was generated using [Prisma](https://prisma.io)
+
+```tsx
+model Comment {
+  commentId String @id @default(cuid())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  parentCommentId String
+  email           String
+  postId          String
+  numLikes        Int     @default(0)
+  text            String
+
+  user           User  @relation("commented", fields: [email], references: [email])
+  post           Post   @relation(fields: [postId], references: [postId])
+  commentLikedBy User[] @relation("likedComments")
+}
+```
+
+- `parentCommentId` preserves the hierarchy of the comment thread
+- `postId`, `numLikes`, and `createdAt` allows the comments to be filtered
+- `commentId` is a sequential GUID to allow pagination
+- `email` is used server side to control which authenticated users can modify a comment
+- `commentLikedBy` is used to make sure each user can only like a comment once
+
+This generates the following SQL
+
+```sql
+CREATE TABLE "Comment" (
+    "commentId" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+    "parentCommentId" TEXT NOT NULL,
+    "email" TEXT,
+    "postId" TEXT NOT NULL,
+    "numLikes" INTEGER NOT NULL DEFAULT 0,
+    "text" TEXT NOT NULL,
+
+    PRIMARY KEY ("commentId")
+);
+
+CREATE TABLE "_likedComments" (
+    "A" TEXT NOT NULL,
+    "B" TEXT NOT NULL
+);
+
+ALTER TABLE "Comment" ADD FOREIGN KEY ("email") REFERENCES "User"("email") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "Comment" ADD FOREIGN KEY ("postId") REFERENCES "Post"("postId") ON DELETE CASCADE ON UPDATE CASCADE;
+
+CREATE UNIQUE INDEX "_likedComments_AB_unique" ON "_likedComments"("A", "B");
+CREATE INDEX "_likedComments_B_index" ON "_likedComments"("B");
+ALTER TABLE "_likedComments" ADD FOREIGN KEY ("A") REFERENCES "Comment"("commentId") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "_likedComments" ADD FOREIGN KEY ("B") REFERENCES "User"("email") ON DELETE CASCADE ON UPDATE CASCADE;
+```
+
+The PostgreSQL DB is currently hosted on Digital Ocean (DO) using PgBouncer to pool connections, however plan to migrate this to PlanetScale (PS) because:
+
+- PS auto scales to the moon with Vitess 🚀
+- PS has DB branching
+- PS has better vitals
+- PS has better logging
+- PS has a much greater connection limit than PSQL and PGBouncer
+- DO has no support for traffic spikes
+- My other DBs are on PS
+
+Lee Robinson also has an excellent write up on this [From Firebase/Redis to MySQL with PlanetScale](https://leerob.io/blog/mysql-planetscale)
+
+### The API Layer
+
+The API is hosted as serverless functions on Vercel using Nextjs's API Routes. Using serverless functions for the routes works great because both are stateless.
+
+### GET /api/comment?params
+
+query comments for a post
+
+- setting `parentCommentId` to an empty string will return the root level comments
+
+request.params schema
+
+```json
+{
+  "commentId": "yup.string().max(30)",
+  "numLikesGTE": "yup.number()",
+  "numLikesLTE": "yup.number()",
+  "parentCommentId": "yup.string().max(30)",
+  "postId": "yup.string().max(30)",
+  "userId": "yup.string().max(30)",
+
+  "cursor": "yup.string().max(30)",
+  "orderBy": "yup.string().max(30).oneOf(['top', 'new', 'old'])",
+  "pageSize": "yup.number().max(100)"
+}
+```
+
+200 response.body json
+
+```json
+[
+  {
+    "commentId": "ckx77wugz003509l0lxe91ztt",
+    "parentCommentId": "ckx77o7w1034709lfqjn24m76",
+    "createdAt": "2021-12-15T07:34:12.035Z",
+    "updatedAt": "2021-12-15T07:34:47.488Z",
+    "postId": "ckuxu0kk202941ic9mw03btou",
+    "numLikes": 0,
+    "text": "Comment Deleted",
+    "user": {
+      "profileSrc": "",
+      "name": "deleted",
+      "userId": "deleted",
+      "createdAt": "1970-01-01T00:00:00.000Z",
+      "updatedAt": "2021-12-15T02:37:03.883Z"
+    }
+  },
+  {}
+]
+```
+
+### PUT /api/comment/[commentId]
+
+- authenticated users may `CREATE`
+- authenticated users who own the comment may `UPDATE`
+
+When a PUT or DELETE request is handled, the API will verify the request's JWT is legitimate then verify the user making the request has permission to perform the operation.
+
+```ts
+const comment = await prisma.comment.findUnique({where: req.query[commentId]})
+if (jwt.sub === comment.email || (await isModerator(jwt.sub, comment))) {
+  // create, update or delete
+} else {
+  res.status(403).json({msg: ''})
+}
+```
+
+request.body
+
+```json
+{
+  "commentId": ""
+  "parentCommentId": "",
+  "postId": "",
+  "text": ""
+}
+```
+
+200 || 201 response.body
+
+```json
+{
+  "commentId": ""
+  "parentCommentId": "",
+  "postId": "",
+  "text": "",
+  "createdAt": "",
+  "updatedAt": "",
+  "numLikes": 123,
+  "user": {
+    "email": ""
+    ...user
+  }
+}
+```
+
+400 response.body
+
+```json
+{
+  "msg": "a detailed message here explaining some missing parameter"
+}
+```
+
+403 response.body
+
+```json
+{
+  "msg": "a detailed message explaining why you are not allowed to do that"
+}
+```
+
+404 response.body
+
+```json
+{
+  "msg": "cant find a resource to update"
+}
+```
+
+### DELETE /api/comment/[commentId]
+
+- topic moderators or owners may `DELETE` a comment
+
+200 response.body
+
+```json
+{
+  "commentId": ""
+  "parentCommentId": "",
+  "postId": "",
+  "text": "Comment Deleted",
+  "createdAt": "",
+  "updatedAt": "",
+  "numLikes": 123,
+  "user": {
+    "email": "deleted"
+    ...deletedUser
+  }
+}
+```
+
+403 response.body
+
+```json
+{
+  "msg": "a detailed message explaining why you are not allowed to do that"
+}
+```
+
+404 response.body
+
+```json
+{
+  "msg": "cant find a resource to delete"
+}
+```
+
+### The React Client
+
+The first few root comments, ordered by `top`, are statically generated during build time for each post. Once the static page is served to the client:
+
+- React hydrates the page
+- React Query refetch the visible root comments
+
+Then, when the user scrolls to the bottom of the root level comments, a component with an intersection observer will enter the viewport and fire a callback to fetch more comments. React Query will call GET /api/comment?params with the next cursor for that posts root level comments. Once the API responds React will lazily render the next page of comments.
+
+```tsx
+export const CommentList = React.memo(
+  ({
+    initialComments,
+    postId,
+  }: {
+    initialComments: Types.Comment.PostComment[]
+    postId: string
+  }) => {
+    const orderBy = useCommentOrderStore((s) => s.order)
+    const q = useInfiniteQuery({
+      notifyOnChangeProps: ['data'],
+      queryKey: ['comments', postId, orderBy],
+      queryFn: async ({pageParam: cursor = ''}) => {
+        const params = new URLSearchParams({
+          pageSize: '50',
+          postId,
+          cursor,
+          // only get root comments
+          parentCommentId: '',
+          orderBy,
+        }).toString()
+
+        const {data} = await axios('/api/comment?' + params)
+
+        return data as Types.Comment.PostComment[]
+      },
+      getNextPageParam: (lastPage: any) => {
+        return lastPage[lastPage.length - 1]?.commentId
+      },
+      cacheTime: Infinity,
+    })
+
+    const listStyle: React.CSSProperties = {
+      marginTop: 30,
+      marginRight: 20,
+      marginLeft: 20,
+    }
+
+    // SSR and 1st CSR
+    if (!q.data) {
+      return (
+        <>
+          <Nav order={'top'} />
+          {initialComments.length ? (
+            initialComments.map((c) => {
+              return (
+                <div key={c.commentId} style={listStyle}>
+                  <CommentView comment={c} />
+                </div>
+              )
+            })
+          ) : (
+            <LoadingText text="There are no comments here yet" />
+          )}
+        </>
+      )
+    }
+
+    const flatComments = q.data.pages.flatMap((p) => p.map((c) => c))
+
+    if (!flatComments.length) {
+      return (
+        <>
+          <Nav order={orderBy} />
+          <LoadingText text="There are no comments here yet" />
+        </>
+      )
+    }
+
+    return (
+      <>
+        <Nav order={orderBy} />
+
+        <div style={listStyle}>
+          {flatComments.map((c) => {
+            return (
+              <Lazy key={c.commentId} unmountIfInvisible offset={1000}>
+                <CommentView comment={c} />
+              </Lazy>
+            )
+          })}
+        </div>
+
+        <UseInViewport
+          cb={(inView) => (inView && q.hasNextPage ? q.fetchNextPage() : null)}
+        />
+
+        <LoadingText
+          text={
+            q.hasNextPage
+              ? 'Hang on one second we are loading more comments'
+              : 'Congrats! You made it through all the comments'
+          }
+        />
+      </>
+    )
+  },
+  (s0, s1) => s0.postId === s1.postId
+)
+
+CommentList.displayName = 'CommentList'
+```
+
+When each `<CommentView/>` enters the viewport, it uses React Query to call the same endpoint GET /api/comment?params. Instead of passing an empty string to parentCommentId to fetch the root levels comments, `<CommentView/>` passes it's own id to fetch a page it's replies. If a `<CommentView/>` has replies, the user may click to show more replies. Showing the replies will recursively render the replies and repeat the cycle to fetch the replies of the replies.
+
+Unlike root level comments, replies do not implement infinite scroll. Instead, the user may press a button and choose to fetch more comments.
+
+```tsx
+export const CommentView = React.memo(
+  ({comment}: {comment: Types.Comment.PostComment}) => {
+    const [ref, visible] = useVisible((vi: number) => vi > 0.1)
+    const [open, setOpen] = useState(false)
+    const orderBy = useCommentOrderStore().order
+    const pageSize = 10
+    const q = useInfiniteQuery({
+      notifyOnChangeProps: ['data'],
+      enabled: visible,
+      queryKey: ['comment', 'replies', comment.commentId, orderBy],
+      queryFn: async ({pageParam: cursor = ''}) => {
+        const params = new URLSearchParams({
+          pageSize: pageSize.toString(),
+          postId: comment.postId,
+          cursor,
+          parentCommentId: comment.commentId,
+          orderBy,
+          // get all replies, where parentId === self
+        }).toString()
+
+        const {data} = await axios('/api/comment?' + params)
+
+        return data as Types.Comment.PostComment[]
+      },
+      getNextPageParam: (lastPage: any) => {
+        if (!lastPage) return undefined
+        return lastPage[lastPage.length - 1]?.commentId
+      },
+    })
+
+    const ReplyToggleAction = () => {
+      if (q.data?.pages.length === 0 || q.data?.pages[0].length === 0) {
+        return null
+      }
+
+      const action = open ? 'Hide' : 'Show'
+
+      return (
+        <CommentActionButton
+          onClick={() => setOpen((o) => !o)}
+          text={`${action} replies`}
+        />
+      )
+    }
+
+    return (
+      <>
+        <CommentContent comment={comment} />
+
+        <div
+          style={{display: 'flex', marginLeft: 50, marginTop: 4}}
+          ref={ref as any}
+        >
+          <CommentLike comment={comment} />
+          <CommentReply comment={comment} />
+          <CommentEdit comment={comment} />
+          <CommentDelete comment={comment} />
+          <ReplyToggleAction />
+        </div>
+
+        {open && (
+          <>
+            {(q as any).data.pages.map((page: any) =>
+              page.map((c: Types.Comment.PostComment) => {
+                return (
+                  <Lazy key={c.commentId} unmountIfInvisible offset={1000}>
+                    {/* thread the comments with the margin left */}
+                    <div style={{marginLeft: 20}}>
+                      <CommentView key={c.commentId} comment={c} />
+                    </div>
+                  </Lazy>
+                )
+              })
+            )}
+
+            {/* 
+            This does not have auto fetch, because it's nested inside of an infinite query
+            that already has auto fetch.
+          */}
+            {q.hasNextPage &&
+              q.data?.pages[q.data.pages.length - 1].length === pageSize && (
+                <CommentActionButton
+                  text="Load more"
+                  onClick={() => q.fetchNextPage()}
+                />
+              )}
+          </>
+        )}
+      </>
+    )
+  },
+  (s0, s1) => isEqual(s0, s1)
+)
+
+CommentView.displayName = 'CommentView'
+```
+
+# Results
+
+Overall, I'm happy with how this design works. I seeded a post with a 10k threaded comments, then I scrolled though and posted a few comments of my own. The performance is great because React can lazily render only the tree of comments that are currently in the viewport. Using React Query and Nextjs to implement this was not only a great experience, but I got the best of both worlds because initially the top comments use incremental static regeneration so pages can be served from a CDN, then after React hydrates the page, it can lazily refetch for the most up to date comments.

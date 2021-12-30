@@ -28,14 +28,19 @@ const CustomLink = (props: any) => {
 
 const RoundedImage = (props: any) => {
   return (
-    <>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+      }}
+    >
       <Image alt={props.alt} {...props} />
       <style jsx global>{`
         img {
           border-radius: ${Const.pad}px;
         }
       `}</style>
-    </>
+    </div>
   )
 }
 
