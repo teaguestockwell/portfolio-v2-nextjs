@@ -8,6 +8,7 @@ import {useInitTheme} from '../../hooks/use_theme_2'
 import {UseScrollToA} from '../../hooks/use_scroll_to_a'
 import {WithNav} from '../../components/nav/nav'
 import {portfolioData} from '../../../data/portfolio'
+import {NextSeo} from 'next-seo'
 
 export default function Page({blog}: {blog: IBlog}) {
   useInitTheme()
@@ -16,6 +17,21 @@ export default function Page({blog}: {blog: IBlog}) {
 
   return (
     <>
+      <NextSeo
+        title={blog.title}
+        description={blog.summary}
+        openGraph={{
+          title: blog.title,
+          description: blog.summary,
+          images: [
+            {
+              url: blog.image,
+              alt: blog.title,
+              type: 'image/jpeg',
+            },
+          ],
+        }}
+      />
       <PortfolioContext.Provider value={portfolioData}>
         <WithNav>
           <a id="main-content" href="#main-content" style={{display: 'none'}}>

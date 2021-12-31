@@ -7,13 +7,13 @@ import {ProjectsSection} from '../components/sections/projects'
 import {ExperienceSection} from '../components/sections/experience'
 import {SchoolsSection} from '../components/sections/school'
 import {ContactSection} from '../components/sections/contact'
-import Head from 'next/head'
 import React from 'react'
 import {Modal} from '../hooks/use_modal'
 import {GetStaticProps} from 'next'
 import * as Types from '../types/types'
 import {PortfolioContext} from '../hooks/use_portfolio_context'
 import {allBlogs} from '.contentlayer/data'
+import {NextSeo} from 'next-seo'
 
 // all icons live on inside the serverless functions, only the icons defined inside the data are send to the client
 import allIcons from 'simple-icons'
@@ -44,10 +44,9 @@ export default function Home(portfolio: Types.Portfolio) {
 
   return (
     <>
-      <Head>
-        <title>{`${portfolio.person.firstName} ${portfolio.person.lastName} Portfolio`}</title>
-      </Head>
-
+      <NextSeo
+        title={`${portfolioData.person.firstName} ${portfolioData.person.lastName} • Portfolio`}
+      />
       <PortfolioContext.Provider value={portfolio}>
         <WithNav>
           <a id="main-content" href="#main-content" style={{display: 'none'}}>

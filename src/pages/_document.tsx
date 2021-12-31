@@ -5,7 +5,6 @@ import Document, {
   NextScript,
   DocumentContext,
 } from 'next/document'
-import {OGMeta} from '../components/og_meta'
 import {portfolioData} from '../../data/portfolio'
 
 class MyDocument extends Document {
@@ -79,15 +78,6 @@ class MyDocument extends Document {
           <link rel="manifest" href="/manifest.json" />
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
           <link rel="shortcut icon" href="/favicon.ico" />
-
-          <OGMeta
-            meta={{
-              title: `${portfolioData.person.firstName} ${portfolioData.person.lastName}'s Portfolio`,
-              description: portfolioData.person.shortAbout,
-              imgPath: '/og-hero.png',
-              path: '',
-            }}
-          />
         </Head>
         <body>
           <Main />

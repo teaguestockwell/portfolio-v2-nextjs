@@ -1,6 +1,4 @@
 import {Content} from '../content'
-import {OGMeta} from '../og_meta'
-import Head from 'next/head'
 import {Const} from '../../const'
 import {useBreakpoint} from '../../hooks/use_breakpoint'
 import {Avatar} from '../avatar'
@@ -21,17 +19,6 @@ export const BlogPage = ({
 
   return (
     <>
-      <Head>
-        <OGMeta
-          meta={{
-            title: blog.title,
-            description: blog.summary,
-            imgPath: blog.image,
-            path: `/blog/${blog.slug}`,
-          }}
-        />
-      </Head>
-
       <Element name="Blog" key="Blog">
         <Content
           style={{
