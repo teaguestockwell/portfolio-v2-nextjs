@@ -8,7 +8,7 @@ export const BlogPost = ({b}: {b: Types.BlogPost}) => {
       {/* https://codepen.io/chriscoyier/pen/PXNPRq */}
       <div
         style={{
-          height: 200,
+          height: 250,
           marginTop: 0,
           overflowY: 'auto',
           padding: 10,
@@ -26,7 +26,7 @@ export const BlogPost = ({b}: {b: Types.BlogPost}) => {
             padding: Const.pad,
             display: 'flex',
             flexDirection: 'column',
-            gap: Const.pad,
+            justifyContent: 'space-between',
           }}
         >
           <span
