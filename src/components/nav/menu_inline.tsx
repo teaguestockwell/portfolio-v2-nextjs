@@ -29,10 +29,9 @@ export const MenuInline = ({items}: {items: string[]}) => {
             <button
               className={`menu-inline`}
               style={{
-                paddingRight: '0.75vw',
-                paddingLeft: '0.75vw',
+                paddingInline: '0.5vw',
                 color: Const.css.fc0,
-                fontSize: Const.css.md,
+                fontSize: Const.css.sm,
                 wordWrap: 'break-word',
                 borderRadius: Const.rad,
               }}

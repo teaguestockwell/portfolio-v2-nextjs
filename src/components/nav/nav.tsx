@@ -65,16 +65,17 @@ export const Nav = () => {
           }}
         >
           {!md ? (
-            <div
+            <button
               onClick={openDrawer}
               className="icon-hover"
               style={{
                 paddingLeft: Const.pad,
                 cursor: 'pointer',
+                display: 'flex',
               }}
             >
               {hamburger}
-            </div>
+            </button>
           ) : (
             <div style={{paddingLeft: Const.pad}}>
               <Image
@@ -146,6 +147,7 @@ export const Nav = () => {
               maxWidth: iconSize + Const.pad,
               minWidth: iconSize + 4,
               cursor: 'pointer',
+              display: 'flex',
             }}
           >
             {themeName === 'light' ? svgs.darkMode : svgs.lightMode}
@@ -164,6 +166,7 @@ export const Nav = () => {
                 width: '12vw',
                 maxWidth: iconSize + Const.pad,
                 minWidth: iconSize + 4,
+                display: 'flex',
               }}
             >
               {getSvgFromSimpleIcon(github, iconSize, Const.css.fc0)}
@@ -176,7 +179,11 @@ export const Nav = () => {
             target="_blank"
             tabIndex={-1}
           >
-            <button className="icon-hover" aria-label={'LinkedIn'}>
+            <button
+              className="icon-hover"
+              aria-label={'LinkedIn'}
+              style={{display: 'flex'}}
+            >
               {getSvgFromSimpleIcon(linkedin, iconSize, Const.css.fc0)}
             </button>
           </a>
