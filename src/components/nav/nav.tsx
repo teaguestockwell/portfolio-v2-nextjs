@@ -68,6 +68,7 @@ export const Nav = () => {
             <button
               onClick={openDrawer}
               className="icon-hover"
+              aria-label={'Toggle hamburger menu'}
               style={{
                 paddingLeft: Const.pad,
                 cursor: 'pointer',
