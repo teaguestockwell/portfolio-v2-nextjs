@@ -31,9 +31,21 @@ export const portfolioData: Portfolio = {
   jobs: [
     {
       id: guid(),
+      name: 'Software Engineer 2',
+      company: 'Microsoft',
+      dateRange: 'January 2022 - Present',
+      location: 'Redmond, WA',
+      description:
+        'Creating a new user friendly software design tool that enables end-users to ship low code programs',
+      src: 'https://powerplatform.microsoft.com',
+      imgSrc: '/msft.png',
+      bullets: ["Check back later to see what I've been working on"],
+    },
+    {
+      id: guid(),
       name: 'Lead Software Engineer',
       company: 'Rainier Spark Tron',
-      dateRange: 'June 2021 - Present',
+      dateRange: 'June 2021 - November 2021',
       description:
         'Mentor new developers to stand up software development team for JBLM',
       src: 'https://www.linkedin.com/company/tron-air-force',
@@ -132,6 +144,14 @@ export const portfolioData: Portfolio = {
     'androidstudio',
     'sonarqube',
     'figma',
+    'azuredevops',
+    'redux',
+    'testinglibrary',
+    'jest',
+    'mui',
+    'antdesign',
+    'mysql',
+    'nextdotjs',
   ],
   projects: [
     {
@@ -160,6 +180,7 @@ export const portfolioData: Portfolio = {
         'nodedotjs',
         'amazonaws',
         'vercel',
+        'nextdotjs',
         'typescript',
         'prisma',
         'github',
@@ -266,54 +287,6 @@ export const portfolioData: Portfolio = {
       ],
       svgs: ['android', 'java', 'git', 'github'],
     },
-    // {
-    //   id: guid(),
-    //   name: 'Dog of the Day',
-    //   dateRange: 'Mar 2021',
-    //   subHeading: `A lighthearted React app to share your favorite animals during standup`,
-    //   bullets: [
-    //     'Consumed a restful api to browse, showcase, and persist animals in a React/Material-UI',
-    //   ],
-    //   deploymentSrc: 'https://dog-of-the-day-2692f.web.app/',
-    //   m3u8Src:
-    //     'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/dod-hls/master.m3u8',
-    //   repos: [
-    //     {
-    //       name: 'Frontend',
-    //       src: 'https://github.com/teaguestockwell/dog-of-the-day',
-    //     },
-    //   ],
-    //   svgs: [
-    //     'firebase',
-    //     'react',
-    //     'typescript',
-    //     'html5',
-    //     'css3',
-    //     'git',
-    //     'github',
-    //   ],
-    // },
-    // {
-    //   id: guid(),
-    //   name: `Doctor's Patient Portal`,
-    //   subHeading: `Developed a demo Flutter UI to consume real time checkups to a doctor's office`,
-    //   dateRange: 'March 2021',
-    //   m3u8Src:
-    //     'https://hello-next-auth-bucket1d4c77784-hsrquocmbr64.s3.amazonaws.com/lpg-hls/master.m3u8',
-    //   repos: [
-    //     {
-    //       name: 'Frontend',
-    //       src: 'https://github.com/teaguestockwell/doctors-patient-database',
-    //     },
-    //   ],
-    //   svgs: ['flutter', 'firebase', 'git', 'github', 'dart'],
-    //   bullets: [
-    //     `Utilized Firebase auth to authenticate care providers who want to maintain patient data`,
-    //     `Implemented real time searching of patients against NoSQL database (Firebase)`,
-    //     'email:  guest@email.com, password: password',
-    //   ],
-    //   deploymentSrc: 'https://doctors-patient-database.web.app',
-    // },
   ],
   schools: [
     {
