@@ -10,7 +10,7 @@
 <br />
 <p align="center">
   <a href="https://teaguestockwell.com">
-    <img src="./public/mstile-150x150.png" alt="Logo" width="150" height="150">
+    <img src="./public/favorite-icons/mstile-150x150.png" alt="Logo" width="150" height="150">
   </a>
 
   <h3 align="center">Portfolio</h3>

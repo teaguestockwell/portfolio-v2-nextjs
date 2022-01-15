@@ -51,33 +51,40 @@ class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#2B5797" />
           <meta name="msapplication-tap-highlight" content="no" />
 
-          <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+          <link
+            rel="apple-touch-icon"
+            href="/favorite-icons/apple-touch-icon.png"
+          />
           <link
             rel="apple-touch-icon"
             sizes="192x192"
-            href="/android-chrome-192x192.png"
+            href="/favorite-icons/android-chrome-192x192.png"
           />
           <link
             rel="apple-touch-icon"
             sizes="512x512"
-            href="/android-chrome-512x512.png"
+            href="/favorite-icons/android-chrome-512x512.png"
           />
 
           <link
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href="/favicon-32x32.png"
+            href="/favorite-icons/32x32.png"
           />
           <link
             rel="icon"
             type="image/png"
             sizes="16x16"
-            href="/favicon-16x16.png"
+            href="/favorite-icons/16x16.png"
           />
           <link rel="manifest" href="/manifest.json" />
-          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-          <link rel="shortcut icon" href="/favicon.ico" />
+          <link
+            rel="mask-icon"
+            href="/favorite-icons/safari-pinned-tab.svg"
+            color="#5bbad5"
+          />
+          <link rel="shortcut icon" href="/favorite-icons/icon.ico" />
         </Head>
         <body>
           <Main />

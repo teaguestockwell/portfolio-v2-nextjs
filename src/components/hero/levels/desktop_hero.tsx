@@ -24,7 +24,7 @@ export const DesktopHero = () => {
       <Image
         objectFit="cover"
         quality="100"
-        src={'/levels-dash.png'}
+        src={'/heros/levels-1-desktop.png'}
         width={1263}
         height={700}
         alt={'Levels'}

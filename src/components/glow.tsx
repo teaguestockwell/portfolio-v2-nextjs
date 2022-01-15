@@ -2,7 +2,7 @@
 export const Glow = ({
   children,
   tlwh,
-  publicSrc = '/glow.png',
+  publicSrc = '/glows/1.png',
   rest = {},
 }: {
   children: JSX.Element | JSX.Element[]

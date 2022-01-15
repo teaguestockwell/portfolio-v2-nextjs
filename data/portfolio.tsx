@@ -38,7 +38,7 @@ export const portfolioData: Portfolio = {
       description:
         'Creating a new user friendly software design tool that enables end-users to ship low code programs',
       src: 'https://powerplatform.microsoft.com',
-      imgSrc: '/msft.png',
+      imgSrc: '/company-icons/microsoft.png',
       bullets: ["Check back later to see what I've been working on"],
     },
     {
@@ -50,7 +50,7 @@ export const portfolioData: Portfolio = {
         'Mentor new developers to stand up software development team for JBLM',
       src: 'https://www.linkedin.com/company/tron-air-force',
       location: 'Joint Base Lewis McChord (JBLM), WA',
-      imgSrc: '/rainier.png',
+      imgSrc: '/company-icons/rainier-spark-tron.png',
       bullets: [
         `Securely deployed Levels as Air force web app`,
         `Pioneered software dev capability for JBLM spark cell. 1 new developer onboarded`,
@@ -65,7 +65,7 @@ export const portfolioData: Portfolio = {
       description: `Test, implement, and deliver accredited software to include pipeline management and stakeholder validation`,
       src: 'https://www.linkedin.com/company/tron-air-force',
       location: 'Remote',
-      imgSrc: '/tron1.png',
+      imgSrc: '/company-icons/aloha-spark-tron.png',
       bullets: [
         `Implemented user stories while maintaining code standards with 2 CI pipelines with a total of 34 stages`,
         `Wrote unit, component, and or e2e tests for 2 services to hit target of 80% line coverage`,
@@ -84,7 +84,7 @@ export const portfolioData: Portfolio = {
         'Lead & perform repairs / inspections on 20 assigned C-17 aircraft valued at $3.2B',
       src: 'https://www.airforce.com/careers/detail/airlift-special-mission-aircraft-maintenance',
       location: 'Joint Base Lewis McChord, WA',
-      imgSrc: '/af1.png',
+      imgSrc: '/company-icons/us-air-force.png',
       bullets: [
         'Plan / conduct task certification for personnel in upgrade status to meet technical advancement',
         'Discovered 2 worn brakes during post flight inspection and replaced them in < 3hrs for 10 patient medevac',
@@ -294,7 +294,7 @@ export const portfolioData: Portfolio = {
       name: 'Southwestern College',
       dateRange: 'May 2021',
       subHeading: `Bachelor of Science, Computer Programming`,
-      imgSrc: '/bs1.png',
+      imgSrc: '/education-icons/southwestern-college.png',
       href: 'https://www.sckans.edu/',
     },
     {
@@ -302,7 +302,7 @@ export const portfolioData: Portfolio = {
       name: 'Community College of the Air Force',
       dateRange: 'August 2019',
       subHeading: `Associate of Applied Science, Aviation Maintenance Technology`,
-      imgSrc: '/as1.png',
+      imgSrc: '/education-icons/ccaf.png',
       href: 'https://www.ccaf.af.mil/',
     },
   ],

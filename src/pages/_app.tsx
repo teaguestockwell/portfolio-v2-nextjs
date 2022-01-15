@@ -21,7 +21,7 @@ export default function App({Component, pageProps}: AppProps) {
           description: portfolioData.person.shortAbout,
           images: [
             {
-              url: `${portfolioData.domain}/og-hero.png`,
+              url: `${portfolioData.domain}/heros/open-graph.png`,
               height: 630,
               width: 1200,
               alt: portfolioData.domain,

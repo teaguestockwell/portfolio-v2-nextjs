@@ -80,7 +80,7 @@ export const Nav = () => {
           ) : (
             <div style={{paddingLeft: Const.pad}}>
               <Image
-                src="/favicon-32x32.png"
+                src="/favorite-icons/32x32.png"
                 width={32}
                 height={32}
                 alt={
