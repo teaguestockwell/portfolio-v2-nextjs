@@ -3,7 +3,7 @@ import {Const} from '../../../const'
 import {usePortfolio} from '../../../hooks/use_portfolio_context'
 
 export const Profile = () => {
-  const picW = Const.drawerWidth - Const.pad * 4
+  const picW = Const.drawerWidth - Const.pad * 5.1
   const {person} = usePortfolio()
   const fullName = person.firstName + ' ' + person.lastName
 
@@ -57,7 +57,7 @@ export const Profile = () => {
           color: Const.css.fc0,
           paddingTop: Const.pad,
           textAlign: 'center',
-          fontSize: Const.css.lg,
+          fontSize: Const.css.md,
           overflowWrap: 'break-word',
           fontWeight: 600,
           ...textWrap,
@@ -69,7 +69,7 @@ export const Profile = () => {
       <div
         style={{
           color: Const.css.fc0,
-          fontSize: Const.css.md,
+          fontSize: Const.css.sm,
           overflowWrap: 'break-word',
           textAlign: 'center',
         }}
@@ -80,7 +80,7 @@ export const Profile = () => {
       <div
         style={{
           color: Const.css.fc0,
-          fontSize: Const.css.md,
+          fontSize: Const.css.sm,
           overflowWrap: 'break-word',
           textAlign: 'center',
         }}

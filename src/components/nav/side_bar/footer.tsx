@@ -37,16 +37,12 @@ export const Footer = () => {
   const svgs = getInteractiveSvgs(Const.css.fc0, iconSize)
 
   return (
-    <div
-      style={{
-        paddingTop: Const.pad,
-      }}
-    >
+    <div>
       <ThemeToggle />
 
       <div
         style={{
-          paddingTop: Const.pad,
+          paddingTop: Const.pad / 2,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-evenly',

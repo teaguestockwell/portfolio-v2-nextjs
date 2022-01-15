@@ -90,7 +90,7 @@ export const Project = React.memo(
       36
     ).link
     const portfolio = usePortfolio()
-    const simpleSvgs = getSimpleSvgs(36, themeName, true, portfolio.icons)
+    const simpleSvgs = getSimpleSvgs(26, themeName, true, portfolio.icons)
 
     const openModal = () => {
       useModalStore.setState({
@@ -111,7 +111,9 @@ export const Project = React.memo(
           >
             <div
               style={{
-                flex: '0 0 20%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
                 padding: Const.pad,
               }}
             >
@@ -154,7 +156,6 @@ export const Project = React.memo(
                   fontSize: Const.css.sm,
                   wordWrap: 'break-word',
                   overflowY: 'auto',
-                  maxHeight: 350,
                 }}
               >
                 <div>{dateRange}</div>

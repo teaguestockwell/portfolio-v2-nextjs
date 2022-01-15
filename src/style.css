@@ -75,8 +75,8 @@ h1 {
   border-color: var(--fc-0) !important;
 }
 
-.menu-sidebar:hover,
-.menu-sidebar:focus {
+.menu-sidebar:focus-visible,
+.menu-sidebar:hover {
   background-color: var(--hovbg);
 }
 

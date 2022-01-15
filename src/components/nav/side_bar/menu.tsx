@@ -44,8 +44,7 @@ export const Menu = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'left',
-                height: 42,
-                fontSize: Const.css.lg,
+                height: 36,
                 wordWrap: 'break-word',
                 color: Const.css.fc0,
                 width: '-webkit-fill-available',
@@ -56,16 +55,16 @@ export const Menu = () => {
               onClick={() => useDrawerStore.setState({isOpen: false})}
             >
               {customSvgs[x]}
-              <div
+              <h1
                 style={{
                   marginLeft: Const.pad / 2,
                   color: Const.css.fc0,
-                  fontSize: Const.css.lg,
+                  fontSize: Const.css.md,
                   wordWrap: 'break-word',
                 }}
               >
                 {x}
-              </div>
+              </h1>
             </button>
           </Link>
         )
