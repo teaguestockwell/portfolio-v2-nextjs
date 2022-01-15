@@ -17,11 +17,7 @@ export const AboutSection = () => {
   return (
     <Element name={name} key={name}>
       <UseViewPortHash hash={name} />
-      <Glow
-        tlwh={[-36, -10, 115, 135]}
-        publicSrc="/glow1.png"
-        rest={{transform: 'skewY(170deg)'}}
-      >
+      <Glow tlwh={[-36, -10, 115, 135]} rest={{transform: 'skewY(170deg)'}}>
         {/* Above the fold */}
         <Content>
           <div
