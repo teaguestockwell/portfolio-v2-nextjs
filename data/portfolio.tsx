@@ -192,7 +192,7 @@ export const portfolioData: Portfolio = {
     {
       id: 'levels',
       name: 'Levels',
-      dateRange: 'March 2021 - Present',
+      dateRange: 'March 2021 - November 2021',
       subHeading: `Developed a production full stack web app to manage aircraft cargo loading for the Air Force`,
       bullets: [
         'Leveraged CI/CD pipelines, TDD, hardened Docker imgs, and Agile to accredit and deploy a prod app in < 5 months to a secure network',
