@@ -169,8 +169,8 @@ export const portfolioData: Portfolio = {
       m3u8Src: `https://${cdnDomain}/pre-hls/buildable-2021-12-14.mp4`,
       repos: [
         {
-          name: 'mono repo',
-          src: 'https://github.com/teaguestockwell/buildable',
+          name: 'Private mono repo - email me',
+          src: 'mailto:name@tsappdevelopment@gmail.com',
         },
       ],
       svgs: [
