@@ -22,7 +22,7 @@ export const CardFlip = ({
   const flipIcon = (
     <button
       aria-label={'Flip card'}
-      onClick={() => setIsFlipped(!isFlipped)}
+      onClick={() => setIsFlipped((p) => !p)}
       style={{
         position: 'absolute',
         bottom: Const.pad,
