@@ -4,14 +4,12 @@ import type {Blog as IBlog} from '.contentlayer/types'
 import {BlogPage} from '../../components/sections/blog_page'
 import components from '../../components/mdx'
 import {PortfolioContext} from '../../hooks/use_portfolio_context'
-import {useInitTheme} from '../../hooks/use_theme_2'
 import {UseScrollToA} from '../../hooks/use_scroll_to_a'
 import {WithNav} from '../../components/nav/nav'
 import {portfolioData} from '../../../data/portfolio'
 import {NextSeo} from 'next-seo'
 
 export default function Page({blog}: {blog: IBlog}) {
-  useInitTheme()
   UseScrollToA()
   const Component = useMDXComponent(blog.body.code)
 

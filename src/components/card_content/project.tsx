@@ -12,7 +12,7 @@ import {useModalStore} from '../../hooks/use_modal'
 import React from 'react'
 import {usePortfolio} from '../../hooks/use_portfolio_context'
 import github from 'simple-icons/icons/github'
-import {useTheme} from '../../hooks/use_theme_2'
+import {useTheme} from '../../hooks/use_theme'
 import {Element} from 'react-scroll'
 
 const Repos = ({repos}: {repos: {name: string; src: string}[]}) => {
@@ -83,14 +83,14 @@ export const Project = React.memo(
   }: Types.Project & {
     techName: string
   }) => {
-    const themeName = useTheme((s) => s.themeName)
+    const {theme} = useTheme()
 
     const link = getInteractiveSvgs(
-      themeName === 'light' ? '#080510' : '#f3f2ef',
+      theme === 'light' ? '#080510' : '#f3f2ef',
       36
     ).link
     const portfolio = usePortfolio()
-    const simpleSvgs = getSimpleSvgs(26, themeName, true, portfolio.icons)
+    const simpleSvgs = getSimpleSvgs(26, theme, true, portfolio.icons)
 
     const openModal = () => {
       useModalStore.setState({

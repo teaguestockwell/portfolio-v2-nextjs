@@ -1,4 +1,4 @@
-import {useTheme} from '../hooks/use_theme_2'
+import {useTheme} from '../hooks/use_theme'
 import {Cloud, ICloud, renderSimpleIcon} from 'react-icon-cloud'
 import {Const} from '../const'
 import React from 'react'
@@ -6,10 +6,10 @@ import {usePortfolio} from '../hooks/use_portfolio_context'
 
 export const SkillCloud = () => {
   const portfolio = usePortfolio()
-  const themeName = useTheme((s) => s.themeName)
-  const bgHex = themeName === 'light' ? '#f3f2ef' : '#080510'
-  const fallbackHex = themeName === 'light' ? '#6e6e73' : '#a1a1a6'
-  const minContrastRatio = themeName === 'dark' ? 2 : 1.2
+  const {theme} = useTheme()
+  const bgHex = theme === 'light' ? '#f3f2ef' : '#080510'
+  const fallbackHex = theme === 'light' ? '#6e6e73' : '#a1a1a6'
+  const minContrastRatio = theme === 'dark' ? 2 : 1.2
 
   const options: ICloud['options'] = {
     reverse: true,

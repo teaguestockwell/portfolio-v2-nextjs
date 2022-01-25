@@ -1,4 +1,4 @@
-import {setOrToggleTheme, useTheme} from '../../../hooks/use_theme_2'
+import {useTheme} from '../../../hooks/use_theme'
 import github from 'simple-icons/icons/github'
 import linkedin from 'simple-icons/icons/linkedin'
 import {Const} from '../../../const'
@@ -6,7 +6,7 @@ import {usePortfolio} from '../../../hooks/use_portfolio_context'
 import {getInteractiveSvgs, getSvgFromSimpleIcon} from '../../svgs'
 
 const ThemeToggle = () => {
-  const theme = useTheme().themeName
+  const {theme, toggleTheme} = useTheme()
   const svgs = getInteractiveSvgs(Const.css.fc0, 32)
   return (
     <div
@@ -19,7 +19,7 @@ const ThemeToggle = () => {
     >
       <button
         aria-label={'Toggle Theme'}
-        onClick={() => setOrToggleTheme()}
+        onClick={toggleTheme}
         className="icon-hover"
         style={{
           cursor: 'pointer',
