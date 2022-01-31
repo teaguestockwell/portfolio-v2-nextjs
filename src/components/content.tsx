@@ -4,8 +4,8 @@ export const Content = ({
   children,
   style = {},
 }: {
-  children: JSX.Element[] | JSX.Element
-  style?: any
+  children: React.ReactNode
+  style?: React.CSSProperties
 }) => {
   return (
     <div

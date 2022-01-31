@@ -20,7 +20,7 @@ export const SkillsSection = () => {
       <Content style={{paddingTop: Const.pad * 4}}>
         <SkillCloud />
 
-        {portfolio.person.firstName === 'Teague' ? (
+        {portfolio.person.firstName === 'Teague' && (
           <div
             style={{
               paddingLeft: Const.pad,
@@ -68,8 +68,6 @@ export const SkillsSection = () => {
               </button>
             </a>
           </div>
-        ) : (
-          <></>
         )}
       </Content>
     </Element>
