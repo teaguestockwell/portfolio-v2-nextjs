@@ -53,7 +53,7 @@ export const AboutSection = () => {
 
               <div
                 style={{
-                  fontSize: Const.css.lg,
+                  fontSize: Const.css.md,
                   wordWrap: 'break-word',
                   color: Const.css.fc0,
                   paddingTop: Const.pad,
@@ -65,7 +65,7 @@ export const AboutSection = () => {
               <TypeWriterText
                 lines={portfolio.person.typeWriterCallToActions}
                 style={{
-                  fontSize: Const.css.lg,
+                  fontSize: Const.css.md,
                   wordWrap: 'break-word',
                   color: Const.css.fc0,
                   height: 51,

@@ -1,7 +1,7 @@
 import Lazy from 'react-lazyload'
 export const Video = ({src, w, h}: {src: string; w?: number; h?: number}) => {
   return (
-    <Lazy>
+    <Lazy offset={200}>
       <video
         src={src}
         muted

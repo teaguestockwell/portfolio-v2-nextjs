@@ -37,11 +37,12 @@ export const BlogPage = ({
           >
             <h1
               style={{
-                fontSize: Const.css.xxlg,
+                fontSize: Const.css.xlg,
                 color: Const.css.fc0,
                 fontWeight: 700,
                 marginLeft: -4,
                 textAlign: md ? 'left' : 'center',
+                paddingBottom: 10,
               }}
             >
               {blog.title}
@@ -54,6 +55,7 @@ export const BlogPage = ({
                 fontSize: Const.css.md,
                 color: Const.css.fc1,
                 width: '100%',
+                paddingBottom: 40,
               }}
             >
               <div
