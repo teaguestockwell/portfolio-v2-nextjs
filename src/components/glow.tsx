@@ -1,3 +1,5 @@
+import {useBreakpoint} from '../hooks/use_breakpoint'
+
 /* eslint-disable @next/next/no-img-element */
 export const Glow = ({
   children,
@@ -10,6 +12,7 @@ export const Glow = ({
   publicSrc?: string
   rest?: any
 }) => {
+  const md = useBreakpoint.md()
   return (
     <div
       data-test-id={'glow'}
@@ -23,7 +26,7 @@ export const Glow = ({
       }}
     >
       <img
-        src={publicSrc}
+        src={md ? publicSrc : ''}
         alt="glow"
         style={{
           position: 'absolute',
