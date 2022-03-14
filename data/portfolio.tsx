@@ -1,7 +1,7 @@
 import {Portfolio} from '../src/types/types'
 import {guid} from '../src/utils'
 
-const cdnDomain = 'd1jdqfkicm13py.cloudfront.net'
+export const cdnDomain = 'd1jdqfkicm13py.cloudfront.net'
 
 export const portfolioData: Portfolio = {
   blogs: [],

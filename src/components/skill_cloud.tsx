@@ -45,6 +45,7 @@ const usePortfolioIcons = ({
       fallbackHex,
       minContrastRatio,
       aProps: {
+        href: '#',
         onClick: (e) => {
           e.preventDefault()
         },

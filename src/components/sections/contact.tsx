@@ -198,6 +198,7 @@ export const ContactSection = () => {
           }}
         >
           <Link
+            href={`#${portfolio.titles.about}`}
             key={portfolio.titles.about}
             to={portfolio.titles.about}
             {...Const.reactScrollProps}
