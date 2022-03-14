@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "pretty": "npx prettier --write . && npx prisma format",
+    "pretty": "npx prettier --write .",
     "lint": "next lint",
     "dev": "next dev",
     "build": "contentlayer build && next build",
