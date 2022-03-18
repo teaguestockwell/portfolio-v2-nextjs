@@ -297,11 +297,11 @@ export const portfolioData: Portfolio = {
   },
   titles: {
     about: 'About',
-    blog: 'Blog',
-    contact: 'Contact',
-    education: 'Education',
-    experience: 'Experience',
-    projects: 'Projects',
     tech: 'Stack',
+    projects: 'Projects',
+    blog: 'Blog',
+    experience: 'Experience',
+    education: 'Education',
+    contact: 'Contact',
   },
 }
