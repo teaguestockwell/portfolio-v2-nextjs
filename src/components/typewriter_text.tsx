@@ -11,7 +11,9 @@ export const TypeWriterText = ({
   nextCharDelayMs = 50,
   style = {},
   eolWait = 20,
+  prefix = '',
 }: {
+  prefix?: string
   lines: string[]
   nextCharDelayMs?: number
   style?: React.CSSProperties
@@ -67,5 +69,9 @@ export const TypeWriterText = ({
     []
   )
 
-  return <div style={style}>{lines[state.lineI].substring(0, state.charI)}</div>
+  return (
+    <span style={style}>
+      {prefix + lines[state.lineI].substring(0, state.charI)}
+    </span>
+  )
 }

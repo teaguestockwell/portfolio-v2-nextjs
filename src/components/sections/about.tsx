@@ -36,6 +36,7 @@ export const AboutSection = () => {
               style={{
                 display: 'flex',
                 flexDirection: 'column',
+                gap: Const.pad * 2,
               }}
             >
               <div
@@ -51,24 +52,13 @@ export const AboutSection = () => {
                 {portfolio.person.firstName + ' ' + portfolio.person.lastName}
               </div>
 
-              <div
-                style={{
-                  fontSize: Const.css.md,
-                  wordWrap: 'break-word',
-                  color: Const.css.fc0,
-                  paddingTop: Const.pad,
-                }}
-              >
-                {portfolio.person.shortAbout}
-              </div>
-
               <TypeWriterText
+                prefix={portfolio.person.shortAbout}
                 lines={portfolio.person.typeWriterCallToActions}
                 style={{
                   fontSize: Const.css.md,
                   wordWrap: 'break-word',
                   color: Const.css.fc0,
-                  height: 51,
                 }}
               />
 
@@ -78,7 +68,7 @@ export const AboutSection = () => {
                 to={portfolio.titles.contact}
                 {...Const.reactScrollProps}
                 offset={0}
-                style={{marginTop: Const.pad * 2, width: 'fit-content'}}
+                style={{width: 'fit-content'}}
               >
                 <button
                   className="hover-button"
