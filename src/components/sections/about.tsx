@@ -59,7 +59,7 @@ export const AboutSection = () => {
                   fontSize: Const.css.md,
                   wordWrap: 'break-word',
                   color: Const.css.fc0,
-                  minHeight: `calc(${Const.css.md} * 3.5)`,
+                  minHeight: `calc(${Const.css.md} * 5)`,
                 }}
               />
 
