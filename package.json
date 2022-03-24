@@ -33,7 +33,7 @@
     "next-contentlayer": "^0.0.33",
     "next-pwa": "^5.4.6",
     "next-seo": "^5.1.0",
-    "random-gradient": "^0.0.2",
+    "preact": "^10.6.6",
     "react": "17.0.2",
     "react-card-flip": "^1.1.5",
     "react-dancing-lines": "^1.1.4",

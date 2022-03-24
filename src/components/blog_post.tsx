@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import {Const} from '../const'
-import gradient from 'random-gradient'
 
 export const BlogPost = ({b}: {b: Types.BlogPost}) => {
   return (
@@ -13,7 +12,7 @@ export const BlogPost = ({b}: {b: Types.BlogPost}) => {
           overflowY: 'auto',
           padding: 10,
           borderRadius: Const.rad,
-          background: gradient(b.slug),
+          background: 'linear-gradient(to top right, #06ccf9, #f906cc)',
           cursor: 'pointer',
         }}
       >
