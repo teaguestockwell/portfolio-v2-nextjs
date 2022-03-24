@@ -215,7 +215,7 @@ export const portfolioData: Portfolio = {
       bullets: [],
       dateRange: 'Sep 2020 - March 2020',
       deploymentSrc:
-        'https://play.google.com/store/apps/details?id=com.teaguestockwell.c17mac',
+        'https://play.google.com/store/apps/details?id=com.TsAppDevelopment.c17mac',
       id: '5-level',
       m3u8Src: `https://${cdnDomain}/pre-hls/5-level-2-encoded.mp4`,
       name: '5 Level',
