@@ -183,7 +183,11 @@ export const Nav = () => {
             <button
               className="icon-hover"
               aria-label={'LinkedIn'}
-              style={{display: 'flex'}}
+              style={{
+                maxWidth: iconSize + Const.pad,
+                minWidth: iconSize + 4,
+                display: 'flex',
+              }}
             >
               {getSvgFromSimpleIcon(linkedin, iconSize, Const.css.fc0)}
             </button>
