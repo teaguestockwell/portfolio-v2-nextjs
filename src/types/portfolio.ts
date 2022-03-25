@@ -1,5 +1,7 @@
 import * as Types from './types'
 
+type Nullable<T> = {[K in keyof T]: T[K] | null}
+
 export interface Portfolio {
   heroM3u8Src: string
   id: string
@@ -8,7 +10,7 @@ export interface Portfolio {
   projects: Types.Project[]
   schools: Types.School[]
   titles: Types.SectionTitles
-  subTitles: Partial<Types.SectionTitles>
+  subTitles: Nullable<Types.SectionTitles>
   jobs: Types.Job[]
   domain: string
   icons: Types.SimpleIcon[]

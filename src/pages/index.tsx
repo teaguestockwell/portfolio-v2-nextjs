@@ -22,7 +22,15 @@ import {pick} from '../utils'
 import {BlogSection} from '../components/sections/blog'
 
 export const getStaticProps: GetStaticProps = async () => {
-  portfolioData.icons = portfolioData.skills.map((s) => allIcons.Get(s))
+  portfolioData.icons = portfolioData.skills.map((s) => {
+    const simpleI = allIcons.Get(s)
+    return {
+      title: simpleI.title ?? null,
+      hex: simpleI.hex ?? null,
+      path: simpleI.path ?? null,
+      slug: s,
+    }
+  })
   portfolioData.blogs = allBlogs
     .map((post) =>
       pick(post, ['slug', 'title', 'summary', 'publishedAt', 'readingTime'])

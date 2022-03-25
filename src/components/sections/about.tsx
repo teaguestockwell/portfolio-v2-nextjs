@@ -66,7 +66,7 @@ export const AboutSection = () => {
               <Link
                 href={`#${portfolio.titles.contact}`}
                 key={portfolio.titles.contact}
-                to={portfolio.titles.contact}
+                to={portfolio.titles.contact!}
                 {...Const.reactScrollProps}
                 offset={0}
                 style={{width: 'fit-content'}}

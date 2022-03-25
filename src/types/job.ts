@@ -4,7 +4,7 @@ export interface Job {
   company: string
   dateRange: string
   description: string
-  src: string | undefined
+  src: string | null
   location: string
   imgSrc: string
   bullets: string[]
