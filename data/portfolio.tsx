@@ -5,6 +5,8 @@ export const cdnDomain = 'd1jdqfkicm13py.cloudfront.net'
 
 export const portfolioData: Portfolio = {
   blogs: [],
+  devMessage:
+    'Hello, I see you are checking out the dev tools. If you would like to see how this site was built, the source code is available on Github: https://github.com/teaguestockwell/portfolio-v2-nextjs',
   domain: 'https://teaguestockwell.com',
   githubProjectName: 'portfolio-v2-nextjs',
   heroM3u8Src: `https://${cdnDomain}/level-2-hls/master.m3u8`,

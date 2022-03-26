@@ -11,7 +11,7 @@ import * as Types from '../../types/types'
 import {useModalStore} from '../../hooks/use_modal'
 import React from 'react'
 import {usePortfolio} from '../../hooks/use_portfolio_context'
-import github from 'simple-icons/icons/github'
+import {siGithub} from 'simple-icons/icons'
 import {useTheme} from '../../hooks/use_theme'
 import {Element} from 'react-scroll'
 
@@ -233,7 +233,7 @@ export const Project = React.memo(
                     cursor: 'pointer',
                   }}
                 >
-                  {getSvgFromSimpleIcon(github, 30, Const.css.fc0)}
+                  {getSvgFromSimpleIcon(siGithub, 30, Const.css.fc0)}
                 </button>
               )}
 

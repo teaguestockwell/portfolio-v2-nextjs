@@ -3,6 +3,7 @@ import * as Types from './types'
 type Nullable<T> = {[K in keyof T]: T[K] | null}
 
 export interface Portfolio {
+  devMessage: string
   heroM3u8Src: string
   id: string
   person: Types.Person

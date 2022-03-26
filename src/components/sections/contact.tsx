@@ -3,8 +3,7 @@ import {SectionHeader} from '../section_header'
 import {usePortfolio} from '../../hooks/use_portfolio_context'
 import React from 'react'
 import {Const} from '../../const'
-import linkedIn from 'simple-icons/icons/linkedin'
-import gitHub from 'simple-icons/icons/github'
+import {siLinkedin, siGithub} from 'simple-icons/icons'
 import {getInteractiveSvgs, getSvgFromSimpleIcon} from '../svgs'
 import {Link} from 'react-scroll'
 import {UseViewPortHash} from '../../hooks/use_viewport_hash'
@@ -78,7 +77,7 @@ export const ContactSection = () => {
                   paddingRight: Const.pad,
                 }}
               >
-                {getSvgFromSimpleIcon(gitHub, iconSize, Const.css.fc0)}
+                {getSvgFromSimpleIcon(siGithub, iconSize, Const.css.fc0)}
                 <div
                   style={{
                     fontSize: Const.css.lg,
@@ -109,7 +108,7 @@ export const ContactSection = () => {
                   paddingRight: Const.pad,
                 }}
               >
-                {getSvgFromSimpleIcon(linkedIn, iconSize, Const.css.fc0)}
+                {getSvgFromSimpleIcon(siLinkedin, iconSize, Const.css.fc0)}
                 <div
                   style={{
                     fontSize: Const.css.lg,

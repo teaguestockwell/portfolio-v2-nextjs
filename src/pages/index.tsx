@@ -48,6 +48,10 @@ export const getStaticProps: GetStaticProps = async () => {
 export default function Home(portfolio: Types.Portfolio) {
   UseScrollToA()
 
+  if (portfolio.devMessage) {
+    console.log(portfolio.devMessage)
+  }
+
   return (
     <>
       <NextSeo

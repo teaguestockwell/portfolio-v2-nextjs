@@ -4,7 +4,7 @@ import {usePortfolio} from '../../hooks/use_portfolio_context'
 import {SkillCloud} from '../skill_cloud'
 import {Content} from '../content'
 import {Const} from '../../const'
-import npm from 'simple-icons/icons/npm'
+import {siNpm} from 'simple-icons/icons'
 import {getSvgFromSimpleIcon} from '../svgs'
 import {UseViewPortHash} from '../../hooks/use_viewport_hash'
 
@@ -61,7 +61,7 @@ export const SkillsSection = () => {
                       alignItems: 'center',
                     }}
                   >
-                    {getSvgFromSimpleIcon(npm, 24, Const.css.bgc0)}
+                    {getSvgFromSimpleIcon(siNpm, 24, Const.css.bgc0)}
                   </div>
                 }
                 {`react-icon-cloud`}

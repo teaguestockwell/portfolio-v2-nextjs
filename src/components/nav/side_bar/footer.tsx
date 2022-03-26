@@ -1,6 +1,5 @@
 import {useTheme} from '../../../hooks/use_theme'
-import github from 'simple-icons/icons/github'
-import linkedin from 'simple-icons/icons/linkedin'
+import {siGithub, siLinkedin} from 'simple-icons/icons'
 import {Const} from '../../../const'
 import {usePortfolio} from '../../../hooks/use_portfolio_context'
 import {getInteractiveSvgs, getSvgFromSimpleIcon} from '../../svgs'
@@ -56,7 +55,7 @@ export const Footer = () => {
           tabIndex={-1}
         >
           <button className="icon-hover" style={{}} aria-label={'Github'}>
-            {getSvgFromSimpleIcon(github, iconSize, Const.css.fc0)}
+            {getSvgFromSimpleIcon(siGithub, iconSize, Const.css.fc0)}
           </button>
         </a>
 
@@ -67,7 +66,7 @@ export const Footer = () => {
           tabIndex={-1}
         >
           <button className="icon-hover" aria-label={'LinkedIn'}>
-            {getSvgFromSimpleIcon(linkedin, iconSize, Const.css.fc0)}
+            {getSvgFromSimpleIcon(siLinkedin, iconSize, Const.css.fc0)}
           </button>
         </a>
 
