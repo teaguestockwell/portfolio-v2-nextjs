@@ -60,8 +60,10 @@ export const TypeWriterText = ({
   return (
     <span style={style}>
       {prefix}
+      <br />
+      <br />
       {getText()}
-      {Math.floor(tick / 8) % 2 ? caret : ''}
+      {Math.floor(tick / 8) % 2 ? caret : ' '}
     </span>
   )
 }

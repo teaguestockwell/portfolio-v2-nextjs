@@ -83,7 +83,7 @@ export const portfolioData: Portfolio = {
     lastName: 'Stockwell',
     linkedInSrc: 'https://www.linkedin.com/in/teague-stockwell',
     location: 'Seattle, WA',
-    shortAbout: `Hello i'm Teague, and I have a passion for developing software that `,
+    shortAbout: `Hello i'm Teague, and I have a passion for developing software that`,
     typeWriterCallToActions: [
       'solves problems',
       'is easy to use',

@@ -36,7 +36,7 @@ body[data-theme='dark'] {
   --fs-lg: 1.5rem;
   --fs-xl: clamp(1.5rem, 12vw + 1rem, 2rem);
   --fs-xxl: clamp(2.5rem, 12vw + 1rem, 3rem);
-  --fs-xxxl: clamp(3rem, 12vw + 1rem, 5rem);
+  --fs-xxxl: clamp(3rem, 12vw + 1rem, 4rem);
   --card-rad: 0px;
   --content-pad: 0px;
   --name-size: 0.7rem;
