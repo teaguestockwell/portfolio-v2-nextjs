@@ -18,7 +18,7 @@ export const DesktopHero = () => {
         WebkitBoxShadow: shadow,
         MozBoxShadow: shadow,
         animation: 'hero-slide 8s infinite ease-in-out',
-        animationDelay: '2s',
+        animationDelay: '4s',
       }}
     >
       <Image
