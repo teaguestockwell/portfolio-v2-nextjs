@@ -1,10 +1,33 @@
 import React from 'react'
+import {Cloud, ICloud, renderSimpleIcon} from 'react-icon-cloud'
 import {useTheme} from '../hooks/use_theme'
 import {Const} from '../const'
 import {usePortfolio} from '../hooks/use_portfolio_context'
 
-let Cloud: any
-let renderSimpleIcon: any
+const cloudProps: Omit<ICloud, 'children'> = {
+  id: 'stable-id-for-csr-ssr',
+  containerProps: {
+    style: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginLeft: Const.pad * 2,
+      marginRight: Const.pad * 2,
+    },
+  },
+  options: {
+    reverse: true,
+    depth: 1,
+    wheelZoom: false,
+    imageScale: 2,
+    activeCursor: 'default',
+    tooltip: 'native',
+    initial: [0.1, -0.1],
+    clickToFront: 500,
+    tooltipDelay: 0,
+    outlineColour: '#0000',
+  },
+}
 
 const getPortfolioIcons = ({
   theme,
@@ -25,7 +48,7 @@ const getPortfolioIcons = ({
       minContrastRatio,
       aProps: {
         href: '#',
-        onClick: (e: any) => {
+        onClick: (e) => {
           e.preventDefault()
         },
       },
@@ -36,50 +59,8 @@ const getPortfolioIcons = ({
 export const SkillCloud = React.memo(() => {
   const {icons} = usePortfolio()
   const {theme} = useTheme()
-  const [loaded, setLoaded] = React.useState(false)
 
-  React.useEffect(() => {
-    window.addEventListener('load', () => {
-      import('react-icon-cloud').then((module) => {
-        Cloud = module.Cloud
-        renderSimpleIcon = module.renderSimpleIcon
-        setLoaded(true)
-      })
-    })
-  }, [])
-
-  if (!loaded) {
-    return <p>loading..</p>
-  }
-
-  return (
-    <Cloud
-      options={{
-        reverse: true,
-        depth: 1,
-        wheelZoom: false,
-        imageScale: 2,
-        activeCursor: 'default',
-        tooltip: 'native',
-        initial: [0.1, -0.1],
-        clickToFront: 500,
-        tooltipDelay: 0,
-        outlineColour: '#0000',
-      }}
-      containerProps={{
-        style: {
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginLeft: Const.pad * 2,
-          marginRight: Const.pad * 2,
-        },
-      }}
-      id={'stable-id-for-CSR-SSR'}
-    >
-      {getPortfolioIcons({theme, icons})}
-    </Cloud>
-  )
+  return <Cloud {...cloudProps}>{getPortfolioIcons({theme, icons})}</Cloud>
 })
 
 SkillCloud.displayName = 'SkillCloud'
