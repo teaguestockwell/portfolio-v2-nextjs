@@ -24,9 +24,14 @@ const csp = `
 export function middleware(req: NextRequest, ev: NextFetchEvent) {
   let response = NextResponse.next()
 
-  // https://github.com/vercel/examples/blob/main/edge-functions/user-agent-based-rendering/pages/_middleware.ts
   // Clone the URL
   const url = req.nextUrl.clone()
+
+  // Prevent internals from being accessed canonically
+  if (url.pathname.startsWith(`/_ua`)) {
+    url.pathname = '/404'
+    return NextResponse.rewrite(url)
+  }
 
   // Skip public files
   if (PUBLIC_FILE.test(url.pathname)) return
@@ -34,7 +39,9 @@ export function middleware(req: NextRequest, ev: NextFetchEvent) {
   // Parse user agent
   const ua = parser(req.headers.get('user-agent')!)
 
-  url.pathname = ua.device.type === 'mobile' ? `mobile` : `desktop`
+  const uaSlug = ua.device.type === 'mobile' ? `mobile` : `desktop`
+
+  url.pathname = `_ua/${uaSlug}${url.pathname}`
 
   response = NextResponse.rewrite(url)
 

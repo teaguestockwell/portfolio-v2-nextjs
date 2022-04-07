@@ -1,15 +1,20 @@
 import {useMDXComponent} from 'next-contentlayer/hooks'
-import {allBlogs} from '.contentlayer/data'
-import type {Blog as IBlog} from '.contentlayer/types'
-import {BlogPage} from '../../components/sections/blog_page'
-import components from '../../components/mdx'
-import {PortfolioContext} from '../../hooks/use_portfolio_context'
-import {UseScrollToA} from '../../hooks/use_scroll_to_a'
-import {WithNav} from '../../components/nav/nav'
-import {portfolioData} from '../../../data/portfolio'
 import {NextSeo} from 'next-seo'
+import {portfolioData} from '../data/portfolio'
+import {WithNav} from './components/nav/nav'
+import {BlogPage} from './components/sections/blog_page'
+import {PortfolioContext} from './hooks/use_portfolio_context'
+import {UseScrollToA} from './hooks/use_scroll_to_a'
+import type {Blog as IBlog} from '.contentlayer/types'
+import components from './components/mdx'
 
-export default function Page({blog}: {blog: IBlog}) {
+export const BlogApp = ({
+  blog,
+  userAgent,
+}: {
+  blog: IBlog
+  userAgent: Types.PortfolioContext['userAgent']
+}) => {
   UseScrollToA()
   const Component = useMDXComponent(blog.body.code)
 
@@ -30,9 +35,7 @@ export default function Page({blog}: {blog: IBlog}) {
           ],
         }}
       />
-      <PortfolioContext.Provider
-        value={{...portfolioData, userAgent: 'mobile'}}
-      >
+      <PortfolioContext.Provider value={{...portfolioData, userAgent}}>
         <WithNav>
           <a id="main-content" href="#main-content" style={{display: 'none'}}>
             Main Content
@@ -50,16 +53,4 @@ export default function Page({blog}: {blog: IBlog}) {
       </PortfolioContext.Provider>
     </>
   )
-}
-
-export async function getStaticPaths() {
-  return {
-    paths: allBlogs.map((p) => ({params: {slug: p.slug}})),
-    fallback: false,
-  }
-}
-
-export async function getStaticProps({params}: {params: any}) {
-  const blog = allBlogs.find((b: any) => b.slug === params.slug)
-  return {props: {blog}}
 }

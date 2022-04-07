@@ -1,13 +1,13 @@
 import {GetStaticProps} from 'next'
 import {allBlogs} from '.contentlayer/data'
-import {App} from '../app'
-import {portfolioData} from '../../data/portfolio'
+import {App} from '../../../app'
+import {portfolioData} from '../../../../data/portfolio'
 
 // all icons live on inside the serverless functions, only the icons defined inside the data are send to the client
 import allIcons from 'simple-icons'
-import {pick} from '../utils'
+import {pick} from '../../../utils'
 
-import * as Types from '../types/types'
+import * as Types from '../../../types/types'
 
 export const getStaticProps: GetStaticProps = async () => {
   portfolioData.icons = portfolioData.skills.map((s) => {
