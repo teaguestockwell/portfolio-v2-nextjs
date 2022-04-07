@@ -7,6 +7,7 @@ import {PortfolioContext} from './hooks/use_portfolio_context'
 import {UseScrollToA} from './hooks/use_scroll_to_a'
 import type {Blog as IBlog} from '.contentlayer/types'
 import components from './components/mdx'
+import {ThemeProvider} from 'next-themes'
 
 export const BlogApp = ({
   blog,
@@ -36,20 +37,22 @@ export const BlogApp = ({
         }}
       />
       <PortfolioContext.Provider value={{...portfolioData, userAgent}}>
-        <WithNav>
-          <a id="main-content" href="#main-content" style={{display: 'none'}}>
-            Main Content
-          </a>
-          <BlogPage mdxBlog={blog}>
-            <Component
-              components={
-                {
-                  ...components,
-                } as any
-              }
-            />
-          </BlogPage>
-        </WithNav>
+        <ThemeProvider>
+          <WithNav>
+            <a id="main-content" href="#main-content" style={{display: 'none'}}>
+              Main Content
+            </a>
+            <BlogPage mdxBlog={blog}>
+              <Component
+                components={
+                  {
+                    ...components,
+                  } as any
+                }
+              />
+            </BlogPage>
+          </WithNav>
+        </ThemeProvider>
       </PortfolioContext.Provider>
     </>
   )

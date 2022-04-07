@@ -1,55 +1,28 @@
-import {combine} from 'zustand/middleware'
-import create from 'zustand'
-import * as React from 'react'
+import {useTheme as useT} from 'next-themes'
+import React from 'react'
 
-type Theme = 'light' | 'dark'
-let hasInitialized = false
+const getSystemTheme = () =>
+  window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 
-const useStore = create(
-  combine({theme: 'light' as Theme}, (set) => ({
-    toggleTheme: () =>
-      set((prev) => {
-        const theme = prev.theme === 'light' ? 'dark' : 'light'
-        document.body.dataset.theme = theme
-        document.documentElement.style.setProperty('color-scheme', theme)
-        localStorage.setItem('theme', theme)
-        return {theme}
-      }),
-  }))
-)
+export const useTheme = (): {
+  theme: 'light' | 'dark'
+  toggleTheme: () => void
+} => {
+  const [isMounted, setIsMounted] = React.useState(false)
+  React.useEffect(() => setIsMounted(true), [])
+  const {theme, setTheme} = useT()
+  const toggleTheme = () => {
+    const prev = theme === 'system' ? getSystemTheme() : theme
+    setTheme(prev === 'light' ? 'dark' : 'light')
+  }
 
-const useResolveInitClientState = () =>
-  React.useEffect(() => {
-    if (!hasInitialized) {
-      const ls = localStorage.getItem('theme')
-      const systemDark = window.matchMedia(
-        '(prefers-color-scheme: dark)'
-      ).matches
-      const init = (theme: Theme) => {
-        document.body.dataset.theme = theme
-        document.documentElement.style.setProperty('color-scheme', theme)
-        useStore.setState({theme})
-      }
+  if (!isMounted || !theme) {
+    return {theme: 'light', toggleTheme}
+  }
 
-      // preference is given to localStorage
-      if (ls === 'dark' || ls === 'light') {
-        init(ls)
-        return
-      }
+  if (theme === 'system') {
+    return {theme: getSystemTheme(), toggleTheme}
+  }
 
-      // then system default
-      if (systemDark) {
-        init('dark')
-        return
-      }
-
-      // finally fallback to default light because it was ssr
-      hasInitialized = true
-    }
-  }, [])
-
-export const useTheme = () => {
-  const {toggleTheme, theme} = useStore()
-  useResolveInitClientState()
-  return {theme, toggleTheme}
+  return {theme: theme as 'light' | 'dark', toggleTheme}
 }

@@ -7,7 +7,7 @@ import parser from 'ua-parser-js'
 const PUBLIC_FILE = /\.(.*)$/
 const csp = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval';
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' data:;
   child-src 'self' https://${cdnDomain};
   style-src 'self' *.googleapis.com 'unsafe-inline' 'unsafe-eval';
   font-src 'self' fonts.gstatic.com;
