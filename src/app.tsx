@@ -12,7 +12,6 @@ import {SkillsSection} from './components/sections/skills'
 import {Modal} from './hooks/use_modal'
 import {PortfolioContext} from './hooks/use_portfolio_context'
 import {UseScrollToA} from './hooks/use_scroll_to_a'
-import {ThemeProvider} from 'next-themes'
 
 export const App = ({
   portfolioContextValue,
@@ -31,30 +30,28 @@ export const App = ({
         title={`${portfolioData.person.firstName} ${portfolioData.person.lastName} • Portfolio`}
       />
       <PortfolioContext.Provider value={portfolioContextValue}>
-        <ThemeProvider>
-          <WithNav>
-            <a id="main-content" href="#main-content" style={{display: 'none'}}>
-              Main Content
-            </a>
-            <AboutSection />
+        <WithNav>
+          <a id="main-content" href="#main-content" style={{display: 'none'}}>
+            Main Content
+          </a>
+          <AboutSection />
 
-            <SkillsSection />
+          <SkillsSection />
 
-            <ProjectsSection />
+          <ProjectsSection />
 
-            <BlogSection />
+          <BlogSection />
 
-            <ExperienceSection />
+          <ExperienceSection />
 
-            <SchoolsSection />
+          <SchoolsSection />
 
-            <ContactSection />
+          <ContactSection />
 
-            <Modal />
-          </WithNav>
+          <Modal />
+        </WithNav>
 
-          <DancingLinesWithTheme />
-        </ThemeProvider>
+        <DancingLinesWithTheme />
       </PortfolioContext.Provider>
     </>
   )

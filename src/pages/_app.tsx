@@ -1,6 +1,8 @@
 import type {AppProps} from 'next/app'
 import {DefaultSeo} from 'next-seo'
+import {ThemeProvider} from 'next-themes'
 import {portfolioData} from '../../data/portfolio'
+
 import '../style.css'
 import '../vars.css'
 
@@ -29,7 +31,9 @@ export default function App({Component, pageProps}: AppProps) {
           ],
         }}
       />
-      <Component {...pageProps} />
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   )
 }
