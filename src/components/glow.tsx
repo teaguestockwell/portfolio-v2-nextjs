@@ -12,7 +12,7 @@ export const Glow = ({
   publicSrc?: string
   rest?: any
 }) => {
-  const md = useBreakpoint.md()
+  const md = useBreakpoint().md()
   return (
     <div
       data-test-id={'glow'}

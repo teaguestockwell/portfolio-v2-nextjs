@@ -16,7 +16,7 @@ export const CardFlip = ({
 }) => {
   const [isFlipped, setIsFlipped] = useState(false)
   // is the grid layout 1fr 1fr or 1fr ?
-  const isGrid = useBreakpoint.projectsBreak()
+  const isGrid = useBreakpoint().projectsBreak()
   const svgs = getInteractiveSvgs(Const.css.fc0, 32)
 
   const flipIcon = (

@@ -1,33 +1,12 @@
 import React from 'react'
-import {Cloud, ICloud, renderSimpleIcon} from 'react-icon-cloud'
 import {useTheme} from '../hooks/use_theme'
 import {Const} from '../const'
 import {usePortfolio} from '../hooks/use_portfolio_context'
 
-const options: ICloud['options'] = {
-  reverse: true,
-  depth: 1,
-  wheelZoom: false,
-  imageScale: 2,
-  activeCursor: 'default',
-  tooltip: 'native',
-  initial: [0.1, -0.1],
-  clickToFront: 500,
-  tooltipDelay: 0,
-  outlineColour: '#0000',
-}
+let Cloud: any
+let renderSimpleIcon: any
 
-const containerProps: ICloud['containerProps'] = {
-  style: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: Const.pad * 2,
-    marginRight: Const.pad * 2,
-  },
-}
-
-const usePortfolioIcons = ({
+const getPortfolioIcons = ({
   theme,
   icons,
 }: {
@@ -46,7 +25,7 @@ const usePortfolioIcons = ({
       minContrastRatio,
       aProps: {
         href: '#',
-        onClick: (e) => {
+        onClick: (e: any) => {
           e.preventDefault()
         },
       },
@@ -57,15 +36,48 @@ const usePortfolioIcons = ({
 export const SkillCloud = React.memo(() => {
   const {icons} = usePortfolio()
   const {theme} = useTheme()
-  const renderedIcons = usePortfolioIcons({theme, icons})
+  const [loaded, setLoaded] = React.useState(false)
+
+  React.useEffect(() => {
+    window.addEventListener('load', () => {
+      import('react-icon-cloud').then((module) => {
+        Cloud = module.Cloud
+        renderSimpleIcon = module.renderSimpleIcon
+        setLoaded(true)
+      })
+    })
+  }, [])
+
+  if (!loaded) {
+    return <p>loading..</p>
+  }
 
   return (
     <Cloud
-      options={options}
-      containerProps={containerProps}
+      options={{
+        reverse: true,
+        depth: 1,
+        wheelZoom: false,
+        imageScale: 2,
+        activeCursor: 'default',
+        tooltip: 'native',
+        initial: [0.1, -0.1],
+        clickToFront: 500,
+        tooltipDelay: 0,
+        outlineColour: '#0000',
+      }}
+      containerProps={{
+        style: {
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginLeft: Const.pad * 2,
+          marginRight: Const.pad * 2,
+        },
+      }}
       id={'stable-id-for-CSR-SSR'}
     >
-      {renderedIcons}
+      {getPortfolioIcons({theme, icons})}
     </Cloud>
   )
 })

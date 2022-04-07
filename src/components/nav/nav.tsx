@@ -13,8 +13,8 @@ import {useTheme} from '../../hooks/use_theme'
 const openDrawer = () => useDrawerStore.getState().set({isOpen: true})
 
 export const Nav = () => {
-  const md = useBreakpoint.md()
-  const lg = useBreakpoint.lg()
+  const md = useBreakpoint().md()
+  const lg = useBreakpoint().lg()
   const portfolio = usePortfolio()
   const iconSize = 24
   const svgs = getInteractiveSvgs(Const.css.fc0, iconSize)
@@ -198,7 +198,7 @@ export const Nav = () => {
 }
 
 export const WithNav = ({children}: {children?: any}) => {
-  const xl = useBreakpoint.xl()
+  const xl = useBreakpoint().xl()
 
   return (
     <>

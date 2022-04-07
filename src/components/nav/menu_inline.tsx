@@ -5,7 +5,7 @@ import NextLink from 'next/link'
 import {useRouter} from 'next/router'
 
 export const MenuInline = ({items}: {items: string[]}) => {
-  const xl = useBreakpoint.xl()
+  const xl = useBreakpoint().xl()
   const isBlog = useRouter().asPath.includes('blog')
   const getOffset = (idx: number) => {
     if (idx === items.length - 1) {

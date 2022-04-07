@@ -30,7 +30,9 @@ export default function Page({blog}: {blog: IBlog}) {
           ],
         }}
       />
-      <PortfolioContext.Provider value={portfolioData}>
+      <PortfolioContext.Provider
+        value={{...portfolioData, userAgent: 'mobile'}}
+      >
         <WithNav>
           <a id="main-content" href="#main-content" style={{display: 'none'}}>
             Main Content

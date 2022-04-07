@@ -11,7 +11,7 @@ export const Menu = () => {
   const {titles} = usePortfolio()
   const customSvgs = getCustomSvgs(Const.css.fc0, 24, 24, titles)
   const titleVals = Object.values(titles)
-  const xl = useBreakpoint.xl()
+  const xl = useBreakpoint().xl()
   const isBlog = useRouter().asPath.includes('blog')
   const getOffset = (idx: number) => {
     if (idx === titleVals.length - 1) {

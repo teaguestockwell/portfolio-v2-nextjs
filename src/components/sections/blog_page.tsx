@@ -14,7 +14,7 @@ export const BlogPage = ({
   mdxBlog: IBlog
   children: any
 }) => {
-  const md = useBreakpoint.md()
+  const md = useBreakpoint().md()
   const fullName = `${portfolioData.person.firstName} ${portfolioData.person.lastName}`
 
   return (
