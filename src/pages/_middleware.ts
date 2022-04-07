@@ -22,7 +22,22 @@ const csp = `
 `
 
 export function middleware(req: NextRequest, ev: NextFetchEvent) {
-  const response = NextResponse.next()
+  let response = NextResponse.next()
+
+  // https://github.com/vercel/examples/blob/main/edge-functions/user-agent-based-rendering/pages/_middleware.ts
+  // Clone the URL
+  const url = req.nextUrl.clone()
+
+  // Skip public files
+  if (PUBLIC_FILE.test(url.pathname)) return
+
+  // Parse user agent
+  const ua = parser(req.headers.get('user-agent')!)
+
+  url.pathname = ua.device.type === 'mobile' ? `mobile` : `desktop`
+
+  response = NextResponse.rewrite(url)
+
   response.headers.set('Content-Security-Policy', csp.replace(/\n/g, ''))
 
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
@@ -38,17 +53,5 @@ export function middleware(req: NextRequest, ev: NextFetchEvent) {
     'geolocation=(self), microphone=()'
   )
 
-  // https://github.com/vercel/examples/blob/main/edge-functions/user-agent-based-rendering/pages/_middleware.ts
-  // Clone the URL
-  const url = req.nextUrl.clone()
-
-  // Skip public files
-  if (PUBLIC_FILE.test(url.pathname)) return
-
-  // Parse user agent
-  const ua = parser(req.headers.get('user-agent')!)
-
-  url.pathname = ua.device.type === 'mobile' ? `mobile` : `desktop`
-
-  return NextResponse.rewrite(url)
+  return response
 }
