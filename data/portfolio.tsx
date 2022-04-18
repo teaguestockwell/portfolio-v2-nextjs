@@ -140,7 +140,7 @@ export const portfolioData: Portfolio = {
       dateRange: 'March 2021 - November 2021',
       deploymentSrc: 'https://levels.apps.dso.mil',
       id: 'levels',
-      m3u8Src: `https://${cdnDomain}/levels-2021-10-07-encoded-hq.mp4`,
+      m3u8Src: `https://${cdnDomain}/levels-2021-10-07-encoded-hq.mp4#t=22`,
       name: 'Levels',
       repos: [
         {
