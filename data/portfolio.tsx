@@ -1,5 +1,4 @@
 import {Portfolio} from '../src/types/types'
-import {guid} from '../src/utils'
 
 export const cdnDomain = 'd1jdqfkicm13py.cloudfront.net'
 
@@ -11,7 +10,7 @@ export const portfolioData: Portfolio = {
   githubProjectName: 'portfolio-v2-nextjs',
   heroM3u8Src: `https://${cdnDomain}/level-2-hls/master.m3u8`,
   icons: [],
-  id: guid(),
+  id: 'portfolio',
   jobs: [
     {
       bullets: ["Check back later to see what I've been working on"],
@@ -19,7 +18,7 @@ export const portfolioData: Portfolio = {
       dateRange: 'January 2022 - Present',
       description:
         'Creating a new user friendly software design tool that enables end-users to ship low code programs',
-      id: guid(),
+      id: 'microsoft',
       imgSrc: '/company-icons/microsoft.png',
       location: 'Redmond, WA',
       name: 'Software Engineer 2',
@@ -35,7 +34,7 @@ export const portfolioData: Portfolio = {
       dateRange: 'June 2021 - November 2021',
       description:
         'Mentor new developers to stand up software development team for JBLM',
-      id: guid(),
+      id: 'rst',
       imgSrc: '/company-icons/rainier-spark-tron.png',
       location: 'Joint Base Lewis McChord (JBLM), WA',
       name: 'Lead Software Engineer',
@@ -53,7 +52,7 @@ export const portfolioData: Portfolio = {
       company: 'Aloha Spark Tron',
       dateRange: 'November 2020 - June 2021',
       description: `Test, implement, and deliver accredited software to include pipeline management and stakeholder validation`,
-      id: guid(),
+      id: 'ast',
       imgSrc: '/company-icons/aloha-spark-tron.png',
       location: 'Remote',
       name: 'Software Engineer',
@@ -69,7 +68,7 @@ export const portfolioData: Portfolio = {
       dateRange: 'October 2017 - October 2020',
       description:
         'Lead & perform repairs / inspections on 20 assigned C-17 aircraft valued at $3.2B',
-      id: guid(),
+      id: 'usaf',
       imgSrc: '/company-icons/us-air-force.png',
       location: 'Joint Base Lewis McChord, WA',
       name: 'Aerospace Mechanic',
@@ -80,7 +79,7 @@ export const portfolioData: Portfolio = {
     email: 'teaguestockwell@gmail.com',
     firstName: 'Teague',
     githubSrc: 'https://github.com/teaguestockwell',
-    id: guid(),
+    id: 'tstockwell',
     jobTitle: 'Software Engineer',
     lastName: 'Stockwell',
     linkedInSrc: 'https://www.linkedin.com/in/teague-stockwell',
@@ -235,7 +234,7 @@ export const portfolioData: Portfolio = {
     {
       dateRange: 'May 2021',
       href: 'https://www.sckans.edu/',
-      id: guid(),
+      id: 'swc',
       imgSrc: '/education-icons/southwestern-college.png',
       name: 'Southwestern College',
       subHeading: `Bachelor of Science, Computer Programming`,
@@ -243,7 +242,7 @@ export const portfolioData: Portfolio = {
     {
       dateRange: 'August 2019',
       href: 'https://www.ccaf.af.mil/',
-      id: guid(),
+      id: 'ccaf',
       imgSrc: '/education-icons/ccaf.png',
       name: 'Community College of the Air Force',
       subHeading: `Associate of Applied Science, Aviation Maintenance Technology`,

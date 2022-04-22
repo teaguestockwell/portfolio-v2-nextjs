@@ -1,11 +1,3 @@
-const s = () => {
-  return Math.floor((1 + Math.random()) * 0x10000)
-    .toString(16)
-    .substring(1)
-}
-
-export const guid = () => `${s()}${s()}-${s()}-${s()}-${s()}-${s()}${s()}${s()}`
-
 // NOTE The functionality below (incl. TS types) will soon become part of Contentlayer itself. Please don't mind its existence. 😎
 
 type ConvertUndefined<T> = OrUndefined<{

@@ -1,4 +1,5 @@
 import {NextSeo} from 'next-seo'
+import React from 'react'
 import {portfolioData} from '../data/portfolio'
 import {DancingLinesWithTheme} from './components/dancing_lines'
 import {WithNav} from './components/nav/nav'
@@ -19,10 +20,6 @@ export const App = ({
   portfolioContextValue: Types.PortfolioContext
 }) => {
   UseScrollToA()
-
-  if (portfolioContextValue.devMessage) {
-    console.log(portfolioContextValue.devMessage)
-  }
 
   return (
     <>
