@@ -129,7 +129,8 @@ export const Project = React.memo(
                 flexDirection: 'column',
               }}
             >
-              <div
+              <a
+                href={'#' + id}
                 style={{
                   textAlign: 'center',
                   color: Const.css.fc0,
@@ -141,7 +142,7 @@ export const Project = React.memo(
                 }}
               >
                 {name}
-              </div>
+              </a>
 
               <div
                 style={{
