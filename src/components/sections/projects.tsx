@@ -4,7 +4,6 @@ import {CardRows} from '../card_wrappers/card_rows'
 import {Project} from '../card_content/project'
 import {usePortfolio} from '../../hooks/use_portfolio_context'
 import {Const} from '../../const'
-import {UseViewPortHash} from '../../hooks/use_viewport_hash'
 
 export const ProjectsSection = () => {
   const portfolio = usePortfolio()
@@ -12,7 +11,6 @@ export const ProjectsSection = () => {
 
   return (
     <Element name={name} key={name}>
-      <UseViewPortHash hash={name} />
       <SectionHeader title={name} subTitle={portfolio.subTitles.projects} />
       <CardRows
         cardStyle={{

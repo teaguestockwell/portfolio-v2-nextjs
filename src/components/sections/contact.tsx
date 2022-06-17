@@ -6,7 +6,6 @@ import {Const} from '../../const'
 import {siLinkedin, siGithub} from 'simple-icons/icons'
 import {getInteractiveSvgs, getSvgFromSimpleIcon} from '../svgs'
 import {Link} from 'react-scroll'
-import {UseViewPortHash} from '../../hooks/use_viewport_hash'
 
 export const ContactSection = () => {
   const iconSize = 50
@@ -26,7 +25,6 @@ export const ContactSection = () => {
         name={name}
         key={name}
       >
-        <UseViewPortHash hash={name} />
         <svg
           preserveAspectRatio="none"
           viewBox="0 0 100 102"

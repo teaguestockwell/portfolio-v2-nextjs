@@ -17,7 +17,8 @@ export const SectionHeader = ({
         paddingRight: Const.pad,
       }}
     >
-      <h1
+      <a
+        href={'#' + title}
         className="name"
         style={{
           maxWidth: Const.maxWidth,
@@ -29,7 +30,7 @@ export const SectionHeader = ({
         }}
       >
         {title}
-      </h1>
+      </a>
 
       {subTitle && (
         <div

@@ -6,7 +6,6 @@ import {Content} from '../content'
 import {Const} from '../../const'
 import {siNpm} from 'simple-icons/icons'
 import {getSvgFromSimpleIcon} from '../svgs'
-import {UseViewPortHash} from '../../hooks/use_viewport_hash'
 
 export const SkillsSection = () => {
   const portfolio = usePortfolio()
@@ -14,7 +13,6 @@ export const SkillsSection = () => {
 
   return (
     <Element name={name} key={name}>
-      <UseViewPortHash hash={name} />
       <SectionHeader title={name} subTitle={portfolio.subTitles.tech} />
 
       <Content style={{paddingTop: Const.pad * 4}}>

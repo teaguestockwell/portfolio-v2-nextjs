@@ -8,7 +8,6 @@ import {Content} from '../content'
 import {Link} from 'react-scroll'
 import {Glow} from '../glow'
 import {TypeWriterText} from '../typewriter_text'
-import {UseViewPortHash} from '../../hooks/use_viewport_hash'
 
 export const AboutSection = () => {
   const portfolio = usePortfolio()
@@ -16,7 +15,6 @@ export const AboutSection = () => {
 
   return (
     <Element name={name} key={name}>
-      <UseViewPortHash hash={name} />
       <Glow tlwh={[-36, -10, 115, 135]} rest={{transform: 'skewY(170deg)'}}>
         {/* Above the fold */}
         <Content>

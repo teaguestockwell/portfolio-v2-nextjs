@@ -1,5 +1,4 @@
 import React from 'react'
-import {Const} from '../const'
 import {scroller} from 'react-scroll'
 
 //https://github.com/vercel/next.js/issues/11109
