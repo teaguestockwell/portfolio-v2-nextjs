@@ -16,7 +16,7 @@ export const BlogApp = ({
   userAgent: Types.PortfolioContext['userAgent']
 }) => {
   UseScrollToA()
-  const Component = useMDXComponent(blog.body.code)
+  const Component = useMDXComponent(blog.body.code) as any
 
   return (
     <>

@@ -16,7 +16,10 @@ const warm = () => {
   localStorage.setItem('warm-log', new Date().toISOString())
 }
 
-export default function App({Component, pageProps}: AppProps) {
+export default function App({
+  Component,
+  pageProps,
+}: AppProps & {Component: any}) {
   React.useEffect(() => {
     if (getIsCold()) {
       warm()
