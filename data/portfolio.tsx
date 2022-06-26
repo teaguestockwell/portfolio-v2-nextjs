@@ -107,8 +107,8 @@ export const portfolioData: Portfolio = {
       name: 'Buildable 🚧 WIP 🚧 ',
       repos: [
         {
-          name: 'Private mono repo - email me',
-          src: 'mailto:name@tsappdevelopment@gmail.com',
+          name: 'Monorepo',
+          src: 'https://github.com/teaguestockwell/buildable-readme',
         },
       ],
       subHeading:
