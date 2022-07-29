@@ -15,6 +15,11 @@ const cloudProps: Omit<ICloud, 'children'> = {
       marginRight: Const.pad * 2,
     },
   },
+  canvasProps: {
+    style: {
+      maxWidth: '55%',
+    },
+  },
   options: {
     reverse: true,
     depth: 1,

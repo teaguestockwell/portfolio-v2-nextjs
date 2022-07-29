@@ -3,12 +3,14 @@ import {Portfolio} from '../src/types/types'
 export const cdnDomain = 'd1jdqfkicm13py.cloudfront.net'
 
 export const portfolioData: Portfolio = {
+  // leave empty, the contents of of this are injected
   blogs: [],
   devMessage:
     'Hello, I see you are checking out the dev tools. If you would like to see how this site was built, the source code is available on Github: https://github.com/teaguestockwell/portfolio-v2-nextjs',
   domain: 'https://teaguestockwell.com',
   githubProjectName: 'portfolio-v2-nextjs',
   heroM3u8Src: `https://${cdnDomain}/level-2-hls/master.m3u8`,
+  // leave empty, the contents of of this are injected
   icons: [],
   id: 'portfolio',
   jobs: [
@@ -104,7 +106,7 @@ export const portfolioData: Portfolio = {
       deploymentSrc: 'http://hello-next-auth.vercel.app',
       id: 'buildable',
       m3u8Src: `https://${cdnDomain}/pre-hls/buildable-2021-12-14.mp4`,
-      name: 'Buildable 🚧 WIP 🚧 ',
+      name: 'Buildable',
       repos: [
         {
           name: 'Monorepo',
@@ -115,19 +117,26 @@ export const portfolioData: Portfolio = {
         'Creating a social media platform for exploring and sharing buildable items utilizing React, S3, Postgres, Oauth 2.0, and a Next.js serverless API',
       svgs: [
         'amazonaws',
+        'azuredevops',
         'css3',
         'docker',
         'git',
         'github',
         'html5',
+        'kubernetes',
         'mysql',
         'nextdotjs',
         'nodedotjs',
+        'npm',
+        'planetscale',
+        'playwright',
         'prisma',
+        'puppeteer',
         'react',
         'reactquery',
         'typescript',
         'vercel',
+        'yarn',
       ],
     },
     {
@@ -227,7 +236,7 @@ export const portfolioData: Portfolio = {
         },
       ],
       subHeading: `Developed, and deployed A native android application with Java for aircraft weight and balance`,
-      svgs: ['android', 'git', 'github', 'java'],
+      svgs: ['android', 'git', 'github'],
     },
   ],
   schools: [
@@ -266,18 +275,21 @@ export const portfolioData: Portfolio = {
     'github',
     'gitlab',
     'html5',
-    'java',
     'javascript',
     'jest',
     'jira',
+    'kubernetes',
     'mui',
     'mysql',
     'nextdotjs',
     'nginx',
     'nodedotjs',
     'npm',
+    'planetscale',
+    'playwright',
     'postgresql',
     'prisma',
+    'puppeteer',
     'react',
     'reactquery',
     'redux',
@@ -286,6 +298,7 @@ export const portfolioData: Portfolio = {
     'typescript',
     'vercel',
     'visualstudiocode',
+    'yarn',
   ],
   subTitles: {
     about: null,
@@ -293,8 +306,8 @@ export const portfolioData: Portfolio = {
     contact: ``,
     education: null,
     experience: null,
-    projects: 'Mobile first web apps that are micro service oriented',
-    tech: 'Tools that I have worked with. See my projects to learn more',
+    projects: null,
+    tech: 'See my projects to learn more. These include the cloud below, an aircraft cargo management system, and a social media platform.',
   },
   titles: {
     about: 'About',

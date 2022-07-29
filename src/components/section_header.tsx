@@ -35,7 +35,7 @@ export const SectionHeader = ({
       {subTitle && (
         <div
           style={{
-            fontSize: Const.css.lg,
+            fontSize: Const.css.md,
             wordWrap: 'break-word',
             color: Const.css.fc1,
             textAlign: 'center',

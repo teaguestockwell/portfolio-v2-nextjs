@@ -78,7 +78,9 @@ export const BlogPage = ({
               </div>
               {md && <span>{blog.readingTime.text}</span>}
             </div>
-            {children}
+            <div style={{fontSize: Const.css.md, color: Const.css.fc0}}>
+              {children}
+            </div>
             <a
               aria-label="Edit Article"
               href={`${p.person.githubSrc}/${p.githubProjectName}/edit/main/data/blog/${blog.slug}.mdx`}
