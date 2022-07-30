@@ -23,7 +23,7 @@ export const portfolioData: Portfolio = {
       id: 'microsoft',
       imgSrc: '/company-icons/microsoft.png',
       location: 'Redmond, WA',
-      name: 'Software Engineer 2',
+      name: 'Software Engineer II',
       src: 'https://powerplatform.microsoft.com',
     },
     {
@@ -250,7 +250,7 @@ export const portfolioData: Portfolio = {
     },
     {
       dateRange: 'August 2019',
-      href: 'https://www.ccaf.af.mil/',
+      href: 'https://www.airuniversity.af.edu',
       id: 'ccaf',
       imgSrc: '/education-icons/ccaf.png',
       name: 'Community College of the Air Force',
@@ -306,8 +306,9 @@ export const portfolioData: Portfolio = {
     contact: ``,
     education: null,
     experience: null,
-    projects: null,
-    tech: 'See my projects to learn more. These include the cloud below, an aircraft cargo management system, and a social media platform.',
+    projects:
+      'These include the cloud above, a social media platform, and an aircraft cargo management system.',
+    tech: 'See my projects to see where I use these technologies.',
   },
   titles: {
     about: 'About',
