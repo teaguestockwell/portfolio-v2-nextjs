@@ -117,7 +117,6 @@ export const portfolioData: Portfolio = {
         'Creating a social media platform for exploring and sharing buildable items utilizing React, S3, Postgres, Oauth 2.0, and a Next.js serverless API',
       svgs: [
         'amazonaws',
-        'azuredevops',
         'css3',
         'docker',
         'git',
