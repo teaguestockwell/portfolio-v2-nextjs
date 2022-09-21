@@ -78,7 +78,7 @@ export const BlogPage = ({
               </div>
               {md && <span>{blog.readingTime.text}</span>}
             </div>
-            <div style={{fontSize: Const.css.md, color: Const.css.fc0}}>
+            <div style={{fontSize: Const.css.sm, color: Const.css.fc0}}>
               {children}
             </div>
             <a
