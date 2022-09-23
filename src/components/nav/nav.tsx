@@ -96,6 +96,7 @@ export const Nav = () => {
               color: Const.css.fc0,
               paddingLeft: Const.pad / (md ? 1 : 2),
               zIndex: 10,
+              lineHeight: '0.8rem',
             }}
           >
             {lg ? (
