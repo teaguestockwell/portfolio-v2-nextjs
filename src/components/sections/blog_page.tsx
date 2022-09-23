@@ -1,11 +1,11 @@
 import {Content} from '../content'
 import {Const} from '../../const'
 import {useBreakpoint} from '../../hooks/use_breakpoint'
-import {Avatar} from '../avatar'
 import {portfolioData} from '../../../data/portfolio'
 import {portfolioData as p} from '../../../data/portfolio'
 import type {Blog as IBlog} from '.contentlayer/types'
 import {Element} from 'react-scroll'
+import Image from 'next/image'
 
 export const BlogPage = ({
   mdxBlog: blog,
@@ -39,10 +39,11 @@ export const BlogPage = ({
               style={{
                 fontSize: Const.css.xlg,
                 color: Const.css.fc0,
-                fontWeight: 700,
+                fontWeight: 800,
                 marginLeft: -4,
                 textAlign: md ? 'left' : 'center',
-                paddingBottom: 10,
+                paddingBottom: Const.pad * 2,
+                fontFamily: 'Lobster, Arial, Helvetica, sans-serif',
               }}
             >
               {blog.title}
@@ -52,33 +53,58 @@ export const BlogPage = ({
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                fontSize: Const.css.md,
-                color: Const.css.fc1,
-                width: '100%',
-                paddingBottom: 40,
               }}
             >
               <div
                 style={{
                   display: 'flex',
-                  flexDirection: md ? 'row' : 'column',
+                  gap: Const.pad,
+                  fontSize: Const.css.md,
+                  color: Const.css.fc0,
+                  width: '100%',
+                  paddingBottom: Const.pad * 2,
                   alignItems: 'center',
-                  gap: md ? undefined : Const.pad,
-                  width: md ? undefined : '100%',
                 }}
               >
-                <Avatar />
-                <span
+                <div style={{flex: '0 0 auto'}}>
+                  <Image
+                    objectFit="fill"
+                    src="/headshot.png"
+                    width={50}
+                    height={50}
+                    alt={
+                      portfolioData.person.firstName +
+                      ' ' +
+                      portfolioData.person.lastName
+                    }
+                  />
+
+                  <style jsx global>{`
+                    img {
+                      border-radius: 9999px;
+                    }
+                  `}</style>
+                </div>
+                <div
                   style={{
-                    marginLeft: Const.pad / 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    lineHeight: '1.2rem',
                   }}
-                >{`${fullName} - ${blog.publishedAt}${
-                  !md ? ' - ' + blog.readingTime.text : ''
-                }`}</span>
+                >
+                  <span>{fullName}</span>
+                  <span style={{color: Const.css.fc1}}>{blog.publishedAt}</span>
+                </div>
               </div>
-              {md && <span>{blog.readingTime.text}</span>}
             </div>
-            <div style={{fontSize: Const.css.sm, color: Const.css.fc0}}>
+            <div
+              style={{
+                fontSize: '1rem',
+                lineHeight: '1.7rem',
+                color: Const.css.fc0,
+              }}
+            >
               {children}
             </div>
             <a
