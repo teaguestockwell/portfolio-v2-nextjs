@@ -106,7 +106,7 @@ const getMeta = (url: string, html: string) =>
 
 ## Creating an HTTP Server
 
-There are a handful of tool that can be used to control a browser like Puppeteer, Cypress, and Playwright. I found Playwright the most well supported for this use case because it publishes a [Docker image](https://hub.docker.com/_/microsoft-playwright) to abstract the environment setup for a chromium browser. I created the npm package [price-scraper](https://www.npmjs.com/package/price-scraper) for an Express server to:
+There are a handful of tools that can be used to control a browser like Puppeteer, Cypress, and Playwright. I found Playwright the most well supported for this use case because it publishes a [Docker image](https://hub.docker.com/_/microsoft-playwright) to abstract the environment setup for a chromium browser. I created the npm package [price-scraper](https://www.npmjs.com/package/price-scraper) for an Express server to:
 
 1. Visit web pages and make them contentfull by rendering them inside Playwright's chromium
 1. Parse structured data from the browser's HTML into product meta data
@@ -138,7 +138,7 @@ const server = app.listen(env.PORT)
 
 ## Continuous Deployment (CD)
 
-Great! Now that there is an HTTP server that uses a headed browser to load a webpage and parse the structured data into product meta data. Let's pack this up so many instance of it can be deployed behind an HTTPS load balancer when the repo is pushed to Github! I encourage you to take a look at:
+Great! Now that there is an HTTP server that uses a headed browser to load a webpage and parse the structured data into product meta data. Let's pack this up so many instances of it can be deployed behind an HTTPS load balancer when the repo is pushed to Github! I encourage you to take a look at:
 
 [This template](https://github.com/teaguestockwell/aks-nodejs-cd) for CD of a node server to Azure Kubernetes Service with Github Actions.
 
@@ -150,7 +150,7 @@ Great! Now that there is an HTTP server that uses a headed browser to load a web
   priority
 />
 
-[How im using this service](https://github.com/teaguestockwell/buildable-readme) in a [social media platform](https://hello-next-auth.vercel.app/) to explore projects by the products used to build them.
+[How i'm using this service](https://github.com/teaguestockwell/buildable-readme) in a [social media platform](https://hello-next-auth.vercel.app/) to explore projects by the products used to build them.
 
 <Image
   alt={`scraping app`}
