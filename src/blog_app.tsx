@@ -28,7 +28,7 @@ export const BlogApp = ({
           description: blog.summary,
           images: [
             {
-              url: blog.image,
+              url: portfolioData.domain + blog.image,
               alt: blog.title,
               type: 'image/jpeg',
             },
