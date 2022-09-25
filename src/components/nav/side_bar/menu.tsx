@@ -69,7 +69,13 @@ export const Menu = () => {
           </Link>
         )
 
-        return isBlog ? <NextLink href={`/#${x}`}>{content}</NextLink> : content
+        return isBlog ? (
+          <NextLink key={x} href={`/#${x}`}>
+            {content}
+          </NextLink>
+        ) : (
+          content
+        )
       })}
     </div>
   )
