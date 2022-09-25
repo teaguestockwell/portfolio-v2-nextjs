@@ -100,8 +100,7 @@ const metascraper = metaScraper([
   metaDescription(),
 ])
 
-const getMeta = (url: string, html: string) =>
-  metascraper({html: data, url: options.url})
+const hetMeta = (html: string, url: string) => metascraper({html, url})
 ```
 
 ## Creating an HTTP Server
