@@ -103,18 +103,18 @@ export const portfolioData: Portfolio = {
         'Implemented a serverless REST API that the manages the lifecycle of securely uploading images from the client using presigned urls',
       ],
       dateRange: 'Apr 2021 - Present',
-      deploymentSrc: 'http://hello-next-auth.vercel.app',
-      id: 'buildable',
+      deploymentSrc: 'https://morebuilds.com',
+      id: 'morebuilds',
       m3u8Src: `https://${cdnDomain}/pre-hls/buildable-2021-12-14.mp4`,
-      name: 'Buildable',
+      name: 'More Builds',
       repos: [
         {
           name: 'Monorepo',
-          src: 'https://github.com/teaguestockwell/buildable-readme',
+          src: 'https://github.com/teaguestockwell/morebuilds-readme',
         },
       ],
       subHeading:
-        'Creating a social media platform for exploring and sharing buildable items utilizing React, S3, Postgres, Oauth 2.0, and a Next.js serverless API',
+        'A social media platform for exploring and sharing buildable items utilizing React, S3, Postgres, Oauth 2.0, and a Next.js serverless API',
       svgs: [
         'amazonaws',
         'css3',
