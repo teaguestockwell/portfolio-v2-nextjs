@@ -19,8 +19,8 @@ export const BlogPost = ({b}: {b: Types.BlogPost}) => {
         <div
           style={{
             backgroundColor: Const.css.bgc0,
-            width: '-webkit-fill-available',
-            height: '-webkit-fill-available',
+            width: '100%',
+            height: '100%',
             borderRadius: Const.rad,
             padding: Const.pad,
             display: 'flex',
