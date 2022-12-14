@@ -297,6 +297,10 @@ export const SvgScroll2 = ({
   svgs: JSX.Element[]
   style?: any
 }) => {
+  const half = Math.ceil(svgs.length / 2)
+  const firstHalf = svgs.slice(0, half)
+  const secondHalf = svgs.slice(half)
+
   return (
     <div
       style={{
@@ -309,16 +313,14 @@ export const SvgScroll2 = ({
     >
       <div>
         <div style={{display: 'flex'}}>
-          {svgs.slice(0, Math.floor(svgs.length / 2)).map((s, i) => (
+          {firstHalf.map((s, i) => (
             <div key={i}>{s}</div>
           ))}
         </div>
         <div style={{display: 'flex', paddingLeft: 58, paddingTop: 20}}>
-          {svgs
-            .slice(Math.floor(svgs.length / 2), svgs.length - 1)
-            .map((s, i) => (
-              <div key={i}>{s}</div>
-            ))}
+          {secondHalf.map((s, i) => (
+            <div key={i}>{s}</div>
+          ))}
         </div>
       </div>
     </div>
