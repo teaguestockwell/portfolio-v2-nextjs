@@ -98,23 +98,23 @@ export const portfolioData: Portfolio = {
   projects: [
     {
       bullets: [
-        'Designed social features like: threaded comments, subreddits, moderators, rich text editing, likes, saves, followers, and mentions',
-        'Utilized Next.js to create a scalable collection of user content that is incrementally statically regenerated and served on edge',
-        'Implemented a serverless REST API that the manages the lifecycle of securely uploading images from the client using presigned urls',
+        'Created a product scraping service using heedful browsers with CD to K8 with TLS rotation and load balancing',
+        'Designed topics, posts, threaded comments, moderators, likes, saves, followers, mentions, and a part selection UI',
+        'Created RPC / REST api featuring middleware for validation, authorization, rate limiting, presigned img uploads, and server side rendering',
       ],
       dateRange: 'Apr 2021 - Present',
       deploymentSrc: 'https://morebuilds.com',
       id: 'morebuilds',
-      m3u8Src: `https://${cdnDomain}/pre-hls/buildable-2021-12-14.mp4`,
+      m3u8Src: `https://${cdnDomain}/port/morebuilds.mp4`,
       name: 'More Builds',
       repos: [
         {
-          name: 'Monorepo',
+          name: 'System Architecture',
           src: 'https://github.com/teaguestockwell/morebuilds-readme',
         },
       ],
       subHeading:
-        'A social media platform for exploring and sharing buildable items utilizing React, S3, Postgres, Oauth 2.0, and a Next.js serverless API',
+        'A new social media platform for builders to explore / share parts used in their favorite projects',
       svgs: [
         'amazonaws',
         'css3',
@@ -130,7 +130,6 @@ export const portfolioData: Portfolio = {
         'planetscale',
         'playwright',
         'prisma',
-        'puppeteer',
         'react',
         'reactquery',
         'typescript',
@@ -142,7 +141,8 @@ export const portfolioData: Portfolio = {
       bullets: [
         'Leveraged CI/CD pipelines, TDD, hardened Docker imgs, and Agile to accredit and deploy a prod app in < 5 months to a secure network',
         'Utilized Node.js to create a REST API that manages cargo and loading configurations against multiple aircraft and user roles',
-        'Created containerized React UI for real time aircraft data management, and cargo loading with offline persistence',
+        'Created React UI for real time aircraft data management, and cargo loading with offline persistence',
+        'Established CI/CD pipeline for static code analysis, linting, testing, and containerized builds',
       ],
       dateRange: 'March 2021 - November 2021',
       deploymentSrc: 'https://levels.apps.dso.mil',
@@ -185,58 +185,78 @@ export const portfolioData: Portfolio = {
     },
     {
       bullets: [
-        'Established CI/CD pipeline for static code analysis, linting, testing, and containerized builds',
-        'Wrote 160 Flutter component & unit tests for > 90% code coverage',
-        'Developed custom admin dashboard to manage cargo data from a REST API in < 10 days',
-        'Utilized Google Firestore (BaaS / document db) for offline data persistence on mobile',
+        'Created an application layer wrapper for an un reliable transport protocol for E2E encrypted P2P file sharing up to 300MB',
+        'Created real time messaging and video chat',
       ],
-      dateRange: 'Sep 2020 - Mar 2021',
-      deploymentSrc: 'https://fivelevel.web.app',
-      id: 'five-level',
-      m3u8Src: `https://${cdnDomain}/pre-hls/five-level.mp4`,
-      name: 'Five Level',
+      dateRange: 'Aug 2022 - Dec 2022',
+      deploymentSrc: 'https://speak-easy-nu.vercel.app',
+      id: 'speak-easy',
+      m3u8Src: `https://${cdnDomain}/port/speak-easy.mp4`,
+      name: 'Speak Easy',
       repos: [
         {
-          name: 'Frontend',
-          src: 'https://github.com/teaguestockwell/levels-v2-flutter',
-        },
-        {
-          name: 'Backend Server',
-          src: 'https://github.com/teaguestockwell/levels-v2v3-express',
+          name: 'PWA UI',
+          src: 'https://github.com/teaguestockwell/speak-easy',
         },
       ],
-      subHeading: `Developed a X-Platform native UI to manage aircraft cargo loading`,
-      svgs: [
-        'dart',
-        'docker',
-        'express',
-        'figma',
-        'firebase',
-        'flutter',
-        'git',
-        'nginx',
-        'nodedotjs',
-        'postgresql',
-        'prisma',
-      ],
+      subHeading:
+        "A fun progressive web app (PWA) I made while exploring webRTC. It's for encrypted chat, video calls, and file sharing (that uses a peer to peer connection most of the time)",
+      svgs: ['react', 'css3', 'html5', 'typescript', 'vercel'],
     },
-    {
-      bullets: [],
-      dateRange: 'Sep 2020 - March 2020',
-      deploymentSrc:
-        'https://play.google.com/store/apps/details?id=com.TsAppDevelopment.c17mac',
-      id: '5-level',
-      m3u8Src: `https://${cdnDomain}/pre-hls/5-level-2-encoded.mp4`,
-      name: '5 Level',
-      repos: [
-        {
-          name: 'Android UI',
-          src: 'https://github.com/teaguestockwell/levels-v1-android',
-        },
-      ],
-      subHeading: `Developed, and deployed A native android application with Java for aircraft weight and balance`,
-      svgs: ['android', 'git', 'github'],
-    },
+    // {
+    //   bullets: [
+    //     'Established CI/CD pipeline for static code analysis, linting, testing, and containerized builds',
+    //     'Wrote 160 Flutter component & unit tests for > 90% code coverage',
+    //     'Developed custom admin dashboard to manage cargo data from a REST API in < 10 days',
+    //     'Utilized Google Firestore (BaaS / document db) for offline data persistence on mobile',
+    //   ],
+    //   dateRange: 'Sep 2020 - Mar 2021',
+    //   deploymentSrc: 'https://fivelevel.web.app',
+    //   id: 'five-level',
+    //   m3u8Src: `https://${cdnDomain}/pre-hls/five-level.mp4`,
+    //   name: 'Five Level',
+    //   repos: [
+    //     {
+    //       name: 'Frontend',
+    //       src: 'https://github.com/teaguestockwell/levels-v2-flutter',
+    //     },
+    //     {
+    //       name: 'Backend Server',
+    //       src: 'https://github.com/teaguestockwell/levels-v2v3-express',
+    //     },
+    //   ],
+    //   subHeading: `Developed a X-Platform native UI to manage aircraft cargo loading`,
+    //   svgs: [
+    //     'dart',
+    //     'docker',
+    //     'express',
+    //     'figma',
+    //     'firebase',
+    //     'flutter',
+    //     'git',
+    //     'nginx',
+    //     'nodedotjs',
+    //     'postgresql',
+    //     'prisma',
+    //   ],
+    // },
+    // {
+    //   bullets: [],
+    //   dateRange: 'Sep 2020 - March 2020',
+    //   deploymentSrc:
+    //     'https://play.google.com/store/apps/details?id=com.TsAppDevelopment.c17mac',
+    //   id: '5-level',
+    //   m3u8Src: `https://${cdnDomain}/pre-hls/5-level-2-encoded.mp4`,
+    //   name: '5 Level',
+    //   repos: [
+    //     {
+    //       name: 'Android UI',
+    //       src: 'https://github.com/teaguestockwell/levels-v1-android',
+    //     },
+    //   ],
+    //   subHeading: `Developed, and deployed A native android application with Java for aircraft weight and balance`,
+    //   svgs: ['android', 'git', 'github'],
+    // },
   ],
   schools: [
     {
@@ -301,18 +321,18 @@ export const portfolioData: Portfolio = {
   ],
   subTitles: {
     about: null,
-    blog: null,
+    blog: `I enjoy sharing what i've learned building software. These blogs can be edited by opening a PR against this repo and I would love your feedback.`,
     contact: ``,
     education: null,
     experience: null,
     projects:
-      'These include the cloud above, a social media platform, and an aircraft cargo management system.',
+      'A showcase of my favorite personal work: a social media startup, an aircraft cargo management system for the US Air Force, and a video chat app. Please see my GitHub, or contact me if you would like to see more.',
     tech: 'See my projects to see where I use these technologies.',
   },
   titles: {
     about: 'About',
     tech: 'Stack',
-    projects: 'Projects',
+    projects: 'Products',
     blog: 'Blog',
     experience: 'Experience',
     education: 'Education',

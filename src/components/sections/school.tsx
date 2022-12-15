@@ -18,7 +18,7 @@ export const SchoolsSection = () => {
             href={t.href}
             title={t.name}
             imgSrc={t.imgSrc}
-            rows={[t.dateRange, t.subHeading]}
+            rows={[t.subHeading]}
           />
         )}
       />
