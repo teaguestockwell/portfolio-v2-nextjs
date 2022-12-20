@@ -69,7 +69,7 @@ yarn dev
 
 1. [Generate favorite icons and upload them into ./public](https://realfavicongenerator.net)
 2. Modify manifest.json to point to your icons, and to include a description
-3. [Set up a bucket for video hosting](https://www.youtube.com/watch?v=e6w9LwZJFIA)
+3. [Set up a bucket for video hosting](https://www.youtube.com/watch?v=e6w9LwZJFIA) - optional (you may use static hosting from vercel)
 4. [Configure a cdn in front of the bucket](https://www.youtube.com/watch?v=e6w9LwZJFIA) - optional
 5. [Encoded your project demo videos into an m3u8 playlist for http live streaming (HLS)](https://www.youtube.com/watch?v=x20Qx7lWSLQ) - optional
 6. [Deploy the portfolio](https://nextjs.org/docs/deployment)
