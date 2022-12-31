@@ -98,7 +98,7 @@ export const portfolioData: Portfolio = {
   projects: [
     {
       bullets: [
-        'Created a product scraping service using heedful browsers with CD to K8 with TLS rotation and load balancing',
+        'Created a product scraping service using headful browsers with CD to K8 with TLS rotation and load balancing',
         'Designed topics, posts, threaded comments, moderators, likes, saves, followers, mentions, and a part selection UI',
         'Created RPC / REST api featuring middleware for validation, authorization, rate limiting, presigned img uploads, and server side rendering',
       ],
