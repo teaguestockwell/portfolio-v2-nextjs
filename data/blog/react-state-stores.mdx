@@ -37,7 +37,7 @@ const SearchFeature = () => {
 [Redux](https://Redux.js.org/) implements the [observer pattern](https://en.wikipedia.org/wiki/Observer_pattern) as a singleton store. The [useSelector](https://Redux.js.org/tutorials/fundamentals/part-5-ui-react#reading-state-from-the-store-with-useselector) allows subscribing components to access a selected portion of the store, and [useDispatch](https://Redux.js.org/tutorials/fundamentals/part-5-ui-react#dispatching-actions-with-usedispatch) allows components to modify the store.
 
 ```typescript
-const search = createSlice({
+const searchStore = createSlice({
   name: 'search',
   initialState: {
     query: '',
@@ -121,7 +121,7 @@ const createStore = <T>(initialState: T) => {
 
 ## Connecting the Store to React
 
-This works great, but how does this help us with state in React? To connect updates from a store to a React component, you need a subscription to the store that can call `setState`. Then when anyone publishes to the searchStore that we created, it will notify the searchResults by calling its setState.
+This works great, but how does this help us with state in React? To connect updates from a store to a React component, you need a subscription to the store that can call `setState`. Then when anyone publishes to the `searchStore`, it will notify `SearchResults` by calling its setState.
 
 ```typescript
 const SearchResults = () => {
