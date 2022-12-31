@@ -1,0 +1,207 @@
+---
+title: 'Context, Redux, Zustand, and creating your own store'
+publishedAt: '2022-12-31'
+summary: 'Using the observer pattern to create your own state container for react'
+image: '/blog/state-stores/net.png'
+---
+
+<Image
+  alt={`space web`}
+  src={`/blog/state-stores/net.png`}
+  width={4256 / 2.5}
+  height={2832 / 2.5}
+  priority
+/>
+
+In client applications, it's common for components to hold state for user interactions. For example, an open or closed modal or a search box containing a filter. When multiple components need access to tidbits of global client state, stores are a valuable alternative to context.
+
+```typescript
+const SearchContext = React.createContext(null)
+const useSearch = () => {
+	const ctx = React.useContext(SearchContext)
+	if (!ctx) {
+		throw new Error('use search must be used inside of a SearchProvider')
+	}
+	return ctx
+}
+
+const SearchFeature = () => {
+	const state = React.useState('')
+	return <SearchContext.Provider value={state}>
+		<SearchBox />
+		<SearchResults />
+	<SearchContext.Provider>
+}
+```
+
+[Redux](https://Redux.js.org/) implements the [observer pattern](https://en.wikipedia.org/wiki/Observer_pattern) as a singleton store. The [useSelector](https://Redux.js.org/tutorials/fundamentals/part-5-ui-react#reading-state-from-the-store-with-useselector) allows subscribing components to access a selected portion of the store, and [useDispatch](https://Redux.js.org/tutorials/fundamentals/part-5-ui-react#dispatching-actions-with-usedispatch) allows components to modify the store.
+
+```typescript
+const search = createSlice({
+  name: 'search',
+  initialState: {
+    query: '',
+  },
+  reducers: {
+    setQuery: (state, action) => {
+      state.query = action.payload
+    },
+  },
+})
+
+const store = configureStore({
+  reducer: {
+    [search.name]: search.reducer,
+  },
+})
+
+type RootState = ReturnType<typeof store.getState>
+type AppDispatch = typeof store.dispatch
+
+const useSearch = () => {
+  const state = useSelector((state: RootState) => state.search.query)
+  const dispatch: AppDispatch = useDispatch()
+  const setState = (q: string) => dispatch(search.actions.setQuery(q))
+  return [state, setState] as const
+}
+
+const App = () => {
+  return (
+    <Provider store={store}>
+      <SearchBox />
+      <SearchResults />
+    </Provider>
+  )
+}
+```
+
+A common complaint about Redux is that it's verbose and requires a lot of boilerplate to use. Another option is to use many smaller stores for each feature module using a library like [Zustand](https://github.com/pmndrs/zustand).
+
+```typescript
+const search = create<{query: string}>(() => ({
+  query: '',
+}))
+
+const useSearch = () => {
+  const state = search((s) => s.query)
+  const setState = (query: string) => search.setState({query})
+  return [state, setState] as const
+}
+```
+
+Let's create a function to produce our own store to understand how this works. When a consumer subscribes to the store, it registers a side effect that runs when the stores state changes. When someone updates the store, it calls all subscribers with this new state.
+
+```typescript
+const createStore = <T>(initialState: T) => {
+  // a subscriber is a function that can be called with state
+  type Subscriber = (state: T) => unknown
+  // the state of the store is created with a copy of the initialState
+  let state = structuredClone(initialState)
+  // subscribers is a set of callbacks used to notify consumers of the store when the state changes
+  const subscribers = new Set<Subscriber>()
+
+  return {
+    // publishing to the store sets its new state and tells it to notify all consumers that there has been an update to the state
+    publish: (next: T) => {
+      state = next
+      for (const subscriber of subscribers) {
+        subscriber(state)
+      }
+    },
+    // subscribing to the store lets the consumer register what it should do when the state updates
+    subscribe: (subscriber: Subscriber) => {
+      subscribers.add(subscriber)
+      // when the consumer is done listening to store updates, it can call this function to unsubscribe from the store
+      return () => subscribers.delete(subscriber)
+    },
+    getState: () => state,
+  }
+}
+```
+
+## Connecting the Store to React
+
+This works great, but how does this help us with state in React? To connect updates from a store to a React component, you need a subscription to the store that can call `setState`. Then when anyone publishes to the searchStore that we created, it will notify the searchResults by calling its setState.
+
+```typescript
+const SearchResults = () => {
+  const [state, setState] = React.useState(searchStore.getState)
+  React.useEffect(() => searchStore.subscribe(setState), [])
+  return results
+    .filter((r) => r.includes(state))
+    .map((r) => <span key={r.key}>{r.name}</span>)
+}
+```
+
+## Using React 18's useSyncExternalStore
+
+This pattern for subscribing to external state in React was so common that React 18 introduced [useSyncExternalStore](https://github.com/reactwg/react-18/discussions/86) as a standard to support concurrent rendering in React 18.
+
+```typescript
+const SearchResults = () => {
+  const state = useSyncExternalStore(
+    searchStore.subscribe,
+    searchStore.getState
+  )
+  return results
+    .filter((r) => r.includes(state))
+    .map((r) => <span key={r.key}>{r.name}</span>)
+}
+```
+
+## Using useSyncExternalStore Within the Store
+
+What if the store has its own use state hook that components could consume so they could be unaware of useSyncExternal store? Let's add this custom hook to `createStore`.
+
+```typescript
+const createStore = <T>(initialState: T) => {
+  // a subscriber is a function that can be called with state
+  type Subscriber = (state: T) => unknown
+  // the state of the store is created with a copy of the initialState
+  let state = structuredClone(initialState)
+  // subscribers is a set of callbacks used to notify consumers of the store when the state changes
+  const subscribers = new Set<Subscriber>()
+
+  const store = {
+    // publishing to the store sets its new state and tells it to notify all consumers that there has been an update to the state
+    publish: (next: T) => {
+      state = next
+      for (const subscriber of subscribers) {
+        subscriber(state)
+      }
+    },
+    // subscribing to the store lets the consumer register what it should do when the state updates
+    subscribe: (subscriber: Subscriber) => {
+      subscribers.add(subscriber)
+      // when the consumer is done listening to store updates, it can call this function to unsubscribe from the store
+      return () => subscribers.delete(subscriber)
+    },
+    getState: () => state,
+    useState: () => {
+      const state = useSyncExternalStore(store.subscribe, store.getState)
+      return [state, store.publish] as const
+    },
+  }
+  return store
+}
+```
+
+Now the `SearchBox` has a clean way to subscribe and update the external store
+
+```typescript
+const SearchBox = () => {
+  const [query, setQuery] = searchStore.useState()
+  return <input value={query} onChange={(e) => setQuery(e.target.value)} />
+}
+```
+
+Also, because the store is located in memory outside of React, it can be used in plain functions too
+
+```typescript
+const getFilteredResults = () => {
+  const query = searchStore.getState()
+  return results.filter((r) => r.includes(state))
+}
+```
+
+The observer pattern is a useful approach for storing and managing state in client applications. By creating a store to contain state and allowing components to subscribe to and modify the store, it is possible to effectively manage state across multiple components and maintain a consistent state throughout the app. While Redux and Zustand are popular libraries that implement the observer pattern, it is also possible to create a basic store using the pattern on your own, and even [one that uses selectors like Redux](https://github.com/teaguestockwell/observable-slice)
