@@ -15,6 +15,8 @@ image: '/blog/react-state-stores/net.png'
 
 In client applications, it's common for components to hold state for user interactions. For example, an open or closed modal or a search box containing a filter. When multiple components need access to tidbits of global client state, stores are a valuable alternative to context.
 
+## Context
+
 ```typescript
 const SearchContext = React.createContext(null)
 const useSearch = () => {
@@ -34,10 +36,12 @@ const SearchFeature = () => {
 }
 ```
 
-[Redux](https://Redux.js.org/) implements the [observer pattern](https://en.wikipedia.org/wiki/Observer_pattern) as a singleton store. The [useSelector](https://Redux.js.org/tutorials/fundamentals/part-5-ui-react#reading-state-from-the-store-with-useselector) allows subscribing components to access a selected portion of the store, and [useDispatch](https://Redux.js.org/tutorials/fundamentals/part-5-ui-react#dispatching-actions-with-usedispatch) allows components to modify the store.
+## Redux
+
+[Redux](https://Redux.js.org/) implements the [observer pattern](https://en.wikipedia.org/wiki/Observer_pattern) using a single store. The [useSelector](https://Redux.js.org/tutorials/fundamentals/part-5-ui-react#reading-state-from-the-store-with-useselector) hook allows components to subscribe to a selected portion of state, and [useDispatch](https://Redux.js.org/tutorials/fundamentals/part-5-ui-react#dispatching-actions-with-usedispatch) allows components to update it.
 
 ```typescript
-const searchStore = createSlice({
+const searchSlice = createSlice({
   name: 'search',
   initialState: {
     query: '',
@@ -51,7 +55,7 @@ const searchStore = createSlice({
 
 const store = configureStore({
   reducer: {
-    [search.name]: search.reducer,
+    [searchSlice.name]: searchSlice.reducer,
   },
 })
 
@@ -75,19 +79,23 @@ const App = () => {
 }
 ```
 
-A common complaint about Redux is that it's verbose and requires a lot of boilerplate to use. Another option is to use many smaller stores for each feature module using a library like [Zustand](https://github.com/pmndrs/zustand).
+## Zustand
+
+A common complaint about Redux is it's verbose and requires a lot of boilerplate to use. Another option is to use many smaller stores for each feature using [Zustand](https://github.com/pmndrs/zustand).
 
 ```typescript
-const search = create<{query: string}>(() => ({
+const searchStore = create<{query: string}>(() => ({
   query: '',
 }))
 
 const useSearch = () => {
-  const state = search((s) => s.query)
+  const state = searchStore((s) => s.query)
   const setState = (query: string) => search.setState({query})
   return [state, setState] as const
 }
 ```
+
+## Your Own State Store
 
 Let's create a function to produce our own store to understand how this works. When a consumer subscribes to the store, it registers a side effect that runs when the stores state changes. When someone updates the store, it calls all subscribers with this new state.
 
@@ -119,9 +127,9 @@ const createStore = <T>(initialState: T) => {
 }
 ```
 
-## Connecting the Store to React
+## Connecting Your Store to React
 
-This works great, but how does this help us with state in React? To connect updates from a store to a React component, you need a subscription to the store that can call `setState`. Then when anyone publishes to the `searchStore`, it will notify `SearchResults` by calling its setState.
+This works great, but how does this help us with state in React? To connect updates from a store to a React component, you need a subscription to the store that can call `setState`. Then when anyone publishes to the `searchStore`, it will notify `SearchResults` by calling its `setState`.
 
 ```typescript
 const SearchResults = () => {
@@ -149,9 +157,7 @@ const SearchResults = () => {
 }
 ```
 
-## Using useSyncExternalStore Within the Store
-
-What if the store has its own use state hook that components could consume so they could be unaware of useSyncExternal store? Let's add this custom hook to `createStore`.
+What if the store has its own use state hook that components could consume so they could be unaware of `useSyncExternalStore`? Let's add this custom hook to `createStore`.
 
 ```typescript
 const createStore = <T>(initialState: T) => {
@@ -204,4 +210,4 @@ const getFilteredResults = () => {
 }
 ```
 
-The observer pattern is a useful approach for storing and managing state in client applications. By creating a store to contain state and allowing components to subscribe to and modify the store, it is possible to effectively manage state across multiple components and maintain a consistent state throughout the app. While Redux and Zustand are popular libraries that implement the observer pattern, it is also possible to create a basic store using the pattern on your own, and even [one that uses selectors like Redux](https://github.com/teaguestockwell/observable-slice)
+The observer pattern is a useful approach for storing and managing state in client applications. By creating a store to contain state, it is possible to effectively manage state across multiple components or even outside of React. While Redux and Zustand are popular libraries for client state stores, it is also possible to create your very own (even [one that uses selectors like Redux](https://github.com/teaguestockwell/observable-slice)).
