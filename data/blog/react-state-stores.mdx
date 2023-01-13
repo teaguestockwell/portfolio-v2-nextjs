@@ -26,13 +26,16 @@ const useSearch = () => {
 	}
 	return ctx
 }
-
-const SearchFeature = () => {
+const SearchProvider = (props: {children: React.ReactNode }) => {
 	const state = React.useState('')
-	return <SearchContext.Provider value={state}>
+	return <SearchContext.Provider value={state}>{props.children}</SearchContext.Provider>
+}
+
+const App = () => {
+	return <SearchProvider>
 		<SearchBox />
 		<SearchResults />
-	<SearchContext.Provider>
+	</SearchProvider>
 }
 ```
 
