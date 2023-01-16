@@ -46,6 +46,18 @@ h1 {
   all: unset;
 }
 
+.blog-hover {
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.blog-hover:hover {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
 .hero:hover {
   z-index: 3 !important;
   -moz-transition: all 1s;
