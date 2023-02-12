@@ -2,12 +2,14 @@
   font-family: 'Lobster';
   src: url(/fonts/lobster.woff2);
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Open Sans';
   src: url(/fonts/open-sans.woff);
   font-style: normal;
+  font-display: swap;
 }
 
 .name {
