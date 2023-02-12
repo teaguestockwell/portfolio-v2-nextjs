@@ -20,19 +20,28 @@ In client applications, it's common for components to hold state for user intera
 ```typescript
 const SearchContext = React.createContext(null)
 const useSearch = () => {
-	const ctx = React.useContext(SearchContext)
-	if (!ctx) {
-		throw new Error('use search must be used inside of a SearchProvider')
-	}
-	return ctx
+  const ctx = React.useContext(SearchContext)
+  if (!ctx) {
+    throw new Error('use search must be used inside of a SearchProvider')
+  }
+  return ctx
+}
+const SearchProvider = (props: {children: React.ReactNode}) => {
+  const state = React.useState('')
+  return (
+    <SearchContext.Provider value={state}>
+      {props.children}
+    </SearchContext.Provider>
+  )
 }
 
-const SearchFeature = () => {
-	const state = React.useState('')
-	return <SearchContext.Provider value={state}>
-		<SearchBox />
-		<SearchResults />
-	<SearchContext.Provider>
+const App = () => {
+  return (
+    <SearchProvider>
+      <SearchBox />
+      <SearchResults />
+    </SearchProvider>
+  )
 }
 ```
 
