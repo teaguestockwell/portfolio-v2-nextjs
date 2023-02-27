@@ -35,6 +35,3 @@ yarn-error.log*
 
 # Contentlayer
 .contentlayer
-
-public/workbox*
-public/sw.js

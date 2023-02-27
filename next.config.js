@@ -10,19 +10,21 @@ const options = {
   withBundleAnalyzer: {},
 
   withPwa: {
-    pwa: {
-      dest: 'public',
-      disable: process.env.NODE_ENV === 'development',
-    },
+    dest: 'public',
     // https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-build#.RuntimeCachingEntry
     runtimeCaching: [
       {
         urlPattern: /^https?.*/,
         handler: 'CacheFirst',
+        method: 'GET',
         options: {
-          cacheName: 'offlineCache',
+          cacheName: 'next',
           expiration: {
-            maxEntries: 1000,
+            maxEntries: 10000,
+            maxAgeSeconds: 24 * 60 * 60 * 31, // 1 month
+          },
+          cacheableResponse: {
+            statuses: [0, 200],
           },
         },
       },
