@@ -20,7 +20,7 @@ export const AboutSection = () => {
         <Content>
           <div
             style={{
-              paddingTop: Const.pad * 2,
+              paddingTop: Const.pad,
               minHeight: '100vh',
               display: 'grid',
               gridTemplateColumns: Const.css.aboutGrid,

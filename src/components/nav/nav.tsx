@@ -9,8 +9,26 @@ import {useBreakpoint} from '../../hooks/use_breakpoint'
 import {getInteractiveSvgs, getSvgFromSimpleIcon} from '../svgs'
 import {siGithub, siLinkedin} from 'simple-icons/icons'
 import {useTheme} from '../../hooks/use_theme'
+import React from 'react'
 
 const openDrawer = () => useDrawerStore.getState().set({isOpen: true})
+const useIsScrolled = () => {
+  const [isScrolled, setIsScrolled] = React.useState(false)
+  React.useEffect(() => {
+    const onScroll = () => {
+      const y =
+        window?.scrollY ??
+        window?.pageYOffset ??
+        document?.documentElement?.scrollTop ??
+        1
+      setIsScrolled(y > 0)
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  return isScrolled
+}
 
 export const Nav = () => {
   const md = useBreakpoint().md()
@@ -20,6 +38,7 @@ export const Nav = () => {
   const svgs = getInteractiveSvgs(Const.css.fc0, iconSize)
   const hamburger = getInteractiveSvgs(Const.css.fc0, 32).hamburger
   const {theme, toggleTheme} = useTheme()
+  const isScrolled = useIsScrolled()
 
   return (
     <>
@@ -30,13 +49,17 @@ export const Nav = () => {
         style={{
           zIndex: 10,
           position: 'fixed',
-          WebkitBoxShadow: Const.css.shadow,
-          MozBoxShadow: Const.css.shadow,
-          boxShadow: Const.css.shadow,
           left: 0,
           top: 0,
           right: 0,
           height: Const.topNav,
+          ...(isScrolled
+            ? {
+                WebkitBoxShadow: Const.css.shadow,
+                MozBoxShadow: Const.css.shadow,
+                boxShadow: Const.css.shadow,
+              }
+            : {}),
         }}
       >
         <div
@@ -46,9 +69,13 @@ export const Nav = () => {
             left: 0,
             top: 0,
             right: 0,
-            WebkitBackdropFilter: 'blur(10px)',
-            backdropFilter: 'blur(10px)',
-            backgroundColor: Const.css.navbg,
+            ...(isScrolled
+              ? {
+                  WebkitBackdropFilter: 'blur(10px)',
+                  backdropFilter: 'blur(10px)',
+                  backgroundColor: Const.css.navbg,
+                }
+              : {}),
           }}
         />
 
@@ -100,10 +127,12 @@ export const Nav = () => {
             }}
           >
             {lg ? (
-              <div className="name" style={{fontSize: Const.css.nameSize}}>
-                {portfolio.person.firstName + ' ' + portfolio.person.lastName}
-              </div>
-            ) : (
+              isScrolled ? (
+                <div className="name" style={{fontSize: Const.css.nameSize}}>
+                  {portfolio.person.firstName + ' ' + portfolio.person.lastName}
+                </div>
+              ) : null
+            ) : isScrolled ? (
               <>
                 <div style={{fontSize: Const.css.nameSize}} className="name">
                   {portfolio.person.firstName}
@@ -112,7 +141,7 @@ export const Nav = () => {
                   {portfolio.person.lastName}
                 </div>
               </>
-            )}
+            ) : null}
           </div>
         </div>
 
