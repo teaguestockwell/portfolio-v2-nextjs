@@ -105,7 +105,7 @@ export const portfolioData: Portfolio = {
       dateRange: 'Apr 2021 - Present',
       deploymentSrc: 'https://morebuilds.com',
       id: 'morebuilds',
-      m3u8Src: `https://${cdnDomain}/port/morebuilds.mp4`,
+      m3u8Src: `https://${cdnDomain}/port/more-builds-2023.mp4`,
       name: 'More Builds',
       repos: [
         {
