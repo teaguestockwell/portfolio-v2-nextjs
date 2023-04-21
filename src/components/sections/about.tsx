@@ -74,11 +74,10 @@ export const AboutSection = () => {
                     fontSize: Const.css.lg,
                     wordWrap: 'break-word',
                     color: Const.css.bgc0,
-                    paddingLeft: Const.pad,
-                    paddingRight: Const.pad,
+                    padding: Const.pad * 0.75,
                     width: 'fit-content',
                     textAlign: 'left',
-                    borderRadius: 20,
+                    borderRadius: 40,
                     backgroundColor: Const.css.fc0,
                   }}
                 >
