@@ -8,9 +8,14 @@ import NextLink from 'next/link'
 import {useRouter} from 'next/router'
 
 export const Menu = () => {
-  const {titles} = usePortfolio()
+  const {titles, sectionOrder} = usePortfolio()
   const customSvgs = getCustomSvgs(Const.css.fc0, 24, 24, titles)
-  const titleVals = Object.values(titles)
+  const titleVals = Object.entries(titles)
+    .sort(
+      ([keyA], [keyZ]) =>
+        sectionOrder.indexOf(keyA as any) - sectionOrder.indexOf(keyZ as any)
+    )
+    .map(([_, val]) => val)
   const xl = useBreakpoint().xl()
   const isBlog = useRouter().asPath.includes('blog')
   const getOffset = (idx: number) => {

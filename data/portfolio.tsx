@@ -15,9 +15,29 @@ export const portfolioData: Portfolio = {
   id: 'portfolio',
   jobs: [
     {
-      bullets: ["Check back later to see what I've been working on"],
+      bullets: [
+        `Lead cross-team implementation of using a LLM to suggest then apply updates to work orders`,
+        `Identified and fixed critical perf issue for a 400% improvement then mentored team on identifying perf bottlenecks`,
+        `Created core infra for new mobile app: auth, data access / consistency, state management and feature gates`,
+      ],
       company: 'Microsoft',
-      dateRange: 'January 2022 - Present',
+      dateRange: 'September 2023 - Present',
+      description:
+        'Creating a mobile experience for technicians to track and complete tasks: Dynamics 365 Field Service',
+      id: 'microsoft2',
+      imgSrc: '/company-icons/microsoft.png',
+      location: 'Redmond, WA',
+      name: 'Senior Software Engineer',
+      src: 'https://learn.microsoft.com/en-us/dynamics365/field-service/overview',
+    },
+    {
+      bullets: [
+        `Created a new user-friendly software design tool that enables end-users to build low code programs`,
+        `Integrated external data sources by building a UX to allow end users to select and authenticate connectors`,
+        `Created an undo redo feature that leveraged existing work on a custom client state store`,
+      ],
+      company: 'Microsoft',
+      dateRange: 'January 2022 - September 2023',
       description:
         'Creating a new user friendly software design tool that enables end-users to ship low code programs',
       id: 'microsoft',
@@ -260,6 +280,14 @@ export const portfolioData: Portfolio = {
   ],
   schools: [
     {
+      dateRange: 'January 2027',
+      href: 'http://www.washington.edu',
+      id: 'uw',
+      imgSrc: '/education-icons/uw.png',
+      name: 'University of Washington',
+      subHeading: `Master of Science, Computer Science`,
+    },
+    {
       dateRange: 'May 2021',
       href: 'https://www.sckans.edu/',
       id: 'swc',
@@ -321,21 +349,30 @@ export const portfolioData: Portfolio = {
   ],
   subTitles: {
     about: null,
-    blog: `I enjoy sharing what i've learned building software. These blogs can be edited by opening a PR against this repo and I would love your feedback.`,
+    blog: `I enjoy sharing what i've learned building software. At the bottom of each blog page is a link to edit it's content on Github.`,
     contact: ``,
     education: null,
     experience: null,
     projects:
-      'A showcase of my favorite personal work: a social media startup, an aircraft cargo management system for the US Air Force, and a video chat app. Please see my GitHub, or contact me if you would like to see more.',
-    tech: 'See my projects to see where I use these technologies.',
+      'A showcase of my social media startup, aircraft cargo management system for the US Air Force, and a video chat app. Please see my GitHub, or contact me for more information.',
+    tech: 'Over 500 portfolios use my package to showcase tools and technologies. See them by clicking the link below.',
   },
   titles: {
     about: 'About',
-    tech: 'Stack',
+    tech: 'Tools',
     projects: 'Products',
     blog: 'Blog',
     experience: 'Experience',
     education: 'Education',
     contact: 'Contact',
   },
+  sectionOrder: [
+    `about`,
+    `projects`,
+    `experience`,
+    `education`,
+    `tech`,
+    `blog`,
+    `contact`,
+  ],
 }

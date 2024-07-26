@@ -17,4 +17,5 @@ export interface Portfolio {
   icons: Types.SimpleIcon[]
   githubProjectName: string
   blogs: Types.BlogPost[]
+  sectionOrder: (keyof Types.SectionTitles)[]
 }

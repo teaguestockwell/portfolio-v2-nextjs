@@ -13,6 +13,29 @@ import {Modal} from './hooks/use_modal'
 import {PortfolioContext} from './hooks/use_portfolio_context'
 import {UseScrollToA} from './hooks/use_scroll_to_a'
 
+const OrderedSections = ({data}: {data: Types.PortfolioContext}) => {
+  const sectionElementBySectionName: Record<
+    keyof Types.SectionTitles,
+    JSX.Element
+  > = {
+    about: <AboutSection />,
+    tech: <SkillsSection />,
+    projects: <ProjectsSection />,
+    blog: <BlogSection />,
+    experience: <ExperienceSection />,
+    education: <SchoolsSection />,
+    contact: <ContactSection />,
+  }
+
+  return (
+    <React.Fragment key={data.sectionOrder.join('')}>
+      {data.sectionOrder.map(
+        (sectionName) => sectionElementBySectionName[sectionName]
+      )}
+    </React.Fragment>
+  )
+}
+
 export const App = ({
   portfolioContextValue,
 }: {
@@ -47,19 +70,7 @@ export const App = ({
           <a id="main-content" href="#main-content" style={{display: 'none'}}>
             Main Content
           </a>
-          <AboutSection />
-
-          <SkillsSection />
-
-          <ProjectsSection />
-
-          <BlogSection />
-
-          <ExperienceSection />
-
-          <SchoolsSection />
-
-          <ContactSection />
+          <OrderedSections data={portfolioData} />
 
           <Modal />
         </WithNav>

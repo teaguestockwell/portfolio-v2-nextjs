@@ -28,7 +28,7 @@ export const SkillsSection = () => {
             }}
           >
             <a
-              href="https://www.npmjs.com/package/react-icon-cloud"
+              href="https://github.com/teaguestockwell/react-icon-cloud/network/dependents"
               target="_blank"
               rel="noreferrer"
               tabIndex={-1}
