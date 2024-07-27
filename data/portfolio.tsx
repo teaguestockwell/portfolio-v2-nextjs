@@ -23,7 +23,7 @@ export const portfolioData: Portfolio = {
       company: 'Microsoft',
       dateRange: 'September 2023 - Present',
       description:
-        'Creating a mobile experience for technicians to track and complete tasks: Dynamics 365 Field Service',
+        'Creating a mobile experience for technicians to track and complete tasks',
       id: 'microsoft2',
       imgSrc: '/company-icons/microsoft.png',
       location: 'Redmond, WA',
@@ -39,7 +39,7 @@ export const portfolioData: Portfolio = {
       company: 'Microsoft',
       dateRange: 'January 2022 - September 2023',
       description:
-        'Creating a new user friendly software design tool that enables end-users to ship low code programs',
+        'Created user friendly software design tool that enabled end-users to ship low code programs',
       id: 'microsoft',
       imgSrc: '/company-icons/microsoft.png',
       location: 'Redmond, WA',
@@ -55,7 +55,7 @@ export const portfolioData: Portfolio = {
       ],
       company: 'Tron Air Force',
       dateRange: 'November 2020 - November 2021',
-      description: `Test, implement, and deliver accredited software to include pipeline management and stakeholder validation`,
+      description: `Created & deployed aircraft cargo app to 2k users in secure gov cloud reducing cargo loading time 93%`,
       id: 'ast',
       imgSrc: '/company-icons/aloha-spark-tron.png',
       location: 'Remote',
@@ -71,7 +71,7 @@ export const portfolioData: Portfolio = {
       company: 'United States Air Force',
       dateRange: 'October 2017 - October 2020',
       description:
-        'Lead & perform repairs / inspections on 20 assigned C-17 aircraft valued at $3.2B',
+        'Lead repairs, inspections & service of 20 assigned C-17 aircraft valued at $3.2B',
       id: 'usaf',
       imgSrc: '/company-icons/us-air-force.png',
       location: 'Joint Base Lewis McChord, WA',
