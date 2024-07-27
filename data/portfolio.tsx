@@ -48,31 +48,13 @@ export const portfolioData: Portfolio = {
     },
     {
       bullets: [
-        `Securely deployed Levels as Air force web app`,
-        `Pioneered software dev capability for JBLM spark cell. 1 new developer onboarded`,
-        `Lead software dev team by communication user needs to key stakeholders`,
+        `Created / deployed aircraft cargo loading app to user base of over 2k that reduced weight and balance times 93%`,
+        `Pioneered agile software innovation cell for aircraft operations group of 2k people and 40 aircraft`,
+        `Owned 2 pipelines for continuous deployment of a production web app to a secure government cloud`,
+        'Owned security review and accredited of hardened app for deployment to a secure cluster',
       ],
-      company: 'Rainier Spark Tron',
-      dateRange: 'June 2021 - November 2021',
-      description:
-        'Mentor new developers to stand up software development team for JBLM',
-      id: 'rst',
-      imgSrc: '/company-icons/rainier-spark-tron.png',
-      location: 'Joint Base Lewis McChord (JBLM), WA',
-      name: 'Lead Software Engineer',
-      src: 'https://www.linkedin.com/company/tron-air-force',
-    },
-    {
-      bullets: [
-        `Implemented user stories while maintaining code standards with 2 CI pipelines with a total of 34 stages`,
-        `Wrote unit, component, and or e2e tests for 2 services to hit target of 80% line coverage`,
-        `Configured docker compose scripts with Nginx proxy to mock production jwt auth service`,
-        `Created docker imgs for containerized builds using department of defense hardened imgs`,
-        'Led cyber review and accreditation of hardened app for deployment to a secure cluster',
-        `Air Mobility Command's nominee for 2021 Gen. Spencer's individual innovation award`,
-      ],
-      company: 'Aloha Spark Tron',
-      dateRange: 'November 2020 - June 2021',
+      company: 'Tron Air Force',
+      dateRange: 'November 2020 - November 2021',
       description: `Test, implement, and deliver accredited software to include pipeline management and stakeholder validation`,
       id: 'ast',
       imgSrc: '/company-icons/aloha-spark-tron.png',
@@ -223,60 +205,6 @@ export const portfolioData: Portfolio = {
         "A fun progressive web app (PWA) I made while exploring webRTC. It's for encrypted chat, video calls, and file sharing (that uses a peer to peer connection most of the time)",
       svgs: ['react', 'css3', 'html5', 'typescript', 'vercel'],
     },
-    // {
-    //   bullets: [
-    //     'Established CI/CD pipeline for static code analysis, linting, testing, and containerized builds',
-    //     'Wrote 160 Flutter component & unit tests for > 90% code coverage',
-    //     'Developed custom admin dashboard to manage cargo data from a REST API in < 10 days',
-    //     'Utilized Google Firestore (BaaS / document db) for offline data persistence on mobile',
-    //   ],
-    //   dateRange: 'Sep 2020 - Mar 2021',
-    //   deploymentSrc: 'https://fivelevel.web.app',
-    //   id: 'five-level',
-    //   m3u8Src: `https://${cdnDomain}/pre-hls/five-level.mp4`,
-    //   name: 'Five Level',
-    //   repos: [
-    //     {
-    //       name: 'Frontend',
-    //       src: 'https://github.com/teaguestockwell/levels-v2-flutter',
-    //     },
-    //     {
-    //       name: 'Backend Server',
-    //       src: 'https://github.com/teaguestockwell/levels-v2v3-express',
-    //     },
-    //   ],
-    //   subHeading: `Developed a X-Platform native UI to manage aircraft cargo loading`,
-    //   svgs: [
-    //     'dart',
-    //     'docker',
-    //     'express',
-    //     'figma',
-    //     'firebase',
-    //     'flutter',
-    //     'git',
-    //     'nginx',
-    //     'nodedotjs',
-    //     'postgresql',
-    //     'prisma',
-    //   ],
-    // },
-    // {
-    //   bullets: [],
-    //   dateRange: 'Sep 2020 - March 2020',
-    //   deploymentSrc:
-    //     'https://play.google.com/store/apps/details?id=com.TsAppDevelopment.c17mac',
-    //   id: '5-level',
-    //   m3u8Src: `https://${cdnDomain}/pre-hls/5-level-2-encoded.mp4`,
-    //   name: '5 Level',
-    //   repos: [
-    //     {
-    //       name: 'Android UI',
-    //       src: 'https://github.com/teaguestockwell/levels-v1-android',
-    //     },
-    //   ],
-    //   subHeading: `Developed, and deployed A native android application with Java for aircraft weight and balance`,
-    //   svgs: ['android', 'git', 'github'],
-    // },
   ],
   schools: [
     {
