@@ -24,57 +24,31 @@
   </p>
 </p>
 
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
-    <li><a href="#about-the-project">About The Project</a></li>
-    <li><a href="#getting-started">Getting Started</a></li>
-    <li><a href="#deployment">Deployment</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
-</details>
-
-<!-- ABOUT THE PROJECT -->
-
-## About The Project
-
-A static website created with Next.js to showcase my development work. Some of the features of this portfolio are:
-
-- Statically generated HTML with Next.js
-- PWA (Progressive Web App)
-
 ## Getting Started
 
-To get a local copy up and running follow these simple steps.
+If you would like to use this portfolio as a template, follow these steps to run it locally
 
-1. Fork the repository
-2. Clone the repository
-3. Install dependencies
+1. Install dependencies
 
 ```sh
 yarn
 ```
 
-4. Run the dev server
+2. Run the dev server
 
 ```sh
 yarn dev
 ```
 
-5. Navigate to http://localhost:3000
+3. Open http://localhost:3000
 
 ## Deployment
 
 1. [Generate favorite icons and upload them into ./public](https://realfavicongenerator.net)
-2. Modify manifest.json to point to your icons, and to include a description
-3. [Set up a bucket for video hosting](https://www.youtube.com/watch?v=e6w9LwZJFIA) - optional (you may use static hosting from vercel)
-4. [Configure a cdn in front of the bucket](https://www.youtube.com/watch?v=e6w9LwZJFIA) - optional
-5. [Encoded your project demo videos into an m3u8 playlist for http live streaming (HLS)](https://www.youtube.com/watch?v=x20Qx7lWSLQ) - optional
-6. [Deploy the portfolio](https://nextjs.org/docs/deployment)
-7. [Customize the domain of the deployment](https://vercel.com/docs/custom-domains)
-8. Modify the portfolio data to reflect your work, deployment domain, the source of the m3u8 playlists for videojs, and the path to your images inside ./public
+1. Modify manifest.json to point to your icons, and to include a description
+1. [Deploy the portfolio](https://nextjs.org/docs/deployment)
+1. [Customize the domain of the deployment](https://vercel.com/docs/custom-domains)
+1. Modify the portfolio data to reflect your work, deployment domain, the source of the m3u8 playlists for videojs, and the path to your images inside ./public
 
 ## Roadmap
 
@@ -91,4 +65,3 @@ Teague Stockwell - [LinkedIn](https://www.linkedin.com/in/teague-stockwell)
 ## Acknowledgements
 
 - [Brady Haden's Portfolio](https://github.com/bhaden94/react-portfolio)
-- [Simple Icons](https://github.com/simple-icons/simple-icons)
