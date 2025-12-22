@@ -16,7 +16,7 @@ export const portfolioData: Portfolio = {
   jobs: [
     {
       bullets: [
-        `Lead cross-team implementation of using a LLM to suggest then apply updates to work orders`,
+        `Led cross-team implementation of using a LLM to suggest then apply updates to work orders`,
         `Identified and fixed critical perf issue for a 400% improvement then mentored team on identifying perf bottlenecks`,
         `Created core infra for new mobile app: auth, data access / consistency, state management and feature gates`,
       ],
@@ -64,14 +64,14 @@ export const portfolioData: Portfolio = {
     },
     {
       bullets: [
-        'Plan / conduct task certification for personnel in upgrade status to meet technical advancement',
+        'Planned / conducted task certification for personnel in upgrade status to meet technical advancement',
         'Discovered 2 worn brakes during post flight inspection and replaced them in < 3hrs for 10 patient medevac',
-        'Issue, inspect, and control 48k tools valued at $18M to sustain maintenance ops',
+        'Issued, inspected, and controlled 48k tools valued at $18M to sustain maintenance ops',
       ],
       company: 'United States Air Force',
       dateRange: 'October 2017 - October 2020',
       description:
-        'Lead repairs, inspections & service of 20 assigned C-17 aircraft valued at $3.2B',
+        'Led repairs, inspections & service of 20 assigned C-17 aircraft valued at $3.2B',
       id: 'usaf',
       imgSrc: '/company-icons/us-air-force.png',
       location: 'Joint Base Lewis McChord, WA',
@@ -88,7 +88,7 @@ export const portfolioData: Portfolio = {
     lastName: 'Stockwell',
     linkedInSrc: 'https://www.linkedin.com/in/teague-stockwell',
     location: 'Seattle, WA',
-    shortAbout: `Hello i'm Teague, and I have a passion for developing software that`,
+    shortAbout: `Hello I'm Teague, and I have a passion for developing software that`,
     typeWriterCallToActions: [
       'solves problems',
       'is easy to use',
@@ -102,7 +102,7 @@ export const portfolioData: Portfolio = {
       bullets: [
         'Created a product scraping service using headful browsers with CD to K8 with TLS rotation and load balancing',
         'Designed topics, posts, threaded comments, moderators, likes, saves, followers, mentions, and a part selection UI',
-        'Created RPC / REST api featuring middleware for validation, authorization, rate limiting, presigned img uploads, and server side rendering',
+        'Created RPC / REST API featuring middleware for validation, authorization, rate limiting, presigned img uploads, and server side rendering',
       ],
       dateRange: 'Apr 2021 - Present',
       deploymentSrc: 'https://morebuilds.com',
@@ -187,7 +187,7 @@ export const portfolioData: Portfolio = {
     },
     {
       bullets: [
-        'Created an application layer wrapper for an un reliable transport protocol for E2E encrypted P2P file sharing up to 300MB',
+        'Created an application layer wrapper for an unreliable transport protocol for E2E encrypted P2P file sharing up to 300MB',
         'Created real time messaging and video chat',
       ],
       dateRange: 'Aug 2022 - Dec 2022',
@@ -277,7 +277,7 @@ export const portfolioData: Portfolio = {
   ],
   subTitles: {
     about: null,
-    blog: `I enjoy sharing what i've learned building software. At the bottom of each blog page is a link to edit it's content on Github.`,
+    blog: `I enjoy sharing what I've learned building software. At the bottom of each blog page is a link to edit its content on Github.`,
     contact: ``,
     education: null,
     experience: null,
