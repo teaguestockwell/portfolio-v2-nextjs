@@ -1,11 +1,10 @@
-import {Element} from 'react-scroll'
+import {Element, Link} from '../react-scroll-exports'
 import {SectionHeader} from '../section_header'
 import {usePortfolio} from '../../hooks/use_portfolio_context'
 import React from 'react'
 import {Const} from '../../const'
 import {siLinkedin, siGithub} from 'simple-icons/icons'
 import {getInteractiveSvgs, getSvgFromSimpleIcon} from '../svgs'
-import {Link} from 'react-scroll'
 
 export const ContactSection = () => {
   const iconSize = 50

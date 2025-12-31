@@ -37,7 +37,7 @@ export const ImgCardCell = React.memo(
           {/* https://github.com/vercel/next.js/discussions/18312 */}
           <>
             <Image
-              objectFit="fill"
+              style={{objectFit: 'fill'}}
               src={imgSrc}
               width={75}
               height={75}

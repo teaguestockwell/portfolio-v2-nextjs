@@ -29,8 +29,10 @@ const OrderedSections = ({data}: {data: Types.PortfolioContext}) => {
 
   return (
     <React.Fragment key={data.sectionOrder.join('')}>
-      {data.sectionOrder.map(
-        (sectionName) => sectionElementBySectionName[sectionName]
+      {data.sectionOrder.map((sectionName: keyof Types.SectionTitles) =>
+        React.cloneElement(sectionElementBySectionName[sectionName], {
+          key: sectionName,
+        })
       )}
     </React.Fragment>
   )

@@ -3,8 +3,8 @@ import {Const} from '../../const'
 import {useBreakpoint} from '../../hooks/use_breakpoint'
 import {portfolioData} from '../../../data/portfolio'
 import {portfolioData as p} from '../../../data/portfolio'
-import type {Blog as IBlog} from '.contentlayer/types'
-import {Element} from 'react-scroll'
+import type {Blog as IBlog} from 'contentlayer/generated'
+import {Element} from '../react-scroll-exports'
 import Image from 'next/image'
 
 export const BlogPage = ({
@@ -68,7 +68,7 @@ export const BlogPage = ({
               >
                 <div style={{flex: '0 0 auto'}}>
                   <Image
-                    objectFit="fill"
+                    style={{objectFit: 'fill'}}
                     src="/headshot.png"
                     width={50}
                     height={50}

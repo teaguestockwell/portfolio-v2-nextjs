@@ -40,12 +40,14 @@ export const CardFlip = ({
       <ReactCardFlip
         isFlipped={isFlipped}
         flipDirection={isGrid ? 'horizontal' : 'vertical'}
+        containerStyle={{}}
+        cardStyles={{front: {}, back: {}}}
       >
-        <Card style={style} icon={flipIcon}>
+        <Card key="front" style={style} icon={flipIcon}>
           {front}
         </Card>
 
-        <Card style={style} icon={flipIcon}>
+        <Card key="back" style={style} icon={flipIcon}>
           {back}
         </Card>
       </ReactCardFlip>

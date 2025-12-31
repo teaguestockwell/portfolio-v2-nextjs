@@ -3,55 +3,53 @@ import {Const} from '../const'
 
 export const BlogPost = ({b}: {b: Types.BlogPost}) => {
   return (
-    <Link href={`/blog/${b.slug}`} key={b.slug} passHref>
-      <a>
-        {/* https://codepen.io/chriscoyier/pen/PXNPRq */}
+    <Link href={`/blog/${b.slug}`} key={b.slug}>
+      {/* https://codepen.io/chriscoyier/pen/PXNPRq */}
+      <div
+        style={{
+          height: 250,
+          marginTop: 0,
+          overflowY: 'auto',
+          padding: 10,
+          borderRadius: Const.rad,
+          background: 'linear-gradient(to top right, #06ccf9, #f906cc)',
+          cursor: 'pointer',
+          overflow: 'hidden',
+        }}
+      >
         <div
+          className="blog-hover"
           style={{
-            height: 250,
-            marginTop: 0,
-            overflowY: 'auto',
-            padding: 10,
+            backgroundColor: Const.css.bgc0,
+            width: '100%',
+            height: '100%',
             borderRadius: Const.rad,
-            background: 'linear-gradient(to top right, #06ccf9, #f906cc)',
-            cursor: 'pointer',
-            overflow: 'hidden',
+            padding: Const.pad,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
           }}
         >
-          <div
-            className="blog-hover"
+          <span
             style={{
-              backgroundColor: Const.css.bgc0,
-              width: '100%',
-              height: '100%',
-              borderRadius: Const.rad,
-              padding: Const.pad,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
+              color: Const.css.fc0,
+              fontSize: Const.css.lg,
+              fontWeight: 600,
             }}
           >
-            <span
-              style={{
-                color: Const.css.fc0,
-                fontSize: Const.css.lg,
-                fontWeight: 600,
-              }}
-            >
-              {b.title}
-            </span>
-            <span
-              style={{
-                color: Const.css.fc0,
-                fontSize: Const.css.md,
-                fontWeight: 600,
-              }}
-            >
-              {b.readingTime.text}
-            </span>
-          </div>
+            {b.title}
+          </span>
+          <span
+            style={{
+              color: Const.css.fc0,
+              fontSize: Const.css.md,
+              fontWeight: 600,
+            }}
+          >
+            {b.readingTime.text}
+          </span>
         </div>
-      </a>
+      </div>
     </Link>
   )
 }

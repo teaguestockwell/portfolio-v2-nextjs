@@ -1,11 +1,11 @@
-import {useMDXComponent} from 'next-contentlayer/hooks'
+import {useMDXComponent} from 'next-contentlayer2/hooks'
 import {NextSeo} from 'next-seo'
 import {portfolioData} from '../data/portfolio'
 import {WithNav} from './components/nav/nav'
 import {BlogPage} from './components/sections/blog_page'
 import {PortfolioContext} from './hooks/use_portfolio_context'
 import {UseScrollToA} from './hooks/use_scroll_to_a'
-import type {Blog as IBlog} from '.contentlayer/types'
+import type {Blog as IBlog} from 'contentlayer/generated'
 import components from './components/mdx'
 
 export const BlogApp = ({

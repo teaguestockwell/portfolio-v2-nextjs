@@ -21,12 +21,13 @@ export const DesktopHero = () => {
       }}
     >
       <Image
-        objectFit="cover"
+        style={{objectFit: 'cover'}}
         quality="100"
         src={'/heros/levels-1-desktop.png'}
         width={1263}
         height={700}
         alt={'Levels'}
+        loading="eager"
       />
     </div>
   )

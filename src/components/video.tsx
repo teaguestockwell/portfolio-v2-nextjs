@@ -1,4 +1,5 @@
-import Lazy from 'react-lazyload'
+import _Lazy from 'react-lazyload'
+const Lazy = _Lazy as any
 export const Video = ({src, w, h}: {src: string; w?: number; h?: number}) => {
   return (
     <Lazy offset={200} height={h ?? '70vh'}>

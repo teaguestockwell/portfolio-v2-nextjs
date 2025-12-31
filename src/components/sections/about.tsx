@@ -1,11 +1,10 @@
-import {Element} from 'react-scroll'
+import {Element, Link} from '../react-scroll-exports'
 import {usePortfolio} from '../../hooks/use_portfolio_context'
 import React from 'react'
 import {MobileHero} from '../hero/levels/mobile_hero'
 import {DesktopHero} from '../hero/levels/desktop_hero'
 import {Const} from '../../const'
 import {Content} from '../content'
-import {Link} from 'react-scroll'
 import {Glow} from '../glow'
 import {TypeWriterText} from '../typewriter_text'
 

@@ -1,5 +1,3 @@
-import * as Types from './types'
-
 type Nullable<T> = {[K in keyof T]: T[K] | null}
 
 export interface Portfolio {

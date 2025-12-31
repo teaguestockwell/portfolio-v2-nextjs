@@ -1,6 +1,5 @@
 /* eslint-disable react/display-name */
 import {Const} from '../const'
-import * as Types from '../types/types'
 import {hex2contrast} from '@csstools/convert-colors'
 
 export const getInteractiveSvgs = (
@@ -340,7 +339,7 @@ export const getSvgFromSimpleIcon = (
       fill={color ? color : `#${ico.color}`}
     >
       {' '}
-      <title>${ico.title}</title> <path d={ico.path}></path>
+      <title>{ico.title}</title> <path d={ico.path}></path>
     </svg>
   )
 }
@@ -362,7 +361,7 @@ export const getSimpleSvgs = (
     const svg = (
       <svg viewBox="0 0 24 24" height={size} width={size} fill={newColor}>
         {' '}
-        <title>${icon.title}</title> <path d={icon.path}></path>
+        <title>{icon.title}</title> <path d={icon.path}></path>
       </svg>
     )
 

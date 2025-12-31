@@ -1,8 +1,6 @@
-import {Portfolio} from '../src/types/types'
-
 export const cdnDomain = 'd1jdqfkicm13py.cloudfront.net'
 
-export const portfolioData: Portfolio = {
+export const portfolioData: Types.Portfolio = {
   // leave empty, the contents of of this are injected
   blogs: [],
   devMessage:

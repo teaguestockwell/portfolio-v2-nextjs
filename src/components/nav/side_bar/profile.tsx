@@ -35,7 +35,7 @@ export const Profile = () => {
           {/* https://github.com/vercel/next.js/discussions/18312 */}
           <>
             <Image
-              objectFit="fill"
+              style={{objectFit: 'fill'}}
               src={'/headshot.png'}
               width={picW}
               height={picW}

@@ -165,7 +165,13 @@ export const Nav = () => {
               marginRight: Const.pad / 2,
             }}
           >
-            {md ? <MenuInline items={Object.values(portfolio.titles)} /> : null}
+            {md ? (
+              <MenuInline
+                items={portfolio.sectionOrder.map(
+                  (key) => portfolio.titles[key]
+                )}
+              />
+            ) : null}
           </div>
 
           <button

@@ -250,7 +250,7 @@ function useMediaQuery(
       ? initialValue
       : getInitialValue(query, initialValue)
   )
-  const queryRef = useRef<MediaQueryList>()
+  const queryRef = useRef<MediaQueryList | null>(null)
 
   useEffect(() => {
     if ('matchMedia' in window) {

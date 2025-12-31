@@ -22,12 +22,13 @@ export const MobileHero = ({m3u8Src}: {m3u8Src: string}) => {
       }}
     >
       <Image
-        objectFit="fill"
+        style={{objectFit: 'fill'}}
         quality="100"
         src={'/heros/levels-1-mobile.png'}
         width={560}
         height={1216}
         alt={'Levels'}
+        loading="eager"
       />
     </div>
   )

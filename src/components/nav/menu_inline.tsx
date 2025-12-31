@@ -1,8 +1,8 @@
 import {Const} from '../../const'
-import {Link} from 'react-scroll'
 import {useBreakpoint} from '../../hooks/use_breakpoint'
 import NextLink from 'next/link'
 import {useRouter} from 'next/router'
+import {Link} from '../react-scroll-exports'
 
 export const MenuInline = ({items}: {items: string[]}) => {
   const xl = useBreakpoint().xl()
@@ -19,34 +19,36 @@ export const MenuInline = ({items}: {items: string[]}) => {
   return (
     <>
       {items.map((x, i) => {
-        const content = (
-          <Link
-            key={x}
-            to={x}
-            {...Const.reactScrollProps}
-            offset={getOffset(i)}
+        const button = (
+          <button
+            className={`menu-inline`}
+            style={{
+              paddingInline: '1vw',
+              paddingBlock: '1vw',
+              color: Const.css.fc0,
+              fontSize: Const.css.sm,
+              wordWrap: 'break-word',
+              borderRadius: Const.rad,
+            }}
           >
-            <button
-              className={`menu-inline`}
-              style={{
-                paddingInline: '0.5vw',
-                color: Const.css.fc0,
-                fontSize: Const.css.sm,
-                wordWrap: 'break-word',
-                borderRadius: Const.rad,
-              }}
-            >
-              {x}
-            </button>
-          </Link>
+            {x}
+          </button>
         )
 
         return isBlog ? (
           <NextLink key={x} href={`/#${x}`}>
-            {content}
+            {button}
           </NextLink>
         ) : (
-          content
+          <Link
+            key={x}
+            to={x}
+            href={`#${x}`}
+            {...Const.reactScrollProps}
+            offset={getOffset(i)}
+          >
+            {button}
+          </Link>
         )
       })}
     </>

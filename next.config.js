@@ -1,62 +1,36 @@
-/* eslint-disable */
-const withPlugins = require('next-compose-plugins')
-const withPWA = require('next-pwa')
+const {withContentlayer} = require('next-contentlayer2')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
-const {withContentlayer} = require('next-contentlayer')
-
-const options = {
-  withBundleAnalyzer: {},
-
-  withPwa: {
-    dest: 'public',
-    // https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-build#.RuntimeCachingEntry
-    runtimeCaching: [
-      {
-        urlPattern: /^https?.*/,
-        handler: 'CacheFirst',
-        method: 'GET',
-        options: {
-          cacheName: 'next',
-          expiration: {
-            maxEntries: 10000,
-            maxAgeSeconds: 24 * 60 * 60 * 31, // 1 month
-          },
-          cacheableResponse: {
-            statuses: [0, 200],
-          },
-        },
+const withPWA = require('@ducanh2912/next-pwa').default({
+  dest: 'public',
+  disable: process.env.NODE_ENV === 'development',
+  publicExcludes: ['!robots.txt', '!manifest.json'],
+  buildExcludes: [/middleware-manifest\.json$/, /middleware-runtime\.js$/],
+  dynamicStartUrl: false,
+  workboxOptions: {
+    manifestTransforms: [
+      async (manifestEntries) => {
+        const manifest = manifestEntries.filter(
+          (entry) => !entry.url.includes('dynamic-css-manifest.json')
+        )
+        return {manifest, warnings: []}
       },
     ],
   },
+})
 
-  withContentLayer: {
-    swcMinify: true,
-    reactStrictMode: true,
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  turbopack: {}, // Silence Turbopack warning for Next.js 16+
+  images: {
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    formats: ['image/webp'],
+    minimumCacheTTL: 60,
+    qualities: [100, 75],
   },
 }
 
-module.exports = withPlugins(
-  [
-    [withBundleAnalyzer, options.withBundleAnalyzer],
-    [withPWA, options.withPwa],
-    [withContentlayer, options.withContentLayer],
-  ],
-
-  {
-    webpack: (config, {dev, isServer}) => {
-      // Replace React with Preact only in client production build
-      if (!dev && !isServer) {
-        Object.assign(config.resolve.alias, {
-          'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
-          react: 'preact/compat',
-          'react-dom/test-utils': 'preact/test-utils',
-          'react-dom': 'preact/compat',
-        })
-      }
-
-      return config
-    },
-  }
-)
+module.exports = withContentlayer(withBundleAnalyzer(withPWA(nextConfig)))

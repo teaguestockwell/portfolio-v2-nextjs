@@ -1,4 +1,4 @@
-import {Element} from 'react-scroll'
+import {Element} from '../react-scroll-exports'
 import {SectionHeader} from '../section_header'
 import {ImgCardCell} from '../card_content/img_card_cell'
 import {usePortfolio} from '../../hooks/use_portfolio_context'

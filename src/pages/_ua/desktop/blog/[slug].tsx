@@ -1,4 +1,4 @@
-import type {Blog as IBlog} from '.contentlayer/types'
+import type {Blog as IBlog} from 'contentlayer/generated'
 import {BlogApp} from '../../../../blog_app'
 export {getStaticPaths, getStaticProps} from '../../mobile/blog/[slug]'
 

@@ -3,15 +3,28 @@ import Image from 'next/image'
 import {Const} from '../../const'
 
 const CustomLink = (props: any) => {
-  const href = props.href
+  let href = props.href
+
+  // Normalize href by removing _ua prefix if present
+  if (href && href.includes('/_ua/')) {
+    href = href.replace(/\/_ua\/(mobile|desktop)/, '')
+  }
+
   const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'))
+
+  // Use regular anchor tag for hash-only links to avoid Next.js router issues
+  if (href && href.startsWith('#')) {
+    return (
+      <a {...props} href={href} style={{color: Const.css.link}}>
+        {props.children}
+      </a>
+    )
+  }
 
   if (isInternalLink) {
     return (
-      <Link href={href}>
-        <a {...props} style={{color: Const.css.link}}>
-          {props.children}
-        </a>
+      <Link href={href} {...props} style={{color: Const.css.link}}>
+        {props.children}
       </Link>
     )
   }

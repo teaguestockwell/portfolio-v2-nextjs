@@ -6,16 +6,15 @@ import {
   SvgScroll2,
 } from '../svgs'
 import {Video} from '../video'
-import * as Types from '../../types/types'
 import {useModalStore} from '../../hooks/use_modal'
 import React from 'react'
 import {usePortfolio} from '../../hooks/use_portfolio_context'
 import {siGithub} from 'simple-icons/icons'
 import {useTheme} from '../../hooks/use_theme'
-import {Element} from 'react-scroll'
+import {Element} from '../react-scroll-exports'
 
 const Repos = ({repos}: {repos: {name: string; src: string}[]}) => {
-  const ref = React.useRef() as any
+  const ref = React.useRef(null) as any
   React.useEffect(() => {
     ref.current.focus()
   }, [])

@@ -1,5 +1,4 @@
 import {createContext, useContext} from 'react'
-import * as Types from '../types/types'
 
 export const PortfolioContext = createContext<
   Types.PortfolioContext | undefined

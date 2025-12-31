@@ -1,6 +1,6 @@
 import type {NextFetchEvent, NextRequest} from 'next/server'
 import {NextResponse} from 'next/server'
-import {cdnDomain} from '../../data/portfolio'
+import {cdnDomain} from '../data/portfolio'
 import parser from 'ua-parser-js'
 
 // RegExp for public files
@@ -33,6 +33,9 @@ export function middleware(req: NextRequest, ev: NextFetchEvent) {
     return NextResponse.rewrite(url)
   }
 
+  // Skip Next.js internal routes (including image optimization)
+  if (url.pathname.startsWith('/_next')) return
+
   // Skip public files
   if (PUBLIC_FILE.test(url.pathname)) return
 
@@ -61,4 +64,18 @@ export function middleware(req: NextRequest, ev: NextFetchEvent) {
   )
 
   return response
+}
+
+export const config = {
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     * - public folder files
+     */
+    '/((?!api|_next/static|_next/image|favicon.ico|.*\\..*$).*)',
+  ],
 }

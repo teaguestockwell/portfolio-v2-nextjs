@@ -1,5 +1,5 @@
 import {GetStaticProps} from 'next'
-import {allBlogs} from '.contentlayer/data'
+import {allBlogs} from 'contentlayer/generated'
 import {App} from '../../../app'
 import {portfolioData} from '../../../../data/portfolio'
 

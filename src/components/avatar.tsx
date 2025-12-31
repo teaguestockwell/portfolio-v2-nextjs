@@ -5,7 +5,7 @@ export const Avatar = () => {
   return (
     <>
       <Image
-        objectFit="fill"
+        style={{objectFit: 'fill'}}
         src="/headshot.png"
         width={36}
         height={36}

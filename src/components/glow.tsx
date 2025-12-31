@@ -25,20 +25,22 @@ export const Glow = ({
         WebkitTransform: 'translate3d(0,0,0)',
       }}
     >
-      <img
-        src={md ? publicSrc : ''}
-        alt="glow"
-        style={{
-          position: 'absolute',
-          zIndex: -1,
-          top: `${tlwh[0]}%`,
-          left: `${tlwh[1]}%`,
-          width: `${tlwh[2]}%`,
-          height: `${tlwh[3]}%`,
-          opacity: 0.8,
-          ...rest,
-        }}
-      />
+      {md && (
+        <img
+          src={publicSrc}
+          alt="glow"
+          style={{
+            position: 'absolute',
+            zIndex: -1,
+            top: `${tlwh[0]}%`,
+            left: `${tlwh[1]}%`,
+            width: `${tlwh[2]}%`,
+            height: `${tlwh[3]}%`,
+            opacity: 0.8,
+            ...rest,
+          }}
+        />
+      )}
 
       {children}
     </div>

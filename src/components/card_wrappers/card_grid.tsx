@@ -1,7 +1,14 @@
 import {Content} from '../content'
 import {Const} from '../../const'
 import React from 'react'
-import {CardFlip} from './card_flip'
+import dynamic from 'next/dynamic'
+
+const CardFlip = dynamic(
+  () => import('./card_flip').then((mod) => ({default: mod.CardFlip})),
+  {
+    ssr: false,
+  }
+)
 
 interface Props {
   name: string

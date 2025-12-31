@@ -17,13 +17,20 @@ export const TypeWriterText = ({
 }) => {
   const ref = React.useRef({lineI: 0, charI: 0, eolTicks: 0}).current
   const [tick, setTick] = React.useState(0)
+  const [mounted, setMounted] = React.useState(false)
+
   React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  React.useEffect(() => {
+    if (!mounted) return
     const timer = setTimeout(() => {
       setTick((t) => t + 1)
     }, tickFreq)
 
     return () => clearTimeout(timer)
-  }, [tick, setTick, tickFreq])
+  }, [tick, setTick, tickFreq, mounted])
 
   const getText = () => {
     // add char
@@ -58,12 +65,12 @@ export const TypeWriterText = ({
   }
 
   return (
-    <span style={style}>
+    <span style={style} suppressHydrationWarning>
       {prefix}
       <br />
       <br />
-      {getText()}
-      {Math.floor(tick / 8) % 2 ? caret : ' '}
+      {mounted ? getText() : ''}
+      {mounted && Math.floor(tick / 8) % 2 ? caret : ' '}
     </span>
   )
 }
